@@ -2,8 +2,13 @@
 
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
-import { lato, playfair } from "@/theme/fonts";
+import { sans, serif } from "@/theme/fonts";
 import { theme } from "@/theme/theme";
+
+// export const metadata: Metadata = {
+//   title: "Caleb & Rachel",
+//   description: "Wedding information",
+// };
 
 export default function RootLayout({
   children,
@@ -11,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${playfair.className} ${lato.className}`}>
+    <html lang="en" className={`${serif.className} ${sans.className}`}>
       <body>
         <ThemeProvider theme={theme}>
           <CssBaseline />
