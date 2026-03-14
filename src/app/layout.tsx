@@ -5,11 +5,6 @@ import { ThemeProvider } from "@mui/material/styles";
 import { sans, serif } from "@/theme/fonts";
 import { theme } from "@/theme/theme";
 
-// export const metadata: Metadata = {
-//   title: "Caleb & Rachel",
-//   description: "Wedding information",
-// };
-
 export default function RootLayout({
   children,
 }: {

@@ -8,10 +8,10 @@ import { useCallback } from "react";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 
 const images = [
-  { key: 1, image: '/gallery-1.jpg' },
-  { key: 2, image: '/gallery-2.jpg' },
-  { key: 3, image: '/gallery-3.jpg' },
-  { key: 4, image: '/gallery-4.jpg' },
+  { key: 1, image: "/gallery-1.jpg" },
+  { key: 2, image: "/gallery-2.jpg" },
+  { key: 3, image: "/gallery-3.jpg" },
+  { key: 4, image: "/gallery-4.jpg" },
 ];
 
 export default function Gallery() {

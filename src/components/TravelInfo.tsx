@@ -32,8 +32,14 @@ const travelOptions = [
 
 export default function TravelInfo() {
   return (
-    <Box component="section" sx={{ py: { xs: 12, md: 18 }, px: 3, background:
-          "linear-gradient(180deg,#f3efe8 0%,#ede9e2 100%)", } }>
+    <Box
+      component="section"
+      sx={{
+        py: { xs: 12, md: 18 },
+        px: 3,
+        background: "linear-gradient(180deg,#f3efe8 0%,#ede9e2 100%)",
+      }}
+    >
       <Container maxWidth="lg">
         {/* subtitle */}
         <Typography

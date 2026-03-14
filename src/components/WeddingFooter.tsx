@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Box, Container, Typography } from "@mui/material";
+import { motion } from "framer-motion";
 
 export default function WeddingFooter() {
   return (
@@ -11,12 +11,10 @@ export default function WeddingFooter() {
         py: { xs: 12, md: 16 },
         px: 3,
         textAlign: "center",
-        background:
-          "linear-gradient(180deg,#f3efe8 0%,#ede9e2 100%)",
+        background: "linear-gradient(180deg,#f3efe8 0%,#ede9e2 100%)",
       }}
     >
       <Container maxWidth="sm">
-
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -71,7 +69,6 @@ export default function WeddingFooter() {
           >
             Thank you for celebrating with us.
           </Typography>
-
         </motion.div>
       </Container>
     </Box>
