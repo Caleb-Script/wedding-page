@@ -1,0 +1,167 @@
+{
+  "gallery": {
+    "subtitle": "I Nostri Momenti",
+    "title": "Galleria",
+    "prev": "Immagine precedente",
+    "next": "Immagine successiva",
+    "imageAlt": "Immagine della galleria {index}"
+  },
+  "hero": {
+    "subtitle": "Ci sposiamo",
+    "quote": "Abbiamo trovato un amore che ci fa sentire a casa.",
+    "scroll": "Scorri",
+    "infoTitle": "Il Nostro Matrimonio",
+    "infoText": "Unitevi a noi mentre celebriamo il nostro amore e iniziamo il nostro cammino insieme. Sarebbe per noi un grande onore avervi con noi in questo giorno speciale.",
+    "countdown": {
+      "days": "Giorni",
+      "hours": "Ore",
+      "minutes": "Minuti",
+      "seconds": "Secondi"
+    },
+    "backgroundAlt": "Sfondo del matrimonio"
+  },
+  "locations": {
+    "subtitle": "Le Location",
+    "title": "Luoghi",
+
+    "ceremony": {
+      "tab": "Cerimonia",
+      "title": "Cerimonia",
+      "venue": "Katholisches Pfarramt Heilige Familie",
+      "address": "Dürllewangstraße 36, 70565 Stuttgart",
+      "description": "Una splendida chiesa immersa nella natura a Stoccarda, che offre un'atmosfera calda e intima per la cerimonia nuziale."
+    },
+
+    "reception": {
+      "tab": "Ricevimento",
+      "title": "Ricevimento",
+      "venue": "White Event Palast",
+      "address": "Marie-Curie-Straße 3, 73230 Kirchheim unter Teck",
+      "description": "Un elegante palazzo per eventi con decorazioni lussuose e una grande sala da ballo — il luogo perfetto per celebrare insieme la serata."
+    }
+  },
+  "quote": {
+    "line1": "Due anime con un solo pensiero,",
+    "line2": "Due cuori che battono come uno.",
+    "text": "Due anime con un solo pensiero,\nDue cuori che battono come uno."
+  },
+  "rsvp": {
+    "subtitle": "Unitevi a Noi",
+    "title": "RSVP",
+    "quote": "Saremmo onorati di celebrare questo giorno speciale insieme a voi.",
+    "button": "Conferma la Presenza"
+  },
+  "timeline": {
+    "subtitle": "Il Programma",
+    "title": "Il Nostro Programma",
+    "events": {
+      "ceremony": "Inizio della cerimonia",
+      "photos": "Congratulazioni e foto",
+      "arrival": "Arrivo al ricevimento",
+      "dinner": "Cena e celebrazione",
+      "party": "Festa"
+    }
+  },
+  "travel": {
+    "subtitle": "Come Arrivare",
+    "title": "Come Raggiungerci",
+
+    "tabs": {
+      "ceremony": "Cerimonia",
+      "reception": "Ricevimento"
+    },
+
+    "ceremony": {
+      "car": {
+        "title": "In Auto",
+        "details": "La chiesa a Stuttgart-Vaihingen può essere raggiunta tramite l'autostrada A8. Seguire le indicazioni per Stuttgart-Vaihingen. Parcheggi disponibili nelle vicinanze della chiesa."
+      },
+      "train": {
+        "title": "In Treno",
+        "details": "Prendere la S-Bahn fino alla stazione Stuttgart-Vaihingen. Da lì la chiesa è facilmente raggiungibile con un breve tragitto in taxi o autobus."
+      },
+      "parking": {
+        "title": "Parcheggio",
+        "details": "Parcheggi disponibili vicino alla chiesa. Si prega di seguire le indicazioni locali per il parcheggio nell'area della parrocchia."
+      }
+    },
+
+    "reception": {
+      "car": {
+        "title": "In Auto",
+        "details": "Il White Event Palast a Kirchheim unter Teck è raggiungibile tramite l'autostrada A8. Prendere l'uscita Kirchheim/Teck e seguire le indicazioni per la zona industriale."
+      },
+      "train": {
+        "title": "In Treno",
+        "details": "Dalla stazione centrale di Stoccarda (Stuttgart Hauptbahnhof) prendere il treno regionale per Kirchheim unter Teck. Dalla stazione la location è facilmente raggiungibile in taxi."
+      },
+      "parking": {
+        "title": "Parcheggio",
+        "details": "Ampie aree di parcheggio sono disponibili direttamente presso il White Event Palast."
+      }
+    }
+  },
+  "footer": {
+    "message": "Grazie per festeggiare con noi."
+  },
+  "weddingInfo": {
+    "subtitle": "I Dettagli",
+    "title": "Informazioni sul Matrimonio",
+
+    "ceremony": {
+      "title": "Cerimonia",
+      "venue": "Gesamtkirchengemeinde Heilige Familie",
+      "address": "Dürllewangstraße 36, 70565 Stuttgart"
+    },
+
+    "reception": {
+      "title": "Ricevimento",
+      "venue": "White Event Palast",
+      "address": "Marie-Curie-Straße 3, 73230 Kirchheim unter Teck"
+    }
+  },
+  "rsvpForm": {
+    "title": "RSVP",
+    "firstName": "Nome",
+    "lastName": "Cognome",
+    "email": "Email",
+    "attendance": "Parteciperò a:",
+    "ceremony": "Cerimonia",
+    "reception": "Ricevimento",
+    "plusOnes": "Ospiti aggiuntivi",
+    "addPlusOne": "Aggiungi ospite",
+    "removePlusOne": "Rimuovi ospite",
+    "submit": "Invia RSVP",
+    "phone": {
+      "title": "Telefono",
+      "type": "Tipo di contatto",
+      "country": "Paese",
+      "number": "Numero di telefono",
+      "types": {
+        "whatsapp": "WhatsApp",
+        "sms": "SMS",
+        "call": "Chiamata"
+      },
+      "countries": {
+        "DE": "Germania",
+        "US": "Stati Uniti",
+        "GB": "Regno Unito",
+        "FR": "Francia",
+        "IT": "Italia",
+        "ES": "Spagna"
+      },
+      "errors": {
+        "invalidCountry": "Paese non valido",
+        "invalidNumber": "Numero di telefono non valido"
+      }
+    }
+  },
+  "rsvpSuccess": {
+    "title": "Grazie",
+    "message1": "Grazie per aver confermato la vostra presenza.",
+    "message2": "Il nostro team di inviti sta attualmente esaminando tutte le risposte mentre organizziamo con cura la celebrazione.",
+    "message3": "Apprezziamo davvero la vostra pazienza e la vostra gentilezza nel celebrare questo momento speciale con noi.",
+    "contactText": "Se avete domande, non esitate a contattarci",
+    "back": "Torna al sito"
+  }
+}

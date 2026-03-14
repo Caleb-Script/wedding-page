@@ -1,11 +1,14 @@
 "use client";
 
-import { Box, Container, keyframes, Typography } from "@mui/material";
+import { Box, Container, Fab, keyframes, Typography } from "@mui/material";
 import { format } from "date-fns";
+import { de, enUS } from "date-fns/locale";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useLocale } from "next-intl";
 import { useEffect, useState } from "react";
 import { HiChevronDown } from "react-icons/hi2";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 
 const weddingDate = new Date(2026, 10, 21);
@@ -18,6 +21,12 @@ const bounce = keyframes`
 const zoom = keyframes`
 0% { transform: scale(1); }
 100% { transform: scale(1.08); }
+`;
+
+const float = keyframes`
+0% { transform: translateY(0px); }
+50% { transform: translateY(-4px); }
+100% { transform: translateY(0px); }
 `;
 
 function useCountdown() {
@@ -50,11 +59,65 @@ function useCountdown() {
 }
 
 export default function Page() {
+  const locale = useLocale();
+
+  const dateLocale = locale === "de" ? de : enUS;
   const t = useTypedTranslations("wedding");
   const { days, hours, minutes, seconds } = useCountdown();
 
   return (
     <Box>
+<Fab
+  aria-label="language"
+  sx={{
+    position: "fixed",
+    top: {
+      xs: "calc(env(safe-area-inset-top) + 16px)",
+      md: 32,
+    },
+    right: {
+      xs: 16,
+      md: 32,
+    },
+    zIndex: 3000,
+
+    px: 2,
+
+    background:
+      "linear-gradient(135deg, rgba(212,175,55,0.9), rgba(245,215,110,0.9))",
+
+    color: "#1a1a1a",
+
+    backdropFilter: "blur(16px) saturate(160%)",
+    WebkitBackdropFilter: "blur(16px) saturate(160%)",
+
+    border: "1px solid rgba(255,255,255,0.25)",
+
+    boxShadow: `
+      0 10px 30px rgba(0,0,0,0.35),
+      0 0 20px rgba(212,175,55,0.45)
+    `,
+
+    animation: `${float} 6s ease-in-out infinite`,
+
+    transition: "all .35s cubic-bezier(.4,0,.2,1)",
+
+    "&:hover": {
+      transform: "translateY(-3px) scale(1.03)",
+
+      background:
+        "linear-gradient(135deg, rgba(245,215,110,1), rgba(212,175,55,1))",
+
+      boxShadow: `
+        0 14px 40px rgba(0,0,0,0.45),
+        0 0 30px rgba(212,175,55,0.7)
+      `,
+    },
+  }}
+>
+  <LanguageSwitcher />
+</Fab>
+
       {/* HERO */}
       <Box
         component="section"
@@ -77,7 +140,7 @@ export default function Page() {
         >
           <Image
             src="/hero-bg.jpg"
-            alt="Wedding background"
+            alt={t("hero.backgroundAlt")}
             fill
             priority
             style={{
@@ -184,7 +247,7 @@ export default function Page() {
               mb: 5,
             }}
           >
-            {format(weddingDate, "d MMMM yyyy")}
+            {format(weddingDate, "d MMMM yyyy", { locale: dateLocale })}
           </Typography>
 
           {/* Countdown */}
@@ -197,10 +260,10 @@ export default function Page() {
             }}
           >
             {[
-              { label: "Days", value: days },
-              { label: "Hours", value: hours },
-              { label: "Minutes", value: minutes },
-              { label: "Seconds", value: seconds },
+              { label: t("hero.countdown.days"), value: days },
+              { label: t("hero.countdown.hours"), value: hours },
+              { label: t("hero.countdown.minutes"), value: minutes },
+              { label: t("hero.countdown.seconds"), value: seconds },
             ].map((item) => {
               return (
                 <Box key={item.label}>

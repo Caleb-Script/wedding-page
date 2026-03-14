@@ -4,7 +4,14 @@
     "quote": "Wir haben eine Liebe gefunden, die sich wie Zuhause anfühlt.",
     "scroll": "Scrollen",
     "infoTitle": "Unsere Hochzeit",
-    "infoText": "Feiere mit uns unsere Liebe und den Beginn unseres gemeinsamen Weges. Wir würden uns sehr freuen, diesen besonderen Tag mit dir zu teilen."
+    "infoText": "Feiere mit uns unsere Liebe und den Beginn unseres gemeinsamen Weges. Wir würden uns sehr freuen, diesen besonderen Tag mit dir zu teilen.",
+    "countdown": {
+      "days": "Tage",
+      "hours": "Stunden",
+      "minutes": "Minuten",
+      "seconds": "Sekunden"
+    },
+    "backgroundAlt": "Hochzeits Hintergrund"
   },
   "gallery": {
     "subtitle": "Unsere Momente",
@@ -147,5 +154,13 @@
         "invalidNumber": "Ungültige Telefonnummer"
       }
     }
+  },
+  "rsvpSuccess": {
+    "title": "Vielen Dank",
+    "message1": "Vielen Dank für eure Rückmeldung.",
+    "message2": "Unser Einladungsteam prüft derzeit alle Antworten, während wir die Feier sorgfältig planen.",
+    "message3": "Wir schätzen eure Geduld und eure Herzlichkeit sehr, diesen besonderen Moment gemeinsam mit uns zu feiern.",
+    "contactText": "Bei Fragen könnt ihr uns jederzeit kontaktieren",
+    "back": "Zur Website"
   }
 }

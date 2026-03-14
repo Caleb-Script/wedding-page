@@ -12,7 +12,14 @@
     "quote": "We found love that feels like home.",
     "scroll": "Scroll",
     "infoTitle": "Our Wedding",
-    "infoText": "Join us as we celebrate our love and begin our journey together. We would be honored to have you with us on this special day."
+    "infoText": "Join us as we celebrate our love and begin our journey together. We would be honored to have you with us on this special day.",
+    "countdown": {
+      "days": "Days",
+      "hours": "Hours",
+      "minutes": "Minutes",
+      "seconds": "Seconds"
+    },
+    "backgroundAlt": "Wedding background"
   },
   "locations": {
     "subtitle": "The Venues",
@@ -149,5 +156,13 @@
         "invalidNumber": "Invalid phone number"
       }
     }
+  },
+  "rsvpSuccess": {
+    "title": "Thank You",
+    "message1": "Thank you for your RSVP.",
+    "message2": "Our invitation team is currently reviewing all responses as we carefully organize the celebration",
+    "message3": "We truly appreciate your patience and your kindness in celebrating this special moment with us.",
+    "contactText": "If you have any questions, feel free to contact us",
+    "back": "Back to Website"
   }
 }

@@ -1,0 +1,167 @@
+{
+  "gallery": {
+    "subtitle": "Yɛn Mmerɛ",
+    "title": "Mfonini",
+    "prev": "Mfonini a etwaa mu",
+    "next": "Mfonini a ɛdi hɔ",
+    "imageAlt": "Mfonini {index}"
+  },
+  "hero": {
+    "subtitle": "Yɛrebɛware",
+    "quote": "Yɛahu ɔdɔ a ɛte sɛ fie.",
+    "scroll": "Twetwe fam",
+    "infoTitle": "Yɛn Aware",
+    "infoText": "Bra ka yɛn ho na yɛmfa anigye nhyira yɛn dɔ na yɛnhyɛ yɛn akwantu ase. Yɛbɛdi ahurusi sɛ wobɛka yɛn ho wɔ da soronko yi.",
+    "countdown": {
+      "days": "Nnɛma",
+      "hours": "Nnɔnhwerew",
+      "minutes": "Simma",
+      "seconds": "Sɛkɛne"
+    },
+    "backgroundAlt": "Aware akyi mfonini"
+  },
+  "locations": {
+    "subtitle": "Baabi a ɛbɛkɔ so",
+    "title": "Mmeae",
+
+    "ceremony": {
+      "tab": "Aware Dwuma",
+      "title": "Aware Dwuma",
+      "venue": "Katholisches Pfarramt Heilige Familie",
+      "address": "Dürllewangstraße 36, 70565 Stuttgart",
+      "description": "Asɔre fɛfɛ bi a atwa ho ahyia wɔ Stuttgart, a ɛma baabi a ɛyɛ fɛ na ɛyɛ kommyɛ ma aware dwuma no."
+    },
+
+    "reception": {
+      "tab": "Anigyede",
+      "title": "Anigyede",
+      "venue": "White Event Palast",
+      "address": "Marie-Curie-Straße 3, 73230 Kirchheim unter Teck",
+      "description": "Faako a ɛyɛ fɛ a wɔyɛ ahurusi wɔ hɔ, a ɛwɔ adan kɛse ne adwinni fɛfɛ — baabi a ɛyɛ pɛpɛɛpɛ sɛ yɛbɛbom adi anigye anwummere no."
+    }
+  },
+  "quote": {
+    "line1": "Kra mmienu a adwene baako na ɛka wɔn ho,",
+    "line2": "Akoma mmienu a ɛbɔ bom.",
+    "text": "Kra mmienu a adwene baako na ɛka wɔn ho,\nAkoma mmienu a ɛbɔ bom."
+  },
+  "rsvp": {
+    "subtitle": "Bra Ka Yɛn Ho",
+    "title": "RSVP",
+    "quote": "Yɛbɛdi ahurusi sɛ wobɛka yɛn ho adi anigye wɔ da soronko yi.",
+    "button": "Fa Wo Mmuae Bra"
+  },
+  "timeline": {
+    "subtitle": "Da No Nhyehyɛe",
+    "title": "Yɛn Nhyehyɛe",
+    "events": {
+      "ceremony": "Aware dwuma no fi ase",
+      "photos": "Ayekoo ne Mfonini",
+      "arrival": "Duruu Anigyede Bea",
+      "dinner": "Aduan ne Anigyede",
+      "party": "Aponto"
+    }
+  },
+  "travel": {
+    "subtitle": "Sɛnea Wobɛba",
+    "title": "Sɛnea Wobɛdu Hɔ",
+
+    "tabs": {
+      "ceremony": "Aware Dwuma",
+      "reception": "Anigyede"
+    },
+
+    "ceremony": {
+      "car": {
+        "title": "Wɔ Kar Mu",
+        "details": "Wobetumi afa A8 motorway so akɔ Stuttgart-Vaihingen. Di akyirikyiri kɔ Stuttgart-Vaihingen. Kar gyinabea wɔ hɔ bɛn asɔre no."
+      },
+      "train": {
+        "title": "Wɔ Keteke Mu",
+        "details": "Fa S-Bahn kɔ Stuttgart-Vaihingen station. Fi hɔ a, taxi anaa bus ketewa betumi de wo akɔ asɔre no."
+      },
+      "parking": {
+        "title": "Kar Gyinabea",
+        "details": "Kar gyinabea wɔ hɔ bɛn asɔre no. Mesrɛ wo di kar gyinabea nsɛnkyerɛnne a ɛwɔ asɔre no ho."
+      }
+    },
+
+    "reception": {
+      "car": {
+        "title": "Wɔ Kar Mu",
+        "details": "White Event Palast wɔ Kirchheim unter Teck betumi afa A8 motorway so akɔ hɔ. Fa Kirchheim/Teck exit na di akyirikyiri kɔ industrial area no."
+      },
+      "train": {
+        "title": "Wɔ Keteke Mu",
+        "details": "Fi Stuttgart Hauptbahnhof fa regional train kɔ Kirchheim unter Teck. Fi station hɔ a, taxi betumi de wo akɔ."
+      },
+      "parking": {
+        "title": "Kar Gyinabea",
+        "details": "Kar gyinabea kɛse wɔ hɔ pɛpɛɛpɛ wɔ White Event Palast."
+      }
+    }
+  },
+  "footer": {
+    "message": "Yɛda wo ase sɛ wode yɛn bɛdi anigye."
+  },
+  "weddingInfo": {
+    "subtitle": "Nsɛm a ɛfa Aware Ho",
+    "title": "Aware Ho Nsɛm",
+
+    "ceremony": {
+      "title": "Aware Dwuma",
+      "venue": "Gesamtkirchengemeinde Heilige Familie",
+      "address": "Dürllewangstraße 36, 70565 Stuttgart"
+    },
+
+    "reception": {
+      "title": "Anigyede",
+      "venue": "White Event Palast",
+      "address": "Marie-Curie-Straße 3, 73230 Kirchheim unter Teck"
+    }
+  },
+  "rsvpForm": {
+    "title": "RSVP",
+    "firstName": "Wo Din a Edi Kan",
+    "lastName": "Wo Abusua Din",
+    "email": "Email",
+    "attendance": "Mɛba:",
+    "ceremony": "Aware Dwuma",
+    "reception": "Anigyede",
+    "plusOnes": "Nnipa Foforo",
+    "addPlusOne": "Fa ɔhɔho ka ho",
+    "removePlusOne": "Yi ɔhɔho fi hɔ",
+    "submit": "Soma Mmuae",
+    "phone": {
+      "title": "Telefon",
+      "type": "Nkitahodi Su",
+      "country": "Ɔman",
+      "number": "Telefon Nɔma",
+      "types": {
+        "whatsapp": "WhatsApp",
+        "sms": "SMS",
+        "call": "Frɛ"
+      },
+      "countries": {
+        "DE": "Germany",
+        "US": "United States",
+        "GB": "United Kingdom",
+        "FR": "France",
+        "IT": "Italy",
+        "ES": "Spain"
+      },
+      "errors": {
+        "invalidCountry": "Ɔman no nyɛ nokware",
+        "invalidNumber": "Telefon nɔma no nyɛ nokware"
+      }
+    }
+  },
+  "rsvpSuccess": {
+    "title": "Yɛda Wo Ase",
+    "message1": "Yɛda wo ase sɛ wode wo RSVP abrɛ yɛn.",
+    "message2": "Yɛn nsafoa kuw no redwen mmuaeɛ nyinaa ho bere a yɛrehyehyɛ aware no yiye.",
+    "message3": "Yɛda wo ase paa wɔ wo boasetɔ ne wo dɔ a wode rebɛdi anigye da yi ho.",
+    "contactText": "Sɛ wowɔ nsɛmmisa bi a, wubetumi ne yɛn adi nkitaho",
+    "back": "San kɔ Website no so"
+  }
+}

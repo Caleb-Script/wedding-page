@@ -6,10 +6,11 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Confetti from "react-confetti";
-
 import { HiChatBubbleLeftRight, HiEnvelope, HiHeart } from "react-icons/hi2";
+import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 
 export default function RSVPSuccess() {
+  const t = useTypedTranslations("wedding");
   const [width, height] = useWindowSize();
   const [runConfetti, setRunConfetti] = useState(true);
 
@@ -80,7 +81,7 @@ export default function RSVPSuccess() {
               color: "#2f2925",
             }}
           >
-            Thank You
+            {t("rsvpSuccess.title")}
           </Typography>
 
           {/* Divider */}
@@ -103,7 +104,7 @@ export default function RSVPSuccess() {
               lineHeight: 1.7,
             }}
           >
-            Thank you for your RSVP.
+            {t("rsvpSuccess.message1")}
           </Typography>
 
           <Typography
@@ -114,15 +115,13 @@ export default function RSVPSuccess() {
               lineHeight: 1.7,
             }}
           >
-            Our invitation team is currently reviewing all responses as we
-            carefully organize the celebration.
+            {t("rsvpSuccess.message2")}
             <br />
             {/* Once everything has been finalized, you will receive an email
             with the next steps and further details.
-            <br />
             <br /> */}
-            We truly appreciate your patience and your kindness in celebrating
-            this special moment with us.
+            <br />
+            {t("rsvpSuccess.message3")}
           </Typography>
 
           {/* Names */}
@@ -146,7 +145,7 @@ export default function RSVPSuccess() {
                 mb: 2,
               }}
             >
-              If you have any questions, feel free to contact us
+              {t("rsvpSuccess.contactText")}
             </Typography>
 
             <Box
@@ -172,13 +171,13 @@ export default function RSVPSuccess() {
                 }}
               >
                 <HiEnvelope />
-                your@email.com
+                caleb_g@outlook.de
               </Box>
 
               {/* WhatsApp */}
               <Box
                 component="a"
-                href="https://wa.me/491234567890"
+                href="https://wa.me/4915111951223"
                 sx={{
                   display: "flex",
                   alignItems: "center",
@@ -212,7 +211,7 @@ export default function RSVPSuccess() {
               },
             }}
           >
-            Back to Website
+            {t("rsvpSuccess.back")}
           </Button>
         </motion.div>
       </Container>
