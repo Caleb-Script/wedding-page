@@ -67,56 +67,56 @@ export default function Page() {
 
   return (
     <Box>
-<Fab
-  aria-label="language"
-  sx={{
-    position: "fixed",
-    top: {
-      xs: "calc(env(safe-area-inset-top) + 16px)",
-      md: 32,
-    },
-    right: {
-      xs: 16,
-      md: 32,
-    },
-    zIndex: 3000,
+      <Fab
+        aria-label="language"
+        sx={{
+          position: "fixed",
+          top: {
+            xs: "calc(env(safe-area-inset-top) + 16px)",
+            md: 32,
+          },
+          right: {
+            xs: 16,
+            md: 32,
+          },
+          zIndex: 3000,
 
-    px: 2,
+          px: 2,
 
-    background:
-      "linear-gradient(135deg, rgba(212,175,55,0.9), rgba(245,215,110,0.9))",
+          background:
+            "linear-gradient(135deg, rgba(212,175,55,0.9), rgba(245,215,110,0.9))",
 
-    color: "#1a1a1a",
+          color: "#1a1a1a",
 
-    backdropFilter: "blur(16px) saturate(160%)",
-    WebkitBackdropFilter: "blur(16px) saturate(160%)",
+          backdropFilter: "blur(16px) saturate(160%)",
+          WebkitBackdropFilter: "blur(16px) saturate(160%)",
 
-    border: "1px solid rgba(255,255,255,0.25)",
+          border: "1px solid rgba(255,255,255,0.25)",
 
-    boxShadow: `
+          boxShadow: `
       0 10px 30px rgba(0,0,0,0.35),
       0 0 20px rgba(212,175,55,0.45)
     `,
 
-    animation: `${float} 6s ease-in-out infinite`,
+          animation: `${float} 6s ease-in-out infinite`,
 
-    transition: "all .35s cubic-bezier(.4,0,.2,1)",
+          transition: "all .35s cubic-bezier(.4,0,.2,1)",
 
-    "&:hover": {
-      transform: "translateY(-3px) scale(1.03)",
+          "&:hover": {
+            transform: "translateY(-3px) scale(1.03)",
 
-      background:
-        "linear-gradient(135deg, rgba(245,215,110,1), rgba(212,175,55,1))",
+            background:
+              "linear-gradient(135deg, rgba(245,215,110,1), rgba(212,175,55,1))",
 
-      boxShadow: `
+            boxShadow: `
         0 14px 40px rgba(0,0,0,0.45),
         0 0 30px rgba(212,175,55,0.7)
       `,
-    },
-  }}
->
-  <LanguageSwitcher />
-</Fab>
+          },
+        }}
+      >
+        <LanguageSwitcher />
+      </Fab>
 
       {/* HERO */}
       <Box
