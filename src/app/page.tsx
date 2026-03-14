@@ -1,26 +1,25 @@
+import Gallery from "@/components/Gallery";
 import HeroSection from "@/components/HeroSection";
-// import Timeline from "@/components/wedding/Timeline";
-// import Gallery from "@/components/wedding/Gallery";
-// import RSVPSection from "@/components/wedding/RSVPSection";
-// import TravelInfo from "@/components/wedding/TravelInfo";
-// import LocationSection from "@/components/wedding/LocationSection";
+import LocationSection from "@/components/LocationSection";
+import QuoteSection from "@/components/QuoteSection";
+import RSVPSection from "@/components/RSVPSection";
+import Timeline from "@/components/Timeline";
+import TravelInfo from "@/components/TravelInfo";
+import WeddingFooter from "@/components/WeddingFooter";
 import WeddingInfo from "@/components/WeddingInfo";
-// import QuoteSection from "@/components/wedding/QuoteSection";
-// import WeddingFooter from "@/components/wedding/WeddingFooter";
 
 export default function Page() {
   return (
     <>
       <HeroSection />
       <WeddingInfo />
-      {/* <QuoteSection />
-   
       <Timeline />
-      <Gallery />
       <LocationSection />
       <TravelInfo />
       <RSVPSection />
-      <WeddingFooter /> */}
+      <QuoteSection />
+      <Gallery />
+      <WeddingFooter />
     </>
   );
 }

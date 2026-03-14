@@ -267,7 +267,7 @@ export default function Page() {
       </Box>
 
       {/* INFO SECTION */}
-      {/* <Box
+      <Box
         sx={{
           py: 16,
           background: "#f7f3ec",
@@ -296,7 +296,7 @@ export default function Page() {
             would be honored to have you with us on this special day.
           </Typography>
         </Container>
-      </Box> */}
+      </Box>
     </Box>
   );
 }
