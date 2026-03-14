@@ -1,15 +1,16 @@
 "use client";
 
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { useState } from "react";
+import { Box, Container, Grid, Typography, Tabs, Tab } from "@mui/material";
 import { motion } from "framer-motion";
 
 import {
-  HiOutlineSquare3Stack3D,
-  HiOutlineTicket,
   HiOutlineTruck,
+  HiOutlineTicket,
+  HiOutlineSquare3Stack3D,
 } from "react-icons/hi2";
 
-const travelOptions = [
+const ceremonyTravel = [
   {
     icon: HiOutlineTruck,
     title: "By Car",
@@ -20,17 +21,42 @@ const travelOptions = [
     icon: HiOutlineTicket,
     title: "By Train",
     details:
-      "Stuttgart Hauptbahnhof connects to S-Bahn lines S1–S3. From Stuttgart-Vaihingen station the church is just a short taxi ride away.",
+      "Take the S-Bahn to Stuttgart-Vaihingen station. From there the church is only a short taxi ride or bus ride away.",
   },
   {
     icon: HiOutlineSquare3Stack3D,
     title: "Parking",
     details:
-      "Parking is available near the ceremony church and at the White Event Palast in Kirchheim unter Teck. Additional street parking is available nearby.",
+      "Parking is available near the church. Please follow local parking signs around the parish area.",
+  },
+];
+
+const receptionTravel = [
+  {
+    icon: HiOutlineTruck,
+    title: "By Car",
+    details:
+      "White Event Palast in Kirchheim unter Teck can be reached via the A8 motorway. Take the Kirchheim/Teck exit and follow signs toward the industrial area.",
+  },
+  {
+    icon: HiOutlineTicket,
+    title: "By Train",
+    details:
+      "From Stuttgart Hauptbahnhof take the regional train toward Kirchheim unter Teck. From the station the venue is a short taxi ride.",
+  },
+  {
+    icon: HiOutlineSquare3Stack3D,
+    title: "Parking",
+    details:
+      "Large parking areas are available directly at the White Event Palast venue.",
   },
 ];
 
 export default function TravelInfo() {
+  const [tab, setTab] = useState(0);
+
+  const travelOptions = tab === 0 ? ceremonyTravel : receptionTravel;
+
   return (
     <Box
       component="section"
@@ -41,6 +67,7 @@ export default function TravelInfo() {
       }}
     >
       <Container maxWidth="lg">
+
         {/* subtitle */}
         <Typography
           sx={{
@@ -62,22 +89,43 @@ export default function TravelInfo() {
             fontFamily: "var(--font-serif)",
             fontSize: { xs: "2.4rem", md: "3.5rem" },
             fontWeight: 500,
-            mb: 2,
+            mb: 4,
           }}
         >
           How To Get There
         </Typography>
 
-        {/* divider */}
-        <Box
+        {/* Tabs */}
+        <Tabs
+          value={tab}
+          onChange={(e, v) => setTab(v)}
+          centered
           sx={{
-            width: 70,
-            height: 2,
-            mx: "auto",
-            mb: 12,
-            background: "linear-gradient(135deg,#c89b3c,#e5c275)",
+            mb: 10,
+            "& .MuiTabs-indicator": {
+              background: "linear-gradient(135deg,#c89b3c,#e5c275)",
+              height: 2,
+            },
           }}
-        />
+        >
+          <Tab
+            label="Ceremony"
+            sx={{
+              fontFamily: "var(--font-serif)",
+              textTransform: "none",
+              fontSize: "1rem",
+            }}
+          />
+
+          <Tab
+            label="Reception"
+            sx={{
+              fontFamily: "var(--font-serif)",
+              textTransform: "none",
+              fontSize: "1rem",
+            }}
+          />
+        </Tabs>
 
         {/* cards */}
         <Grid container spacing={6} justifyContent="center">
@@ -98,16 +146,11 @@ export default function TravelInfo() {
                       borderRadius: "14px",
                       px: 5,
                       py: 5,
-
                       background: "rgba(255,255,255,0.7)",
                       backdropFilter: "blur(12px)",
-
                       border: "1px solid rgba(0,0,0,0.06)",
-
                       boxShadow: "0 10px 35px rgba(0,0,0,0.08)",
-
                       transition: "all .35s ease",
-
                       "&:hover": {
                         transform: "translateY(-6px)",
                         boxShadow: "0 14px 45px rgba(0,0,0,0.12)",
@@ -121,10 +164,7 @@ export default function TravelInfo() {
                         justifyContent: "center",
                         mb: 3,
                         color: "#c89b3c",
-
-                        "& svg": {
-                          fontSize: 34,
-                        },
+                        "& svg": { fontSize: 34 },
                       }}
                     >
                       <Icon />
@@ -158,6 +198,7 @@ export default function TravelInfo() {
             );
           })}
         </Grid>
+
       </Container>
     </Box>
   );

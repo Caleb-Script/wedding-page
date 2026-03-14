@@ -1,17 +1,18 @@
 "use client";
 
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { useState } from "react";
+import { Box, Container, Typography, Tabs, Tab } from "@mui/material";
 import { motion } from "framer-motion";
 import { HiOutlineMapPin } from "react-icons/hi2";
 
 const locations = [
   {
     title: "Ceremony",
-    venue: "Gesamtkirchengemeinde Heilige Familie",
+    venue: "Katholisches Pfarramt Heilige Familie",
     address: "Dürllewangstraße 36, 70565 Stuttgart",
     description:
       "A beautiful church surrounded by nature in Stuttgart, providing a warm and intimate setting for the wedding ceremony.",
-    mapQuery: "Gesamtkirchengemeinde+Heilige+Familie+Stuttgart",
+    mapQuery: "Heilige+Familie+Stuttgart",
   },
   {
     title: "Reception",
@@ -24,6 +25,9 @@ const locations = [
 ];
 
 export default function LocationSection() {
+  const [tab, setTab] = useState(0);
+  const location = locations[tab];
+
   return (
     <Box
       component="section"
@@ -34,6 +38,7 @@ export default function LocationSection() {
       }}
     >
       <Container maxWidth="lg">
+
         {/* subtitle */}
         <Typography
           sx={{
@@ -55,132 +60,136 @@ export default function LocationSection() {
             fontFamily: "var(--font-serif)",
             fontSize: { xs: "2.4rem", md: "3.5rem" },
             fontWeight: 500,
-            mb: 2,
+            mb: 4,
           }}
         >
           Locations
         </Typography>
 
-        {/* divider */}
-        <Box
+        {/* Tabs */}
+        <Tabs
+          value={tab}
+          onChange={(e, v) => setTab(v)}
+          centered
           sx={{
-            width: 70,
-            height: 2,
-            mx: "auto",
-            mb: 12,
-            background: "linear-gradient(135deg,#c89b3c,#e5c275)",
+            mb: 10,
+            "& .MuiTabs-indicator": {
+              background: "linear-gradient(135deg,#c89b3c,#e5c275)",
+              height: 2,
+            },
           }}
-        />
+        >
+          <Tab
+            label="Ceremony"
+            sx={{
+              fontFamily: "var(--font-serif)",
+              textTransform: "none",
+              fontSize: "1rem",
+            }}
+          />
 
-        <Grid container spacing={6} justifyContent="center">
-          {locations.map((loc, i) => (
-            <Grid sx={{ xs: 12, md: 6 }} key={loc.title}>
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: i * 0.2 }}
+          <Tab
+            label="Reception"
+            sx={{
+              fontFamily: "var(--font-serif)",
+              textTransform: "none",
+              fontSize: "1rem",
+            }}
+          />
+        </Tabs>
+
+        {/* Card */}
+        <motion.div
+          key={location.title}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <Box
+            sx={{
+              maxWidth: 900,
+              mx: "auto",
+              overflow: "hidden",
+              borderRadius: "14px",
+              background: "rgba(255,255,255,0.75)",
+              backdropFilter: "blur(12px)",
+              border: "1px solid rgba(0,0,0,0.06)",
+              boxShadow: "0 10px 35px rgba(0,0,0,0.08)",
+            }}
+          >
+            {/* map */}
+            <Box sx={{ width: "100%", height: 350 }}>
+              <iframe
+                src={`https://www.google.com/maps?q=${location.mapQuery}&output=embed`}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
+                title={`Map of ${location.venue}`}
+              />
+            </Box>
+
+            {/* content */}
+            <Box sx={{ p: 6, textAlign: "center" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  mb: 2,
+                  color: "#c89b3c",
+                  "& svg": { fontSize: 30 },
+                }}
               >
-                <Box
-                  sx={{
-                    overflow: "hidden",
-                    borderRadius: "14px",
+                <HiOutlineMapPin />
+              </Box>
 
-                    background: "rgba(255,255,255,0.75)",
-                    backdropFilter: "blur(12px)",
+              <Typography
+                sx={{
+                  fontFamily: "var(--font-serif)",
+                  fontSize: "1.8rem",
+                  fontWeight: 500,
+                  mb: 1,
+                }}
+              >
+                {location.title}
+              </Typography>
 
-                    border: "1px solid rgba(0,0,0,0.06)",
+              <Typography
+                sx={{
+                  fontFamily: "var(--font-serif)",
+                  fontSize: "1.2rem",
+                  color: "#c89b3c",
+                  mb: 1,
+                }}
+              >
+                {location.venue}
+              </Typography>
 
-                    boxShadow: "0 10px 35px rgba(0,0,0,0.08)",
+              <Typography
+                sx={{
+                  fontSize: "0.95rem",
+                  color: "#777",
+                  mb: 3,
+                }}
+              >
+                {location.address}
+              </Typography>
 
-                    transition: "all .35s ease",
+              <Typography
+                sx={{
+                  fontSize: "1rem",
+                  color: "#555",
+                  lineHeight: 1.6,
+                  maxWidth: 600,
+                  mx: "auto",
+                }}
+              >
+                {location.description}
+              </Typography>
+            </Box>
+          </Box>
+        </motion.div>
 
-                    "&:hover": {
-                      transform: "translateY(-6px)",
-                      boxShadow: "0 14px 45px rgba(0,0,0,0.12)",
-                    },
-                  }}
-                >
-                  {/* map */}
-                  <Box sx={{ width: "100%", height: 260 }}>
-                    <iframe
-                      src={`https://www.google.com/maps?q=${loc.mapQuery}&output=embed`}
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      loading="lazy"
-                      title={`Map of ${loc.venue}`}
-                    />
-                  </Box>
-
-                  {/* content */}
-                  <Box sx={{ p: 5, textAlign: "center" }}>
-                    {/* icon */}
-                    <Box
-                      sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                        mb: 2,
-                        color: "#c89b3c",
-                        "& svg": {
-                          fontSize: 28,
-                        },
-                      }}
-                    >
-                      <HiOutlineMapPin />
-                    </Box>
-
-                    {/* title */}
-                    <Typography
-                      sx={{
-                        fontFamily: "var(--font-serif)",
-                        fontSize: "1.6rem",
-                        fontWeight: 500,
-                        mb: 1,
-                      }}
-                    >
-                      {loc.title}
-                    </Typography>
-
-                    {/* venue */}
-                    <Typography
-                      sx={{
-                        fontFamily: "var(--font-serif)",
-                        fontSize: "1.1rem",
-                        color: "#c89b3c",
-                        mb: 1,
-                      }}
-                    >
-                      {loc.venue}
-                    </Typography>
-
-                    {/* address */}
-                    <Typography
-                      sx={{
-                        fontSize: "0.9rem",
-                        color: "#777",
-                        mb: 3,
-                      }}
-                    >
-                      {loc.address}
-                    </Typography>
-
-                    {/* description */}
-                    <Typography
-                      sx={{
-                        fontSize: "0.95rem",
-                        color: "#555",
-                        lineHeight: 1.6,
-                      }}
-                    >
-                      {loc.description}
-                    </Typography>
-                  </Box>
-                </Box>
-              </motion.div>
-            </Grid>
-          ))}
-        </Grid>
       </Container>
     </Box>
   );
