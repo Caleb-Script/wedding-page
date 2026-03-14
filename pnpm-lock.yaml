@@ -32,6 +32,12 @@ importers:
       framer-motion:
         specifier: ^12.36.0
         version: 12.36.0(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      i18n:
+        specifier: link:@/i18n
+        version: link:@/i18n
+      navigation:
+        specifier: link:@/i18n/navigation
+        version: link:@/i18n/navigation
       next:
         specifier: 16.1.6
         version: 16.1.6(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)

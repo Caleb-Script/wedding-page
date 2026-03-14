@@ -1,9 +1,20 @@
 "use client";
 
 import { Box, Container, Typography } from "@mui/material";
+import { format } from "date-fns";
+import { de, enUS } from "date-fns/locale";
 import { motion } from "framer-motion";
+import { useLocale } from "next-intl";
+import { useTypedTranslations } from "@/i18n/useTypedTranslations";
+
+const weddingDate = new Date(2026, 10, 21);
 
 export default function WeddingFooter() {
+  const t = useTypedTranslations("wedding");
+  const locale = useLocale();
+
+  const dateLocale = locale === "de" ? de : enUS;
+
   return (
     <Box
       component="footer"
@@ -55,7 +66,7 @@ export default function WeddingFooter() {
               mb: 4,
             }}
           >
-            21 November 2026
+            {format(weddingDate, "d MMMM yyyy", { locale: dateLocale })}
           </Typography>
 
           {/* message */}
@@ -67,7 +78,7 @@ export default function WeddingFooter() {
               color: "#555",
             }}
           >
-            Thank you for celebrating with us.
+            {t("footer.message")}
           </Typography>
         </motion.div>
       </Container>

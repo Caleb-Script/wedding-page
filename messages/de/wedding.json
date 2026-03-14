@@ -32,5 +32,84 @@
       "address": "Marie-Curie-Straße 3, 73230 Kirchheim unter Teck",
       "description": "Ein eleganter Veranstaltungssaal mit luxuriösem Ambiente – der perfekte Ort, um gemeinsam den Abend zu feiern."
     }
+  },
+  "quote": {
+    "line1": "Zwei Seelen mit nur einem Gedanken,",
+    "line2": "Zwei Herzen, die im gleichen Takt schlagen."
+  },
+  "rsvp": {
+    "subtitle": "Feiere mit uns",
+    "title": "Rückmeldung",
+    "quote": "Wir würden uns sehr freuen, diesen besonderen Tag mit dir zu feiern.",
+    "button": "Jetzt zusagen"
+  },
+  "timeline": {
+    "subtitle": "Der Ablauf",
+    "title": "Unser Zeitplan",
+    "events": {
+      "ceremony": "Trauung beginnt",
+      "photos": "Glückwünsche & Fotos",
+      "arrival": "Ankunft an der Location",
+      "dinner": "Dinner & Feier",
+      "party": "Party"
+    }
+  },
+  "travel": {
+    "subtitle": "Anreise",
+    "title": "So kommt ihr hin",
+
+    "tabs": {
+      "ceremony": "Trauung",
+      "reception": "Feier"
+    },
+
+    "ceremony": {
+      "car": {
+        "title": "Mit dem Auto",
+        "details": "Die Kirche in Stuttgart-Vaihingen ist über die Autobahn A8 erreichbar. Bitte folgt der Beschilderung Richtung Stuttgart-Vaihingen. Parkplätze befinden sich in der Nähe der Kirche."
+      },
+      "train": {
+        "title": "Mit der Bahn",
+        "details": "Mit der S-Bahn bis Stuttgart-Vaihingen fahren. Von dort ist die Kirche nur eine kurze Taxi- oder Busfahrt entfernt."
+      },
+      "parking": {
+        "title": "Parken",
+        "details": "Parkmöglichkeiten befinden sich rund um die Kirche. Bitte beachtet die lokalen Parkhinweise."
+      }
+    },
+
+    "reception": {
+      "car": {
+        "title": "Mit dem Auto",
+        "details": "Der White Event Palast in Kirchheim unter Teck ist über die A8 erreichbar. Bitte die Ausfahrt Kirchheim/Teck nehmen und der Beschilderung Richtung Industriegebiet folgen."
+      },
+      "train": {
+        "title": "Mit der Bahn",
+        "details": "Vom Stuttgart Hauptbahnhof mit der Regionalbahn nach Kirchheim unter Teck fahren. Vom Bahnhof aus ist die Location eine kurze Taxifahrt entfernt."
+      },
+      "parking": {
+        "title": "Parken",
+        "details": "Direkt am White Event Palast stehen großzügige Parkflächen zur Verfügung."
+      }
+    }
+  },
+  "footer": {
+    "message": "Vielen Dank, dass ihr diesen besonderen Tag mit uns feiert."
+  },
+  "weddingInfo": {
+    "subtitle": "Details",
+    "title": "Informationen zur Hochzeit",
+
+    "ceremony": {
+      "title": "Trauung",
+      "venue": "Gesamtkirchengemeinde Heilige Familie",
+      "address": "Dürllewangstraße 36, 70565 Stuttgart"
+    },
+
+    "reception": {
+      "title": "Feier",
+      "venue": "White Event Palast",
+      "address": "Marie-Curie-Straße 3, 73230 Kirchheim unter Teck"
+    }
   }
 }

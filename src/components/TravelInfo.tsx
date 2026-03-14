@@ -3,57 +3,53 @@
 import { Box, Container, Grid, Tab, Tabs, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { useState } from "react";
-
 import {
   HiOutlineSquare3Stack3D,
   HiOutlineTicket,
   HiOutlineTruck,
 } from "react-icons/hi2";
-
-const ceremonyTravel = [
-  {
-    icon: HiOutlineTruck,
-    title: "By Car",
-    details:
-      "The ceremony location in Stuttgart-Vaihingen can be reached via the A8 motorway. Follow signs towards Stuttgart-Vaihingen. Parking is available near the church.",
-  },
-  {
-    icon: HiOutlineTicket,
-    title: "By Train",
-    details:
-      "Take the S-Bahn to Stuttgart-Vaihingen station. From there the church is only a short taxi ride or bus ride away.",
-  },
-  {
-    icon: HiOutlineSquare3Stack3D,
-    title: "Parking",
-    details:
-      "Parking is available near the church. Please follow local parking signs around the parish area.",
-  },
-];
-
-const receptionTravel = [
-  {
-    icon: HiOutlineTruck,
-    title: "By Car",
-    details:
-      "White Event Palast in Kirchheim unter Teck can be reached via the A8 motorway. Take the Kirchheim/Teck exit and follow signs toward the industrial area.",
-  },
-  {
-    icon: HiOutlineTicket,
-    title: "By Train",
-    details:
-      "From Stuttgart Hauptbahnhof take the regional train toward Kirchheim unter Teck. From the station the venue is a short taxi ride.",
-  },
-  {
-    icon: HiOutlineSquare3Stack3D,
-    title: "Parking",
-    details:
-      "Large parking areas are available directly at the White Event Palast venue.",
-  },
-];
+import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 
 export default function TravelInfo() {
+  const t = useTypedTranslations("wedding");
+
   const [tab, setTab] = useState(0);
+
+  const ceremonyTravel = [
+    {
+      icon: HiOutlineTruck,
+      title: t("travel.ceremony.car.title"),
+      details: t("travel.ceremony.car.details"),
+    },
+    {
+      icon: HiOutlineTicket,
+      title: t("travel.ceremony.train.title"),
+      details: t("travel.ceremony.train.details"),
+    },
+    {
+      icon: HiOutlineSquare3Stack3D,
+      title: t("travel.ceremony.parking.title"),
+      details: t("travel.ceremony.parking.details"),
+    },
+  ];
+
+  const receptionTravel = [
+    {
+      icon: HiOutlineTruck,
+      title: t("travel.reception.car.title"),
+      details: t("travel.reception.car.details"),
+    },
+    {
+      icon: HiOutlineTicket,
+      title: t("travel.reception.train.title"),
+      details: t("travel.reception.train.details"),
+    },
+    {
+      icon: HiOutlineSquare3Stack3D,
+      title: t("travel.reception.parking.title"),
+      details: t("travel.reception.parking.details"),
+    },
+  ];
 
   const travelOptions = tab === 0 ? ceremonyTravel : receptionTravel;
 
@@ -78,7 +74,7 @@ export default function TravelInfo() {
             mb: 2,
           }}
         >
-          Getting There
+          {t("travel.subtitle")}
         </Typography>
 
         {/* title */}
@@ -91,7 +87,7 @@ export default function TravelInfo() {
             mb: 4,
           }}
         >
-          How To Get There
+          {t("travel.title")}
         </Typography>
 
         {/* Tabs */}
@@ -108,7 +104,7 @@ export default function TravelInfo() {
           }}
         >
           <Tab
-            label="Ceremony"
+            label={t("travel.tabs.ceremony")}
             sx={{
               fontFamily: "var(--font-serif)",
               textTransform: "none",
@@ -117,7 +113,7 @@ export default function TravelInfo() {
           />
 
           <Tab
-            label="Reception"
+            label={t("travel.tabs.reception")}
             sx={{
               fontFamily: "var(--font-serif)",
               textTransform: "none",

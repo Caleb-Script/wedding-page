@@ -3,8 +3,11 @@
 import { Box, Button, Container, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 
 export default function RSVPSection() {
+  const t = useTypedTranslations("wedding");
+
   return (
     <Box
       component="section"
@@ -48,7 +51,7 @@ export default function RSVPSection() {
                 mb: 2,
               }}
             >
-              Join Us
+              {t("rsvp.subtitle")}
             </Typography>
 
             {/* title */}
@@ -60,7 +63,7 @@ export default function RSVPSection() {
                 mb: 2,
               }}
             >
-              RSVP
+              {t("rsvp.title")}
             </Typography>
 
             {/* divider */}
@@ -86,7 +89,7 @@ export default function RSVPSection() {
                 mb: 6,
               }}
             >
-              "We would be honored to celebrate this special day with you."
+              {t("rsvp.quote")}
             </Typography>
 
             {/* button */}
@@ -118,7 +121,7 @@ export default function RSVPSection() {
                   },
                 }}
               >
-                RSVP Now
+                {t("rsvp.button")}
               </Button>
             </motion.div>
           </Box>

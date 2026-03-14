@@ -3,7 +3,6 @@
 import { Box, Container, Typography } from "@mui/material";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useRef } from "react";
-
 import {
   HiOutlineBuildingOffice,
   HiOutlineCake,
@@ -11,20 +10,11 @@ import {
   HiOutlineHeart,
   HiOutlineMusicalNote,
 } from "react-icons/hi2";
-
-const events = [
-  { time: "14:00", title: "Ceremony begins", icon: HiOutlineHeart },
-  { time: "15:30", title: "Congratulations & Photos", icon: HiOutlineCamera },
-  {
-    time: "17:30",
-    title: "Arrival at Reception",
-    icon: HiOutlineBuildingOffice,
-  },
-  { time: "18:00", title: "Dinner & Celebration", icon: HiOutlineCake },
-  { time: "22:00", title: "Party", icon: HiOutlineMusicalNote },
-];
+import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 
 export default function Timeline() {
+  const t = useTypedTranslations("wedding");
+
   const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -36,6 +26,30 @@ export default function Timeline() {
     stiffness: 100,
     damping: 30,
   });
+
+  const events = [
+    {
+      time: "14:00",
+      title: t("timeline.events.ceremony"),
+      icon: HiOutlineHeart,
+    },
+    {
+      time: "15:30",
+      title: t("timeline.events.photos"),
+      icon: HiOutlineCamera,
+    },
+    {
+      time: "17:30",
+      title: t("timeline.events.arrival"),
+      icon: HiOutlineBuildingOffice,
+    },
+    { time: "18:00", title: t("timeline.events.dinner"), icon: HiOutlineCake },
+    {
+      time: "22:00",
+      title: t("timeline.events.party"),
+      icon: HiOutlineMusicalNote,
+    },
+  ];
 
   return (
     <Box
@@ -59,7 +73,7 @@ export default function Timeline() {
             mb: 2,
           }}
         >
-          The Schedule
+          {t("timeline.subtitle")}
         </Typography>
 
         {/* title */}
@@ -72,7 +86,7 @@ export default function Timeline() {
             mb: 2,
           }}
         >
-          Our Timeline
+          {t("timeline.title")}
         </Typography>
 
         {/* divider */}

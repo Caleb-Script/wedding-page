@@ -1,4 +1,5 @@
 {
+  "wedding": {},
   "gallery": {
     "subtitle": "Our Moments",
     "title": "Gallery",
@@ -31,6 +32,86 @@
       "venue": "White Event Palast",
       "address": "Marie-Curie-Straße 3, 73230 Kirchheim unter Teck",
       "description": "An elegant event palace with luxurious décor and a grand ballroom — the perfect place to celebrate the evening together."
+    }
+  },
+  "quote": {
+    "line1": "Two souls with but a single thought,",
+    "line2": "Two hearts that beat as one.",
+    "text": "Two souls with but a single thought,\nTwo hearts that beat as one."
+  },
+  "rsvp": {
+    "subtitle": "Join Us",
+    "title": "RSVP",
+    "quote": "We would be honored to celebrate this special day with you.",
+    "button": "RSVP Now"
+  },
+  "timeline": {
+    "subtitle": "The Schedule",
+    "title": "Our Timeline",
+    "events": {
+      "ceremony": "Ceremony begins",
+      "photos": "Congratulations & Photos",
+      "arrival": "Arrival at Reception",
+      "dinner": "Dinner & Celebration",
+      "party": "Party"
+    }
+  },
+  "travel": {
+    "subtitle": "Getting There",
+    "title": "How To Get There",
+
+    "tabs": {
+      "ceremony": "Ceremony",
+      "reception": "Reception"
+    },
+
+    "ceremony": {
+      "car": {
+        "title": "By Car",
+        "details": "The ceremony location in Stuttgart-Vaihingen can be reached via the A8 motorway. Follow signs towards Stuttgart-Vaihingen. Parking is available near the church."
+      },
+      "train": {
+        "title": "By Train",
+        "details": "Take the S-Bahn to Stuttgart-Vaihingen station. From there the church is only a short taxi ride or bus ride away."
+      },
+      "parking": {
+        "title": "Parking",
+        "details": "Parking is available near the church. Please follow local parking signs around the parish area."
+      }
+    },
+
+    "reception": {
+      "car": {
+        "title": "By Car",
+        "details": "White Event Palast in Kirchheim unter Teck can be reached via the A8 motorway. Take the Kirchheim/Teck exit and follow signs toward the industrial area."
+      },
+      "train": {
+        "title": "By Train",
+        "details": "From Stuttgart Hauptbahnhof take the regional train toward Kirchheim unter Teck. From the station the venue is a short taxi ride."
+      },
+      "parking": {
+        "title": "Parking",
+        "details": "Large parking areas are available directly at the White Event Palast venue."
+      }
+    }
+  },
+  "footer": {
+    "message": "Thank you for celebrating with us."
+  },
+  "weddingInfo": {
+    "subtitle": "The Details",
+    "title": "Wedding Information",
+
+    "ceremony": {
+      "title": "Ceremony",
+      "venue": "Gesamtkirchengemeinde Heilige Familie",
+      "address": "Dürllewangstraße 36, 70565 Stuttgart"
+    },
+
+    "reception": {
+      "title": "Reception",
+      "venue": "White Event Palast",
+      "address": "Marie-Curie-Straße 3, 73230 Kirchheim unter Teck"
     }
   }
 }

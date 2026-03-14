@@ -2,8 +2,11 @@
 
 import { Box, Container, Typography } from "@mui/material";
 import { motion } from "framer-motion";
+import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 
 export default function QuoteSection() {
+  const t = useTypedTranslations("wedding");
+
   return (
     <Box
       component="section"
@@ -50,9 +53,15 @@ export default function QuoteSection() {
                 mb: { xs: 6, md: 7 },
               }}
             >
-              “Two souls with but a single thought,
+              {/* {t("text").split("\n").map((line, i) => (
+  <span key={i}>
+    {line}
+    <br />
+  </span>
+))} */}
+              {t("quote.line1")}
               <br />
-              Two hearts that beat as one.”
+              {t("quote.line2")}
             </Typography>
 
             <Box

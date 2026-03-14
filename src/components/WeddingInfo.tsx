@@ -1,12 +1,18 @@
 "use client";
 
 import { Box, Container, Grid, Typography } from "@mui/material";
+import { format } from "date-fns";
+import { de, enUS } from "date-fns/locale";
 import { motion } from "framer-motion";
+import { useLocale } from "next-intl";
 import {
   HiOutlineCalendar,
   HiOutlineClock,
   HiOutlineMapPin,
 } from "react-icons/hi2";
+import { useTypedTranslations } from "@/i18n/useTypedTranslations";
+
+const weddingDate = new Date(2026, 10, 21);
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -17,26 +23,30 @@ const fadeUp = {
   }),
 };
 
-const cards = [
-  {
-    title: "Ceremony",
-    venue: "Gesamtkirchengemeinde Heilige Familie",
-    address: "Dürllewangstraße 36, 70565 Stuttgart",
-    date: "21 November 2026",
-    time: "14:00",
-    icon: HiOutlineMapPin,
-  },
-  {
-    title: "Reception",
-    venue: "White Event Palast",
-    address: "Marie-Curie-Straße 3, 73230 Kirchheim unter Teck",
-    date: "21 November 2026",
-    time: "18:00",
-    icon: HiOutlineClock,
-  },
-];
-
 export default function WeddingInfo() {
+  const t = useTypedTranslations("wedding");
+  const locale = useLocale();
+
+  const dateLocale = locale === "de" ? de : enUS;
+  const date = format(weddingDate, "d MMMM yyyy", { locale: dateLocale });
+
+  const cards = [
+    {
+      title: t("weddingInfo.ceremony.title"),
+      venue: t("weddingInfo.ceremony.venue"),
+      address: t("weddingInfo.ceremony.address"),
+      time: "14:00",
+      icon: HiOutlineMapPin,
+    },
+    {
+      title: t("weddingInfo.reception.title"),
+      venue: t("weddingInfo.reception.venue"),
+      address: t("weddingInfo.reception.address"),
+      time: "18:00",
+      icon: HiOutlineClock,
+    },
+  ];
+
   return (
     <Box
       component="section"
@@ -58,7 +68,7 @@ export default function WeddingInfo() {
             mb: 2,
           }}
         >
-          The Details
+          {t("weddingInfo.subtitle")}
         </Typography>
 
         {/* title */}
@@ -71,7 +81,7 @@ export default function WeddingInfo() {
             mb: 2,
           }}
         >
-          Wedding Information
+          {t("weddingInfo.title")}
         </Typography>
 
         {/* divider */}
@@ -191,7 +201,7 @@ export default function WeddingInfo() {
                         }}
                       >
                         <HiOutlineCalendar />
-                        {card.date}
+                        {date}
                       </Box>
 
                       <Box
