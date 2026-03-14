@@ -11,9 +11,8 @@ import {
   FormControlLabel,
   IconButton,
 } from "@mui/material";
-
 import { HiPlus, HiTrash } from "react-icons/hi2";
-
+import { useRouter } from "next/navigation";
 import { useForm, useFieldArray } from "react-hook-form";
 
 type PlusOne = {
@@ -31,6 +30,7 @@ type FormData = {
 };
 
 export default function RSVPPage() {
+  const router = useRouter();
   const { register, handleSubmit, control } = useForm<FormData>({
     defaultValues: {
       plusOnes: [],
@@ -44,6 +44,8 @@ export default function RSVPPage() {
 
   const onSubmit = (data: FormData) => {
     console.log(data);
+
+  router.push("/rsvp/success");
   };
 
   return (
