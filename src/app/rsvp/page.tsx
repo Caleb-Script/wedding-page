@@ -15,14 +15,14 @@ import { useRouter } from "next/navigation";
 import { useFieldArray, useForm } from "react-hook-form";
 import { HiPlus, HiTrash } from "react-icons/hi2";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
-import { countries } from "@/lib/countries";
+import { type CountryCode, countries } from "@/lib/countries";
 import { validatePhone } from "@/lib/phone";
 
 type PhoneType = "WHATSAPP" | "SMS" | "CALL";
 
 type PhoneNumber = {
   phoneType: PhoneType;
-  country: string;
+  country: CountryCode;
   countryCode: string;
   number: string;
 };
@@ -76,6 +76,10 @@ export default function RSVPPage() {
 
     router.push("/rsvp/success");
   };
+
+  function getCountryLabel(code: CountryCode) {
+    return t(`rsvpForm.phone.countries.${code}`);
+  }
 
   return (
     <Box
@@ -189,7 +193,7 @@ export default function RSVPPage() {
                 >
                   {countries.map((country) => (
                     <option key={country.code} value={country.code}>
-                      {t(`rsvpForm.phone.countries.${country.code}`)} (
+                      {getCountryLabel(country.code as CountryCode)} (
                       {country.dial})
                     </option>
                   ))}

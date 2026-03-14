@@ -1,4 +1,10 @@
-export const countries = [
+export type CountryCode = "DE" | "US" | "GB" | "FR" | "IT" | "ES";
+
+export const countries: {
+  code: CountryCode;
+  dial: string;
+  label: string;
+}[] = [
   { code: "DE", dial: "+49", label: "Germany" },
   { code: "US", dial: "+1", label: "United States" },
   { code: "GB", dial: "+44", label: "United Kingdom" },
