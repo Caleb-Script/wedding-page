@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useCallback } from "react";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
+import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 
 const images = [
   { key: 1, image: "/gallery-1.jpg" },
@@ -15,6 +16,7 @@ const images = [
 ];
 
 export default function Gallery() {
+  const t = useTypedTranslations("wedding");
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: "center",
@@ -44,7 +46,7 @@ export default function Gallery() {
             mb: 2,
           }}
         >
-          Our Moments
+          {t("gallery.subtitle")}
         </Typography>
 
         {/* title */}
@@ -57,7 +59,7 @@ export default function Gallery() {
             mb: 2,
           }}
         >
-          Gallery
+          {t("gallery.title")}
         </Typography>
 
         {/* divider */}
@@ -110,7 +112,7 @@ export default function Gallery() {
                     >
                       <Image
                         src={image.image}
-                        alt={`Gallery image ${image.key}`}
+                        alt={t("gallery.imageAlt", { index: image.key })}
                         fill
                         style={{ objectFit: "cover" }}
                       />
@@ -123,6 +125,7 @@ export default function Gallery() {
             {/* left button */}
             <IconButton
               onClick={scrollPrev}
+              aria-label={t("gallery.prev")}
               sx={{
                 position: "absolute",
                 left: 10,
@@ -148,6 +151,7 @@ export default function Gallery() {
             {/* right button */}
             <IconButton
               onClick={scrollNext}
+              aria-label={t("gallery.next")}
               sx={{
                 position: "absolute",
                 right: 10,

@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { HiChevronDown } from "react-icons/hi2";
+import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 
 const weddingDate = new Date(2026, 10, 21);
 
@@ -49,6 +50,7 @@ function useCountdown() {
 }
 
 export default function Page() {
+  const t = useTypedTranslations("wedding");
   const { days, hours, minutes, seconds } = useCountdown();
 
   return (
@@ -117,7 +119,7 @@ export default function Page() {
                 color: "rgba(255,255,255,0.8)",
               }}
             >
-              We're getting married
+              {t("hero.subtitle")}
             </Typography>
           </motion.div>
 
@@ -170,7 +172,7 @@ export default function Page() {
               mb: 4,
             }}
           >
-            "We found love that feels like home."
+            {t("hero.quote")}
           </Typography>
 
           {/* Date */}
@@ -253,7 +255,7 @@ export default function Page() {
               color: "rgba(255,255,255,0.5)",
             }}
           >
-            Scroll
+            {t("hero.scroll")}
           </Typography>
 
           <HiChevronDown
@@ -282,7 +284,7 @@ export default function Page() {
               mb: 3,
             }}
           >
-            Our Wedding
+            {t("hero.infoTitle")}
           </Typography>
 
           <Typography
@@ -292,8 +294,7 @@ export default function Page() {
               lineHeight: 1.8,
             }}
           >
-            Join us as we celebrate our love and begin our journey together. We
-            would be honored to have you with us on this special day.
+            {t("hero.infoText")}
           </Typography>
         </Container>
       </Box>

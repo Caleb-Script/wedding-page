@@ -1,0 +1,16 @@
+{
+  "gallery": {
+    "subtitle": "Our Moments",
+    "title": "Gallery",
+    "prev": "Previous image",
+    "next": "Next image",
+    "imageAlt": "Gallery image {index}"
+  },
+  "hero": {
+    "subtitle": "We're getting married",
+    "quote": "We found love that feels like home.",
+    "scroll": "Scroll",
+    "infoTitle": "Our Wedding",
+    "infoText": "Join us as we celebrate our love and begin our journey together. We would be honored to have you with us on this special day."
+  }
+}

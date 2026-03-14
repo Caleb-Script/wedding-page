@@ -1,19 +1,19 @@
 "use client";
 
-import { motion } from "framer-motion";
 import {
   Box,
-  Container,
-  Typography,
-  TextField,
   Button,
   Checkbox,
+  Container,
   FormControlLabel,
   IconButton,
+  TextField,
+  Typography,
 } from "@mui/material";
-import { HiPlus, HiTrash } from "react-icons/hi2";
+import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { useForm, useFieldArray } from "react-hook-form";
+import { useFieldArray, useForm } from "react-hook-form";
+import { HiPlus, HiTrash } from "react-icons/hi2";
 
 type PlusOne = {
   firstName: string;
@@ -45,7 +45,7 @@ export default function RSVPPage() {
   const onSubmit = (data: FormData) => {
     console.log(data);
 
-  router.push("/rsvp/success");
+    router.push("/rsvp/success");
   };
 
   return (
@@ -53,12 +53,10 @@ export default function RSVPPage() {
       sx={{
         py: { xs: 14, md: 20 },
         px: 3,
-        background:
-          "linear-gradient(180deg,#faf7f2 0%,#f3efe8 100%)",
+        background: "linear-gradient(180deg,#faf7f2 0%,#f3efe8 100%)",
       }}
     >
       <Container maxWidth="sm">
-
         {/* Title */}
         <Typography
           sx={{
@@ -78,8 +76,7 @@ export default function RSVPPage() {
             height: 2,
             mx: "auto",
             mb: 10,
-            background:
-              "linear-gradient(135deg,#c89b3c,#e5c275)",
+            background: "linear-gradient(135deg,#c89b3c,#e5c275)",
           }}
         />
 
@@ -100,7 +97,6 @@ export default function RSVPPage() {
               boxShadow: "0 15px 40px rgba(0,0,0,0.08)",
             }}
           >
-
             {/* First Name */}
             <TextField
               label="First Name"
@@ -127,7 +123,6 @@ export default function RSVPPage() {
 
             {/* Attendance */}
             <Box sx={{ mt: 3 }}>
-
               <Typography
                 sx={{
                   fontFamily: "var(--font-serif)",
@@ -146,12 +141,10 @@ export default function RSVPPage() {
                 control={<Checkbox {...register("reception")} />}
                 label="Reception"
               />
-
             </Box>
 
             {/* Plus Ones */}
             <Box sx={{ mt: 4 }}>
-
               <Box
                 sx={{
                   display: "flex",
@@ -177,12 +170,10 @@ export default function RSVPPage() {
                     })
                   }
                   sx={{
-                    background:
-                      "linear-gradient(135deg,#c89b3c,#e5c275)",
+                    background: "linear-gradient(135deg,#c89b3c,#e5c275)",
                     color: "white",
                     "&:hover": {
-                      background:
-                        "linear-gradient(135deg,#b8892e,#d8b25f)",
+                      background: "linear-gradient(135deg,#b8892e,#d8b25f)",
                     },
                   }}
                 >
@@ -210,10 +201,7 @@ export default function RSVPPage() {
                     {...register(`plusOnes.${index}.lastName`)}
                   />
 
-                  <IconButton
-                    onClick={() => remove(index)}
-                    sx={{ mt: 1 }}
-                  >
+                  <IconButton onClick={() => remove(index)} sx={{ mt: 1 }}>
                     <HiTrash />
                   </IconButton>
                 </Box>
@@ -228,8 +216,7 @@ export default function RSVPPage() {
                   px: 6,
                   py: 1.5,
                   color: "white",
-                  background:
-                    "linear-gradient(135deg,#c89b3c,#e5c275)",
+                  background: "linear-gradient(135deg,#c89b3c,#e5c275)",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
                 }}
@@ -237,10 +224,8 @@ export default function RSVPPage() {
                 Send RSVP
               </Button>
             </Box>
-
           </Box>
         </motion.form>
-
       </Container>
     </Box>
   );

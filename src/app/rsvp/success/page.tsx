@@ -1,14 +1,13 @@
 "use client";
 
-import Confetti from "react-confetti";
+import { Box, Button, Container, Typography } from "@mui/material";
 import { useWindowSize } from "@react-hook/window-size";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-
-import { Box, Container, Typography, Button } from "@mui/material";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import Confetti from "react-confetti";
 
-import { HiHeart, HiEnvelope, HiChatBubbleLeftRight } from "react-icons/hi2";
+import { HiChatBubbleLeftRight, HiEnvelope, HiHeart } from "react-icons/hi2";
 
 export default function RSVPSuccess() {
   const [width, height] = useWindowSize();
@@ -30,8 +29,7 @@ export default function RSVPSuccess() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background:
-          "linear-gradient(180deg,#faf7f2 0%,#f3efe8 100%)",
+        background: "linear-gradient(180deg,#faf7f2 0%,#f3efe8 100%)",
         position: "relative",
         textAlign: "center",
         px: 3,
@@ -45,24 +43,16 @@ export default function RSVPSuccess() {
           numberOfPieces={350}
           recycle={false}
           gravity={0.15}
-          colors={[
-            "#c89b3c",
-            "#e5c275",
-            "#ffffff",
-            "#f5f0e6",
-            "#d9b46a",
-          ]}
+          colors={["#c89b3c", "#e5c275", "#ffffff", "#f5f0e6", "#d9b46a"]}
         />
       )}
 
       <Container maxWidth="sm">
-
         <motion.div
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9 }}
         >
-
           {/* Floating heart */}
           <motion.div
             animate={{ y: [-6, 6, -6] }}
@@ -100,8 +90,7 @@ export default function RSVPSuccess() {
               height: 2,
               mx: "auto",
               mb: 6,
-              background:
-                "linear-gradient(135deg,#c89b3c,#e5c275)",
+              background: "linear-gradient(135deg,#c89b3c,#e5c275)",
             }}
           />
 
@@ -132,8 +121,8 @@ export default function RSVPSuccess() {
             with the next steps and further details.
             <br />
             <br /> */}
-            We truly appreciate your patience and your kindness in
-            celebrating this special moment with us.
+            We truly appreciate your patience and your kindness in celebrating
+            this special moment with us.
           </Typography>
 
           {/* Names */}
@@ -150,7 +139,6 @@ export default function RSVPSuccess() {
 
           {/* Contact Section */}
           <Box sx={{ mb: 6 }}>
-
             <Typography
               sx={{
                 fontSize: "0.95rem",
@@ -170,7 +158,6 @@ export default function RSVPSuccess() {
                 flexWrap: "wrap",
               }}
             >
-
               {/* Email */}
               <Box
                 component="a"
@@ -204,9 +191,7 @@ export default function RSVPSuccess() {
                 <HiChatBubbleLeftRight />
                 WhatsApp
               </Box>
-
             </Box>
-
           </Box>
 
           {/* Button */}
@@ -217,23 +202,19 @@ export default function RSVPSuccess() {
               px: 6,
               py: 1.6,
               color: "white",
-              background:
-                "linear-gradient(135deg,#c89b3c,#e5c275)",
+              background: "linear-gradient(135deg,#c89b3c,#e5c275)",
               letterSpacing: "0.2em",
               textTransform: "uppercase",
               borderRadius: "4px",
 
               "&:hover": {
-                background:
-                  "linear-gradient(135deg,#b8892e,#d8b25f)",
+                background: "linear-gradient(135deg,#b8892e,#d8b25f)",
               },
             }}
           >
             Back to Website
           </Button>
-
         </motion.div>
-
       </Container>
     </Box>
   );

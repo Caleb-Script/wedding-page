@@ -1,0 +1,9 @@
+{
+  "gallery": {
+    "subtitle": "Unsere Momente",
+    "title": "Galerie",
+    "prev": "Vorheriges Bild",
+    "next": "Nächstes Bild",
+    "imageAlt": "Galeriebild {index}"
+  }
+}

@@ -1,22 +1,25 @@
-"use client";
-
-import CssBaseline from "@mui/material/CssBaseline";
-import { ThemeProvider } from "@mui/material/styles";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
 import { sans, serif } from "@/theme/fonts";
-import { theme } from "@/theme/theme";
 
 export default function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: { locale: string };
 }) {
+  const messages = getMessages();
+
   return (
-    <html lang="en" className={`${serif.className} ${sans.className}`}>
+    <html
+      className={`${serif.className} ${sans.className}`}
+      lang={params.locale}
+    >
       <body>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
+        <NextIntlClientProvider messages={messages}>
           {children}
-        </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

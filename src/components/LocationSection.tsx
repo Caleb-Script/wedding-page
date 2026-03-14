@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { Box, Container, Typography, Tabs, Tab } from "@mui/material";
+import { Box, Container, Tab, Tabs, Typography } from "@mui/material";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { HiOutlineMapPin } from "react-icons/hi2";
 
 const locations = [
@@ -38,7 +38,6 @@ export default function LocationSection() {
       }}
     >
       <Container maxWidth="lg">
-
         {/* subtitle */}
         <Typography
           sx={{
@@ -69,7 +68,7 @@ export default function LocationSection() {
         {/* Tabs */}
         <Tabs
           value={tab}
-          onChange={(e, v) => setTab(v)}
+          onChange={(_e, v) => setTab(v)}
           centered
           sx={{
             mb: 10,
@@ -189,7 +188,6 @@ export default function LocationSection() {
             </Box>
           </Box>
         </motion.div>
-
       </Container>
     </Box>
   );

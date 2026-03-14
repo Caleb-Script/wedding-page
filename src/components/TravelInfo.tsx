@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
-import { Box, Container, Grid, Typography, Tabs, Tab } from "@mui/material";
+import { Box, Container, Grid, Tab, Tabs, Typography } from "@mui/material";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 import {
-  HiOutlineTruck,
-  HiOutlineTicket,
   HiOutlineSquare3Stack3D,
+  HiOutlineTicket,
+  HiOutlineTruck,
 } from "react-icons/hi2";
 
 const ceremonyTravel = [
@@ -67,7 +67,6 @@ export default function TravelInfo() {
       }}
     >
       <Container maxWidth="lg">
-
         {/* subtitle */}
         <Typography
           sx={{
@@ -98,7 +97,7 @@ export default function TravelInfo() {
         {/* Tabs */}
         <Tabs
           value={tab}
-          onChange={(e, v) => setTab(v)}
+          onChange={(_e, v) => setTab(v)}
           centered
           sx={{
             mb: 10,
@@ -198,7 +197,6 @@ export default function TravelInfo() {
             );
           })}
         </Grid>
-
       </Container>
     </Box>
   );
