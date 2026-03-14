@@ -1,11 +1,11 @@
 "use client";
 
-import { Box, Container, Typography, keyframes } from "@mui/material";
+import { Box, Container, keyframes, Typography } from "@mui/material";
+import { format } from "date-fns";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { format } from "date-fns";
-import { HiChevronDown } from "react-icons/hi2";
 import { useEffect, useState } from "react";
+import { HiChevronDown } from "react-icons/hi2";
 
 const weddingDate = new Date(2026, 10, 21);
 
@@ -34,7 +34,7 @@ function useCountdown() {
 
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
       );
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
@@ -53,7 +53,6 @@ export default function Page() {
 
   return (
     <Box>
-
       {/* HERO */}
       <Box
         component="section"
@@ -66,7 +65,6 @@ export default function Page() {
           overflow: "hidden",
         }}
       >
-
         {/* Background Image */}
         <Box
           sx={{
@@ -155,8 +153,7 @@ export default function Page() {
               height: 1,
               mx: "auto",
               my: 3,
-              background:
-                "linear-gradient(90deg, #d4af37, #f5d76e, #d4af37)",
+              background: "linear-gradient(90deg, #d4af37, #f5d76e, #d4af37)",
             }}
           />
 
@@ -197,10 +194,14 @@ export default function Page() {
               mt: 2,
             }}
           >
-            {[days, hours, minutes, seconds].map((value, i) => {
-              const labels = ["Days", "Hours", "Minutes", "Seconds"];
+            {[
+              { label: "Days", value: days },
+              { label: "Hours", value: hours },
+              { label: "Minutes", value: minutes },
+              { label: "Seconds", value: seconds },
+            ].map((item) => {
               return (
-                <Box key={i}>
+                <Box key={item.label}>
                   <Typography
                     sx={{
                       fontFamily: "Playfair Display",
@@ -208,7 +209,7 @@ export default function Page() {
                       color: "#fff",
                     }}
                   >
-                    {value}
+                    {item.value}
                   </Typography>
 
                   <Typography
@@ -219,7 +220,7 @@ export default function Page() {
                       textTransform: "uppercase",
                     }}
                   >
-                    {labels[i]}
+                    {item.label}
                   </Typography>
                 </Box>
               );
@@ -291,8 +292,8 @@ export default function Page() {
               lineHeight: 1.8,
             }}
           >
-            Join us as we celebrate our love and begin our journey together.
-            We would be honored to have you with us on this special day.
+            Join us as we celebrate our love and begin our journey together. We
+            would be honored to have you with us on this special day.
           </Typography>
         </Container>
       </Box>

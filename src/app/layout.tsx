@@ -1,9 +1,9 @@
 "use client";
 
-import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "@mui/material/styles";
+import { lato, playfair } from "@/theme/fonts";
 import { theme } from "@/theme/theme";
-import { playfair, lato } from "@/theme/fonts";
 
 export default function RootLayout({
   children,
@@ -11,7 +11,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-        <html lang="en" className={`${playfair.style.variable} ${lato.variable}`}>
+    <html lang="en" className={`${playfair.className} ${lato.className}`}>
       <body>
         <ThemeProvider theme={theme}>
           <CssBaseline />

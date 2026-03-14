@@ -10,7 +10,7 @@ export const theme = createTheme({
       main: "#8b5cf6",
     },
   },
-    typography: {
+  typography: {
     fontFamily: "Lato, sans-serif",
 
     h1: {
