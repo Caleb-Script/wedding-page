@@ -113,5 +113,41 @@
       "venue": "White Event Palast",
       "address": "Marie-Curie-Straße 3, 73230 Kirchheim unter Teck"
     }
+  },
+  "rsvpForm": {
+    "title": "RSVP",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "attendance": "I will attend:",
+    "ceremony": "Ceremony",
+    "reception": "Reception",
+    "plusOnes": "Plus Ones",
+    "addPlusOne": "Add guest",
+    "removePlusOne": "Remove guest",
+    "submit": "Send RSVP",
+    "phone": {
+      "title": "Phone",
+      "type": "Contact Type",
+      "country": "Country",
+      "number": "Phone Number",
+      "types": {
+        "whatsapp": "WhatsApp",
+        "sms": "SMS",
+        "call": "Call"
+      },
+      "countries": {
+        "DE": "Germany",
+        "US": "United States",
+        "GB": "United Kingdom",
+        "FR": "France",
+        "IT": "Italy",
+        "ES": "Spain"
+      },
+      "errors": {
+        "invalidCountry": "Invalid country",
+        "invalidNumber": "Invalid phone number"
+      }
+    }
   }
 }

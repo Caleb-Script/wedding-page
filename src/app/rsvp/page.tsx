@@ -14,25 +14,54 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useFieldArray, useForm } from "react-hook-form";
 import { HiPlus, HiTrash } from "react-icons/hi2";
+import { useTypedTranslations } from "@/i18n/useTypedTranslations";
+import { countries } from "@/lib/countries";
+import { validatePhone } from "@/lib/phone";
 
-type PlusOne = {
-  firstName: string;
-  lastName: string;
+type PhoneType = "WHATSAPP" | "SMS" | "CALL";
+
+type PhoneNumber = {
+  phoneType: PhoneType;
+  country: string;
+  countryCode: string;
+  number: string;
 };
 
 type FormData = {
   firstName: string;
   lastName: string;
   email: string;
+
+  phone: PhoneNumber;
+
   ceremony: boolean;
   reception: boolean;
+
   plusOnes: PlusOne[];
 };
 
+type PlusOne = {
+  firstName: string;
+  lastName: string;
+};
+
 export default function RSVPPage() {
+  const t = useTypedTranslations("wedding");
   const router = useRouter();
-  const { register, handleSubmit, control } = useForm<FormData>({
+  const {
+    register,
+    handleSubmit,
+    control,
+    watch,
+    formState: { errors },
+  } = useForm<FormData>({
     defaultValues: {
+      phone: {
+        phoneType: "WHATSAPP",
+        country: "DE",
+        countryCode: "+49",
+        number: "",
+      },
       plusOnes: [],
     },
   });
@@ -66,7 +95,7 @@ export default function RSVPPage() {
             mb: 2,
           }}
         >
-          RSVP
+          {t("rsvpForm.title")}
         </Typography>
 
         {/* Divider */}
@@ -99,7 +128,7 @@ export default function RSVPPage() {
           >
             {/* First Name */}
             <TextField
-              label="First Name"
+              label={t("rsvpForm.firstName")}
               fullWidth
               margin="normal"
               {...register("firstName")}
@@ -107,7 +136,7 @@ export default function RSVPPage() {
 
             {/* Last Name */}
             <TextField
-              label="Last Name"
+              label={t("rsvpForm.lastName")}
               fullWidth
               margin="normal"
               {...register("lastName")}
@@ -115,11 +144,81 @@ export default function RSVPPage() {
 
             {/* Email */}
             <TextField
-              label="Email"
+              label={t("rsvpForm.email")}
               fullWidth
               margin="normal"
               {...register("email")}
             />
+
+            {/* Phone */}
+            <Box sx={{ mt: 3 }}>
+              <Typography
+                sx={{
+                  fontFamily: "var(--font-serif)",
+                  mb: 1,
+                }}
+              >
+                {t("rsvpForm.phone.title")}
+              </Typography>
+
+              <Box
+                sx={{
+                  display: "grid",
+                  gridTemplateColumns: { xs: "1fr", md: "120px 150px 1fr" },
+                  gap: 2,
+                }}
+              >
+                <TextField
+                  select
+                  label={t("rsvpForm.phone.type")}
+                  SelectProps={{ native: true }}
+                  {...register("phone.phoneType")}
+                >
+                  <option value="WHATSAPP">
+                    {t("rsvpForm.phone.types.whatsapp")}
+                  </option>
+                  <option value="SMS">{t("rsvpForm.phone.types.sms")}</option>
+                  <option value="CALL">{t("rsvpForm.phone.types.call")}</option>
+                </TextField>
+
+                <TextField
+                  select
+                  label={t("rsvpForm.phone.country")}
+                  SelectProps={{ native: true }}
+                  {...register("phone.country")}
+                >
+                  {countries.map((country) => (
+                    <option key={country.code} value={country.code}>
+                      {t(`rsvpForm.phone.countries.${country.code}`)} (
+                      {country.dial})
+                    </option>
+                  ))}
+                </TextField>
+
+                <TextField
+                  label={t("rsvpForm.phone.number")}
+                  error={!!errors.phone?.number}
+                  helperText={errors.phone?.number?.message}
+                  {...register("phone.number", {
+                    validate: (value) => {
+                      const selectedCountry = watch("phone.country");
+                      const country = countries.find(
+                        (c) => c.code === selectedCountry,
+                      );
+
+                      if (!country) {
+                        return t("rsvpForm.phone.errors.invalidCountry");
+                      }
+
+                      return (
+                        validatePhone(country.dial, value) ||
+                        t("rsvpForm.phone.errors.invalidNumber")
+                      );
+                    },
+                  })}
+                />
+              </Box>
+            </Box>
 
             {/* Attendance */}
             <Box sx={{ mt: 3 }}>
@@ -129,17 +228,17 @@ export default function RSVPPage() {
                   mb: 1,
                 }}
               >
-                I will attend:
+                {t("rsvpForm.attendance")}
               </Typography>
 
               <FormControlLabel
                 control={<Checkbox {...register("ceremony")} />}
-                label="Ceremony"
+                label={t("rsvpForm.ceremony")}
               />
 
               <FormControlLabel
                 control={<Checkbox {...register("reception")} />}
-                label="Reception"
+                label={t("rsvpForm.reception")}
               />
             </Box>
 
@@ -159,7 +258,7 @@ export default function RSVPPage() {
                     fontSize: "1.2rem",
                   }}
                 >
-                  Plus Ones
+                  {t("rsvpForm.plusOnes")}
                 </Typography>
 
                 <IconButton
@@ -192,12 +291,12 @@ export default function RSVPPage() {
                   }}
                 >
                   <TextField
-                    label="First Name"
+                    label={t("rsvpForm.firstName")}
                     {...register(`plusOnes.${index}.firstName`)}
                   />
 
                   <TextField
-                    label="Last Name"
+                    label={t("rsvpForm.lastName")}
                     {...register(`plusOnes.${index}.lastName`)}
                   />
 
@@ -221,7 +320,7 @@ export default function RSVPPage() {
                   textTransform: "uppercase",
                 }}
               >
-                Send RSVP
+                {t("rsvpForm.submit")}
               </Button>
             </Box>
           </Box>
