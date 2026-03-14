@@ -12,5 +12,25 @@
     "scroll": "Scroll",
     "infoTitle": "Our Wedding",
     "infoText": "Join us as we celebrate our love and begin our journey together. We would be honored to have you with us on this special day."
+  },
+  "locations": {
+    "subtitle": "The Venues",
+    "title": "Locations",
+
+    "ceremony": {
+      "tab": "Ceremony",
+      "title": "Ceremony",
+      "venue": "Katholisches Pfarramt Heilige Familie",
+      "address": "Dürllewangstraße 36, 70565 Stuttgart",
+      "description": "A beautiful church surrounded by nature in Stuttgart, providing a warm and intimate setting for the wedding ceremony."
+    },
+
+    "reception": {
+      "tab": "Reception",
+      "title": "Reception",
+      "venue": "White Event Palast",
+      "address": "Marie-Curie-Straße 3, 73230 Kirchheim unter Teck",
+      "description": "An elegant event palace with luxurious décor and a grand ballroom — the perfect place to celebrate the evening together."
+    }
   }
 }

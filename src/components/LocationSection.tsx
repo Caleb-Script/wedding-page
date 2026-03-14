@@ -4,29 +4,28 @@ import { Box, Container, Tab, Tabs, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { HiOutlineMapPin } from "react-icons/hi2";
-
-const locations = [
-  {
-    title: "Ceremony",
-    venue: "Katholisches Pfarramt Heilige Familie",
-    address: "Dürllewangstraße 36, 70565 Stuttgart",
-    description:
-      "A beautiful church surrounded by nature in Stuttgart, providing a warm and intimate setting for the wedding ceremony.",
-    mapQuery: "Heilige+Familie+Stuttgart",
-  },
-  {
-    title: "Reception",
-    venue: "White Event Palast",
-    address: "Marie-Curie-Straße 3, 73230 Kirchheim unter Teck",
-    description:
-      "An elegant event palace with luxurious décor and a grand ballroom — the perfect place to celebrate the evening together.",
-    mapQuery: "White+Event+Palast+Kirchheim+unter+Teck",
-  },
-];
+import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 
 export default function LocationSection() {
+  const t = useTypedTranslations("wedding");
   const [tab, setTab] = useState(0);
-  const location = locations[tab];
+
+  const location =
+    tab === 0
+      ? {
+          title: t("locations.ceremony.title"),
+          venue: t("locations.ceremony.venue"),
+          address: t("locations.ceremony.address"),
+          description: t("locations.ceremony.description"),
+          mapQuery: "Heilige+Familie+Stuttgart",
+        }
+      : {
+          title: t("locations.reception.title"),
+          venue: t("locations.reception.venue"),
+          address: t("locations.reception.address"),
+          description: t("locations.reception.description"),
+          mapQuery: "White+Event+Palast+Kirchheim+unter+Teck",
+        };
 
   return (
     <Box
@@ -49,7 +48,7 @@ export default function LocationSection() {
             mb: 2,
           }}
         >
-          The Venues
+          {t("locations.subtitle")}
         </Typography>
 
         {/* title */}
@@ -62,7 +61,7 @@ export default function LocationSection() {
             mb: 4,
           }}
         >
-          Locations
+          {t("locations.title")}
         </Typography>
 
         {/* Tabs */}
@@ -79,7 +78,7 @@ export default function LocationSection() {
           }}
         >
           <Tab
-            label="Ceremony"
+            label={t("locations.ceremony.tab")}
             sx={{
               fontFamily: "var(--font-serif)",
               textTransform: "none",
@@ -88,7 +87,7 @@ export default function LocationSection() {
           />
 
           <Tab
-            label="Reception"
+            label={t("locations.reception.tab")}
             sx={{
               fontFamily: "var(--font-serif)",
               textTransform: "none",

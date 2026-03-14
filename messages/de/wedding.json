@@ -1,9 +1,36 @@
 {
+  "hero": {
+    "subtitle": "Wir heiraten",
+    "quote": "Wir haben eine Liebe gefunden, die sich wie Zuhause anfühlt.",
+    "scroll": "Scrollen",
+    "infoTitle": "Unsere Hochzeit",
+    "infoText": "Feiere mit uns unsere Liebe und den Beginn unseres gemeinsamen Weges. Wir würden uns sehr freuen, diesen besonderen Tag mit dir zu teilen."
+  },
   "gallery": {
     "subtitle": "Unsere Momente",
     "title": "Galerie",
     "prev": "Vorheriges Bild",
     "next": "Nächstes Bild",
     "imageAlt": "Galeriebild {index}"
+  },
+  "locations": {
+    "subtitle": "Die Locations",
+    "title": "Orte",
+
+    "ceremony": {
+      "tab": "Trauung",
+      "title": "Trauung",
+      "venue": "Katholisches Pfarramt Heilige Familie",
+      "address": "Dürllewangstraße 36, 70565 Stuttgart",
+      "description": "Eine wunderschöne Kirche in Stuttgart, die eine warme und intime Atmosphäre für unsere Trauung bietet."
+    },
+
+    "reception": {
+      "tab": "Feier",
+      "title": "Feier",
+      "venue": "White Event Palast",
+      "address": "Marie-Curie-Straße 3, 73230 Kirchheim unter Teck",
+      "description": "Ein eleganter Veranstaltungssaal mit luxuriösem Ambiente – der perfekte Ort, um gemeinsam den Abend zu feiern."
+    }
   }
 }
