@@ -5,8 +5,11 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 
+  const EVENT_ID = process.env.NEXT_PUBLIC_EVENT_ID || "6d650ee6-8ed0-4694-afd4-71871c37683a";
+
 export default function RSVPSection() {
   const t = useTypedTranslations("wedding");
+
 
   return (
     <Box
@@ -96,7 +99,7 @@ export default function RSVPSection() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
               <Button
                 component={Link}
-                href="/rsvp"
+                href={`https://checkpoint.omnixys.com/rsvp?eventId=${EVENT_ID}`}
                 sx={{
                   px: 6,
                   py: 1.8,
