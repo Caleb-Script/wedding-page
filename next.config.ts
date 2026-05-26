@@ -5,6 +5,25 @@ const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
 
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "minio.omnixys.com",
+      },
+
+      {
+        protocol: "https",
+        hostname: "s3.omnixys.com",
+      },
+
+      {
+        protocol: "https",
+        hostname: "cdn.omnixys.com",
+      },
+    ],
+  },
+
   // typescript: {
   //   ignoreBuildErrors: true,
   // },

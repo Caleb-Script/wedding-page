@@ -1,86 +1,29 @@
 "use client";
 
-import {
-  Box,
-  CircularProgress,
-  Container,
-  IconButton,
-  Typography,
-} from "@mui/material";
-
+import { Box, Container, IconButton, Typography } from "@mui/material";
 import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
-
+import { useCallback } from "react";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
-
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 
-type GalleryImage = {
-  id: string;
-  url: string;
-};
+const images = [
+  { key: 1, image: "/gallery-1.jpg" },
+  { key: 2, image: "/gallery-2.jpg" },
+  { key: 3, image: "/gallery-3.jpg" },
+  { key: 4, image: "/gallery-4.jpg" },
+];
 
 export default function Gallery() {
   const t = useTypedTranslations("wedding");
-
-  const [images, setImages] = useState<GalleryImage[]>([]);
-  const [loading, setLoading] = useState(true);
-
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: "center",
   });
 
-  useEffect(() => {
-    const loadImages = async () => {
-      try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/gallery`,
-          {
-            cache: "no-store",
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error("Failed to load gallery images");
-        }
-
-        const data: GalleryImage[] = await response.json();
-
-        setImages(data);
-      } catch (error) {
-        console.error("[Gallery] Failed to fetch images", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadImages();
-  }, []);
-
-  const scrollPrev = useCallback(() => {
-    emblaApi?.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    emblaApi?.scrollNext();
-  }, [emblaApi]);
-
-  if (loading) {
-    return (
-      <Box
-        sx={{
-          py: 20,
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <CircularProgress />
-      </Box>
-    );
-  }
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
   return (
     <Box
@@ -138,7 +81,7 @@ export default function Gallery() {
           transition={{ duration: 0.8 }}
         >
           <Box sx={{ position: "relative" }}>
-            {/* viewport */}
+            {/* Embla viewport */}
             <Box
               ref={emblaRef}
               sx={{
@@ -149,7 +92,7 @@ export default function Gallery() {
               <Box sx={{ display: "flex" }}>
                 {images.map((image) => (
                   <Box
-                    key={image.id}
+                    key={image.key}
                     sx={{
                       flex: {
                         xs: "0 0 85%",
@@ -161,24 +104,17 @@ export default function Gallery() {
                     <Box
                       sx={{
                         position: "relative",
-                        height: { xs: 420, md: 720 },
+                        height: { xs: 280, md: 500 },
                         borderRadius: "14px",
                         overflow: "hidden",
                         boxShadow: "0 12px 35px rgba(0,0,0,0.12)",
                       }}
                     >
                       <Image
-                        src={image.url}
-                        alt={t("gallery.imageAlt", {
-                          index: Number(image.id),
-                        })}
+                        src={image.image}
+                        alt={t("gallery.imageAlt", { index: image.key })}
                         fill
-                        priority
-                        sizes="(max-width: 768px) 85vw, 60vw"
-                        style={{
-                          objectFit: "cover",
-                          objectPosition: "center top",
-                        }}
+                        style={{ objectFit: "cover" }}
                       />
                     </Box>
                   </Box>
@@ -186,7 +122,7 @@ export default function Gallery() {
               </Box>
             </Box>
 
-            {/* left */}
+            {/* left button */}
             <IconButton
               onClick={scrollPrev}
               aria-label={t("gallery.prev")}
@@ -212,7 +148,7 @@ export default function Gallery() {
               <HiChevronLeft />
             </IconButton>
 
-            {/* right */}
+            {/* right button */}
             <IconButton
               onClick={scrollNext}
               aria-label={t("gallery.next")}
