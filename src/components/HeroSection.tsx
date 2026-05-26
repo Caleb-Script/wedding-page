@@ -64,6 +64,27 @@ export default function Page() {
   const dateLocale = locale === "de" ? de : enUS;
   const t = useTypedTranslations("wedding");
   const { days, hours, minutes, seconds } = useCountdown();
+  const [heroImage, setHeroImage] = useState("");
+
+  useEffect(() => {
+  const loadHero = async () => {
+    try {
+      const response = await fetch("/api/hero");
+
+      if (!response.ok) {
+        throw new Error("Failed to load hero image");
+      }
+
+      const data = await response.json();
+
+      setHeroImage(data.url);
+    } catch (error) {
+      console.error("[Hero]", error);
+    }
+  };
+
+  loadHero();
+}, []);
 
   return (
     <Box>
@@ -138,15 +159,19 @@ export default function Page() {
             animation: `${zoom} 30s ease-in-out infinite alternate`,
           }}
         >
-          <Image
-            src="/hero-bg.jpg"
-            alt={t("hero.backgroundAlt")}
-            fill
-            priority
-            style={{
-              objectFit: "cover",
-            }}
-          />
+{heroImage && (
+  <Image
+    src={heroImage}
+    alt={t("hero.backgroundAlt")}
+    fill
+    priority
+    unoptimized
+    style={{
+      objectFit: "cover",
+      objectPosition: "center top",
+    }}
+  />
+)}
         </Box>
 
         {/* Overlay */}
