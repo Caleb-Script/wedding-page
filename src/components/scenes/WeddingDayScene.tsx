@@ -16,7 +16,7 @@ export default function WeddingDayScene() {
       tone="deep"
     >
       <WeddingDetailsBeat embedded />
-      <WeddingDayTimeline embedded />
+      {/* <WeddingDayTimeline embedded /> */}
     </ChapterScene>
   );
 }
