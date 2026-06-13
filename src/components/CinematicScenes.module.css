@@ -1745,6 +1745,16 @@
   }
 }
 
+@media (hover: none) {
+  .timelineCard:hover .timelineCardInner {
+    transform: none;
+  }
+
+  .timelineCardActive:hover .timelineCardInner {
+    transform: rotateY(180deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .detailPanel,
   .galleryImage img,

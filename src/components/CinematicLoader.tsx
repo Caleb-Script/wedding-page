@@ -23,7 +23,10 @@ export default function CinematicLoader({ onComplete }: CinematicLoaderProps) {
     let completionTimeout = 0;
 
     const tick = (time: number) => {
-      const nextProgress = Math.min(100, ((time - startedAt) / duration) * 100);
+      const nextProgress = Math.min(
+        100,
+        Math.max(0, ((time - startedAt) / duration) * 100),
+      );
       setProgress(nextProgress);
 
       if (nextProgress < 100) {
@@ -108,21 +111,19 @@ export default function CinematicLoader({ onComplete }: CinematicLoaderProps) {
             width: { xs: 206, sm: 220 },
           }}
         >
-
-           <CircularProgress
-            size={220}
+          <CircularProgress
+            aria-label={t("loader.preparing")}
+            size={120}
             min={0}
             max={100}
-            thickness={1.2}
+            thickness={0.7}
             value={progress}
             variant="determinate"
             enableTrackSlot
             sx={{
-
               "& .MuiCircularProgress-track": {
                 stroke: "rgba(255,255,255,.12)",
               },
-
               "& .MuiCircularProgress-circle": {
                 stroke: "#d8b879",
               },
@@ -154,7 +155,7 @@ export default function CinematicLoader({ onComplete }: CinematicLoaderProps) {
                   fontFamily: "var(--font-serif)",
                   fontSize: { xs: "2.65rem", sm: "3.2rem" },
                   fontStyle: "italic",
-                  fontWeight: 400,
+                  fontWeight: 200,
                   letterSpacing: "-0.045em",
                   lineHeight: 1,
                 }}
@@ -183,7 +184,7 @@ export default function CinematicLoader({ onComplete }: CinematicLoaderProps) {
             sx={{
               color: "rgba(255,255,255,.48)",
               fontFamily: "var(--font-sans)",
-              fontSize: "0.96rem",
+              fontSize: "0.66rem",
               fontWeight: 700,
               letterSpacing: "0.28em",
               lineHeight: 1.6,
@@ -192,20 +193,6 @@ export default function CinematicLoader({ onComplete }: CinematicLoaderProps) {
             }}
           >
             {t("loader.preparing")}
-          </Typography>
-
-          <Typography
-            sx={{
-              mt: 1.5,
-              color: "rgba(255,255,255,.32)",
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.68rem",
-              fontVariantNumeric: "tabular-nums",
-              fontWeight: 500,
-              letterSpacing: "0.24em",
-            }}
-          >
-            {Math.round(progress).toString().padStart(3, "0")}%
           </Typography>
         </motion.div>
       </Box>

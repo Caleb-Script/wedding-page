@@ -192,11 +192,6 @@
   background: rgba(255, 255, 255, 0.22);
 }
 
-.languageButton {
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
-}
-
 .credit {
   position: absolute;
   z-index: 8;
@@ -619,6 +614,29 @@
 
   .glassPanel {
     margin-top: 24px;
+  }
+}
+
+@media (max-width: 768px) and (max-height: 740px) {
+  .eyebrow {
+    margin-bottom: 12px;
+  }
+
+  .title {
+    font-size: clamp(3.2rem, 16vw, 4.6rem);
+  }
+
+  .quote {
+    margin-top: 14px;
+    font-size: 0.92rem;
+  }
+
+  .dateLine {
+    margin-top: 12px;
+  }
+
+  .glassPanel {
+    margin-top: 16px;
   }
 }
 

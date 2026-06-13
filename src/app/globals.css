@@ -15,6 +15,7 @@ body {
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
   color-scheme: dark;
 }
 
@@ -25,6 +26,10 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body.experience-loading {
+  overflow-y: hidden;
 }
 
 main {

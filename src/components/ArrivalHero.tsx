@@ -1,6 +1,5 @@
 "use client";
 
-import { Fab } from "@mui/material";
 import { format } from "date-fns";
 import { de, enUS, it } from "date-fns/locale";
 import {
@@ -17,6 +16,9 @@ import { CINEMATIC_EASE } from "@/components/CinematicMotion";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 import styles from "./ArrivalHero.module.css";
+import { HERO_MEDIA_READY_EVENT } from "./cinematicEvents";
+import { SplitReveal } from "./SplitReveal";
+import { Stack } from "@mui/material";
 
 const weddingDate = new Date(2026, 10, 21);
 
@@ -98,6 +100,10 @@ export default function ArrivalHero() {
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  const announceMediaReady = () => {
+    window.dispatchEvent(new Event(HERO_MEDIA_READY_EVENT));
+  };
+
   return (
     <div className={styles.root}>
       <section
@@ -118,9 +124,12 @@ export default function ArrivalHero() {
             muted
             onCanPlay={(event) => {
               setVideoReady(true);
+              announceMediaReady();
               event.currentTarget.play().catch(() => undefined);
             }}
+            onError={announceMediaReady}
             playsInline
+            poster="/hero-bg.jpg"
             preload="auto"
           >
             <source
@@ -165,24 +174,7 @@ export default function ArrivalHero() {
             <span className={styles.sceneChipDate}>21 · 11 · 26</span>
           </div>
 
-          <Fab
-            aria-label="language"
-            className={styles.languageButton}
-            sx={{
-              width: 46,
-              minWidth: 46,
-              height: 46,
-              color: "#fff",
-              border: "1px solid rgba(255, 255, 255, 0.15)",
-              background: "rgba(8, 10, 13, 0.28)",
-              boxShadow: "inset 0 1px rgba(255, 255, 255, 0.12)",
-              "&:hover": {
-                background: "rgba(20, 21, 24, 0.52)",
-              },
-            }}
-          >
-            <LanguageSwitcher />
-          </Fab>
+          <LanguageSwitcher />
         </div>
 
         <div className={styles.credit}>
@@ -222,9 +214,18 @@ export default function ArrivalHero() {
             }}
           >
             <h1 className={styles.title}>
-              <span>Caleb</span>
+              <Stack 
+              direction="column" 
+              spacing={0.5} 
+              sx={{ 
+                alignItems:"center",
+                justifyContent: "center"
+                }}
+                >
+             <SplitReveal direction="down" delay={3}>Caleb</SplitReveal>
               <span className={styles.ampersand}>&</span>
-              <span>Rachel</span>
+              <SplitReveal direction="up" delay={3.5}>Rachel</SplitReveal>
+              </Stack>
             </h1>
           </motion.div>
 

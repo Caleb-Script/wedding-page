@@ -16,6 +16,8 @@ function detectLocaleFromHeader(header: string | null): Locale {
   const lang = header.toLowerCase();
 
   if (lang.startsWith("en")) return "en-US";
+  if (lang.startsWith("it")) return "it-IT";
+  if (lang.startsWith("ak")) return "ak-GH";
 
   return "de-DE";
 }

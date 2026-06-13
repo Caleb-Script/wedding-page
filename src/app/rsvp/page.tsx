@@ -179,7 +179,7 @@ export default function RSVPPage() {
                 <TextField
                   select
                   label={t("rsvpForm.phone.type")}
-                  SelectProps={{ native: true }}
+                  slotProps={{ select: { native: true } }}
                   {...register("phone.phoneType")}
                 >
                   <option value="WHATSAPP">
@@ -192,7 +192,7 @@ export default function RSVPPage() {
                 <TextField
                   select
                   label={t("rsvpForm.phone.country")}
-                  SelectProps={{ native: true }}
+                  slotProps={{ select: { native: true } }}
                   {...register("phone.country")}
                 >
                   {countries.map((country) => (

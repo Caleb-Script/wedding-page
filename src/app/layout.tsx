@@ -1,6 +1,6 @@
 /** biome-ignore-all lint/suspicious/noExplicitAny: any in use */
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getLocale, getMessages } from "next-intl/server";
 import Provider from "@/app/provider";
 import { sans, serif } from "@/theme/fonts";
 import "./globals.css";
@@ -11,9 +11,10 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const messages = await getMessages();
+  const locale = await getLocale();
 
   return (
-    <html className={`${serif.variable} ${sans.variable}`} lang="de">
+    <html className={`${serif.variable} ${sans.variable}`} lang={locale}>
       <body>
         <NextIntlClientProvider messages={messages}>
           <Provider>{children}</Provider>

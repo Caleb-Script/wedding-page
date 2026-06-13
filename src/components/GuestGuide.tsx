@@ -2,6 +2,7 @@
 
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import { motion } from "framer-motion";
+import type { KeyboardEvent } from "react";
 import { useState } from "react";
 import { HiMinus, HiPlus } from "react-icons/hi2";
 import { CINEMATIC_EASE } from "@/components/CinematicMotion";
@@ -44,6 +45,36 @@ export default function GuestGuide({ embedded = false }: GuestGuideProps) {
     useState<(typeof categories)[number]["id"]>("general");
   const [openItem, setOpenItem] = useState<string | null>("dressCode");
   const activeCategory = categories.find((item) => item.id === category);
+  const selectCategory = (index: number) => {
+    const nextCategory = categories[index];
+    setCategory(nextCategory.id);
+    setOpenItem(nextCategory.items[0]);
+  };
+  const handleCategoryKeyDown = (
+    event: KeyboardEvent<HTMLButtonElement>,
+    index: number,
+  ) => {
+    const lastIndex = categories.length - 1;
+    let nextIndex = index;
+
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      nextIndex = index === lastIndex ? 0 : index + 1;
+    } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      nextIndex = index === 0 ? lastIndex : index - 1;
+    } else if (event.key === "Home") {
+      nextIndex = 0;
+    } else if (event.key === "End") {
+      nextIndex = lastIndex;
+    } else {
+      return;
+    }
+
+    event.preventDefault();
+    selectCategory(nextIndex);
+    document
+      .getElementById(`faq-category-${categories[nextIndex].id}`)
+      ?.focus();
+  };
 
   const Root = embedded ? "div" : "section";
 
@@ -69,16 +100,17 @@ export default function GuestGuide({ embedded = false }: GuestGuideProps) {
           >
             {categories.map((item, index) => (
               <button
+                aria-controls="faq-category-panel"
                 aria-selected={category === item.id}
                 className={`${styles.faqCategory} ${
                   category === item.id ? styles.faqCategoryActive : ""
                 }`}
+                id={`faq-category-${item.id}`}
                 key={item.id}
-                onClick={() => {
-                  setCategory(item.id);
-                  setOpenItem(item.items[0]);
-                }}
+                onClick={() => selectCategory(index)}
+                onKeyDown={(event) => handleCategoryKeyDown(event, index)}
                 role="tab"
+                tabIndex={category === item.id ? 0 : -1}
                 type="button"
               >
                 <span>{String(index + 1).padStart(2, "0")}</span>
@@ -89,9 +121,12 @@ export default function GuestGuide({ embedded = false }: GuestGuideProps) {
 
           <motion.div
             animate={{ opacity: 1, y: 0 }}
+            aria-labelledby={`faq-category-${category}`}
             className={styles.faqList}
+            id="faq-category-panel"
             initial={{ opacity: 0, y: 20 }}
             key={category}
+            role="tabpanel"
             transition={{ duration: 0.55, ease: CINEMATIC_EASE }}
           >
             {activeCategory?.items.map((item, index) => {

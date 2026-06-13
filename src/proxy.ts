@@ -1,9 +1,13 @@
 import { type NextRequest, NextResponse } from "next/server";
 
-const SUPPORTED_LOCALES = ["de-DE", "en-US"] as const;
+const SUPPORTED_LOCALES = ["de-DE", "en-US", "it-IT", "ak-GH"] as const;
 const DEFAULT_LOCALE = "de-DE";
 
 type Locale = (typeof SUPPORTED_LOCALES)[number];
+
+function isLocale(value: string | undefined): value is Locale {
+  return SUPPORTED_LOCALES.includes(value as Locale);
+}
 
 function detectLocale(header: string | null): Locale {
   if (!header) return DEFAULT_LOCALE;
@@ -38,13 +42,9 @@ export function proxy(req: NextRequest) {
 
   // console.log({cookieLocale});
 
-  if (!cookieLocale) {
+  if (!isLocale(cookieLocale)) {
     const header = req.headers.get("accept-language");
     const locale = detectLocale(header);
-
-    //  console.log({header});
-
-    console.log("Detected locale:", locale);
 
     res.cookies.set("locale", locale, {
       path: "/",
@@ -52,15 +52,7 @@ export function proxy(req: NextRequest) {
     });
   }
 
-  const header = req.headers.get("accept-language");
-  const pathLocale = path.split("/")[1];
-
-  console.log("-----------");
-  console.log("Path:", path);
-  console.log("URL locale:", pathLocale);
-  console.log("Cookie locale:", cookieLocale);
-  console.log("Accept-Language:", header);
-  console.log("-----------");
+  return res;
 }
 
 export const config = {

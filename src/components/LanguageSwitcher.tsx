@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu, MenuItem, Stack, Typography } from "@mui/material";
+import { Fab, Menu, MenuItem, Stack, Typography } from "@mui/material";
 import { CheckIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useLocale } from "next-intl";
@@ -37,56 +37,67 @@ export default function LanguageSwitcher() {
 
   return (
     <>
-      <Stack
-        direction="row"
-        spacing={1}
-        alignItems="center"
+      <Fab
+        aria-controls={open ? "language-menu" : undefined}
         aria-expanded={open}
+        aria-label="language"
         aria-haspopup="menu"
         onClick={handleOpen}
         sx={{
-          cursor: "pointer",
-          px: 1,
+          width: 46,
+          minWidth: 46,
+          height: 46,
+          color: "#fff",
+          border: "1px solid rgba(255, 255, 255, 0.15)",
+          background: "rgba(8, 10, 13, 0.28)",
+          boxShadow: "inset 0 1px rgba(255, 255, 255, 0.12)",
+          backdropFilter: "blur(18px) saturate(140%)",
+          "&:hover": {
+            background: "rgba(20, 21, 24, 0.52)",
+          },
         }}
       >
         <Typography
-          fontSize={14}
-          fontWeight={600}
           sx={{
-            letterSpacing: "0.05em",
             color: "inherit",
+            fontSize: 14,
+            fontWeight: 600,
+            letterSpacing: "0.05em",
           }}
         >
           {locale.slice(0, 2).toUpperCase()}
         </Typography>
-      </Stack>
+      </Fab>
 
       <Menu
         anchorEl={anchorEl}
+        id="language-menu"
         open={open}
         onClose={handleClose}
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
         transformOrigin={{ vertical: "top", horizontal: "right" }}
-        PaperProps={{
-          sx: {
-            mt: 1.5,
-            minWidth: 190,
-            borderRadius: 2,
-            color: "rgba(255,255,255,.78)",
-            backdropFilter: "blur(24px) saturate(140%)",
-            background: "rgba(9,10,12,.9)",
-            border: "1px solid rgba(255,255,255,.12)",
-            boxShadow: "0 22px 70px rgba(0,0,0,.48)",
-            overflow: "hidden",
-            "& .MuiMenuItem-root": {
-              minHeight: 48,
-              mx: 0.5,
-              my: 0.25,
-              borderRadius: 1.5,
-              transition: "background 180ms ease",
-            },
-            "& .MuiMenuItem-root:hover": {
-              background: "rgba(216,184,121,.1)",
+        slotProps={{
+          paper: {
+            sx: {
+              mt: 1.5,
+              minWidth: 190,
+              borderRadius: 2,
+              color: "rgba(255,255,255,.78)",
+              backdropFilter: "blur(24px) saturate(140%)",
+              background: "rgba(9,10,12,.9)",
+              border: "1px solid rgba(255,255,255,.12)",
+              boxShadow: "0 22px 70px rgba(0,0,0,.48)",
+              overflow: "hidden",
+              "& .MuiMenuItem-root": {
+                minHeight: 48,
+                mx: 0.5,
+                my: 0.25,
+                borderRadius: 1.5,
+                transition: "background 180ms ease",
+              },
+              "& .MuiMenuItem-root:hover": {
+                background: "rgba(216,184,121,.1)",
+              },
             },
           },
         }}
@@ -96,10 +107,13 @@ export default function LanguageSwitcher() {
             <Stack
               direction="row"
               spacing={1}
-              alignItems="center"
-              sx={{ width: "100%", justifyContent: "space-between" }}
+              sx={{
+                width: "100%",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
             >
-              <Typography fontSize={14}>
+              <Typography sx={{ fontSize: 14 }}>
                 {l.flag} {l.label}
               </Typography>
               {activeLocale?.code === l.code && (

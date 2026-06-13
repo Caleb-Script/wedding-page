@@ -47,7 +47,8 @@
   },
   "quote": {
     "line1": "Zwei Seelen mit nur einem Gedanken,",
-    "line2": "Zwei Herzen, die im gleichen Takt schlagen."
+    "line2": "Zwei Herzen, die im gleichen Takt schlagen.",
+    "text": "Zwei Seelen mit nur einem Gedanken,\nZwei Herzen, die im gleichen Takt schlagen."
   },
   "rsvp": {
     "subtitle": "Feiere mit uns",

@@ -23,7 +23,7 @@ export default function WeddingFooter() {
         whileInView={{ opacity: 1, y: 0 }}
       >
         <div className={styles.footerMonogram} aria-hidden="true">
-          C + R
+          #CGR
         </div>
         <p className={styles.footerNames}>Caleb & Rachel</p>
         <p className={styles.footerDate}>

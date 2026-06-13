@@ -112,7 +112,7 @@ export default function MemoryGallery({
         >
           <div className={styles.galleryViewport} ref={emblaRef}>
             <div className={styles.galleryTrack}>
-              {images.map((image, index) => (
+              {images.map((image) => (
                 <div className={styles.gallerySlide} key={image.id}>
                   <div className={styles.galleryImage}>
                     <Image
@@ -120,8 +120,7 @@ export default function MemoryGallery({
                         index: Number(image.id),
                       })}
                       fill
-                      loading={index === 0 ? "eager" : "lazy"}
-                      priority={index === 0}
+                      loading="lazy"
                       sizes="(max-width: 900px) 88vw, 72vw"
                       src={image.url}
                       style={{
