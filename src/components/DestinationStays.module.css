@@ -12,8 +12,7 @@
       circle at 12% 20%,
       rgba(216, 184, 121, 0.1),
       transparent 28%
-    ),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.025), transparent 58%),
+    ), linear-gradient(135deg, rgba(255, 255, 255, 0.025), transparent 58%),
     #08090a;
   grid-template-columns:
     minmax(120px, 0.4fr) minmax(0, 1.15fr)
@@ -51,6 +50,7 @@
 
 .hotelShowcaseHeader {
   margin-bottom: clamp(28px, 4vw, 54px);
+  justify-content: space-between;
 }
 
 .hotelShowcaseCopy {
@@ -74,6 +74,7 @@
 }
 
 .hotelShowcaseControls {
+  align-items: center;
   flex: 0 0 auto;
 }
 
@@ -138,8 +139,7 @@
   border-radius: 0;
   color: #f2ede4;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.03), transparent 60%),
-    #0a0a0b;
+    linear-gradient(145deg, rgba(255, 255, 255, 0.03), transparent 60%), #0a0a0b;
   box-shadow: 0 32px 90px rgba(0, 0, 0, 0.3);
   flex-direction: column;
   transition:

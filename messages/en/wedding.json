@@ -111,6 +111,12 @@
       "title": "Arrive. Exhale. Stay.",
       "description": "For guests travelling from further away, we have selected a few nearby hotels where you can feel at home before and after our celebration."
     },
+    "showcase": {
+      "count": "{count} places to stay",
+      "title": "Explore our selected hotels",
+      "previous": "Show previous hotels",
+      "next": "Show next hotels"
+    },
     "mapView": {
       "eyebrow": "Orientation",
       "title": "Your journey through our day.",
@@ -131,9 +137,14 @@
     "celebrationDistance": "To celebration",
     "travelTime": "Travel time",
     "tags": {
+      "airport": "Near airport",
+      "betweenLocations": "Between venues",
       "recommended": "Recommended",
       "familyFriendly": "Family friendly",
       "central": "City centre",
+      "nearCeremony": "Near ceremony",
+      "parking": "Parking",
+      "publicTransport": "Public transport",
       "shuttlePossible": "Shuttle possible",
       "budget": "Budget",
       "premium": "Premium"

@@ -110,6 +110,12 @@
       "title": "Du ha. Home. Tena.",
       "description": "Yɛn ahɔho a wofi akyirikyiri ba no, yɛapaw ahɔhodan bi a ɛbɛn a mubetumi anya ahotɔ ansa na anigyede no afi ase ne akyi."
     },
+    "showcase": {
+      "count": "Atenae {count}",
+      "title": "Hwɛ ahɔhodan a yɛapaw",
+      "previous": "Kyerɛ ahɔhodan a edi kan",
+      "next": "Kyerɛ ahɔhodan a edi hɔ"
+    },
     "mapView": {
       "eyebrow": "Kwan Kyerɛ",
       "title": "Mo kwan wɔ yɛn da no mu.",
@@ -130,9 +136,14 @@
     "celebrationDistance": "Kɔ anigyede no",
     "travelTime": "Akwantu bere",
     "tags": {
+      "airport": "Ɛbɛn wiem hyɛn gyinabea",
+      "betweenLocations": "Ɛda mmeae no ntam",
       "recommended": "Yɛkamfo kyerɛ",
       "familyFriendly": "Ɛfata abusua",
       "central": "Kuropɔn mfinimfini",
+      "nearCeremony": "Ɛbɛn aware dwuma no",
+      "parking": "Kar gyinabea",
+      "publicTransport": "Bɔs ne keteke kwan",
       "shuttlePossible": "Shuttle betumi aba",
       "budget": "Bo yɛ papa",
       "premium": "Fɛfɛɛfɛ"

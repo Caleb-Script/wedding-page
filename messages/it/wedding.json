@@ -110,6 +110,12 @@
       "title": "Arrivare. Respirare. Restare.",
       "description": "Per gli ospiti che arrivano da più lontano abbiamo selezionato alcuni hotel nei dintorni, dove sentirsi a casa prima e dopo la nostra festa."
     },
+    "showcase": {
+      "count": "{count} strutture",
+      "title": "Scoprite gli hotel selezionati",
+      "previous": "Mostra gli hotel precedenti",
+      "next": "Mostra gli hotel successivi"
+    },
     "mapView": {
       "eyebrow": "Orientamento",
       "title": "Il vostro viaggio nel nostro giorno.",
@@ -130,9 +136,14 @@
     "celebrationDistance": "Dal ricevimento",
     "travelTime": "Tempo di viaggio",
     "tags": {
+      "airport": "Vicino all'aeroporto",
+      "betweenLocations": "Tra le location",
       "recommended": "Consigliato",
       "familyFriendly": "Per famiglie",
       "central": "Centro città",
+      "nearCeremony": "Vicino alla cerimonia",
+      "parking": "Parcheggio",
+      "publicTransport": "Trasporto pubblico",
       "shuttlePossible": "Navetta possibile",
       "budget": "Budget",
       "premium": "Premium"

@@ -119,11 +119,12 @@ function HotelShowcase() {
 
   const [page, setPage] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const safePage = page % totalPages;
 
   const visibleHotels = useMemo(() => {
-    const start = page * cardsPerPage;
+    const start = safePage * cardsPerPage;
     return RECOMMENDED_HOTELS.slice(start, start + cardsPerPage);
-  }, [cardsPerPage, page]);
+  }, [cardsPerPage, safePage]);
 
   const goToPage = useCallback(
     (nextPage: number) => {
@@ -133,16 +134,12 @@ function HotelShowcase() {
   );
 
   const goNext = useCallback(() => {
-    goToPage(page + 1);
-  }, [goToPage, page]);
+    goToPage(safePage + 1);
+  }, [goToPage, safePage]);
 
   const goPrev = useCallback(() => {
-    goToPage(page - 1);
-  }, [goToPage, page]);
-
-  useEffect(() => {
-    setPage(0);
-  }, [cardsPerPage]);
+    goToPage(safePage - 1);
+  }, [goToPage, safePage]);
 
   useEffect(() => {
     if (reduceMotion || isPaused || totalPages <= 1) return;
@@ -152,7 +149,7 @@ function HotelShowcase() {
     }, AUTO_ADVANCE_MS);
 
     return () => window.clearTimeout(timeout);
-  }, [isPaused, page, reduceMotion, totalPages]);
+  }, [isPaused, reduceMotion, totalPages]);
 
   return (
     <Box
@@ -167,27 +164,27 @@ function HotelShowcase() {
       <Stack
         className={hotelStyles.hotelShowcaseHeader}
         direction={{ xs: "column", md: "row" }}
-        justifyContent="space-between"
         spacing={3}
       >
         <Box className={hotelStyles.hotelShowcaseCopy}>
           <Typography className={hotelStyles.hotelShowcaseEyebrow}>
-            {String(RECOMMENDED_HOTELS.length).padStart(2, "0")} Unterkünfte
+            {t("accommodation.showcase.count", {
+              count: String(RECOMMENDED_HOTELS.length).padStart(2, "0"),
+            })}
           </Typography>
 
           <Typography className={hotelStyles.hotelShowcaseTitle} component="h3">
-            <WordReveal>Ausgewählte Hotels entdecken</WordReveal>
+            <WordReveal>{t("accommodation.showcase.title")}</WordReveal>
           </Typography>
         </Box>
 
         <Stack
-          alignItems="center"
           className={hotelStyles.hotelShowcaseControls}
           direction="row"
           spacing={1.25}
         >
           <IconButton
-            aria-label="Vorherige Hotels anzeigen"
+            aria-label={t("accommodation.showcase.previous")}
             className={hotelStyles.hotelShowcaseButton}
             disabled={totalPages <= 1}
             onClick={goPrev}
@@ -199,12 +196,12 @@ function HotelShowcase() {
             aria-live="polite"
             className={hotelStyles.hotelShowcasePage}
           >
-            {String(page + 1).padStart(2, "0")} /{" "}
+            {String(safePage + 1).padStart(2, "0")} /{" "}
             {String(totalPages).padStart(2, "0")}
           </Typography>
 
           <IconButton
-            aria-label="Nächste Hotels anzeigen"
+            aria-label={t("accommodation.showcase.next")}
             className={hotelStyles.hotelShowcaseButton}
             disabled={totalPages <= 1}
             onClick={goNext}
@@ -221,7 +218,7 @@ function HotelShowcase() {
             className={hotelStyles.hotelShowcaseGrid}
             exit={{ opacity: 0, x: reduceMotion ? 0 : -24 }}
             initial={{ opacity: 0, x: reduceMotion ? 0 : 24 }}
-            key={`${page}-${cardsPerPage}`}
+            key={`${safePage}-${cardsPerPage}`}
             transition={{
               duration: reduceMotion ? 0 : 0.55,
               ease: CINEMATIC_EASE,
@@ -229,7 +226,7 @@ function HotelShowcase() {
           >
             {visibleHotels.map((hotel, index) => (
               <HotelRecommendationCard
-                absoluteIndex={page * cardsPerPage + index}
+                absoluteIndex={safePage * cardsPerPage + index}
                 hotel={hotel}
                 key={hotel.id}
                 locale={locale}
