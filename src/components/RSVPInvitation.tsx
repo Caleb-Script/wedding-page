@@ -18,6 +18,15 @@ type RSVPInvitationProps = {
   embedded?: boolean;
 };
 
+function setWeddingThemePreference() {
+  const sharedDomain = window.location.hostname.endsWith(".omnixys.com")
+    ? "; domain=.omnixys.com; secure"
+    : "";
+
+  // biome-ignore lint/suspicious/noDocumentCookie: cross-subdomain one-shot theme bridge
+  document.cookie = `theme=wedding; path=/; max-age=300; SameSite=Lax${sharedDomain}`;
+}
+
 export default function RSVPInvitation({
   embedded = false,
 }: RSVPInvitationProps) {
@@ -51,7 +60,8 @@ export default function RSVPInvitation({
             </p>
             <Link
               className={styles.primaryAction}
-              href={`https://checkpoint.omnixys.com/rsvp?eventId=${EVENT_ID}`}
+              href={`https://checkpoint.omnixys.com/rsvp?eventId=${EVENT_ID}&theme=wedding`}
+              onClick={setWeddingThemePreference}
             >
               <span>{t("rsvp.button")}</span>
               <HiArrowUpRight />
