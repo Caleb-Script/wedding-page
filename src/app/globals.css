@@ -1,33 +1,55 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground: #ededed;
 }
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  width: 100%;
+  min-width: 0;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #000;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
+  min-height: 100vh;
   color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #000;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
+main {
+  width: 100%;
+  min-width: 0;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: #000;
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+* {
   padding: 0;
   margin: 0;
+}
+
+.debug-layout *,
+.debug-layout *::before,
+.debug-layout *::after {
+  outline: 1px solid red;
 }
 
 a {
@@ -35,8 +57,24 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 1px solid #d8b879;
+  outline-offset: 5px;
+}
+
+::selection {
+  color: #100f0d;
+  background: #d8b879;
+}
+
+@media (prefers-reduced-motion: reduce) {
   html {
-    color-scheme: dark;
+    scroll-behavior: auto;
   }
 }

@@ -10,6 +10,8 @@
     "subtitle": "Yɛrebɛware",
     "quote": "Yɛahu ɔdɔ a ɛte sɛ fie.",
     "scroll": "Twetwe fam",
+    "scene": "Nsɛm 01 / Nnurui",
+    "cta": "Fi yɛn akwantu ase",
     "infoTitle": "Yɛn Aware",
     "infoText": "Bra ka yɛn ho na yɛmfa anigye nhyira yɛn dɔ na yɛnhyɛ yɛn akwantu ase. Yɛbɛdi ahurusi sɛ wobɛka yɛn ho wɔ da soronko yi.",
     "countdown": {
@@ -54,12 +56,70 @@
   "timeline": {
     "subtitle": "Da No Nhyehyɛe",
     "title": "Yɛn Nhyehyɛe",
+    "open": "Hwɛ saa bere yi",
+    "close": "To mu",
     "events": {
       "ceremony": "Aware dwuma no fi ase",
       "photos": "Ayekoo ne Mfonini",
       "arrival": "Duruu Anigyede Bea",
       "dinner": "Aduan ne Anigyede",
       "party": "Aponto"
+    },
+    "details": {
+      "ceremony": {
+        "info": "Ahyɛase · 14:00",
+        "description": "Bere a yɛn akwantu a yɛbɛbom ayɛ no fi ase ankasa.",
+        "message": "Yɛn ani gye sɛ mo ne yɛn bɛka yɛn yiw no."
+      },
+      "photos": {
+        "info": "Yɛbom · 15:30",
+        "description": "Ayekoo, ayɛyie ne mfonini wɔ aware dwuma no akyi.",
+        "message": "Nkae a edi kan a yɛne nnipa a yɛdɔ wɔn bɛkyɛ."
+      },
+      "arrival": {
+        "info": "Nhyiam no · 17:30",
+        "description": "Bra ma yɛnnom, mmɔ nkɔmmɔ na yɛn nyinaa akwaaba.",
+        "message": "Anadwo no fi ase bere a woadu hɔ."
+      },
+      "dinner": {
+        "info": "Yɛbom didi · 18:00",
+        "description": "Aduan, abusua, nnamfo ne anigye a yɛbɛbom akyɛ.",
+        "message": "Aduan yɛ dɛ paa bere a yɛne mo bom di."
+      },
+      "party": {
+        "info": "Anadwo no · 22:00",
+        "description": "Nnwom, asaw ne anadwo bi a yɛren werɛ mfi da.",
+        "message": "Hyia yɛn wɔ asawbea."
+      }
+    }
+  },
+  "accommodation": {
+    "subtitle": "Tena Bɛn",
+    "title": "Ahɔhodan a Ɛbɛn Beae No",
+    "booking": "Gye dan",
+    "map": "Hwɛ map",
+    "hotels": {
+      "fuchsen": {
+        "name": "Hotel Fuchsen",
+        "distance": "bɛyɛ 3 km",
+        "travelTime": "bɛyɛ simma 7",
+        "price": "€€€",
+        "description": "Ahɔhodan fɛfɛ a ɛwɔ Kirchheim mfinimfini, a adidibea wɔ hɔ."
+      },
+      "ateck": {
+        "name": "Ateckhotel",
+        "distance": "bɛyɛ 4 km",
+        "travelTime": "bɛyɛ simma 8",
+        "price": "€€",
+        "description": "Ahɔhodan foforo ne ahotɔ a ɛbɛn anigyede beae no."
+      },
+      "wuerttemberg": {
+        "name": "Württembergischer Hof",
+        "distance": "bɛyɛ 2 km",
+        "travelTime": "bɛyɛ simma 5",
+        "price": "€€",
+        "description": "Ahɔhodan a ɛma akwaaba, a park ne adidibea wɔ hɔ."
+      }
     }
   },
   "travel": {
@@ -98,6 +158,100 @@
       "parking": {
         "title": "Kar Gyinabea",
         "details": "Kar gyinabea kɛse wɔ hɔ pɛpɛɛpɛ wɔ White Event Palast."
+      }
+    }
+  },
+  "faq": {
+    "subtitle": "Nea Ɛsɛ Sɛ Wuhu",
+    "title": "Mo Nsɛmmisa Ne Mmuae",
+    "categoryLabel": "Nsɛmmisa akuw",
+    "categories": {
+      "general": "Ne Nyinaa",
+      "location": "Beae",
+      "accommodation": "Ahɔhodan",
+      "celebration": "Anigyede",
+      "additional": "Bio"
+    },
+    "items": {
+      "dressCode": {
+        "question": "Dɛn na ɛsɛ sɛ mehyɛ?",
+        "answer": "Fa ntade a ɛyɛ fɛ na ɛfata afahyɛ hyɛ. Yɛsrɛ sɛ momma ayeforo no nko ara nhyɛ fitaa."
+      },
+      "arrival": {
+        "question": "Bere bɛn na ɛsɛ sɛ ahɔho ba?",
+        "answer": "Yɛsrɛ sɛ mommra simma 30 ansa na aware dwuma no afi ase wɔ 14:00."
+      },
+      "plusOne": {
+        "question": "Metumi de obi aka me ho aba?",
+        "answer": "Wo nkra no bɛkyerɛ sɛ obi betumi aka wo ho anaa. Sɛ biribi nna adi a, bisa yɛn."
+      },
+      "children": {
+        "question": "Mmofra betumi aba?",
+        "answer": "Wo nkra no kyerɛ obiara a yɛayɛ nhyehyɛe ama no. Yɛsrɛ sɛ bisa yɛn ansa na wode mmofra aka ho."
+      },
+      "dietary": {
+        "question": "Sɛ mintumi nni nnuan bi a, dɛn na menyɛ?",
+        "answer": "Kyerɛw aduan a worentumi nni no wɔ wo RSVP mu na adidibea no atumi ayɛ nhyehyɛe."
+      },
+      "late": {
+        "question": "Sɛ meka akyi a, dɛn na ɛbɛba?",
+        "answer": "Yɛsrɛ sɛ fa komm bra mu na tie wɔn a wɔwɔ beae no akwankyerɛ."
+      },
+      "parking": {
+        "question": "Ɛhe na metumi de kar asi?",
+        "answer": "Park wɔ asɔre no ho, na park kɛse wɔ White Event Palast no ankasa."
+      },
+      "publicTransport": {
+        "question": "Bɔs anaa keteke wɔ hɔ?",
+        "answer": "Yiw. Stuttgart-Vaihingen ne Kirchheim unter Teck ne keteke gyinabea a ɛbɛn; fa bɔs anaa taxi kɔ akyiri."
+      },
+      "charging": {
+        "question": "Kar charge beae wɔ bɛn?",
+        "answer": "Charge beae wɔ mpɔtam no. Yɛsrɛ sɛ hwɛ sɛ ɛwɔ hɔ ansa na woakɔ."
+      },
+      "accessible": {
+        "question": "Wheelchair betumi akɔ beae no?",
+        "answer": "Yɛsrɛ sɛ ka kyerɛ yɛn ansa na da no adu na yɛnkyerɛ wo kwan a ɛfata."
+      },
+      "nearbyHotels": {
+        "question": "Ahɔhodan bɛn na ɛbɛn?",
+        "answer": "Hotel Fuchsen, Ateckhotel ne Württembergischer Hof nyinaa bɛn anigyede beae no."
+      },
+      "recommendedHotels": {
+        "question": "Ahɔhodan bɛn na mokamfo?",
+        "answer": "Yiw. Ahɔhodan fã a ɛwɔ soro no kura beae abiɛsa a ɛbɛn na ahotɔ wom."
+      },
+      "hotelDistance": {
+        "question": "Ahɔhodan no ne beae no ntam ware sɛn?",
+        "answer": "Ahɔhodan no wɔ bɛyɛ kilomita abien kosi anan fi White Event Palast."
+      },
+      "hotelTravel": {
+        "question": "Kwan wɔ hotel ne beae no ntam?",
+        "answer": "Taxi ne kar a mobɛbom afa yɛ mmerɛw. Yɛnnyaa shuttle nhyehyɛe a wɔagye atom."
+      },
+      "photographer": {
+        "question": "Mfoninitwafo bɛba?",
+        "answer": "Yiw, mfoninitwafo a ɔyɛ adwuma no bɛkyere da no. Momma no kwan wɔ bere titiriw no mu."
+      },
+      "guestPhotos": {
+        "question": "Ahɔho betumi atwa mfonini?",
+        "answer": "Yiw, gye sɛ wɔaka sɛ yɛmfa telefon nni dwuma wɔ bere bi mu."
+      },
+      "dancing": {
+        "question": "Nnwom ne asaw bɛba?",
+        "answer": "Yiw. Aduan no akyi, yɛbɛto nnwom, asaw na yɛn ani agye."
+      },
+      "endTime": {
+        "question": "Bere bɛn na anigyede no bɛba awiei?",
+        "answer": "Yɛayɛ nhyehyɛe sɛ aponto no bɛkɔ so akosi anadwo akyiri."
+      },
+      "contact": {
+        "question": "Sɛ mewɔ nsɛmmisa a, hena na mefrɛ no?",
+        "answer": "Fa nkitahodi a ɛwɔ wo nkra no mu anaa frɛ awarefo no."
+      },
+      "weather": {
+        "question": "Sɛ osu tɔ anaa wim yɛ bɔne a, dɛn na ɛbɛba?",
+        "answer": "Anigyede no bɛkɔ so. Dan ne beae a wɔakata so wɔ hɔ, na yɛbɛka nsakrae biara akyerɛ mo."
       }
     }
   },

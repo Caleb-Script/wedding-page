@@ -1,33 +1,31 @@
 "use client";
 
-import {
-  Box,
-  CircularProgress,
-  Container,
-  IconButton,
-  Typography,
-} from "@mui/material";
-
 import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
-
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
-
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
+import styles from "./CinematicScenes.module.css";
+import SceneHeader from "./SceneHeader";
 
 type GalleryImage = {
   id: string;
   url: string;
 };
 
+const fallbackImages: GalleryImage[] = [
+  { id: "1", url: "/gallery-1.jpg" },
+  { id: "2", url: "/gallery-2.jpg" },
+  { id: "3", url: "/gallery-3.jpg" },
+  { id: "4", url: "/gallery-4.jpg" },
+];
+
 export default function Gallery() {
   const t = useTypedTranslations("wedding");
-
-  const [images, setImages] = useState<GalleryImage[]>([]);
+  const [images, setImages] = useState<GalleryImage[]>(fallbackImages);
   const [loading, setLoading] = useState(true);
-
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: "center",
@@ -36,12 +34,10 @@ export default function Gallery() {
   useEffect(() => {
     const loadImages = async () => {
       try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/gallery`,
-          {
-            cache: "no-store",
-          }
-        );
+        const baseUrl = process.env.NEXT_PUBLIC_API_URL ?? "";
+        const response = await fetch(`${baseUrl}/api/gallery`, {
+          cache: "no-store",
+        });
 
         if (!response.ok) {
           throw new Error("Failed to load gallery images");
@@ -49,7 +45,9 @@ export default function Gallery() {
 
         const data: GalleryImage[] = await response.json();
 
-        setImages(data);
+        if (data.length > 0) {
+          setImages(data);
+        }
       } catch (error) {
         console.error("[Gallery] Failed to fetch images", error);
       } finally {
@@ -60,186 +58,97 @@ export default function Gallery() {
     loadImages();
   }, []);
 
-  const scrollPrev = useCallback(() => {
-    emblaApi?.scrollPrev();
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const updateSelection = () =>
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    updateSelection();
+    emblaApi.on("select", updateSelection);
+
+    return () => {
+      emblaApi.off("select", updateSelection);
+    };
   }, [emblaApi]);
 
-  const scrollNext = useCallback(() => {
-    emblaApi?.scrollNext();
-  }, [emblaApi]);
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
   if (loading) {
     return (
-      <Box
-        sx={{
-          py: 20,
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <CircularProgress />
-      </Box>
+      <div className={styles.loading}>
+        <div className={styles.loadingRing} />
+      </div>
     );
   }
 
   return (
-    <Box
-      component="section"
-      sx={{
-        py: { xs: 14, md: 20 },
-        px: 3,
-        background: "linear-gradient(180deg,#faf7f2 0%,#f3efe8 100%)",
-      }}
-    >
-      <Container maxWidth="lg">
-        {/* subtitle */}
-        <Typography
-          sx={{
-            textAlign: "center",
-            letterSpacing: "0.3em",
-            textTransform: "uppercase",
-            fontSize: "0.75rem",
-            color: "#777",
-            mb: 2,
-          }}
-        >
-          {t("gallery.subtitle")}
-        </Typography>
-
-        {/* title */}
-        <Typography
-          sx={{
-            textAlign: "center",
-            fontFamily: "var(--font-serif)",
-            fontSize: { xs: "2.4rem", md: "3.5rem" },
-            fontWeight: 500,
-            mb: 2,
-          }}
-        >
-          {t("gallery.title")}
-        </Typography>
-
-        {/* divider */}
-        <Box
-          sx={{
-            width: 70,
-            height: 2,
-            mx: "auto",
-            mb: 10,
-            background: "linear-gradient(135deg,#c89b3c,#e5c275)",
-          }}
+    <section className={`${styles.scene} ${styles.sceneDeep}`} id="gallery">
+      <div className={styles.inner}>
+        <SceneHeader
+          eyebrow={t("gallery.subtitle")}
+          index="07"
+          title={t("gallery.title")}
         />
 
-        {/* carousel */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 24 }}
+          transition={{ duration: 0.9 }}
+          viewport={{ once: true, amount: 0.25 }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
-          <Box sx={{ position: "relative" }}>
-            {/* viewport */}
-            <Box
-              ref={emblaRef}
-              sx={{
-                overflow: "hidden",
-                borderRadius: "14px",
-              }}
-            >
-              <Box sx={{ display: "flex" }}>
-                {images.map((image) => (
-                  <Box
-                    key={image.id}
-                    sx={{
-                      flex: {
-                        xs: "0 0 85%",
-                        md: "0 0 60%",
-                      },
-                      px: 2,
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        position: "relative",
-                        height: { xs: 420, md: 720 },
-                        borderRadius: "14px",
-                        overflow: "hidden",
-                        boxShadow: "0 12px 35px rgba(0,0,0,0.12)",
+          <div className={styles.galleryViewport} ref={emblaRef}>
+            <div className={styles.galleryTrack}>
+              {images.map((image, index) => (
+                <div className={styles.gallerySlide} key={image.id}>
+                  <div className={styles.galleryImage}>
+                    <Image
+                      alt={t("gallery.imageAlt", {
+                        index: Number(image.id),
+                      })}
+                      fill
+                      loading={index === 0 ? "eager" : "lazy"}
+                      priority={index === 0}
+                      sizes="(max-width: 900px) 88vw, 72vw"
+                      src={image.url}
+                      style={{
+                        objectFit: "cover",
+                        objectPosition: "center top",
                       }}
-                    >
-                      <Image
-                        src={image.url}
-                        alt={t("gallery.imageAlt", {
-                          index: Number(image.id),
-                        })}
-                        fill
-                        priority
-                        sizes="(max-width: 768px) 85vw, 60vw"
-                        style={{
-                          objectFit: "cover",
-                          objectPosition: "center top",
-                        }}
-                      />
-                    </Box>
-                  </Box>
-                ))}
-              </Box>
-            </Box>
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
 
-            {/* left */}
-            <IconButton
-              onClick={scrollPrev}
-              aria-label={t("gallery.prev")}
-              sx={{
-                position: "absolute",
-                left: 10,
-                top: "50%",
-                transform: "translateY(-50%)",
-
-                width: 44,
-                height: 44,
-
-                backdropFilter: "blur(10px)",
-                background: "rgba(255,255,255,0.7)",
-
-                border: "1px solid rgba(0,0,0,0.08)",
-
-                "&:hover": {
-                  background: "rgba(255,255,255,0.95)",
-                },
-              }}
-            >
-              <HiChevronLeft />
-            </IconButton>
-
-            {/* right */}
-            <IconButton
-              onClick={scrollNext}
-              aria-label={t("gallery.next")}
-              sx={{
-                position: "absolute",
-                right: 10,
-                top: "50%",
-                transform: "translateY(-50%)",
-
-                width: 44,
-                height: 44,
-
-                backdropFilter: "blur(10px)",
-                background: "rgba(255,255,255,0.7)",
-
-                border: "1px solid rgba(0,0,0,0.08)",
-
-                "&:hover": {
-                  background: "rgba(255,255,255,0.95)",
-                },
-              }}
-            >
-              <HiChevronRight />
-            </IconButton>
-          </Box>
+          <div className={styles.galleryNav}>
+            <div className={styles.galleryProgress}>
+              <strong>{String(selectedIndex + 1).padStart(2, "0")}</strong>
+              <span />
+              <strong>{String(images.length).padStart(2, "0")}</strong>
+            </div>
+            <div className={styles.galleryButtons}>
+              <button
+                aria-label={t("gallery.prev")}
+                className={styles.iconButton}
+                onClick={scrollPrev}
+                type="button"
+              >
+                <HiChevronLeft />
+              </button>
+              <button
+                aria-label={t("gallery.next")}
+                className={styles.iconButton}
+                onClick={scrollNext}
+                type="button"
+              >
+                <HiChevronRight />
+              </button>
+            </div>
+          </div>
         </motion.div>
-      </Container>
-    </Box>
+      </div>
+    </section>
   );
 }

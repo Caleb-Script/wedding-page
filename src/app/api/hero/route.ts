@@ -12,11 +12,7 @@ export async function GET() {
 
     const images: string[] = [];
 
-    const stream = minioClient.listObjectsV2(
-      bucketName,
-      "hero/",
-      true
-    );
+    const stream = minioClient.listObjectsV2(bucketName, "hero/", true);
 
     await new Promise<void>((resolve, reject) => {
       stream.on("data", (object) => {
@@ -57,20 +53,17 @@ export async function GET() {
         },
         {
           status: 404,
-        }
+        },
       );
     }
 
     /**
      * Random image
      */
-    const randomImage =
-      images[Math.floor(Math.random() * images.length)];
+    const randomImage = images[Math.floor(Math.random() * images.length)];
 
     const response: HeroImage = {
-      url:
-        `${process.env.MINIO_PUBLIC_URL}` +
-        `/${bucketName}/${randomImage}`,
+      url: `${process.env.MINIO_PUBLIC_URL}` + `/${bucketName}/${randomImage}`,
     };
 
     return NextResponse.json(response);
@@ -83,7 +76,7 @@ export async function GET() {
       },
       {
         status: 500,
-      }
+      },
     );
   }
 }

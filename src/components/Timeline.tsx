@@ -1,8 +1,8 @@
 "use client";
 
-import { Box, Container, Typography } from "@mui/material";
 import { motion, useScroll, useSpring } from "framer-motion";
-import { useRef } from "react";
+import Image from "next/image";
+import { useRef, useState } from "react";
 import {
   HiOutlineBuildingOffice,
   HiOutlineCake,
@@ -11,249 +11,144 @@ import {
   HiOutlineMusicalNote,
 } from "react-icons/hi2";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
+import styles from "./CinematicScenes.module.css";
+import SceneHeader from "./SceneHeader";
 
 export default function Timeline() {
   const t = useTypedTranslations("wedding");
-
-  const ref = useRef(null);
-
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const [activeEvent, setActiveEvent] = useState<string | null>(null);
   const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start center", "end center"],
+    target: timelineRef,
+    offset: ["start 75%", "end 65%"],
   });
-
-  const scaleY = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-  });
+  const scaleY = useSpring(scrollYProgress, { stiffness: 80, damping: 24 });
 
   const events = [
     {
+      id: "ceremony",
       time: "14:00",
       title: t("timeline.events.ceremony"),
       icon: HiOutlineHeart,
+      image: "/gallery-1.jpg",
     },
     {
+      id: "photos",
       time: "15:30",
       title: t("timeline.events.photos"),
       icon: HiOutlineCamera,
+      image: "/gallery-2.jpg",
     },
     {
+      id: "arrival",
       time: "17:30",
       title: t("timeline.events.arrival"),
       icon: HiOutlineBuildingOffice,
+      image: "/gallery-3.jpg",
     },
-    { time: "18:00", title: t("timeline.events.dinner"), icon: HiOutlineCake },
     {
+      id: "dinner",
+      time: "18:00",
+      title: t("timeline.events.dinner"),
+      icon: HiOutlineCake,
+      image: "/gallery-4.jpg",
+    },
+    {
+      id: "party",
       time: "22:00",
       title: t("timeline.events.party"),
       icon: HiOutlineMusicalNote,
+      image: "/hero-bg.jpg",
     },
-  ];
+  ] as const;
 
   return (
-    <Box
-      component="section"
-      sx={{
-        py: { xs: 12, md: 20 },
-        px: 3,
-        background:
-          "linear-gradient(180deg,#faf7f2 0%,#f3efe8 50%,#faf7f2 100%)",
-      }}
+    <section
+      className={`${styles.scene} ${styles.sceneDeep} ${styles.timelineScene}`}
+      id="timeline"
     >
-      <Container maxWidth="lg">
-        {/* subtitle */}
-        <Typography
-          sx={{
-            textAlign: "center",
-            letterSpacing: "0.3em",
-            textTransform: "uppercase",
-            fontSize: "0.75rem",
-            color: "#777",
-            mb: 2,
-          }}
-        >
-          {t("timeline.subtitle")}
-        </Typography>
-
-        {/* title */}
-        <Typography
-          sx={{
-            textAlign: "center",
-            fontFamily: "var(--font-serif)",
-            fontSize: { xs: "2.4rem", md: "3.5rem" },
-            fontWeight: 500,
-            mb: 2,
-          }}
-        >
-          {t("timeline.title")}
-        </Typography>
-
-        {/* divider */}
-        <Box
-          sx={{
-            width: 70,
-            height: 2,
-            mx: "auto",
-            mb: 14,
-            background: "linear-gradient(135deg,#c89b3c,#e5c275)",
-          }}
+      <div className={styles.inner}>
+        <SceneHeader
+          eyebrow={t("timeline.subtitle")}
+          index="04"
+          title={t("timeline.title")}
         />
 
-        {/* timeline wrapper */}
-        <Box
-          ref={ref}
-          sx={{
-            position: "relative",
-            maxWidth: 800,
-            mx: "auto",
-          }}
-        >
-          {/* base line */}
-          <Box
-            sx={{
-              position: "absolute",
-              left: { xs: 24, md: "50%" },
-              transform: { md: "translateX(-1px)" },
-              top: 0,
-              bottom: 0,
-              width: 2,
-              background: "#e6e2dc",
-            }}
-          />
+        <div className={styles.timeline} ref={timelineRef}>
+          <div className={styles.timelineRail} />
+          <motion.div className={styles.timelineProgress} style={{ scaleY }} />
 
-          {/* animated progress line */}
-          <motion.div
-            style={{
-              scaleY,
-              transformOrigin: "top",
-              position: "absolute",
-              left: "50%",
-              width: "2px",
-              top: 0,
-              bottom: 0,
-              background: "linear-gradient(#c89b3c,#e5c275)",
-            }}
-          />
-
-          {events.map((event, i) => {
+          {events.map((event, index) => {
             const Icon = event.icon;
+            const isActive = activeEvent === event.id;
 
             return (
-              <motion.div
-                key={event.time}
-                initial={{ opacity: 0, y: 40 }}
+              <motion.article
+                className={styles.timelineEvent}
+                initial={{ opacity: 0, y: 28 }}
+                key={`${event.time}-${event.title}`}
+                transition={{ duration: 0.7, delay: index * 0.06 }}
+                viewport={{ once: true, amount: 0.45 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.15 }}
               >
-                <Box
-                  sx={{
-                    position: "relative",
-                    display: "flex",
-                    alignItems: "center",
-                    mb: 10,
-                    pl: { xs: 10, md: 0 },
-                  }}
+                <button
+                  aria-label={`${event.title}. ${isActive ? t("timeline.close") : t("timeline.open")}`}
+                  aria-pressed={isActive}
+                  className={`${styles.timelineCard} ${isActive ? styles.timelineCardActive : ""}`}
+                  onClick={() => setActiveEvent(isActive ? null : event.id)}
+                  type="button"
                 >
-                  {/* icon circle */}
-                  <Box
-                    sx={{
-                      position: "absolute",
-                      left: { xs: 16, md: "50%" },
-                      transform: { md: "translateX(-50%)" },
-
-                      width: 42,
-                      height: 42,
-
-                      borderRadius: "50%",
-
-                      background: "linear-gradient(135deg,#c89b3c,#e5c275)",
-
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-
-                      boxShadow: "0 6px 20px rgba(200,155,60,0.35)",
-
-                      zIndex: 3,
-                    }}
-                  >
-                    <Icon
-                      style={{
-                        color: "white",
-                        fontSize: 20,
-                      }}
-                    />
-                  </Box>
-
-                  {/* content */}
-                  <Box
-                    sx={{
-                      width: { md: "45%" },
-
-                      ml: {
-                        md: i % 2 === 0 ? 0 : "auto",
-                      },
-
-                      pr: {
-                        md: i % 2 === 0 ? 6 : 0,
-                      },
-
-                      pl: {
-                        md: i % 2 !== 0 ? 6 : 0,
-                      },
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        background: "rgba(255,255,255,0.65)",
-                        backdropFilter: "blur(12px)",
-                        borderRadius: "14px",
-                        px: 4,
-                        py: 3,
-
-                        border: "1px solid rgba(0,0,0,0.06)",
-
-                        boxShadow: "0 10px 35px rgba(0,0,0,0.08)",
-
-                        transition: "all .35s ease",
-
-                        "&:hover": {
-                          transform: "translateY(-4px)",
-                          boxShadow: "0 14px 45px rgba(0,0,0,0.12)",
-                        },
-                      }}
-                    >
-                      <Typography
-                        sx={{
-                          fontSize: "0.8rem",
-                          letterSpacing: "0.15em",
-                          textTransform: "uppercase",
-                          color: "#c89b3c",
-                          fontWeight: 700,
-                          mb: 1,
-                        }}
-                      >
-                        {event.time}
-                      </Typography>
-
-                      <Typography
-                        sx={{
-                          fontFamily: "var(--font-serif)",
-                          fontSize: "1.15rem",
-                        }}
-                      >
+                  <span className={styles.timelineCardInner}>
+                    <span className={styles.timelineCardFront}>
+                      <span className={styles.timelineCardHint}>
+                        {t("timeline.open")}
+                      </span>
+                      <time className={styles.timelineTime}>{event.time}</time>
+                      <span className={styles.timelineTitle}>
                         {event.title}
-                      </Typography>
-                    </Box>
-                  </Box>
-                </Box>
-              </motion.div>
+                      </span>
+                      <span className={styles.timelineCardIcon}>
+                        <Icon />
+                      </span>
+                    </span>
+
+                    <span className={styles.timelineCardBack}>
+                      <span className={styles.timelineCardMedia}>
+                        <Image
+                          alt={event.title}
+                          fill
+                          sizes="(max-width: 900px) 82vw, 380px"
+                          src={event.image}
+                        />
+                      </span>
+                      <span className={styles.timelineBackContent}>
+                        <span className={styles.timelineBackInfo}>
+                          {t(`timeline.details.${event.id}.info`)}
+                        </span>
+                        <strong className={styles.timelineBackTitle}>
+                          {event.title}
+                        </strong>
+                        <span className={styles.timelineBackDescription}>
+                          {t(`timeline.details.${event.id}.description`)}
+                        </span>
+                        <em className={styles.timelineBackMessage}>
+                          {t(`timeline.details.${event.id}.message`)}
+                        </em>
+                        <span className={styles.timelineClose}>
+                          {t("timeline.close")}
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                </button>
+                <div className={styles.timelineNode}>
+                  <Icon />
+                </div>
+              </motion.article>
             );
           })}
-        </Box>
-      </Container>
-    </Box>
+        </div>
+      </div>
+    </section>
   );
 }

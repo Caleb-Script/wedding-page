@@ -83,7 +83,11 @@ export default function RSVPPage() {
 
   return (
     <Box
+      component="main"
       sx={{
+        width: "100%",
+        minHeight: "100vh",
+        m: 0,
         py: { xs: 14, md: 20 },
         px: 3,
         background: "linear-gradient(180deg,#faf7f2 0%,#f3efe8 100%)",

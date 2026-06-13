@@ -1,33 +1,35 @@
 "use client";
 
-import { Box, Container, Fab, keyframes, Typography } from "@mui/material";
+import { Fab } from "@mui/material";
 import { format } from "date-fns";
-import { de, enUS } from "date-fns/locale";
+import { de, enUS, it } from "date-fns/locale";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { useLocale } from "next-intl";
+import type { CSSProperties } from "react";
 import { useEffect, useState } from "react";
-import { HiChevronDown } from "react-icons/hi2";
+import { HiArrowDown, HiArrowUpRight } from "react-icons/hi2";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
+import styles from "./HeroSection.module.css";
 
 const weddingDate = new Date(2026, 10, 21);
 
-const bounce = keyframes`
-0%,100% { transform: translateY(0); }
-50% { transform: translateY(8px); }
-`;
-
-const zoom = keyframes`
-0% { transform: scale(1); }
-100% { transform: scale(1.08); }
-`;
-
-const float = keyframes`
-0% { transform: translateY(0px); }
-50% { transform: translateY(-4px); }
-100% { transform: translateY(0px); }
-`;
+const PARTICLES = [
+  [8, 18, 1.2, 16],
+  [15, 72, 0.8, 19],
+  [20, 40, 1.5, 22],
+  [27, 88, 0.7, 17],
+  [34, 12, 1, 24],
+  [40, 58, 0.6, 18],
+  [47, 28, 1.3, 21],
+  [54, 82, 0.9, 25],
+  [61, 16, 0.7, 20],
+  [68, 62, 1.5, 23],
+  [74, 36, 0.8, 18],
+  [81, 76, 1.1, 21],
+  [88, 22, 0.6, 17],
+  [93, 54, 1.3, 24],
+] as const;
 
 function useCountdown() {
   const [time, setTime] = useState({
@@ -38,354 +40,235 @@ function useCountdown() {
   });
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const now = Date.now();
-      const distance = weddingDate.getTime() - now;
+    const updateCountdown = () => {
+      const distance = Math.max(0, weddingDate.getTime() - Date.now());
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-      );
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      setTime({
+        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+        hours: Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        ),
+        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((distance % (1000 * 60)) / 1000),
+      });
+    };
 
-      setTime({ days, hours, minutes, seconds });
-    }, 1000);
+    updateCountdown();
+    const interval = window.setInterval(updateCountdown, 1000);
 
-    return () => clearInterval(interval);
+    return () => window.clearInterval(interval);
   }, []);
 
   return time;
 }
 
-export default function Page() {
+export default function HeroSection() {
   const locale = useLocale();
-
-  const dateLocale = locale === "de" ? de : enUS;
   const t = useTypedTranslations("wedding");
   const { days, hours, minutes, seconds } = useCountdown();
-  const [heroImage, setHeroImage] = useState("");
+  const [videoReady, setVideoReady] = useState(false);
 
-  useEffect(() => {
-  const loadHero = async () => {
-    try {
-      const response = await fetch("/api/hero");
+  const dateLocale = locale === "de" ? de : locale === "it" ? it : enUS;
+  const countdown = [
+    { label: t("hero.countdown.days"), value: days },
+    { label: t("hero.countdown.hours"), value: hours },
+    { label: t("hero.countdown.minutes"), value: minutes },
+    { label: t("hero.countdown.seconds"), value: seconds },
+  ];
 
-      if (!response.ok) {
-        throw new Error("Failed to load hero image");
-      }
-
-      const data = await response.json();
-
-      setHeroImage(data.url);
-    } catch (error) {
-      console.error("[Hero]", error);
-    }
+  const beginJourney = () => {
+    document
+      .getElementById("hero-after")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  loadHero();
-}, []);
-
   return (
-    <Box>
-      <Fab
-        aria-label="language"
-        sx={{
-          position: "fixed",
-          top: {
-            xs: "calc(env(safe-area-inset-top) + 16px)",
-            md: 32,
-          },
-          right: {
-            xs: 16,
-            md: 32,
-          },
-          zIndex: 3000,
-
-          px: 2,
-
-          background:
-            "linear-gradient(135deg, rgba(212,175,55,0.9), rgba(245,215,110,0.9))",
-
-          color: "#1a1a1a",
-
-          backdropFilter: "blur(16px) saturate(160%)",
-          WebkitBackdropFilter: "blur(16px) saturate(160%)",
-
-          border: "1px solid rgba(255,255,255,0.25)",
-
-          boxShadow: `
-      0 10px 30px rgba(0,0,0,0.35),
-      0 0 20px rgba(212,175,55,0.45)
-    `,
-
-          animation: `${float} 6s ease-in-out infinite`,
-
-          transition: "all .35s cubic-bezier(.4,0,.2,1)",
-
-          "&:hover": {
-            transform: "translateY(-3px) scale(1.03)",
-
-            background:
-              "linear-gradient(135deg, rgba(245,215,110,1), rgba(212,175,55,1))",
-
-            boxShadow: `
-        0 14px 40px rgba(0,0,0,0.45),
-        0 0 30px rgba(212,175,55,0.7)
-      `,
-          },
-        }}
-      >
-        <LanguageSwitcher />
-      </Fab>
-
-      {/* HERO */}
-      <Box
-        component="section"
-        sx={{
-          position: "relative",
-          height: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          overflow: "hidden",
-        }}
-      >
-        {/* Background Image */}
-        <Box
-          sx={{
-            position: "absolute",
-            inset: 0,
-            animation: `${zoom} 30s ease-in-out infinite alternate`,
-          }}
-        >
-{heroImage && (
-  <Image
-    src={heroImage}
-    alt={t("hero.backgroundAlt")}
-    fill
-    priority
-    unoptimized
-    style={{
-      objectFit: "cover",
-      objectPosition: "center top",
-    }}
-  />
-)}
-        </Box>
-
-        {/* Overlay */}
-        <Box
-          sx={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.65))",
-            zIndex: 1,
-          }}
-        />
-
-        {/* Content */}
-        <Container
-          maxWidth="md"
-          sx={{
-            position: "relative",
-            zIndex: 2,
-            textAlign: "center",
-          }}
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <Typography
-              sx={{
-                letterSpacing: "0.3em",
-                textTransform: "uppercase",
-                fontSize: "0.8rem",
-                color: "rgba(255,255,255,0.8)",
-              }}
-            >
-              {t("hero.subtitle")}
-            </Typography>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2 }}
-          >
-            <Typography
-              variant="h1"
-              sx={{
-                fontFamily: "Playfair Display",
-                fontWeight: 500,
-                letterSpacing: "-0.02em",
-                fontSize: {
-                  xs: "3rem",
-                  md: "5rem",
-                  lg: "7rem",
-                },
-                color: "#F9F7F3",
-                textShadow: "0 4px 40px rgba(0,0,0,0.35)",
-                mt: 2,
-              }}
-            >
-              Caleb & Rachel
-            </Typography>
-          </motion.div>
-
-          {/* Divider */}
-          <Box
-            sx={{
-              width: 100,
-              height: 1,
-              mx: "auto",
-              my: 3,
-              background: "linear-gradient(90deg, #d4af37, #f5d76e, #d4af37)",
+    <div className={styles.root}>
+      <section className={styles.hero} aria-label={t("hero.backgroundAlt")}>
+        <div className={styles.videoLayer}>
+          <video
+            autoPlay
+            className={`${styles.video} ${videoReady ? styles.videoReady : ""}`}
+            disablePictureInPicture
+            loop
+            muted
+            onCanPlay={(event) => {
+              setVideoReady(true);
+              event.currentTarget.play().catch(() => undefined);
             }}
-          />
+            playsInline
+            preload="auto"
+          >
+            <source
+              media="(min-width: 769px)"
+              src="/video/hero-cinematic-1080.webm"
+              type="video/webm"
+            />
+            <source src="/video/hero-cinematic-480.webm" type="video/webm" />
+          </video>
+        </div>
 
-          {/* Quote */}
-          <Typography
+        <div className={styles.cinematicOverlay} />
+        <div className={styles.filmGrain} />
+
+        <div className={styles.particles} aria-hidden="true">
+          {PARTICLES.map(([left, top, size, duration], index) => (
+            <span
+              key={`${left}-${top}`}
+              style={
+                {
+                  "--delay": `${index * -1.7}s`,
+                  "--duration": `${duration}s`,
+                  "--left": `${left}%`,
+                  "--size": `${size}px`,
+                  "--top": `${top}%`,
+                } as CSSProperties
+              }
+            />
+          ))}
+        </div>
+
+        <div className={styles.lightEffects} aria-hidden="true">
+          <span className={styles.lightBeam} />
+          <span className={styles.lightBloom} />
+          <span className={styles.lightSweep} />
+        </div>
+
+        <div className={styles.topRail}>
+          <div className={styles.sceneChip}>
+            <span className={styles.liveDot} />
+            <span>{t("hero.scene")}</span>
+            <span className={styles.sceneRule} />
+            <span className={styles.sceneChipDate}>21 · 11 · 26</span>
+          </div>
+
+          <Fab
+            aria-label="language"
+            className={styles.languageButton}
             sx={{
-              fontFamily: "Playfair Display",
-              fontStyle: "italic",
-              fontSize: {
-                xs: "1.2rem",
-                md: "1.6rem",
+              width: 46,
+              minWidth: 46,
+              height: 46,
+              color: "#fff",
+              border: "1px solid rgba(255, 255, 255, 0.15)",
+              background: "rgba(8, 10, 13, 0.28)",
+              boxShadow: "inset 0 1px rgba(255, 255, 255, 0.12)",
+              "&:hover": {
+                background: "rgba(20, 21, 24, 0.52)",
               },
-              color: "rgba(255,255,255,0.7)",
-              mb: 4,
             }}
+          >
+            <LanguageSwitcher />
+          </Fab>
+        </div>
+
+        <div className={styles.credit}>
+          <span>Film / Alexis Markwick</span>
+          <a
+            href="https://creativecommons.org/licenses/by-sa/3.0/"
+            rel="noreferrer"
+            target="_blank"
+          >
+            CC BY-SA 3.0
+          </a>
+        </div>
+
+        <div className={styles.content}>
+          <motion.p
+            animate={{ opacity: 1, y: 0 }}
+            className={styles.eyebrow}
+            initial={{ opacity: 0, y: 18 }}
+            transition={{ delay: 0.4, duration: 1.1 }}
+          >
+            {t("hero.subtitle")}
+          </motion.p>
+
+          <motion.div
+            animate={{ clipPath: "inset(0 0 0 0)", opacity: 1 }}
+            className={styles.titleWrap}
+            initial={{ clipPath: "inset(0 0 100% 0)", opacity: 0 }}
+            transition={{
+              delay: 0.65,
+              duration: 1.4,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          >
+            <h1 className={styles.title}>
+              <span>Caleb</span>
+              <span className={styles.ampersand}>&</span>
+              <span>Rachel</span>
+            </h1>
+          </motion.div>
+
+          <motion.p
+            animate={{ opacity: 1 }}
+            className={styles.quote}
+            initial={{ opacity: 0 }}
+            transition={{ delay: 1.2, duration: 1.2 }}
           >
             {t("hero.quote")}
-          </Typography>
+          </motion.p>
 
-          {/* Date */}
-          <Typography
-            sx={{
-              letterSpacing: "0.25em",
-              textTransform: "uppercase",
-              color: "#d4af37",
-              mb: 5,
-            }}
+          <motion.div
+            animate={{ opacity: 1, y: 0 }}
+            className={styles.dateLine}
+            initial={{ opacity: 0, y: 18 }}
+            transition={{ delay: 1.35, duration: 1 }}
           >
-            {format(weddingDate, "d MMMM yyyy", { locale: dateLocale })}
-          </Typography>
+            <span />
+            <time dateTime="2026-11-21">
+              {format(weddingDate, "d MMMM yyyy", { locale: dateLocale })}
+            </time>
+            <span />
+          </motion.div>
 
-          {/* Countdown */}
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              gap: 4,
-              mt: 2,
-            }}
+          <motion.div
+            animate={{ opacity: 1, y: 0 }}
+            className={styles.glassPanel}
+            initial={{ opacity: 0, y: 24 }}
+            transition={{ delay: 1.55, duration: 1 }}
           >
-            {[
-              { label: t("hero.countdown.days"), value: days },
-              { label: t("hero.countdown.hours"), value: hours },
-              { label: t("hero.countdown.minutes"), value: minutes },
-              { label: t("hero.countdown.seconds"), value: seconds },
-            ].map((item) => {
-              return (
-                <Box key={item.label}>
-                  <Typography
-                    sx={{
-                      fontFamily: "Playfair Display",
-                      fontSize: "2rem",
-                      color: "#fff",
-                    }}
-                  >
-                    {item.value}
-                  </Typography>
+            <div className={styles.countdown}>
+              {countdown.map((item) => (
+                <div className={styles.countdownItem} key={item.label}>
+                  <strong>{String(item.value).padStart(2, "0")}</strong>
+                  <span>{item.label}</span>
+                </div>
+              ))}
+            </div>
 
-                  <Typography
-                    sx={{
-                      fontSize: "0.7rem",
-                      letterSpacing: "0.2em",
-                      color: "rgba(255,255,255,0.6)",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    {item.label}
-                  </Typography>
-                </Box>
-              );
-            })}
-          </Box>
-        </Container>
+            <button
+              className={styles.journeyButton}
+              onClick={beginJourney}
+              type="button"
+            >
+              <span>{t("hero.cta")}</span>
+              <HiArrowUpRight />
+            </button>
+          </motion.div>
+        </div>
 
-        {/* Scroll Indicator */}
-        <Box
-          component={motion.div}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-          sx={{
-            position: "absolute",
-            bottom: 40,
-            left: "50%",
-            transform: "translateX(-50%)",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            zIndex: 2,
-          }}
+        <button
+          aria-label={t("hero.scroll")}
+          className={styles.scrollCue}
+          onClick={beginJourney}
+          type="button"
         >
-          <Typography
-            sx={{
-              fontSize: "0.7rem",
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              color: "rgba(255,255,255,0.5)",
-            }}
-          >
-            {t("hero.scroll")}
-          </Typography>
+          <span>{t("hero.scroll")}</span>
+          <span className={styles.scrollLine} />
+          <HiArrowDown />
+        </button>
+      </section>
 
-          <HiChevronDown
-            style={{
-              color: "rgba(255,255,255,0.5)",
-              fontSize: 24,
-              animation: `${bounce} 2s infinite`,
-            }}
-          />
-        </Box>
-      </Box>
-
-      {/* INFO SECTION */}
-      <Box
-        sx={{
-          py: 16,
-          background: "#f7f3ec",
-          textAlign: "center",
-        }}
-      >
-        <Container maxWidth="sm">
-          <Typography
-            variant="h3"
-            sx={{
-              fontFamily: "Playfair Display",
-              mb: 3,
-            }}
-          >
-            {t("hero.infoTitle")}
-          </Typography>
-
-          <Typography
-            sx={{
-              fontFamily: "Lato",
-              color: "#555",
-              lineHeight: 1.8,
-            }}
-          >
-            {t("hero.infoText")}
-          </Typography>
-        </Container>
-      </Box>
-    </Box>
+      <section className={styles.afterHero} id="hero-after">
+        <div className={styles.afterIndex} aria-hidden="true">
+          02
+        </div>
+        <div className={styles.afterCopy}>
+          <h2>{t("hero.infoTitle")}</h2>
+          <div className={styles.afterMessage}>{t("hero.infoText")}</div>
+        </div>
+      </section>
+    </div>
   );
 }

@@ -25,8 +25,11 @@ export default function RSVPSuccess() {
 
   return (
     <Box
+      component="main"
       sx={{
+        width: "100%",
         minHeight: "100vh",
+        m: 0,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",

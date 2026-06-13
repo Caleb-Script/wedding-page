@@ -11,6 +11,8 @@
     "subtitle": "We're getting married",
     "quote": "We found love that feels like home.",
     "scroll": "Scroll",
+    "scene": "Scene 01 / Arrival",
+    "cta": "Begin our journey",
     "infoTitle": "Our Wedding",
     "infoText": "Join us as we celebrate our love and begin our journey together. We would be honored to have you with us on this special day.",
     "countdown": {
@@ -55,12 +57,70 @@
   "timeline": {
     "subtitle": "The Schedule",
     "title": "Our Timeline",
+    "open": "Discover moment",
+    "close": "Close moment",
     "events": {
       "ceremony": "Ceremony begins",
       "photos": "Congratulations & Photos",
       "arrival": "Arrival at Reception",
       "dinner": "Dinner & Celebration",
       "party": "Party"
+    },
+    "details": {
+      "ceremony": {
+        "info": "The beginning · 14:00",
+        "description": "The moment we officially begin our journey together.",
+        "message": "We cannot wait to see you as we say yes."
+      },
+      "photos": {
+        "info": "Together · 15:30",
+        "description": "Congratulations, embraces and photographs after the ceremony.",
+        "message": "A first collection of memories with the people we love."
+      },
+      "arrival": {
+        "info": "The reception · 17:30",
+        "description": "Join us for drinks, conversations and a warm welcome.",
+        "message": "The evening begins the moment you arrive."
+      },
+      "dinner": {
+        "info": "Around the table · 18:00",
+        "description": "A shared meal, stories and celebration with family and friends.",
+        "message": "Good food tastes even better when shared with you."
+      },
+      "party": {
+        "info": "The night · 22:00",
+        "description": "Music, dancing and the beginning of an unforgettable night.",
+        "message": "Meet us on the dance floor."
+      }
+    }
+  },
+  "accommodation": {
+    "subtitle": "Stay Close",
+    "title": "Hotels Near The Venue",
+    "booking": "Book hotel",
+    "map": "View map",
+    "hotels": {
+      "fuchsen": {
+        "name": "Hotel Fuchsen",
+        "distance": "approx. 3 km",
+        "travelTime": "approx. 7 min",
+        "price": "€€€",
+        "description": "A stylish central stay in Kirchheim with a restaurant and an elegant atmosphere."
+      },
+      "ateck": {
+        "name": "Ateckhotel",
+        "distance": "approx. 4 km",
+        "travelTime": "approx. 8 min",
+        "price": "€€",
+        "description": "A comfortable, modern hotel with bright rooms and a calm setting near the reception."
+      },
+      "wuerttemberg": {
+        "name": "Württembergischer Hof",
+        "distance": "approx. 2 km",
+        "travelTime": "approx. 5 min",
+        "price": "€€",
+        "description": "A welcoming hotel close to central Kirchheim, with parking and a restaurant."
+      }
     }
   },
   "travel": {
@@ -99,6 +159,100 @@
       "parking": {
         "title": "Parking",
         "details": "Large parking areas are available directly at the White Event Palast venue."
+      }
+    }
+  },
+  "faq": {
+    "subtitle": "Everything You Need",
+    "title": "Your Questions, Answered",
+    "categoryLabel": "FAQ categories",
+    "categories": {
+      "general": "General",
+      "location": "Location",
+      "accommodation": "Accommodation",
+      "celebration": "Celebration",
+      "additional": "Additional"
+    },
+    "items": {
+      "dressCode": {
+        "question": "What is the dress code?",
+        "answer": "Elegant festive attire is perfect. We kindly ask guests to leave white and ivory for the bride."
+      },
+      "arrival": {
+        "question": "When should guests arrive?",
+        "answer": "Please arrive around 30 minutes before the ceremony so everyone can be seated before 14:00."
+      },
+      "plusOne": {
+        "question": "Can I bring a plus one?",
+        "answer": "Your invitation indicates whether a plus one is included. Please contact us if anything is unclear."
+      },
+      "children": {
+        "question": "Are children welcome?",
+        "answer": "Your invitation includes everyone we have planned for. Please contact us before adding children to your RSVP."
+      },
+      "dietary": {
+        "question": "What should I do if I have dietary restrictions?",
+        "answer": "Please include allergies or dietary requirements in your RSVP so the kitchen can prepare for you."
+      },
+      "late": {
+        "question": "What happens if I arrive late?",
+        "answer": "Please enter quietly and follow the venue team's guidance. A short message to your contact person is helpful."
+      },
+      "parking": {
+        "question": "Where can I park?",
+        "answer": "Parking is available near the church, and larger parking areas are located directly at White Event Palast."
+      },
+      "publicTransport": {
+        "question": "Is public transportation available?",
+        "answer": "Yes. Stuttgart-Vaihingen and Kirchheim unter Teck stations are the nearest main connections; use a bus or taxi for the final part."
+      },
+      "charging": {
+        "question": "Are there charging stations nearby?",
+        "answer": "Public charging stations are available in the surrounding area. Please check current availability before travelling."
+      },
+      "accessible": {
+        "question": "Is the venue wheelchair accessible?",
+        "answer": "Please contact us in advance so we can confirm the most suitable entrance, parking space and route for you."
+      },
+      "nearbyHotels": {
+        "question": "Which hotels are nearby?",
+        "answer": "Hotel Fuchsen, Ateckhotel and Württembergischer Hof are all within a short drive of the reception venue."
+      },
+      "recommendedHotels": {
+        "question": "Are there recommended hotels?",
+        "answer": "Yes. Our accommodation chapter above links directly to three nearby options selected for convenience and comfort."
+      },
+      "hotelDistance": {
+        "question": "How far are the hotels from the venue?",
+        "answer": "The listed hotels are approximately two to four kilometres from White Event Palast."
+      },
+      "hotelTravel": {
+        "question": "Are there transportation options between hotel and venue?",
+        "answer": "Taxis and shared rides are the easiest options. A dedicated shuttle is not currently confirmed."
+      },
+      "photographer": {
+        "question": "Will there be a photographer?",
+        "answer": "Yes, a professional photographer will capture the day. Please give them space during the key moments."
+      },
+      "guestPhotos": {
+        "question": "Can guests take photos?",
+        "answer": "Absolutely, except during any moment announced as unplugged. We would love to see the celebration through your eyes."
+      },
+      "dancing": {
+        "question": "Will there be music and dancing?",
+        "answer": "Yes. After dinner, the evening opens into music, dancing and celebration."
+      },
+      "endTime": {
+        "question": "Until what time will the celebration continue?",
+        "answer": "The party is planned to continue late into the night. Final timing follows the venue and the flow of the celebration."
+      },
+      "contact": {
+        "question": "Who should I contact if I have questions?",
+        "answer": "Please use the contact details shared with your invitation or get in touch with the couple directly."
+      },
+      "weather": {
+        "question": "What happens in case of bad weather?",
+        "answer": "The celebration will continue. Indoor and covered spaces are available, and any necessary changes will be communicated."
       }
     }
   },

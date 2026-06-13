@@ -1,8 +1,7 @@
 "use client";
 
-import { Box, Container, Grid, Typography } from "@mui/material";
 import { format } from "date-fns";
-import { de, enUS } from "date-fns/locale";
+import { de, enUS, it } from "date-fns/locale";
 import { motion } from "framer-motion";
 import { useLocale } from "next-intl";
 import {
@@ -11,23 +10,15 @@ import {
   HiOutlineMapPin,
 } from "react-icons/hi2";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
+import styles from "./CinematicScenes.module.css";
+import SceneHeader from "./SceneHeader";
 
 const weddingDate = new Date(2026, 10, 21);
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, delay: i * 0.2 },
-  }),
-};
 
 export default function WeddingInfo() {
   const t = useTypedTranslations("wedding");
   const locale = useLocale();
-
-  const dateLocale = locale === "de" ? de : enUS;
+  const dateLocale = locale === "de" ? de : locale === "it" ? it : enUS;
   const date = format(weddingDate, "d MMMM yyyy", { locale: dateLocale });
 
   const cards = [
@@ -48,180 +39,57 @@ export default function WeddingInfo() {
   ];
 
   return (
-    <Box
-      component="section"
-      sx={{
-        py: { xs: 12, md: 18 },
-        px: 3,
-        background: "linear-gradient(180deg, #faf7f2 0%, #f3efe8 100%)",
-      }}
-    >
-      <Container maxWidth="lg">
-        {/* subtitle */}
-        <Typography
-          sx={{
-            textAlign: "center",
-            letterSpacing: "0.3em",
-            textTransform: "uppercase",
-            fontSize: "0.75rem",
-            color: "#777",
-            mb: 2,
-          }}
-        >
-          {t("weddingInfo.subtitle")}
-        </Typography>
-
-        {/* title */}
-        <Typography
-          sx={{
-            textAlign: "center",
-            fontFamily: "var(--font-serif)",
-            fontSize: { xs: "2.4rem", md: "3.5rem" },
-            fontWeight: 500,
-            mb: 2,
-          }}
-        >
-          {t("weddingInfo.title")}
-        </Typography>
-
-        {/* divider */}
-        <Box
-          sx={{
-            width: 70,
-            height: 2,
-            mx: "auto",
-            mb: 10,
-            background: "linear-gradient(135deg, #c89b3c, #e5c275)",
-          }}
+    <section className={`${styles.scene} ${styles.sceneWarm}`} id="details">
+      <div className={styles.inner}>
+        <SceneHeader
+          eyebrow={t("weddingInfo.subtitle")}
+          index="03"
+          title={t("weddingInfo.title")}
         />
 
-        {/* cards */}
-        <Grid
-          container
-          spacing={6}
-          justifyContent="center"
-          alignItems="stretch"
-        >
-          {cards.map((card, i) => {
+        <div className={styles.detailsGrid}>
+          {cards.map((card, index) => {
             const Icon = card.icon;
 
             return (
-              <Grid sx={{ xs: 12, md: 6 }} key={card.title}>
-                <motion.div
-                  custom={i}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={fadeUp}
-                >
-                  <Box
-                    sx={{
-                      textAlign: "center",
-                      background: "#f8f6f2",
-                      borderRadius: "14px",
-                      p: { xs: 4, md: 5 },
+              <motion.article
+                className={styles.detailPanel}
+                initial={{ opacity: 0, y: 35 }}
+                key={card.title}
+                transition={{
+                  delay: index * 0.12,
+                  duration: 0.8,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                viewport={{ once: true, amount: 0.3 }}
+                whileInView={{ opacity: 1, y: 0 }}
+              >
+                <div className={styles.panelTop}>
+                  <Icon />
+                  <span className={styles.panelNumber}>
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
 
-                      border: "1px solid rgba(0,0,0,0.08)",
+                <h3 className={styles.panelTitle}>{card.title}</h3>
+                <p className={styles.panelVenue}>{card.venue}</p>
+                <p className={styles.panelAddress}>{card.address}</p>
 
-                      boxShadow: "0 4px 30px rgba(0,0,0,0.06)",
-
-                      transition: "all .35s ease",
-
-                      "&:hover": {
-                        transform: "translateY(-6px)",
-                        boxShadow: "0 10px 40px rgba(0,0,0,0.12)",
-                      },
-                    }}
-                  >
-                    {/* icon */}
-                    <Box
-                      sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                        mb: 2,
-                        color: "#c89b3c",
-                        "& svg": {
-                          width: "30px",
-                          height: "30px",
-                        },
-                      }}
-                    >
-                      <Icon />
-                    </Box>
-
-                    {/* title */}
-                    <Typography
-                      sx={{
-                        fontFamily: "var(--font-serif)",
-                        fontSize: "1.6rem",
-                        fontWeight: 500,
-                        mb: 1,
-                      }}
-                    >
-                      {card.title}
-                    </Typography>
-
-                    {/* venue */}
-                    <Typography
-                      sx={{
-                        fontFamily: "var(--font-serif)",
-                        fontSize: "1.1rem",
-                        mb: 0.5,
-                      }}
-                    >
-                      {card.venue}
-                    </Typography>
-
-                    {/* address */}
-                    <Typography
-                      sx={{
-                        fontSize: "0.9rem",
-                        color: "#777",
-                        mb: 3,
-                      }}
-                    >
-                      {card.address}
-                    </Typography>
-
-                    {/* date + time */}
-                    <Box
-                      sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                        gap: 4,
-                        color: "#666",
-                        fontSize: "0.9rem",
-                      }}
-                    >
-                      <Box
-                        sx={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: 1,
-                        }}
-                      >
-                        <HiOutlineCalendar />
-                        {date}
-                      </Box>
-
-                      <Box
-                        sx={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: 1,
-                        }}
-                      >
-                        <HiOutlineClock />
-                        {card.time}
-                      </Box>
-                    </Box>
-                  </Box>
-                </motion.div>
-              </Grid>
+                <div className={styles.panelMeta}>
+                  <span className={styles.metaItem}>
+                    <HiOutlineCalendar />
+                    {date}
+                  </span>
+                  <span className={styles.metaItem}>
+                    <HiOutlineClock />
+                    {card.time}
+                  </span>
+                </div>
+              </motion.article>
             );
           })}
-        </Grid>
-      </Container>
-    </Box>
+        </div>
+      </div>
+    </section>
   );
 }

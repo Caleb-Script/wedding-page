@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import AccommodationSection from "@/components/AccommodationSection";
+import FAQSection from "@/components/FAQSection";
 import Gallery from "@/components/Gallery";
 import HeroSection from "@/components/HeroSection";
+import LayoutDebugAudit from "@/components/LayoutDebugAudit";
 import LocationSection from "@/components/LocationSection";
 import QuoteSection from "@/components/QuoteSection";
 import RSVPSection from "@/components/RSVPSection";
@@ -16,16 +19,19 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <>
+    <main>
+      <LayoutDebugAudit />
       <HeroSection />
       <WeddingInfo />
       <Timeline />
       <LocationSection />
+      <AccommodationSection />
       <TravelInfo />
+      <FAQSection />
       <RSVPSection />
       <QuoteSection />
       <Gallery />
       <WeddingFooter />
-    </>
+    </main>
   );
 }

@@ -23,11 +23,7 @@ export async function GET() {
     /**
      * Recursive listing
      */
-    const stream = minioClient.listObjectsV2(
-      bucketName,
-      folderPrefix,
-      true
-    );
+    const stream = minioClient.listObjectsV2(bucketName, folderPrefix, true);
 
     let index = 0;
 
@@ -64,8 +60,7 @@ export async function GET() {
           id: String(index),
 
           url:
-            `${process.env.MINIO_PUBLIC_URL}` +
-            `/${bucketName}/${object.name}`,
+            `${process.env.MINIO_PUBLIC_URL}` + `/${bucketName}/${object.name}`,
         });
       });
 
@@ -99,7 +94,7 @@ export async function GET() {
       },
       {
         status: 500,
-      }
+      },
     );
   }
 }

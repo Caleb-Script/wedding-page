@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import Provider from "@/app/provider";
 import { sans, serif } from "@/theme/fonts";
+import "./globals.css";
 
 export default async function RootLayout({
   children,
@@ -12,7 +13,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html className={`${serif.className} ${sans.className}`} lang="de">
+    <html className={`${serif.variable} ${sans.variable}`} lang="de">
       <body>
         <NextIntlClientProvider messages={messages}>
           <Provider>{children}</Provider>

@@ -16,6 +16,7 @@ const LOCALES: { code: Locale; label: string; flag: string }[] = [
 export default function LanguageSwitcher() {
   const router = useRouter();
   const locale = useLocale();
+  const activeLocale = LOCALES.find((item) => item.code.startsWith(locale));
 
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 
@@ -27,9 +28,9 @@ export default function LanguageSwitcher() {
   const handleClose = () => setAnchorEl(null);
 
   const switchLocale = (nextLocale: Locale) => {
-    if (nextLocale === locale) return;
+    if (nextLocale === activeLocale?.code) return;
     // biome-ignore lint/suspicious/noDocumentCookie: egal
-    document.cookie = `locale=${nextLocale}; path=/; max-age=31536000`;
+    document.cookie = `locale=${nextLocale}; path=/; max-age=31536000; SameSite=Lax`;
     handleClose();
     router.refresh();
   };
@@ -40,6 +41,8 @@ export default function LanguageSwitcher() {
         direction="row"
         spacing={1}
         alignItems="center"
+        aria-expanded={open}
+        aria-haspopup="menu"
         onClick={handleOpen}
         sx={{
           cursor: "pointer",
@@ -51,6 +54,7 @@ export default function LanguageSwitcher() {
           fontWeight={600}
           sx={{
             letterSpacing: "0.05em",
+            color: "inherit",
           }}
         >
           {locale.slice(0, 2).toUpperCase()}
@@ -66,17 +70,24 @@ export default function LanguageSwitcher() {
         PaperProps={{
           sx: {
             mt: 1.5,
-
-            borderRadius: 3,
-
-            backdropFilter: "blur(20px)",
-            background: "rgba(255,255,255,0.85)",
-
-            border: "1px solid rgba(212,175,55,0.35)",
-
-            boxShadow: "0 20px 60px rgba(0,0,0,0.35)",
-
+            minWidth: 190,
+            borderRadius: 2,
+            color: "rgba(255,255,255,.78)",
+            backdropFilter: "blur(24px) saturate(140%)",
+            background: "rgba(9,10,12,.9)",
+            border: "1px solid rgba(255,255,255,.12)",
+            boxShadow: "0 22px 70px rgba(0,0,0,.48)",
             overflow: "hidden",
+            "& .MuiMenuItem-root": {
+              minHeight: 48,
+              mx: 0.5,
+              my: 0.25,
+              borderRadius: 1.5,
+              transition: "background 180ms ease",
+            },
+            "& .MuiMenuItem-root:hover": {
+              background: "rgba(216,184,121,.1)",
+            },
           },
         }}
       >
@@ -89,10 +100,11 @@ export default function LanguageSwitcher() {
               sx={{ width: "100%", justifyContent: "space-between" }}
             >
               <Typography fontSize={14}>
-                {" "}
                 {l.flag} {l.label}
               </Typography>
-              {locale === l.code && <CheckIcon fontSize="small" />}
+              {activeLocale?.code === l.code && (
+                <CheckIcon color="#d8b879" size={15} />
+              )}
             </Stack>
           </MenuItem>
         ))}
