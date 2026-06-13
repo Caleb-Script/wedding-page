@@ -14,7 +14,13 @@ import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 import styles from "./CinematicScenes.module.css";
 import SceneHeader from "./SceneHeader";
 
-export default function Timeline() {
+type WeddingDayTimelineProps = {
+  embedded?: boolean;
+};
+
+export default function WeddingDayTimeline({
+  embedded = false,
+}: WeddingDayTimelineProps) {
   const t = useTypedTranslations("wedding");
   const timelineRef = useRef<HTMLDivElement>(null);
   const [activeEvent, setActiveEvent] = useState<string | null>(null);
@@ -62,9 +68,11 @@ export default function Timeline() {
     },
   ] as const;
 
+  const Root = embedded ? "div" : "section";
+
   return (
-    <section
-      className={`${styles.scene} ${styles.sceneDeep} ${styles.timelineScene}`}
+    <Root
+      className={`${embedded ? styles.chapterBeat : `${styles.scene} ${styles.sceneDeep}`} ${styles.timelineScene}`}
       id="timeline"
     >
       <div className={styles.inner}>
@@ -149,6 +157,6 @@ export default function Timeline() {
           })}
         </div>
       </div>
-    </section>
+    </Root>
   );
 }

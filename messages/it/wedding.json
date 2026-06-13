@@ -1,4 +1,7 @@
 {
+  "loader": {
+    "preparing": "Prepariamo l'esperienza"
+  },
   "gallery": {
     "subtitle": "I Nostri Momenti",
     "title": "Galleria",

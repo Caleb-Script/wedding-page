@@ -21,7 +21,13 @@ const fallbackImages: GalleryImage[] = [
   { id: "4", url: "/gallery-4.jpg" },
 ];
 
-export default function Gallery() {
+type MemoryGalleryProps = {
+  embedded?: boolean;
+};
+
+export default function MemoryGallery({
+  embedded = false,
+}: MemoryGalleryProps) {
   const t = useTypedTranslations("wedding");
   const [images, setImages] = useState<GalleryImage[]>(fallbackImages);
   const [loading, setLoading] = useState(true);
@@ -82,8 +88,15 @@ export default function Gallery() {
     );
   }
 
+  const Root = embedded ? "div" : "section";
+
   return (
-    <section className={`${styles.scene} ${styles.sceneDeep}`} id="gallery">
+    <Root
+      className={
+        embedded ? styles.chapterBeat : `${styles.scene} ${styles.sceneDeep}`
+      }
+      id="gallery"
+    >
       <div className={styles.inner}>
         <SceneHeader
           eyebrow={t("gallery.subtitle")}
@@ -149,6 +162,6 @@ export default function Gallery() {
           </div>
         </motion.div>
       </div>
-    </section>
+    </Root>
   );
 }

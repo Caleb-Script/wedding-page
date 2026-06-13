@@ -3,11 +3,19 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { HiOutlineMapPin } from "react-icons/hi2";
+import { CINEMATIC_EASE } from "@/components/CinematicMotion";
+import CinematicTabs from "@/components/CinematicTabs";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 import styles from "./CinematicScenes.module.css";
 import SceneHeader from "./SceneHeader";
 
-export default function LocationSection() {
+type DestinationLocationsProps = {
+  embedded?: boolean;
+};
+
+export default function DestinationLocations({
+  embedded = false,
+}: DestinationLocationsProps) {
   const t = useTypedTranslations("wedding");
   const [tab, setTab] = useState(0);
 
@@ -31,8 +39,15 @@ export default function LocationSection() {
   ];
   const location = locations[tab];
 
+  const Root = embedded ? "div" : "section";
+
   return (
-    <section className={`${styles.scene} ${styles.sceneSoft}`} id="locations">
+    <Root
+      className={
+        embedded ? styles.chapterBeat : `${styles.scene} ${styles.sceneSoft}`
+      }
+      id="locations"
+    >
       <div className={styles.inner}>
         <SceneHeader
           eyebrow={t("locations.subtitle")}
@@ -40,27 +55,19 @@ export default function LocationSection() {
           title={t("locations.title")}
         />
 
-        <div className={styles.tabs} role="tablist">
-          {locations.map((item, index) => (
-            <button
-              aria-selected={tab === index}
-              className={`${styles.tab} ${tab === index ? styles.tabActive : ""}`}
-              key={item.tab}
-              onClick={() => setTab(index)}
-              role="tab"
-              type="button"
-            >
-              {item.tab}
-            </button>
-          ))}
-        </div>
+        <CinematicTabs
+          ariaLabel={t("locations.title")}
+          labels={locations.map((item) => item.tab)}
+          onChange={setTab}
+          value={tab}
+        />
 
         <motion.div
           animate={{ opacity: 1, y: 0 }}
           className={styles.locationStage}
           initial={{ opacity: 0, y: 24 }}
           key={location.title}
-          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.65, ease: CINEMATIC_EASE }}
         >
           <div className={styles.mapFrame}>
             <iframe
@@ -83,6 +90,6 @@ export default function LocationSection() {
           </div>
         </motion.div>
       </div>
-    </section>
+    </Root>
   );
 }

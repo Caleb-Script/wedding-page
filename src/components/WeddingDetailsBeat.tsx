@@ -9,13 +9,20 @@ import {
   HiOutlineClock,
   HiOutlineMapPin,
 } from "react-icons/hi2";
+import { CINEMATIC_EASE } from "@/components/CinematicMotion";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 import styles from "./CinematicScenes.module.css";
 import SceneHeader from "./SceneHeader";
 
 const weddingDate = new Date(2026, 10, 21);
 
-export default function WeddingInfo() {
+type WeddingDetailsBeatProps = {
+  embedded?: boolean;
+};
+
+export default function WeddingDetailsBeat({
+  embedded = false,
+}: WeddingDetailsBeatProps) {
   const t = useTypedTranslations("wedding");
   const locale = useLocale();
   const dateLocale = locale === "de" ? de : locale === "it" ? it : enUS;
@@ -38,8 +45,15 @@ export default function WeddingInfo() {
     },
   ];
 
+  const Root = embedded ? "div" : "section";
+
   return (
-    <section className={`${styles.scene} ${styles.sceneWarm}`} id="details">
+    <Root
+      className={
+        embedded ? styles.chapterBeat : `${styles.scene} ${styles.sceneWarm}`
+      }
+      id="details"
+    >
       <div className={styles.inner}>
         <SceneHeader
           eyebrow={t("weddingInfo.subtitle")}
@@ -59,7 +73,7 @@ export default function WeddingInfo() {
                 transition={{
                   delay: index * 0.12,
                   duration: 0.8,
-                  ease: [0.22, 1, 0.36, 1],
+                  ease: CINEMATIC_EASE,
                 }}
                 viewport={{ once: true, amount: 0.3 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -90,6 +104,6 @@ export default function WeddingInfo() {
           })}
         </div>
       </div>
-    </section>
+    </Root>
   );
 }

@@ -18,7 +18,6 @@
 
 .videoLayer,
 .cinematicOverlay,
-.filmGrain,
 .particles,
 .lightEffects {
   position: absolute;
@@ -71,15 +70,6 @@
       rgba(1, 2, 5, 0.24) 66%,
       rgba(1, 2, 5, 0.78) 100%
     );
-}
-
-.filmGrain {
-  z-index: 5;
-  pointer-events: none;
-  opacity: 0.14;
-  mix-blend-mode: soft-light;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
-  animation: grain 0.2s steps(2) infinite;
 }
 
 .particles {
@@ -238,10 +228,12 @@
 }
 
 .eyebrow {
+  max-width: 100%;
   margin-bottom: clamp(22px, 3vh, 38px);
   color: rgba(255, 255, 255, 0.68);
-  font: 700 clamp(0.58rem, 0.8vw, 0.72rem) / 1 var(--font-sans);
-  letter-spacing: 0.48em;
+  font: 700 clamp(0.58rem, 0.8vw, 0.72rem) / 1.5 var(--font-sans);
+  letter-spacing: clamp(0.2em, 1vw, 0.48em);
+  overflow-wrap: anywhere;
   text-transform: uppercase;
 }
 
@@ -256,17 +248,23 @@
 }
 
 .titleWrap {
-  padding: 0 0.08em 0.1em;
+  width: 100%;
+  max-width: 100%;
+  padding: 0.14em 0.08em 0.18em;
 }
 
 .title {
   display: flex;
+  width: 100%;
+  max-width: 100%;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: clamp(12px, 2.4vw, 38px);
   margin: 0;
   color: #f8f4ed;
-  font: 400 clamp(4.1rem, 11vw, 10.5rem) / 0.8 var(--font-serif);
-  letter-spacing: -0.065em;
+  font: 400 clamp(3.6rem, 9vw, 9.5rem) / 0.92 var(--font-serif);
+  letter-spacing: -0.05em;
   text-shadow: 0 14px 60px rgba(0, 0, 0, 0.48);
 }
 
@@ -280,6 +278,7 @@
 }
 
 .quote {
+  width: min(100%, 600px);
   max-width: 600px;
   margin: clamp(28px, 4vh, 46px) auto 0;
   color: rgba(255, 255, 255, 0.62);
@@ -288,6 +287,7 @@
 
 .dateLine {
   display: flex;
+  max-width: 100%;
   margin-top: clamp(20px, 3vh, 32px);
   align-items: center;
   gap: 18px;
@@ -295,6 +295,9 @@
   font: 700 clamp(0.56rem, 0.7vw, 0.7rem) / 1 var(--font-sans);
   letter-spacing: 0.28em;
   text-transform: uppercase;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .dateLine span {
@@ -422,86 +425,6 @@
   animation: scroll 1.8s ease-in-out infinite;
 }
 
-.afterHero {
-  position: relative;
-  display: grid;
-  min-height: 100vh;
-  padding: clamp(100px, 14vw, 210px) clamp(24px, 8vw, 130px);
-  grid-template-columns: minmax(120px, 0.5fr) 2fr;
-  align-items: center;
-  overflow: hidden;
-  background:
-    radial-gradient(
-      circle at 75% 20%,
-      rgba(155, 119, 76, 0.13),
-      transparent 30%
-    ), #070708;
-}
-
-.afterHero::after {
-  position: absolute;
-  right: -12vw;
-  bottom: -38vw;
-  width: 70vw;
-  aspect-ratio: 1;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 8vw rgba(255, 255, 255, 0.012),
-    0 0 0 18vw rgba(255, 255, 255, 0.008);
-  content: "";
-}
-
-.afterIndex {
-  align-self: start;
-  color: rgba(255, 255, 255, 0.3);
-  font: 700 0.58rem / 1 var(--font-sans);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-
-.afterCopy {
-  position: relative;
-  z-index: 1;
-  max-width: 980px;
-}
-
-.afterCopy h2 {
-  margin: 0;
-  color: #f2eee7;
-  font: 400 clamp(4rem, 9vw, 9rem) / 0.88 var(--font-serif);
-  letter-spacing: -0.065em;
-  text-wrap: balance;
-}
-
-.afterMessage {
-  max-width: 500px;
-  margin-top: 48px;
-  margin-left: auto;
-  padding-left: 28px;
-  border-left: 1px solid rgba(217, 187, 132, 0.34);
-  color: rgba(255, 255, 255, 0.46);
-  font: 300 clamp(0.92rem, 1.2vw, 1.08rem) / 1.85 var(--font-sans);
-}
-
-@keyframes grain {
-  0% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(-2%, 1%);
-  }
-  50% {
-    transform: translate(1%, -2%);
-  }
-  75% {
-    transform: translate(2%, 2%);
-  }
-  100% {
-    transform: translate(-1%, -1%);
-  }
-}
-
 @keyframes particle {
   0%,
   100% {
@@ -596,7 +519,7 @@
     gap: 3px;
     justify-items: center;
     font-size: clamp(3.8rem, 18vw, 5.6rem);
-    line-height: 0.72;
+    line-height: 0.86;
     letter-spacing: -0.075em;
   }
 
@@ -669,7 +592,7 @@
     padding: 7px 8px;
     gap: 7px;
     font-size: 0.4rem;
-    white-space: nowrap;
+    text-align: right;
   }
 
   .credit span {
@@ -678,23 +601,6 @@
 
   .scrollCue {
     display: none;
-  }
-
-  .afterHero {
-    min-height: 86vh;
-    padding: 100px 24px;
-    grid-template-columns: 1fr;
-    align-content: center;
-    gap: 50px;
-  }
-
-  .afterCopy h2 {
-    font-size: clamp(4rem, 18vw, 6rem);
-  }
-
-  .afterMessage {
-    margin-top: 36px;
-    margin-left: 0;
   }
 }
 
@@ -717,7 +623,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .filmGrain,
   .particles span,
   .lightBeam,
   .lightBloom,

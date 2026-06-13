@@ -1,5 +1,6 @@
 :root {
   --foreground: #ededed;
+  --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 html,
@@ -44,12 +45,6 @@ main {
 * {
   padding: 0;
   margin: 0;
-}
-
-.debug-layout *,
-.debug-layout *::before,
-.debug-layout *::after {
-  outline: 1px solid red;
 }
 
 a {

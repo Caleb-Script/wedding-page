@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
-import AccommodationSection from "@/components/AccommodationSection";
-import FAQSection from "@/components/FAQSection";
-import Gallery from "@/components/Gallery";
-import HeroSection from "@/components/HeroSection";
-import LayoutDebugAudit from "@/components/LayoutDebugAudit";
-import LocationSection from "@/components/LocationSection";
-import QuoteSection from "@/components/QuoteSection";
-import RSVPSection from "@/components/RSVPSection";
-import Timeline from "@/components/Timeline";
-import TravelInfo from "@/components/TravelInfo";
-import WeddingFooter from "@/components/WeddingFooter";
-import WeddingInfo from "@/components/WeddingInfo";
+import CinematicExperience from "@/components/CinematicExperience";
+import ArrivalScene from "@/components/scenes/ArrivalScene";
+import DestinationScene from "@/components/scenes/DestinationScene";
+import ForeverScene from "@/components/scenes/ForeverScene";
+import GuestGuideScene from "@/components/scenes/GuestGuideScene";
+import JourneyScene from "@/components/scenes/JourneyScene";
+import RSVPScene from "@/components/scenes/RSVPScene";
+import WeddingDayScene from "@/components/scenes/WeddingDayScene";
 
 export const metadata: Metadata = {
   title: "Caleb & Rachel",
@@ -19,19 +15,14 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main>
-      <LayoutDebugAudit />
-      <HeroSection />
-      <WeddingInfo />
-      <Timeline />
-      <LocationSection />
-      <AccommodationSection />
-      <TravelInfo />
-      <FAQSection />
-      <RSVPSection />
-      <QuoteSection />
-      <Gallery />
-      <WeddingFooter />
-    </main>
+    <CinematicExperience>
+      <ArrivalScene />
+      <JourneyScene />
+      <WeddingDayScene />
+      <DestinationScene />
+      <GuestGuideScene />
+      <RSVPScene />
+      <ForeverScene />
+    </CinematicExperience>
   );
 }

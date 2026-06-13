@@ -7,11 +7,19 @@ import {
   HiOutlineTicket,
   HiOutlineTruck,
 } from "react-icons/hi2";
+import { CINEMATIC_EASE } from "@/components/CinematicMotion";
+import CinematicTabs from "@/components/CinematicTabs";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 import styles from "./CinematicScenes.module.css";
 import SceneHeader from "./SceneHeader";
 
-export default function TravelInfo() {
+type DestinationTravelProps = {
+  embedded?: boolean;
+};
+
+export default function DestinationTravel({
+  embedded = false,
+}: DestinationTravelProps) {
   const t = useTypedTranslations("wedding");
   const [tab, setTab] = useState(0);
 
@@ -58,8 +66,15 @@ export default function TravelInfo() {
     },
   ];
 
+  const Root = embedded ? "div" : "section";
+
   return (
-    <section className={`${styles.scene} ${styles.sceneWarm}`} id="travel">
+    <Root
+      className={
+        embedded ? styles.chapterBeat : `${styles.scene} ${styles.sceneWarm}`
+      }
+      id="travel"
+    >
       <div className={styles.inner}>
         <SceneHeader
           eyebrow={t("travel.subtitle")}
@@ -67,20 +82,12 @@ export default function TravelInfo() {
           title={t("travel.title")}
         />
 
-        <div className={styles.tabs} role="tablist">
-          {options.map((option, index) => (
-            <button
-              aria-selected={tab === index}
-              className={`${styles.tab} ${tab === index ? styles.tabActive : ""}`}
-              key={option.tab}
-              onClick={() => setTab(index)}
-              role="tab"
-              type="button"
-            >
-              {option.tab}
-            </button>
-          ))}
-        </div>
+        <CinematicTabs
+          ariaLabel={t("travel.title")}
+          labels={options.map((option) => option.tab)}
+          onChange={setTab}
+          value={tab}
+        />
 
         <div className={styles.travelGrid} key={tab}>
           {options[tab].items.map((option, index) => {
@@ -95,7 +102,7 @@ export default function TravelInfo() {
                 transition={{
                   delay: index * 0.08,
                   duration: 0.7,
-                  ease: [0.22, 1, 0.36, 1],
+                  ease: CINEMATIC_EASE,
                 }}
               >
                 <div className={styles.travelIndex}>
@@ -109,6 +116,6 @@ export default function TravelInfo() {
           })}
         </div>
       </div>
-    </section>
+    </Root>
   );
 }

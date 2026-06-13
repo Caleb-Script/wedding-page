@@ -3,22 +3,35 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { HiArrowUpRight } from "react-icons/hi2";
+import { CINEMATIC_EASE } from "@/components/CinematicMotion";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 import styles from "./CinematicScenes.module.css";
 
 const EVENT_ID =
   process.env.NEXT_PUBLIC_EVENT_ID || "6d650ee6-8ed0-4694-afd4-71871c37683a";
 
-export default function RSVPSection() {
+type RSVPInvitationProps = {
+  embedded?: boolean;
+};
+
+export default function RSVPInvitation({
+  embedded = false,
+}: RSVPInvitationProps) {
   const t = useTypedTranslations("wedding");
+  const Root = embedded ? "div" : "section";
 
   return (
-    <section className={`${styles.scene} ${styles.sceneDeep}`} id="rsvp">
+    <Root
+      className={
+        embedded ? styles.chapterBeat : `${styles.scene} ${styles.sceneDeep}`
+      }
+      id="rsvp"
+    >
       <div className={styles.inner}>
         <motion.div
           className={styles.rsvpStage}
           initial={{ opacity: 0, scale: 0.98 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 1, ease: CINEMATIC_EASE }}
           viewport={{ once: true, amount: 0.35 }}
           whileInView={{ opacity: 1, scale: 1 }}
         >
@@ -36,6 +49,6 @@ export default function RSVPSection() {
           </div>
         </motion.div>
       </div>
-    </section>
+    </Root>
   );
 }

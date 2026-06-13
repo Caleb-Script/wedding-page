@@ -15,6 +15,129 @@
   background: #09090a;
 }
 
+.chapter {
+  --scene-accent: #d8b879;
+  --scene-line: rgba(255, 255, 255, 0.1);
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow: clip;
+  color: #f1ece2;
+  background: #050506;
+}
+
+.chapter::before,
+.chapter::after {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+}
+
+.chapter::before {
+  background:
+    radial-gradient(
+      circle at 12% 12%,
+      rgba(216, 184, 121, 0.1),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 88% 80%,
+      rgba(109, 127, 148, 0.1),
+      transparent 30%
+    );
+}
+
+.chapter::after {
+  z-index: -1;
+  opacity: 0.26;
+  background-image:
+    linear-gradient(var(--scene-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--scene-line) 1px, transparent 1px);
+  background-size: 12.5vw 12.5vw;
+  mask-image: linear-gradient(
+    180deg,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+}
+
+.chapterDeep {
+  background: #050506;
+}
+
+.chapterSoft {
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(105, 117, 130, 0.12),
+      transparent 32%
+    ), #0a0a0b;
+}
+
+.chapterWarm {
+  background:
+    radial-gradient(
+      circle at 78% 24%,
+      rgba(158, 111, 62, 0.14),
+      transparent 30%
+    ), #0d0c0c;
+}
+
+.chapterRail {
+  position: sticky;
+  z-index: 8;
+  top: 50%;
+  left: 0;
+  display: flex;
+  width: fit-content;
+  height: 0;
+  padding-left: clamp(12px, 2vw, 32px);
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.24);
+  pointer-events: none;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: left center;
+}
+
+.chapterRail span {
+  max-width: 180px;
+  font: 700 0.48rem / 1.4 var(--font-sans);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: normal;
+}
+
+.chapterRailLine {
+  width: 34px;
+  height: 1px;
+  flex: 0 0 auto;
+  background: rgba(216, 184, 121, 0.35);
+}
+
+.chapterBeat {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+.chapterBeat + .chapterBeat {
+  border-top: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.scene :is(h1, h2, h3, p, span, strong, em, a, button),
+.chapter :is(h1, h2, h3, p, span, strong, em, a, button) {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
 .scene::before {
   position: absolute;
   z-index: -2;
@@ -79,6 +202,7 @@
 .inner {
   width: 100%;
   min-width: 0;
+  max-width: 100%;
   min-height: 100vh;
   margin: 0;
   padding: clamp(110px, 13vw, 210px) clamp(20px, 6vw, 96px);
@@ -110,23 +234,32 @@
 }
 
 .sceneTitles {
+  width: 100%;
+  min-width: 0;
   max-width: 960px;
 }
 
 .eyebrow {
   margin-bottom: 18px;
   color: var(--scene-accent);
-  font: 700 0.62rem / 1.3 var(--font-sans);
-  letter-spacing: 0.36em;
+  font: 700 0.62rem / 1.55 var(--font-sans);
+  letter-spacing: clamp(0.18em, 0.7vw, 0.36em);
   text-transform: uppercase;
 }
 
 .heading {
+  width: min(100%, 1120px);
   margin: 0;
   color: #f2eee6;
-  font: 400 clamp(3.6rem, 8.5vw, 10.5rem) / 0.88 var(--font-serif);
-  letter-spacing: -0.06em;
+  font: 400 clamp(3rem, 7.5vw, 9.5rem) / 0.96 var(--font-serif);
+  letter-spacing: -0.045em;
   text-wrap: balance;
+}
+
+.heading > span,
+.journeyCopy h2 > span {
+  display: block;
+  width: 100%;
 }
 
 .sectionRule {
@@ -134,6 +267,7 @@
   height: 1px;
   margin-top: 34px;
   background: linear-gradient(90deg, var(--scene-accent), transparent);
+  transform-origin: left;
 }
 
 .detailsGrid {
@@ -152,7 +286,7 @@
   background: rgba(11, 11, 12, 0.92);
   transition:
     background 500ms ease,
-    transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform 500ms var(--ease-cinematic);
 }
 
 .detailPanel:hover {
@@ -326,6 +460,7 @@
 }
 
 .timelineTitle {
+  max-width: 100%;
   font: 400 clamp(2rem, 3vw, 3.5rem) / 1.02 var(--font-serif);
   letter-spacing: -0.035em;
 }
@@ -333,7 +468,7 @@
 .timelineCard {
   position: relative;
   width: min(clamp(390px, 34vw, 580px), 100%);
-  height: clamp(390px, 36vw, 560px);
+  height: clamp(520px, 44vw, 650px);
   padding: 0;
   border: 0;
   color: inherit;
@@ -357,7 +492,7 @@
   inset: 0;
   display: block;
   transform-style: preserve-3d;
-  transition: transform 850ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 850ms var(--ease-cinematic);
 }
 
 .timelineCard:hover .timelineCardInner {
@@ -418,7 +553,7 @@
 }
 
 .timelineCardFront .timelineTitle {
-  max-width: 280px;
+  max-width: min(100%, 360px);
   color: #f2ede4;
   text-wrap: balance;
 }
@@ -444,7 +579,7 @@
 
 .timelineCardBack {
   display: grid;
-  grid-template-rows: 45% 55%;
+  grid-template-rows: minmax(180px, 42%) minmax(0, 58%);
   transform: rotateY(180deg);
   text-align: left;
 }
@@ -467,6 +602,7 @@
 }
 
 .timelineBackContent {
+  position: relative;
   display: flex;
   padding: 22px 26px;
   flex-direction: column;
@@ -493,15 +629,14 @@
 }
 
 .timelineBackMessage {
-  margin-top: auto;
+  margin-top: 18px;
   color: rgba(255, 255, 255, 0.72);
   font: italic 400 0.85rem / 1.4 var(--font-serif);
 }
 
 .timelineClose {
-  position: absolute;
-  right: 18px;
-  bottom: 16px;
+  margin-top: auto;
+  align-self: flex-end;
   opacity: 0.55;
 }
 
@@ -513,6 +648,7 @@
 .tabs {
   display: flex;
   width: fit-content;
+  max-width: 100%;
   margin: 0 0 clamp(54px, 7vw, 86px) auto;
   padding: 5px;
   gap: 4px;
@@ -635,7 +771,7 @@
   transition:
     border-color 450ms ease,
     box-shadow 450ms ease,
-    transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform 650ms var(--ease-cinematic);
 }
 
 .hotelCard:hover {
@@ -664,7 +800,7 @@
   filter: saturate(0.72) contrast(1.07);
   transition:
     filter 500ms ease,
-    transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform 900ms var(--ease-cinematic);
 }
 
 .hotelCard:hover .hotelMedia img {
@@ -867,7 +1003,6 @@
 }
 
 .faqItem {
-  overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background:
     linear-gradient(120deg, rgba(255, 255, 255, 0.04), transparent 58%),
@@ -887,19 +1022,19 @@
 }
 
 .faqQuestion {
-  display: grid;
+  display: flex;
   width: 100%;
-  min-height: 96px;
-  padding: 24px 28px;
   border: 0;
   color: #eee9df;
   background: transparent;
   cursor: pointer;
   font: 400 clamp(1.25rem, 2vw, 1.8rem) / 1.25 var(--font-serif);
   text-align: left;
-  grid-template-columns: 38px 1fr 42px;
-  gap: 16px;
   align-items: center;
+}
+
+.faqQuestion > span {
+  min-width: 0;
 }
 
 .faqNumber {
@@ -916,7 +1051,7 @@
   border-radius: 50%;
   color: var(--scene-accent);
   place-items: center;
-  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 400ms var(--ease-cinematic);
 }
 
 .faqItemOpen .faqToggle {
@@ -929,7 +1064,7 @@
 }
 
 .faqAnswer {
-  overflow: hidden;
+  min-width: 0;
 }
 
 .faqAnswer p {
@@ -985,14 +1120,17 @@
 .rsvpContent {
   position: relative;
   z-index: 2;
+  width: min(100%, 720px);
   max-width: 720px;
 }
 
 .rsvpTitle {
+  max-width: 100%;
   margin: 22px 0;
   color: #f5f0e7;
-  font: 400 clamp(5rem, 12vw, 11rem) / 0.78 var(--font-serif);
-  letter-spacing: -0.07em;
+  font: 400 clamp(3.5rem, 9vw, 10rem) / 0.92 var(--font-serif);
+  letter-spacing: -0.05em;
+  text-wrap: balance;
 }
 
 .rsvpQuote {
@@ -1007,6 +1145,8 @@
   min-height: 54px;
   padding: 0 24px;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 36px;
   border: 1px solid #eadabc;
   border-radius: 999px;
@@ -1015,6 +1155,7 @@
   font: 700 0.58rem / 1 var(--font-sans);
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  text-align: center;
   transition:
     color 250ms ease,
     background 250ms ease,
@@ -1034,10 +1175,36 @@
 
 .quoteStage {
   position: relative;
-  max-width: 1080px;
+  width: min(100%, 1180px);
+  max-width: 1180px;
   margin: 0 auto;
-  padding: clamp(70px, 10vw, 150px) 0;
+  padding: clamp(70px, 10vw, 150px) clamp(4px, 2vw, 28px);
   text-align: center;
+}
+
+.quoteScene {
+  min-height: 120vh;
+}
+
+.quoteScene .inner {
+  display: grid;
+  place-items: center;
+}
+
+.quoteHalo {
+  position: absolute;
+  inset: 12%;
+  border: 1px solid rgba(216, 184, 121, 0.1);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(216, 184, 121, 0.08),
+    transparent 64%
+  );
+  box-shadow:
+    0 0 0 8vw rgba(216, 184, 121, 0.012),
+    0 0 120px rgba(216, 184, 121, 0.05);
+  pointer-events: none;
 }
 
 .quoteStage::before {
@@ -1058,10 +1225,20 @@
 }
 
 .quoteText {
+  width: 100%;
   color: #eee9df;
-  font: italic 400 clamp(2.8rem, 6.2vw, 6.5rem) / 1.02 var(--font-serif);
-  letter-spacing: -0.05em;
+  font: italic 400 clamp(2.3rem, 5.4vw, 5.8rem) / 1.1 var(--font-serif);
+  letter-spacing: -0.035em;
   text-wrap: balance;
+}
+
+.quoteLine {
+  display: block;
+  width: 100%;
+}
+
+.quoteText br {
+  display: none;
 }
 
 .galleryViewport {
@@ -1105,7 +1282,7 @@
   filter: saturate(0.82) contrast(1.05);
   transition:
     filter 500ms ease,
-    transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform 800ms var(--ease-cinematic);
 }
 
 .galleryImage:hover img {
@@ -1230,9 +1407,67 @@
 
 .footerNames {
   position: relative;
+  max-width: 100%;
   margin: 0;
-  font: 400 clamp(4rem, 9vw, 8.5rem) / 0.9 var(--font-serif);
-  letter-spacing: -0.065em;
+  font: 400 clamp(3.3rem, 8vw, 8rem) / 0.96 var(--font-serif);
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+}
+
+.journeyStage {
+  position: relative;
+  display: grid;
+  min-height: 100vh;
+  padding: clamp(100px, 14vw, 210px) clamp(24px, 8vw, 130px);
+  grid-template-columns: minmax(90px, 0.4fr) minmax(0, 2fr);
+  align-items: center;
+}
+
+.journeyStage::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: min(70vw, 900px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 8vw rgba(255, 255, 255, 0.012),
+    0 0 0 18vw rgba(255, 255, 255, 0.008);
+  content: "";
+  pointer-events: none;
+  transform: translate(30%, 55%);
+}
+
+.journeyIndex {
+  align-self: start;
+  color: rgba(255, 255, 255, 0.3);
+  font: 700 0.58rem / 1 var(--font-sans);
+  letter-spacing: 0.22em;
+}
+
+.journeyCopy {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1120px;
+}
+
+.journeyCopy h2 {
+  color: #f2eee7;
+  font: 400 clamp(3.4rem, 8vw, 8.5rem) / 0.96 var(--font-serif);
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+}
+
+.journeyMessage {
+  max-width: 560px;
+  margin-top: 48px;
+  margin-left: auto;
+  padding-left: 28px;
+  border-left: 1px solid rgba(217, 187, 132, 0.34);
+  color: rgba(255, 255, 255, 0.52);
+  font: 300 clamp(0.92rem, 1.2vw, 1.08rem) / 1.85 var(--font-sans);
 }
 
 .footerDate {
@@ -1266,13 +1501,21 @@
     background-size: 25vw 25vw;
   }
 
+  .chapter::after {
+    background-size: 25vw 25vw;
+  }
+
+  .chapterRail {
+    display: none;
+  }
+
   .sceneHeader {
     grid-template-columns: 1fr;
     gap: 30px;
   }
 
   .heading {
-    font-size: clamp(3.4rem, 15vw, 6rem);
+    font-size: clamp(2.8rem, 12vw, 5.5rem);
   }
 
   .detailsGrid,
@@ -1305,6 +1548,7 @@
 
   .timelineCard {
     width: min(100%, 520px);
+    height: 560px;
   }
 
   .timelineNode {
@@ -1371,6 +1615,16 @@
     min-height: 440px;
     max-height: 680px;
   }
+
+  .journeyStage {
+    grid-template-columns: 1fr;
+    align-content: center;
+    gap: 42px;
+  }
+
+  .journeyMessage {
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 560px) {
@@ -1405,7 +1659,7 @@
   }
 
   .timelineCard {
-    height: 365px;
+    height: 560px;
   }
 
   .tabs {
@@ -1442,13 +1696,6 @@
     flex-direction: column;
   }
 
-  .faqQuestion {
-    min-height: 84px;
-    padding: 20px 16px;
-    grid-template-columns: 24px 1fr 36px;
-    gap: 10px;
-  }
-
   .faqAnswer p {
     padding: 0 52px 26px;
   }
@@ -1459,7 +1706,7 @@
   }
 
   .rsvpTitle {
-    font-size: clamp(4.5rem, 25vw, 7rem);
+    font-size: clamp(3.2rem, 15vw, 5.8rem);
   }
 
   .primaryAction {
@@ -1467,7 +1714,7 @@
   }
 
   .quoteText {
-    font-size: clamp(2.5rem, 13vw, 4.3rem);
+    font-size: clamp(2.15rem, 10vw, 3.8rem);
   }
 
   .gallerySlide {
@@ -1481,7 +1728,20 @@
   }
 
   .footerNames {
-    font-size: clamp(3.6rem, 18vw, 6rem);
+    font-size: clamp(3rem, 14vw, 5.4rem);
+  }
+
+  .journeyStage {
+    padding: 92px 20px;
+  }
+
+  .journeyCopy h2 {
+    font-size: clamp(3rem, 14vw, 5.4rem);
+  }
+
+  .journeyMessage {
+    margin-top: 34px;
+    padding-left: 20px;
   }
 }
 

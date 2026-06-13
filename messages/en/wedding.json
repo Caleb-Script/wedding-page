@@ -1,5 +1,8 @@
 {
   "wedding": {},
+  "loader": {
+    "preparing": "Preparing the experience"
+  },
   "gallery": {
     "subtitle": "Our Moments",
     "title": "Gallery",

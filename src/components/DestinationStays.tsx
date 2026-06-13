@@ -7,6 +7,7 @@ import {
   HiOutlineClock,
   HiOutlineMapPin,
 } from "react-icons/hi2";
+import { CINEMATIC_EASE } from "@/components/CinematicMotion";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 import styles from "./CinematicScenes.module.css";
 import SceneHeader from "./SceneHeader";
@@ -32,12 +33,21 @@ const hotels = [
   },
 ] as const;
 
-export default function AccommodationSection() {
+type DestinationStaysProps = {
+  embedded?: boolean;
+};
+
+export default function DestinationStays({
+  embedded = false,
+}: DestinationStaysProps) {
   const t = useTypedTranslations("wedding");
+  const Root = embedded ? "div" : "section";
 
   return (
-    <section
-      className={`${styles.scene} ${styles.sceneWarm}`}
+    <Root
+      className={
+        embedded ? styles.chapterBeat : `${styles.scene} ${styles.sceneWarm}`
+      }
       id="accommodation"
     >
       <div className={styles.inner}>
@@ -56,7 +66,7 @@ export default function AccommodationSection() {
               transition={{
                 delay: index * 0.1,
                 duration: 0.8,
-                ease: [0.22, 1, 0.36, 1],
+                ease: CINEMATIC_EASE,
               }}
               viewport={{ once: true, amount: 0.25 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -106,6 +116,6 @@ export default function AccommodationSection() {
           ))}
         </div>
       </div>
-    </section>
+    </Root>
   );
 }

@@ -1,4 +1,7 @@
 {
+  "loader": {
+    "preparing": "Das Erlebnis wird vorbereitet"
+  },
   "hero": {
     "subtitle": "Wir heiraten",
     "quote": "Wir haben eine Liebe gefunden, die sich wie Zuhause anfühlt.",

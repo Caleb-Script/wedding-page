@@ -3,14 +3,20 @@
 import { Fab } from "@mui/material";
 import { format } from "date-fns";
 import { de, enUS, it } from "date-fns/locale";
-import { motion } from "framer-motion";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { useLocale } from "next-intl";
 import type { CSSProperties } from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { HiArrowDown, HiArrowUpRight } from "react-icons/hi2";
+import { CINEMATIC_EASE } from "@/components/CinematicMotion";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
-import styles from "./HeroSection.module.css";
+import styles from "./ArrivalHero.module.css";
 
 const weddingDate = new Date(2026, 10, 21);
 
@@ -62,11 +68,21 @@ function useCountdown() {
   return time;
 }
 
-export default function HeroSection() {
+export default function ArrivalHero() {
   const locale = useLocale();
   const t = useTypedTranslations("wedding");
   const { days, hours, minutes, seconds } = useCountdown();
   const [videoReady, setVideoReady] = useState(false);
+  const heroRef = useRef<HTMLElement>(null);
+  const reduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const mediaY = useTransform(scrollYProgress, [0, 1], ["0%", "16%"]);
+  const mediaScale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.72], [1, 0]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
 
   const dateLocale = locale === "de" ? de : locale === "it" ? it : enUS;
   const countdown = [
@@ -78,14 +94,22 @@ export default function HeroSection() {
 
   const beginJourney = () => {
     document
-      .getElementById("hero-after")
+      .getElementById("journey")
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
     <div className={styles.root}>
-      <section className={styles.hero} aria-label={t("hero.backgroundAlt")}>
-        <div className={styles.videoLayer}>
+      <section
+        aria-label={t("hero.backgroundAlt")}
+        className={styles.hero}
+        id="hero"
+        ref={heroRef}
+      >
+        <motion.div
+          className={styles.videoLayer}
+          style={reduceMotion ? undefined : { scale: mediaScale, y: mediaY }}
+        >
           <video
             autoPlay
             className={`${styles.video} ${videoReady ? styles.videoReady : ""}`}
@@ -106,10 +130,9 @@ export default function HeroSection() {
             />
             <source src="/video/hero-cinematic-480.webm" type="video/webm" />
           </video>
-        </div>
+        </motion.div>
 
         <div className={styles.cinematicOverlay} />
-        <div className={styles.filmGrain} />
 
         <div className={styles.particles} aria-hidden="true">
           {PARTICLES.map(([left, top, size, duration], index) => (
@@ -173,7 +196,12 @@ export default function HeroSection() {
           </a>
         </div>
 
-        <div className={styles.content}>
+        <motion.div
+          className={styles.content}
+          style={
+            reduceMotion ? undefined : { opacity: contentOpacity, y: contentY }
+          }
+        >
           <motion.p
             animate={{ opacity: 1, y: 0 }}
             className={styles.eyebrow}
@@ -184,13 +212,13 @@ export default function HeroSection() {
           </motion.p>
 
           <motion.div
-            animate={{ clipPath: "inset(0 0 0 0)", opacity: 1 }}
+            animate={{ opacity: 1, y: 0 }}
             className={styles.titleWrap}
-            initial={{ clipPath: "inset(0 0 100% 0)", opacity: 0 }}
+            initial={{ opacity: 0, y: 18 }}
             transition={{
               delay: 0.65,
               duration: 1.4,
-              ease: [0.22, 1, 0.36, 1],
+              ease: CINEMATIC_EASE,
             }}
           >
             <h1 className={styles.title}>
@@ -246,7 +274,7 @@ export default function HeroSection() {
               <HiArrowUpRight />
             </button>
           </motion.div>
-        </div>
+        </motion.div>
 
         <button
           aria-label={t("hero.scroll")}
@@ -258,16 +286,6 @@ export default function HeroSection() {
           <span className={styles.scrollLine} />
           <HiArrowDown />
         </button>
-      </section>
-
-      <section className={styles.afterHero} id="hero-after">
-        <div className={styles.afterIndex} aria-hidden="true">
-          02
-        </div>
-        <div className={styles.afterCopy}>
-          <h2>{t("hero.infoTitle")}</h2>
-          <div className={styles.afterMessage}>{t("hero.infoText")}</div>
-        </div>
       </section>
     </div>
   );
