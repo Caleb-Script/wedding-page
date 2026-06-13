@@ -113,7 +113,7 @@ export default function CinematicLoader({ onComplete }: CinematicLoaderProps) {
         >
           <CircularProgress
             aria-label={t("loader.preparing")}
-            size={120}
+            size={220}
             min={0}
             max={100}
             thickness={0.7}
@@ -165,6 +165,9 @@ export default function CinematicLoader({ onComplete }: CinematicLoaderProps) {
                   ·
                 </Box>{" "}
                 R
+              </Typography>
+              <Typography sx={{ flexShrink: 0, fontSize: "0.66rem", fontWeight: 700, mt: 0.5, ml: 2.5 }}>
+                #CGR #HAPPELYEVERGYAMFI
               </Typography>
             </motion.div>
           </Box>
