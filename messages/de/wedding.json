@@ -97,32 +97,45 @@
     }
   },
   "accommodation": {
-    "subtitle": "Ganz in der Nähe",
-    "title": "Hotels nahe der Location",
+    "subtitle": "Für unsere Gäste",
+    "title": "Unterkunft & Anreise",
     "booking": "Hotel buchen",
     "map": "Karte öffnen",
-    "hotels": {
-      "fuchsen": {
-        "name": "Hotel Fuchsen",
-        "distance": "ca. 3 km",
-        "travelTime": "ca. 7 Min.",
-        "price": "€€€",
-        "description": "Eine stilvolle, zentrale Unterkunft in Kirchheim mit Restaurant und elegantem Ambiente."
-      },
-      "ateck": {
-        "name": "Ateckhotel",
-        "distance": "ca. 4 km",
-        "travelTime": "ca. 8 Min.",
-        "price": "€€",
-        "description": "Ein komfortables, modernes Hotel mit hellen Zimmern und ruhiger Atmosphäre nahe der Feier."
-      },
-      "wuerttemberg": {
-        "name": "Württembergischer Hof",
-        "distance": "ca. 2 km",
-        "travelTime": "ca. 5 Min.",
-        "price": "€€",
-        "description": "Ein gastfreundliches Hotel nahe der Kirchheimer Innenstadt mit Parkplätzen und Restaurant."
-      }
+    "website": "Webseite besuchen",
+    "listLabel": "Vom Brautpaar empfohlene Hotels",
+    "imageAlt": "Zimmer und Ambiente im {hotel}",
+    "actionLabel": "{action} für {hotel}",
+    "intro": {
+      "eyebrow": "Von uns ausgewählt",
+      "title": "Ankommen. Durchatmen. Bleiben.",
+      "description": "Für Gäste mit längerer Anreise haben wir einige Hotels in der Umgebung zusammengestellt, in denen ihr euch vor und nach unserer Feier wohlfühlen könnt."
+    },
+    "mapView": {
+      "eyebrow": "Orientierung",
+      "title": "Euer Weg durch unseren Tag.",
+      "description": "Trauung, Feier und unsere Hotelempfehlungen auf einen Blick. Die goldene Linie verbindet die beiden Orte unseres Hochzeitstages.",
+      "loading": "Karte wird vorbereitet",
+      "mapLabel": "Interaktive Karte mit Trauung, Feier und empfohlenen Hotels",
+      "legendLabel": "Legende der Hochzeitskarte",
+      "legendTitle": "Unser Hochzeitstag",
+      "ceremony": "Trauung",
+      "celebration": "Feier",
+      "hotels": "Hotels",
+      "showAll": "Alle Orte anzeigen",
+      "fullscreen": "Karte im Vollbild öffnen",
+      "exitFullscreen": "Vollbild schließen",
+      "routeToLocation": "Route zu {location} öffnen"
+    },
+    "ceremonyDistance": "Zur Trauung",
+    "celebrationDistance": "Zur Feier",
+    "travelTime": "Fahrzeit",
+    "tags": {
+      "recommended": "Empfohlen",
+      "familyFriendly": "Familienfreundlich",
+      "central": "Innenstadt",
+      "shuttlePossible": "Shuttle möglich",
+      "budget": "Budget",
+      "premium": "Premium"
     }
   },
   "travel": {
@@ -218,15 +231,15 @@
       },
       "nearbyHotels": {
         "question": "Welche Hotels sind in der Nähe?",
-        "answer": "Hotel Fuchsen, Ateckhotel und Württembergischer Hof sind nur eine kurze Fahrt von der Feier entfernt."
+        "answer": "Im Unterkunftskapitel findet ihr unsere persönlich ausgewählten Empfehlungen nahe der Feier inklusive Entfernung und Fahrzeit."
       },
       "recommendedHotels": {
         "question": "Gibt es empfohlene Hotels?",
-        "answer": "Ja. Im Unterkunftskapitel oben findet ihr direkte Links zu drei komfortablen Optionen in der Nähe."
+        "answer": "Ja. Wir haben einige passende Hotels ausgewählt und mit direkten Links zu Website, Buchung und Karte ergänzt."
       },
       "hotelDistance": {
         "question": "Wie weit sind die Hotels von der Location entfernt?",
-        "answer": "Die aufgeführten Hotels liegen ungefähr zwei bis vier Kilometer vom White Event Palast entfernt."
+        "answer": "Die Entfernungen zur Trauung und Feier sowie eine geschätzte Fahrzeit werden bei jeder Empfehlung angezeigt."
       },
       "hotelTravel": {
         "question": "Gibt es einen Transfer zwischen Hotel und Location?",

@@ -18,7 +18,6 @@ import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 import styles from "./ArrivalHero.module.css";
 import { HERO_MEDIA_READY_EVENT } from "./cinematicEvents";
 import { SplitReveal } from "./SplitReveal";
-import { Stack } from "@mui/material";
 
 const weddingDate = new Date(2026, 10, 21);
 
@@ -214,18 +213,11 @@ export default function ArrivalHero() {
             }}
           >
             <h1 className={styles.title}>
-              <Stack 
-              direction="column" 
-              spacing={0.5} 
-              sx={{ 
-                alignItems:"center",
-                justifyContent: "center"
-                }}
-                >
-             <SplitReveal direction="down" delay={3}>Caleb</SplitReveal>
+              <SplitReveal delay={0.7} direction="down">
+                Caleb
+              </SplitReveal>
               <span className={styles.ampersand}>&</span>
-              <SplitReveal direction="up" delay={3.5}>Rachel</SplitReveal>
-              </Stack>
+              <SplitReveal delay={0.85}>Rachel</SplitReveal>
             </h1>
           </motion.div>
 

@@ -97,32 +97,45 @@
     }
   },
   "accommodation": {
-    "subtitle": "Restate vicini",
-    "title": "Hotel vicino alla location",
+    "subtitle": "Per i nostri ospiti",
+    "title": "Soggiorno & arrivo",
     "booking": "Prenota hotel",
     "map": "Apri mappa",
-    "hotels": {
-      "fuchsen": {
-        "name": "Hotel Fuchsen",
-        "distance": "circa 3 km",
-        "travelTime": "circa 7 min",
-        "price": "€€€",
-        "description": "Un soggiorno elegante e centrale a Kirchheim, con ristorante e un'atmosfera raffinata."
-      },
-      "ateck": {
-        "name": "Ateckhotel",
-        "distance": "circa 4 km",
-        "travelTime": "circa 8 min",
-        "price": "€€",
-        "description": "Un hotel moderno e confortevole, con camere luminose e un ambiente tranquillo vicino al ricevimento."
-      },
-      "wuerttemberg": {
-        "name": "Württembergischer Hof",
-        "distance": "circa 2 km",
-        "travelTime": "circa 5 min",
-        "price": "€€",
-        "description": "Un hotel accogliente vicino al centro di Kirchheim, con parcheggio e ristorante."
-      }
+    "website": "Visita il sito",
+    "listLabel": "Hotel consigliati dagli sposi",
+    "imageAlt": "Camere e atmosfera del {hotel}",
+    "actionLabel": "{action} per {hotel}",
+    "intro": {
+      "eyebrow": "Scelti da noi",
+      "title": "Arrivare. Respirare. Restare.",
+      "description": "Per gli ospiti che arrivano da più lontano abbiamo selezionato alcuni hotel nei dintorni, dove sentirsi a casa prima e dopo la nostra festa."
+    },
+    "mapView": {
+      "eyebrow": "Orientamento",
+      "title": "Il vostro viaggio nel nostro giorno.",
+      "description": "Cerimonia, ricevimento e i nostri hotel consigliati in un solo sguardo. La linea dorata collega i due luoghi del matrimonio.",
+      "loading": "Preparazione della mappa",
+      "mapLabel": "Mappa interattiva con cerimonia, ricevimento e hotel consigliati",
+      "legendLabel": "Legenda della mappa del matrimonio",
+      "legendTitle": "Il nostro matrimonio",
+      "ceremony": "Cerimonia",
+      "celebration": "Ricevimento",
+      "hotels": "Hotel",
+      "showAll": "Mostra tutti i luoghi",
+      "fullscreen": "Apri la mappa a schermo intero",
+      "exitFullscreen": "Chiudi schermo intero",
+      "routeToLocation": "Apri il percorso verso {location}"
+    },
+    "ceremonyDistance": "Dalla cerimonia",
+    "celebrationDistance": "Dal ricevimento",
+    "travelTime": "Tempo di viaggio",
+    "tags": {
+      "recommended": "Consigliato",
+      "familyFriendly": "Per famiglie",
+      "central": "Centro città",
+      "shuttlePossible": "Navetta possibile",
+      "budget": "Budget",
+      "premium": "Premium"
     }
   },
   "travel": {
@@ -218,15 +231,15 @@
       },
       "nearbyHotels": {
         "question": "Quali hotel sono nelle vicinanze?",
-        "answer": "Hotel Fuchsen, Ateckhotel e Württembergischer Hof sono a pochi minuti dal ricevimento."
+        "answer": "Il capitolo sugli alloggi presenta i nostri consigli selezionati vicino al ricevimento, con distanza e tempo di viaggio."
       },
       "recommendedHotels": {
         "question": "Ci sono hotel consigliati?",
-        "answer": "Sì. Il capitolo alloggi qui sopra collega direttamente tre opzioni vicine e confortevoli."
+        "answer": "Sì. Abbiamo scelto alcuni hotel adatti e aggiunto link diretti al sito, alla prenotazione e alla mappa."
       },
       "hotelDistance": {
         "question": "Quanto distano gli hotel dalla location?",
-        "answer": "Gli hotel indicati distano circa due-quattro chilometri dal White Event Palast."
+        "answer": "Per ogni consiglio sono indicate le distanze dalla cerimonia e dal ricevimento, insieme a un tempo di viaggio stimato."
       },
       "hotelTravel": {
         "question": "Ci sono trasporti tra hotel e location?",

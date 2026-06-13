@@ -7,7 +7,11 @@ import {
   HiOutlineTicket,
   HiOutlineTruck,
 } from "react-icons/hi2";
-import { CINEMATIC_EASE } from "@/components/CinematicMotion";
+import {
+  CINEMATIC_EASE,
+  EditorialReveal,
+  WordReveal,
+} from "@/components/CinematicMotion";
 import CinematicTabs from "@/components/CinematicTabs";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 import styles from "./CinematicScenes.module.css";
@@ -109,8 +113,14 @@ export default function DestinationTravel({
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   <Icon />
                 </div>
-                <h3 className={styles.travelTitle}>{option.title}</h3>
-                <p className={styles.travelDetails}>{option.details}</p>
+                <h3 className={styles.travelTitle}>
+                  <WordReveal delay={index * 0.06}>{option.title}</WordReveal>
+                </h3>
+                <p className={styles.travelDetails}>
+                  <EditorialReveal delay={0.16 + index * 0.06}>
+                    {option.details}
+                  </EditorialReveal>
+                </p>
               </motion.article>
             );
           })}

@@ -3,7 +3,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { HiArrowUpRight } from "react-icons/hi2";
-import { CINEMATIC_EASE } from "@/components/CinematicMotion";
+import {
+  CINEMATIC_EASE,
+  EditorialReveal,
+  WordReveal,
+} from "@/components/CinematicMotion";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 import styles from "./CinematicScenes.module.css";
 
@@ -36,9 +40,15 @@ export default function RSVPInvitation({
           whileInView={{ opacity: 1, scale: 1 }}
         >
           <div className={styles.rsvpContent}>
-            <p className={styles.eyebrow}>{t("rsvp.subtitle")}</p>
-            <h2 className={styles.rsvpTitle}>{t("rsvp.title")}</h2>
-            <p className={styles.rsvpQuote}>{t("rsvp.quote")}</p>
+            <p className={styles.eyebrow}>
+              <EditorialReveal>{t("rsvp.subtitle")}</EditorialReveal>
+            </p>
+            <h2 className={styles.rsvpTitle}>
+              <WordReveal delay={0.12}>{t("rsvp.title")}</WordReveal>
+            </h2>
+            <p className={styles.rsvpQuote}>
+              <EditorialReveal delay={0.28}>{t("rsvp.quote")}</EditorialReveal>
+            </p>
             <Link
               className={styles.primaryAction}
               href={`https://checkpoint.omnixys.com/rsvp?eventId=${EVENT_ID}`}

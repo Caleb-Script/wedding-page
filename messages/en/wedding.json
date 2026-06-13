@@ -98,32 +98,45 @@
     }
   },
   "accommodation": {
-    "subtitle": "Stay Close",
-    "title": "Hotels Near The Venue",
+    "subtitle": "For Our Guests",
+    "title": "Stay & Arrival",
     "booking": "Book hotel",
     "map": "View map",
-    "hotels": {
-      "fuchsen": {
-        "name": "Hotel Fuchsen",
-        "distance": "approx. 3 km",
-        "travelTime": "approx. 7 min",
-        "price": "€€€",
-        "description": "A stylish central stay in Kirchheim with a restaurant and an elegant atmosphere."
-      },
-      "ateck": {
-        "name": "Ateckhotel",
-        "distance": "approx. 4 km",
-        "travelTime": "approx. 8 min",
-        "price": "€€",
-        "description": "A comfortable, modern hotel with bright rooms and a calm setting near the reception."
-      },
-      "wuerttemberg": {
-        "name": "Württembergischer Hof",
-        "distance": "approx. 2 km",
-        "travelTime": "approx. 5 min",
-        "price": "€€",
-        "description": "A welcoming hotel close to central Kirchheim, with parking and a restaurant."
-      }
+    "website": "Visit website",
+    "listLabel": "Hotels recommended by the couple",
+    "imageAlt": "Rooms and atmosphere at {hotel}",
+    "actionLabel": "{action} for {hotel}",
+    "intro": {
+      "eyebrow": "Selected by us",
+      "title": "Arrive. Exhale. Stay.",
+      "description": "For guests travelling from further away, we have selected a few nearby hotels where you can feel at home before and after our celebration."
+    },
+    "mapView": {
+      "eyebrow": "Orientation",
+      "title": "Your journey through our day.",
+      "description": "Ceremony, celebration and our hotel recommendations at a glance. The gold line connects the two places of our wedding day.",
+      "loading": "Preparing the map",
+      "mapLabel": "Interactive map showing the ceremony, celebration and recommended hotels",
+      "legendLabel": "Wedding map legend",
+      "legendTitle": "Our wedding day",
+      "ceremony": "Ceremony",
+      "celebration": "Celebration",
+      "hotels": "Hotels",
+      "showAll": "Show all locations",
+      "fullscreen": "Open map in fullscreen",
+      "exitFullscreen": "Exit fullscreen",
+      "routeToLocation": "Open route to {location}"
+    },
+    "ceremonyDistance": "To ceremony",
+    "celebrationDistance": "To celebration",
+    "travelTime": "Travel time",
+    "tags": {
+      "recommended": "Recommended",
+      "familyFriendly": "Family friendly",
+      "central": "City centre",
+      "shuttlePossible": "Shuttle possible",
+      "budget": "Budget",
+      "premium": "Premium"
     }
   },
   "travel": {
@@ -219,15 +232,15 @@
       },
       "nearbyHotels": {
         "question": "Which hotels are nearby?",
-        "answer": "Hotel Fuchsen, Ateckhotel and Württembergischer Hof are all within a short drive of the reception venue."
+        "answer": "The accommodation chapter presents our personally selected recommendations near the celebration, including distance and travel time."
       },
       "recommendedHotels": {
         "question": "Are there recommended hotels?",
-        "answer": "Yes. Our accommodation chapter above links directly to three nearby options selected for convenience and comfort."
+        "answer": "Yes. We selected several suitable hotels and added direct website, booking and map links."
       },
       "hotelDistance": {
         "question": "How far are the hotels from the venue?",
-        "answer": "The listed hotels are approximately two to four kilometres from White Event Palast."
+        "answer": "Distances to the ceremony and celebration, along with an estimated travel time, are shown for every recommendation."
       },
       "hotelTravel": {
         "question": "Are there transportation options between hotel and venue?",

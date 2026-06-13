@@ -4,6 +4,7 @@ import { format } from "date-fns";
 import { de, enUS, it } from "date-fns/locale";
 import { motion } from "framer-motion";
 import { useLocale } from "next-intl";
+import { EditorialReveal, WordReveal } from "@/components/CinematicMotion";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 import styles from "./CinematicScenes.module.css";
 
@@ -25,11 +26,15 @@ export default function WeddingFooter() {
         <div className={styles.footerMonogram} aria-hidden="true">
           #CGR
         </div>
-        <p className={styles.footerNames}>Caleb & Rachel</p>
+        <p className={styles.footerNames}>
+          <WordReveal>Caleb & Rachel</WordReveal>
+        </p>
         <p className={styles.footerDate}>
           {format(weddingDate, "d MMMM yyyy", { locale: dateLocale })}
         </p>
-        <p className={styles.footerMessage}>{t("footer.message")}</p>
+        <p className={styles.footerMessage}>
+          <EditorialReveal delay={0.24}>{t("footer.message")}</EditorialReveal>
+        </p>
       </motion.div>
     </footer>
   );

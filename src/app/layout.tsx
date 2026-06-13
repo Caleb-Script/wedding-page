@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import Provider from "@/app/provider";
 import { sans, serif } from "@/theme/fonts";
+import "leaflet/dist/leaflet.css";
 import "./globals.css";
 
 export default async function RootLayout({

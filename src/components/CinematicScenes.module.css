@@ -680,42 +680,24 @@
 
 .locationStage {
   display: grid;
-  min-height: 620px;
-  grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.75fr);
+  min-height: 430px;
+  grid-template-columns: minmax(0, 1fr);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.025);
-}
-
-.mapFrame {
-  position: relative;
-  min-height: 520px;
-  overflow: hidden;
-  background: #111;
-}
-
-.mapFrame::after {
-  position: absolute;
-  inset: 0;
   background:
-    linear-gradient(90deg, transparent 65%, rgba(6, 6, 7, 0.45)),
-    rgba(22, 19, 16, 0.16);
-  content: "";
-  pointer-events: none;
-}
-
-.mapFrame iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  filter: grayscale(0.85) sepia(0.2) brightness(0.72) contrast(1.12);
+    radial-gradient(
+      circle at 84% 18%,
+      rgba(216, 184, 121, 0.08),
+      transparent 30%
+    ), linear-gradient(135deg, rgba(255, 255, 255, 0.025), transparent 62%),
+    #090a0b;
 }
 
 .locationCopy {
   display: flex;
+  width: min(100%, 820px);
   padding: clamp(34px, 5vw, 70px);
   justify-content: center;
   flex-direction: column;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .locationIcon {
@@ -754,146 +736,6 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.52);
   font: 300 0.92rem / 1.8 var(--font-sans);
-}
-
-.hotelGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(14px, 2vw, 28px);
-}
-
-.hotelCard {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.11);
-  background: rgba(255, 255, 255, 0.025);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.18);
-  transition:
-    border-color 450ms ease,
-    box-shadow 450ms ease,
-    transform 650ms var(--ease-cinematic);
-}
-
-.hotelCard:hover {
-  border-color: rgba(216, 184, 121, 0.35);
-  box-shadow: 0 45px 100px rgba(0, 0, 0, 0.4);
-  transform: translateY(-10px);
-}
-
-.hotelMedia {
-  position: relative;
-  height: clamp(280px, 32vw, 440px);
-  overflow: hidden;
-}
-
-.hotelMedia::after {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.02) 35%, rgba(9, 9, 10, 0.9)),
-    linear-gradient(110deg, rgba(216, 184, 121, 0.09), transparent 42%);
-  content: "";
-}
-
-.hotelMedia img {
-  object-fit: cover;
-  filter: saturate(0.72) contrast(1.07);
-  transition:
-    filter 500ms ease,
-    transform 900ms var(--ease-cinematic);
-}
-
-.hotelCard:hover .hotelMedia img {
-  filter: saturate(0.95) contrast(1.04);
-  transform: scale(1.045);
-}
-
-.hotelNumber {
-  position: absolute;
-  z-index: 2;
-  top: 22px;
-  left: 22px;
-  display: grid;
-  width: 44px;
-  height: 44px;
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  border-radius: 50%;
-  color: rgba(255, 255, 255, 0.7);
-  background: rgba(10, 10, 11, 0.28);
-  backdrop-filter: blur(14px);
-  font: 700 0.52rem / 1 var(--font-sans);
-  letter-spacing: 0.12em;
-  place-items: center;
-}
-
-.hotelContent {
-  position: relative;
-  padding: clamp(26px, 3vw, 38px);
-}
-
-.hotelMetrics {
-  display: flex;
-  min-height: 28px;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
-  gap: 8px 14px;
-}
-
-.hotelMetrics span {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  color: rgba(255, 255, 255, 0.4);
-  font: 700 0.47rem / 1 var(--font-sans);
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-}
-
-.hotelMetrics svg {
-  color: var(--scene-accent);
-}
-
-.hotelTitle {
-  margin: 0;
-  color: #f2ede4;
-  font: 400 clamp(2rem, 3.1vw, 3.2rem) / 0.95 var(--font-serif);
-  letter-spacing: -0.045em;
-}
-
-.hotelDescription {
-  min-height: 76px;
-  margin-top: 20px;
-  color: rgba(255, 255, 255, 0.48);
-  font: 300 0.79rem / 1.7 var(--font-sans);
-}
-
-.hotelActions {
-  display: flex;
-  margin-top: 30px;
-  padding-top: 22px;
-  justify-content: space-between;
-  gap: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.hotelActions a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: rgba(255, 255, 255, 0.6);
-  font: 700 0.5rem / 1 var(--font-sans);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  transition: color 250ms ease;
-}
-
-.hotelActions a:hover {
-  color: var(--scene-accent);
-}
-
-.hotelActions svg {
-  width: 15px;
-  height: 15px;
 }
 
 .travelGrid {
@@ -1519,8 +1361,7 @@
   }
 
   .detailsGrid,
-  .travelGrid,
-  .hotelGrid {
+  .travelGrid {
     grid-template-columns: 1fr;
   }
 
@@ -1562,25 +1403,12 @@
     grid-template-columns: 1fr;
   }
 
-  .mapFrame {
-    min-height: 430px;
-  }
-
   .locationCopy {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-left: 0;
+    width: 100%;
   }
 
   .tabs {
     margin-right: auto;
-  }
-
-  .hotelMedia {
-    height: min(70vw, 520px);
-  }
-
-  .hotelDescription {
-    min-height: auto;
   }
 
   .faqLayout {
@@ -1673,10 +1501,6 @@
     letter-spacing: 0.1em;
   }
 
-  .mapFrame {
-    min-height: 360px;
-  }
-
   .locationCopy {
     padding: 32px 24px 40px;
   }
@@ -1684,16 +1508,6 @@
   .travelCard {
     min-height: 340px;
     padding: 30px 24px;
-  }
-
-  .hotelMedia {
-    height: 82vw;
-    min-height: 280px;
-  }
-
-  .hotelActions {
-    align-items: flex-start;
-    flex-direction: column;
   }
 
   .faqAnswer p {
@@ -1761,8 +1575,6 @@
   .iconButton,
   .primaryAction,
   .timelineCardInner,
-  .hotelCard,
-  .hotelMedia img,
   .faqItem {
     transition: none;
   }

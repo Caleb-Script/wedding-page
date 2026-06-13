@@ -10,6 +10,7 @@ import {
   HiOutlineHeart,
   HiOutlineMusicalNote,
 } from "react-icons/hi2";
+import { WordReveal } from "@/components/CinematicMotion";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 import styles from "./CinematicScenes.module.css";
 import SceneHeader from "./SceneHeader";
@@ -113,7 +114,9 @@ export default function WeddingDayTimeline({
                       </span>
                       <time className={styles.timelineTime}>{event.time}</time>
                       <span className={styles.timelineTitle}>
-                        {event.title}
+                        <WordReveal delay={index * 0.04}>
+                          {event.title}
+                        </WordReveal>
                       </span>
                       <span className={styles.timelineCardIcon}>
                         <Icon />

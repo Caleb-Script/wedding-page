@@ -9,7 +9,7 @@ import {
   HiOutlineClock,
   HiOutlineMapPin,
 } from "react-icons/hi2";
-import { CINEMATIC_EASE } from "@/components/CinematicMotion";
+import { CINEMATIC_EASE, WordReveal } from "@/components/CinematicMotion";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 import styles from "./CinematicScenes.module.css";
 import SceneHeader from "./SceneHeader";
@@ -85,7 +85,9 @@ export default function WeddingDetailsBeat({
                   </span>
                 </div>
 
-                <h3 className={styles.panelTitle}>{card.title}</h3>
+                <h3 className={styles.panelTitle}>
+                  <WordReveal delay={index * 0.08}>{card.title}</WordReveal>
+                </h3>
                 <p className={styles.panelVenue}>{card.venue}</p>
                 <p className={styles.panelAddress}>{card.address}</p>
 

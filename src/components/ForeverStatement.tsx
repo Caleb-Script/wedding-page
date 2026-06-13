@@ -7,10 +7,9 @@ import {
   useTransform,
 } from "framer-motion";
 import { useRef } from "react";
-import { CINEMATIC_EASE, WordReveal } from "@/components/CinematicMotion";
+import { CINEMATIC_EASE } from "@/components/CinematicMotion";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 import styles from "./CinematicScenes.module.css";
-import { Spline } from "lucide-react";
 import { SplitReveal } from "./SplitReveal";
 
 type ForeverStatementProps = {
@@ -55,9 +54,9 @@ export default function ForeverStatement({
             “
           </span>
           <p className={styles.quoteText}>
-              <SplitReveal>{t("quote.line1")}</SplitReveal>
+            <SplitReveal>{t("quote.line1")}</SplitReveal>
             <br />
-               <SplitReveal delay={0.3}>{t("quote.line2")}</SplitReveal>
+            <SplitReveal delay={0.3}>{t("quote.line2")}</SplitReveal>
           </p>
         </motion.blockquote>
       </div>

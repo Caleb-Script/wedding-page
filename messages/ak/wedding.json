@@ -97,32 +97,45 @@
     }
   },
   "accommodation": {
-    "subtitle": "Tena Bɛn",
-    "title": "Ahɔhodan a Ɛbɛn Beae No",
+    "subtitle": "Yɛn Ahɔho De",
+    "title": "Atenae & Akwantu",
     "booking": "Gye dan",
     "map": "Hwɛ map",
-    "hotels": {
-      "fuchsen": {
-        "name": "Hotel Fuchsen",
-        "distance": "bɛyɛ 3 km",
-        "travelTime": "bɛyɛ simma 7",
-        "price": "€€€",
-        "description": "Ahɔhodan fɛfɛ a ɛwɔ Kirchheim mfinimfini, a adidibea wɔ hɔ."
-      },
-      "ateck": {
-        "name": "Ateckhotel",
-        "distance": "bɛyɛ 4 km",
-        "travelTime": "bɛyɛ simma 8",
-        "price": "€€",
-        "description": "Ahɔhodan foforo ne ahotɔ a ɛbɛn anigyede beae no."
-      },
-      "wuerttemberg": {
-        "name": "Württembergischer Hof",
-        "distance": "bɛyɛ 2 km",
-        "travelTime": "bɛyɛ simma 5",
-        "price": "€€",
-        "description": "Ahɔhodan a ɛma akwaaba, a park ne adidibea wɔ hɔ."
-      }
+    "website": "Kɔ wɛbsaet",
+    "listLabel": "Ahɔhodan a awarefo no kamfo kyerɛ",
+    "imageAlt": "Dan ne beae a ɛwɔ {hotel}",
+    "actionLabel": "{action} ma {hotel}",
+    "intro": {
+      "eyebrow": "Yɛn na yɛpaw",
+      "title": "Du ha. Home. Tena.",
+      "description": "Yɛn ahɔho a wofi akyirikyiri ba no, yɛapaw ahɔhodan bi a ɛbɛn a mubetumi anya ahotɔ ansa na anigyede no afi ase ne akyi."
+    },
+    "mapView": {
+      "eyebrow": "Kwan Kyerɛ",
+      "title": "Mo kwan wɔ yɛn da no mu.",
+      "description": "Aware dwuma, anigyede ne ahɔhodan a yɛkamfo no nyinaa wɔ map biako so. Sikakɔkɔɔ kwan no ka mmeae abien no bom.",
+      "loading": "Yɛresiesie map no",
+      "mapLabel": "Map a ɛkyerɛ aware dwuma, anigyede ne ahɔhodan a yɛkamfo",
+      "legendLabel": "Aware map nkyerɛkyerɛmu",
+      "legendTitle": "Yɛn aware da",
+      "ceremony": "Aware Dwuma",
+      "celebration": "Anigyede",
+      "hotels": "Ahɔhodan",
+      "showAll": "Kyerɛ mmeae nyinaa",
+      "fullscreen": "Bue map no ma ɛnhyɛ screen no ma",
+      "exitFullscreen": "To screen kɛse no mu",
+      "routeToLocation": "Bue kwan a ɛkɔ {location}"
+    },
+    "ceremonyDistance": "Kɔ aware dwuma no",
+    "celebrationDistance": "Kɔ anigyede no",
+    "travelTime": "Akwantu bere",
+    "tags": {
+      "recommended": "Yɛkamfo kyerɛ",
+      "familyFriendly": "Ɛfata abusua",
+      "central": "Kuropɔn mfinimfini",
+      "shuttlePossible": "Shuttle betumi aba",
+      "budget": "Bo yɛ papa",
+      "premium": "Fɛfɛɛfɛ"
     }
   },
   "travel": {
@@ -218,15 +231,15 @@
       },
       "nearbyHotels": {
         "question": "Ahɔhodan bɛn na ɛbɛn?",
-        "answer": "Hotel Fuchsen, Ateckhotel ne Württembergischer Hof nyinaa bɛn anigyede beae no."
+        "answer": "Ahɔhodan fã no kyerɛ mmeae a yɛankasa yɛapaw a ɛbɛn anigyede no, ne kwan tenten ne akwantu bere."
       },
       "recommendedHotels": {
         "question": "Ahɔhodan bɛn na mokamfo?",
-        "answer": "Yiw. Ahɔhodan fã a ɛwɔ soro no kura beae abiɛsa a ɛbɛn na ahotɔ wom."
+        "answer": "Yiw. Yɛapaw ahɔhodan a ɛfata na yɛde wɔn wɛbsaet, dan gye ne map links aka ho."
       },
       "hotelDistance": {
         "question": "Ahɔhodan no ne beae no ntam ware sɛn?",
-        "answer": "Ahɔhodan no wɔ bɛyɛ kilomita abien kosi anan fi White Event Palast."
+        "answer": "Wubehu kwan tenten ne akwantu bere a ɛkɔ aware dwuma ne anigyede no wɔ ahɔhodan biara ho."
       },
       "hotelTravel": {
         "question": "Kwan wɔ hotel ne beae no ntam?",

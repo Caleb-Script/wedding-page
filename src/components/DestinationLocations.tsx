@@ -3,7 +3,11 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { HiOutlineMapPin } from "react-icons/hi2";
-import { CINEMATIC_EASE } from "@/components/CinematicMotion";
+import {
+  CINEMATIC_EASE,
+  EditorialReveal,
+  WordReveal,
+} from "@/components/CinematicMotion";
 import CinematicTabs from "@/components/CinematicTabs";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 import styles from "./CinematicScenes.module.css";
@@ -26,7 +30,6 @@ export default function DestinationLocations({
       venue: t("locations.ceremony.venue"),
       address: t("locations.ceremony.address"),
       description: t("locations.ceremony.description"),
-      mapQuery: "Heilige+Familie+Stuttgart",
     },
     {
       tab: t("locations.reception.tab"),
@@ -34,7 +37,6 @@ export default function DestinationLocations({
       venue: t("locations.reception.venue"),
       address: t("locations.reception.address"),
       description: t("locations.reception.description"),
-      mapQuery: "White+Event+Palast+Kirchheim+unter+Teck",
     },
   ];
   const location = locations[tab];
@@ -69,24 +71,20 @@ export default function DestinationLocations({
           key={location.title}
           transition={{ duration: 0.65, ease: CINEMATIC_EASE }}
         >
-          <div className={styles.mapFrame}>
-            <iframe
-              height="100%"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              src={`https://www.google.com/maps?q=${location.mapQuery}&output=embed`}
-              title={`Map of ${location.venue}`}
-              width="100%"
-            />
-          </div>
           <div className={styles.locationCopy}>
             <div className={styles.locationIcon}>
               <HiOutlineMapPin />
             </div>
-            <h3 className={styles.locationTitle}>{location.title}</h3>
+            <h3 className={styles.locationTitle}>
+              <WordReveal>{location.title}</WordReveal>
+            </h3>
             <p className={styles.locationVenue}>{location.venue}</p>
             <p className={styles.locationAddress}>{location.address}</p>
-            <p className={styles.locationDescription}>{location.description}</p>
+            <p className={styles.locationDescription}>
+              <EditorialReveal delay={0.18}>
+                {location.description}
+              </EditorialReveal>
+            </p>
           </div>
         </motion.div>
       </div>

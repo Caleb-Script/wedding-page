@@ -1,6 +1,6 @@
-import { motion, useInView } from "framer-motion";
-import { Box } from "@mui/material";
-import { useRef, type ReactNode } from "react";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
+import type { ReactNode } from "react";
+import { CINEMATIC_REVEAL_EASE, EditorialReveal } from "./CinematicMotion";
 
 type Direction = "up" | "down" | "left" | "right";
 
@@ -15,77 +15,87 @@ export function SplitReveal({
   delay?: number;
   direction?: Direction;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const inView = useInView(ref, {
-    once: true,
-    amount: 0.3,
-  });
-
+  const reduceMotion = useReducedMotion();
   const words = children.split(" ");
-
-  const initial = {
-    opacity: 0,
-    rotateX: direction === "up" || direction === "down" ? -40 : 0,
-    x:
-      direction === "left"
-        ? "-110%"
-        : direction === "right"
-          ? "110%"
-          : 0,
-    y:
-      direction === "up"
-        ? "110%"
-        : direction === "down"
-          ? "-110%"
-          : 0,
+  const occurrences = new Map<string, number>();
+  const keyedWords = words.map((word) => {
+    const occurrence = (occurrences.get(word) ?? 0) + 1;
+    occurrences.set(word, occurrence);
+    return { key: `${word}-${occurrence}`, word };
+  });
+  const container: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        delayChildren: reduceMotion ? 0 : delay,
+        staggerChildren: reduceMotion ? 0 : 0.075,
+      },
+    },
+  };
+  const wordVariants: Variants = {
+    hidden: reduceMotion
+      ? { opacity: 1 }
+      : {
+          filter: "blur(2px)",
+          opacity: 0.32,
+          rotateX: direction === "up" ? -34 : direction === "down" ? 34 : 0,
+          x: direction === "left" ? -24 : direction === "right" ? 24 : 0,
+          y: direction === "up" ? 24 : direction === "down" ? -24 : 0,
+        },
+    visible: {
+      filter: "blur(0px)",
+      opacity: 1,
+      rotateX: 0,
+      transition: {
+        duration: reduceMotion ? 0 : 1.15,
+        ease: CINEMATIC_REVEAL_EASE,
+      },
+      x: 0,
+      y: 0,
+    },
   };
 
   return (
-    <Box
-      ref={ref}
+    <motion.span
       className={className}
-      sx={{
-        perspective: 800,
+      initial="hidden"
+      style={{
+        display: "block",
+        maxWidth: "100%",
+        overflowWrap: "anywhere",
+        perspective: 900,
       }}
+      variants={container}
+      viewport={{ amount: 0.3, margin: "0px 0px -8% 0px", once: true }}
+      whileInView="visible"
     >
-      {words.map((word, index) => (
-        <Box
-          key={index}
-          component="span"
-          sx={{
+      {keyedWords.map(({ key, word }, index) => (
+        <span
+          key={key}
+          style={{
             display: "inline-block",
-            overflow: "hidden",
+            marginRight: index === keyedWords.length - 1 ? 0 : "0.24em",
+            maxWidth: "100%",
+            overflowWrap: "anywhere",
+            padding: "0.12em 0.025em 0.18em",
             verticalAlign: "bottom",
-            mr: "0.25em",
+            whiteSpace: "normal",
           }}
         >
           <motion.span
             style={{
               display: "inline-block",
+              maxWidth: "100%",
+              overflowWrap: "anywhere",
+              whiteSpace: "normal",
             }}
-            initial={initial}
-            animate={
-              inView
-                ? {
-                    opacity: 1,
-                    x: 0,
-                    y: 0,
-                    rotateX: 0,
-                  }
-                : {}
-            }
-            transition={{
-              duration: 1.1,
-              delay: delay + index * 0.08,
-              ease: [0.16, 1, 0.3, 1],
-            }}
+            variants={wordVariants}
           >
             {word}
           </motion.span>
-        </Box>
+        </span>
       ))}
-    </Box>
+    </motion.span>
   );
 }
 
@@ -98,49 +108,12 @@ export function FadeIn({
   delay?: number;
   direction?: Direction;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const inView = useInView(ref, {
-    once: true,
-    amount: 0.3,
-  });
-
-  const initial = {
-    opacity: 0,
-    x:
-      direction === "left"
-        ? -40
-        : direction === "right"
-          ? 40
-          : 0,
-    y:
-      direction === "up"
-        ? 40
-        : direction === "down"
-          ? -40
-          : 0,
-  };
-
   return (
-    <motion.div
-      ref={ref}
-      initial={initial}
-      animate={
-        inView
-          ? {
-              opacity: 1,
-              x: 0,
-              y: 0,
-            }
-          : {}
-      }
-      transition={{
-        duration: 1,
-        delay,
-        ease: [0.16, 1, 0.3, 1],
-      }}
+    <EditorialReveal
+      delay={delay}
+      distance={direction === "down" ? -28 : direction === "up" ? 28 : 0}
     >
       {children}
-    </motion.div>
+    </EditorialReveal>
   );
 }
