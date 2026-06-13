@@ -1,6 +1,13 @@
 "use client";
 
-import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Box,
+  Tab,
+  Tabs,
+} from "@mui/material";
 import { motion } from "framer-motion";
 import type { KeyboardEvent } from "react";
 import { useState } from "react";
@@ -45,6 +52,9 @@ export default function GuestGuide({ embedded = false }: GuestGuideProps) {
     useState<(typeof categories)[number]["id"]>("general");
   const [openItem, setOpenItem] = useState<string | null>("dressCode");
   const activeCategory = categories.find((item) => item.id === category);
+  const activeCategoryIndex = categories.findIndex(
+    (item) => item.id === category,
+  );
   const selectCategory = (index: number) => {
     const nextCategory = categories[index];
     setCategory(nextCategory.id);
@@ -95,7 +105,7 @@ export default function GuestGuide({ embedded = false }: GuestGuideProps) {
         <div className={styles.faqLayout}>
           <div
             aria-label={t("faq.categoryLabel")}
-            className={styles.faqCategories}
+            className={`${styles.faqCategories} ${styles.faqCategoriesDesktop}`}
             role="tablist"
           >
             {categories.map((item, index) => (
@@ -119,9 +129,82 @@ export default function GuestGuide({ embedded = false }: GuestGuideProps) {
             ))}
           </div>
 
+          <Box className={styles.faqCategoriesMobile}>
+            <Tabs
+              aria-label={t("faq.categoryLabel")}
+              onChange={(_, nextValue: number) => selectCategory(nextValue)}
+              scrollButtons={false}
+              sx={{
+                minHeight: 0,
+                overflow: "visible",
+                "& .MuiTabs-flexContainer": {
+                  gap: "8px",
+                },
+                "& .MuiTabs-indicator": {
+                  display: "none",
+                },
+              }}
+              value={activeCategoryIndex}
+              variant="scrollable"
+            >
+              {categories.map((item, index) => (
+                <Tab
+                  aria-controls="faq-category-panel"
+                  disableRipple
+                  id={`faq-category-mobile-${item.id}`}
+                  key={item.id}
+                  label={
+                    <Box
+                      component="span"
+                      sx={{
+                        alignItems: "center",
+                        display: "inline-flex",
+                        gap: "9px",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      <Box
+                        component="span"
+                        sx={{
+                          color: "rgba(216, 184, 121, 0.62)",
+                          fontSize: "0.48rem",
+                        }}
+                      >
+                        {String(index + 1).padStart(2, "0")}
+                      </Box>
+                      {t(`faq.categories.${item.id}`)}
+                    </Box>
+                  }
+                  sx={{
+                    border: "1px solid rgba(255, 255, 255, 0.1)",
+                    borderRadius: "999px",
+                    color: "rgba(255, 255, 255, 0.48)",
+                    font: "700 0.56rem / 1 var(--font-sans)",
+                    letterSpacing: "0.14em",
+                    minHeight: "44px",
+                    minWidth: "max-content",
+                    padding: "0 16px",
+                    textTransform: "uppercase",
+                    transition:
+                      "border-color 250ms ease, color 250ms ease, background-color 250ms ease",
+                    "&.Mui-selected": {
+                      backgroundColor: "rgba(216, 184, 121, 0.13)",
+                      borderColor: "rgba(216, 184, 121, 0.42)",
+                      color: "#f1ece3",
+                    },
+                    "&:focus-visible": {
+                      outline: "1px solid var(--scene-accent)",
+                      outlineOffset: "3px",
+                    },
+                  }}
+                />
+              ))}
+            </Tabs>
+          </Box>
+
           <motion.div
             animate={{ opacity: 1, y: 0 }}
-            aria-labelledby={`faq-category-${category}`}
+            aria-label={t(`faq.categories.${category}`)}
             className={styles.faqList}
             id="faq-category-panel"
             initial={{ opacity: 0, y: 20 }}

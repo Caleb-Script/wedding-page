@@ -808,6 +808,10 @@
   gap: 4px;
 }
 
+.faqCategoriesMobile {
+  display: none;
+}
+
 .faqCategory {
   display: grid;
   min-height: 68px;
@@ -1415,15 +1419,16 @@
     grid-template-columns: 1fr;
   }
 
-  .faqCategories {
-    position: static;
-    display: flex;
-    padding-bottom: 8px;
-    overflow-x: auto;
+  .faqCategoriesDesktop {
+    display: none;
   }
 
-  .faqCategory {
-    min-width: 190px;
+  .faqCategoriesMobile {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    padding-bottom: 8px;
+    overflow: hidden;
   }
 
   .rsvpStage {
