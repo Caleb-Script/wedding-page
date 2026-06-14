@@ -213,11 +213,23 @@ export default function ArrivalHero() {
             }}
           >
             <h1 className={styles.title}>
-              <SplitReveal delay={3} direction="down">
+              <SplitReveal
+                delay={3}
+                direction="left"
+                distance="110%"
+                effect="slideIn"
+              >
                 Caleb
               </SplitReveal>
               <span className={styles.ampersand}>&</span>
-              <SplitReveal delay={3.5}>Rachel</SplitReveal>
+              <SplitReveal
+                delay={3.5}
+                direction="right"
+                distance="110%"
+                effect="slideIn"
+              >
+                Rachel
+              </SplitReveal>
             </h1>
           </motion.div>
 

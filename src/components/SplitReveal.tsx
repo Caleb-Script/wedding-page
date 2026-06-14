@@ -1,22 +1,146 @@
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+import {
+  motion,
+  type TargetAndTransition,
+  useReducedMotion,
+  type Variants,
+} from "framer-motion";
 import type { ReactNode } from "react";
 import { CINEMATIC_REVEAL_EASE, EditorialReveal } from "./CinematicMotion";
 
-type Direction = "up" | "down" | "left" | "right";
+export type SplitRevealDirection = "up" | "down" | "left" | "right";
+
+export type SplitRevealEffect =
+  | "blurIn"
+  | "blurOut"
+  | "cinematic"
+  | "fadeIn"
+  | "fadeOut"
+  | "scaleIn"
+  | "slideIn"
+  | "slideOut";
+
+type SplitRevealProps = {
+  children: string;
+  className?: string;
+  delay?: number;
+  direction?: SplitRevealDirection;
+  distance?: number | string;
+  duration?: number;
+  effect?: SplitRevealEffect;
+  once?: boolean;
+  stagger?: number;
+};
+
+const restingState: TargetAndTransition = {
+  filter: "blur(0px)",
+  opacity: 1,
+  rotateX: 0,
+  scale: 1,
+  x: 0,
+  y: 0,
+};
+
+function getDirectionalOffset(
+  direction: SplitRevealDirection,
+  distance: number | string,
+): TargetAndTransition {
+  const negativeDistance =
+    typeof distance === "number"
+      ? -distance
+      : distance.startsWith("-")
+        ? distance.slice(1)
+        : `-${distance}`;
+
+  return {
+    x:
+      direction === "left"
+        ? negativeDistance
+        : direction === "right"
+          ? distance
+          : 0,
+    y:
+      direction === "up"
+        ? distance
+        : direction === "down"
+          ? negativeDistance
+          : 0,
+  };
+}
+
+function getEffectStates(
+  effect: SplitRevealEffect,
+  direction: SplitRevealDirection,
+  distance: number | string,
+): {
+  hidden: TargetAndTransition;
+  visible: TargetAndTransition;
+} {
+  const directionalOffset = getDirectionalOffset(direction, distance);
+
+  switch (effect) {
+    case "slideIn":
+      return {
+        hidden: { ...restingState, ...directionalOffset },
+        visible: restingState,
+      };
+    case "fadeIn":
+      return {
+        hidden: { ...restingState, opacity: 0 },
+        visible: restingState,
+      };
+    case "blurIn":
+      return {
+        hidden: { ...restingState, filter: "blur(14px)", opacity: 0.18 },
+        visible: restingState,
+      };
+    case "scaleIn":
+      return {
+        hidden: { ...restingState, opacity: 0.2, scale: 0.9 },
+        visible: restingState,
+      };
+    case "slideOut":
+      return {
+        hidden: restingState,
+        visible: { ...restingState, ...directionalOffset },
+      };
+    case "fadeOut":
+      return {
+        hidden: restingState,
+        visible: { ...restingState, opacity: 0 },
+      };
+    case "blurOut":
+      return {
+        hidden: restingState,
+        visible: { ...restingState, filter: "blur(14px)", opacity: 0.18 },
+      };
+    case "cinematic":
+      return {
+        hidden: {
+          ...restingState,
+          ...directionalOffset,
+          filter: "blur(2px)",
+          opacity: 0.32,
+          rotateX: direction === "up" ? -34 : direction === "down" ? 34 : 0,
+        },
+        visible: restingState,
+      };
+  }
+}
 
 export function SplitReveal({
   children,
   className,
   delay = 0,
   direction = "up",
-}: {
-  children: string;
-  className?: string;
-  delay?: number;
-  direction?: Direction;
-}) {
+  distance = 24,
+  duration = 1.15,
+  effect = "cinematic",
+  once = true,
+  stagger = 0.075,
+}: SplitRevealProps) {
   const reduceMotion = useReducedMotion();
   const words = children.split(" ");
+  const effectStates = getEffectStates(effect, direction, distance);
   const occurrences = new Map<string, number>();
   const keyedWords = words.map((word) => {
     const occurrence = (occurrences.get(word) ?? 0) + 1;
@@ -28,30 +152,18 @@ export function SplitReveal({
     visible: {
       transition: {
         delayChildren: reduceMotion ? 0 : delay,
-        staggerChildren: reduceMotion ? 0 : 0.075,
+        staggerChildren: reduceMotion ? 0 : stagger,
       },
     },
   };
   const wordVariants: Variants = {
-    hidden: reduceMotion
-      ? { opacity: 1 }
-      : {
-          filter: "blur(2px)",
-          opacity: 0.32,
-          rotateX: direction === "up" ? -34 : direction === "down" ? 34 : 0,
-          x: direction === "left" ? -24 : direction === "right" ? 24 : 0,
-          y: direction === "up" ? 24 : direction === "down" ? -24 : 0,
-        },
+    hidden: reduceMotion ? restingState : effectStates.hidden,
     visible: {
-      filter: "blur(0px)",
-      opacity: 1,
-      rotateX: 0,
+      ...(reduceMotion ? restingState : effectStates.visible),
       transition: {
-        duration: reduceMotion ? 0 : 1.15,
+        duration: reduceMotion ? 0 : duration,
         ease: CINEMATIC_REVEAL_EASE,
       },
-      x: 0,
-      y: 0,
     },
   };
 
@@ -66,7 +178,7 @@ export function SplitReveal({
         perspective: 900,
       }}
       variants={container}
-      viewport={{ amount: 0.3, margin: "0px 0px -8% 0px", once: true }}
+      viewport={{ amount: 0.3, margin: "0px 0px -8% 0px", once }}
       whileInView="visible"
     >
       {keyedWords.map(({ key, word }, index) => (
@@ -76,6 +188,10 @@ export function SplitReveal({
             display: "inline-block",
             marginRight: index === keyedWords.length - 1 ? 0 : "0.24em",
             maxWidth: "100%",
+            overflow:
+              effect === "slideIn" || effect === "slideOut"
+                ? "hidden"
+                : "visible",
             overflowWrap: "anywhere",
             padding: "0.12em 0.025em 0.18em",
             verticalAlign: "bottom",
@@ -106,7 +222,7 @@ export function FadeIn({
 }: {
   children: ReactNode;
   delay?: number;
-  direction?: Direction;
+  direction?: SplitRevealDirection;
 }) {
   return (
     <EditorialReveal
