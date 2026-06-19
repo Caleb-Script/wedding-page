@@ -55,7 +55,7 @@ export default function WeddingDayTimeline({
     },
     {
       id: "dinner",
-      time: "18:00",
+      time: "17:30",
       title: t("timeline.events.dinner"),
       icon: HiOutlineCake,
       image: "/gallery-4.jpg",

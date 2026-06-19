@@ -57,7 +57,7 @@ export const RECOMMENDED_HOTELS: readonly RecommendedHotel[] = [
     distanceToCeremony: "32.3 km",
     featured: true,
     id: "stadthotel-waldhorn",
-    image: "/hotels/stadthotel-waldhorn.svg",
+    image: "/hotels/stadthotel-waldhorn.jpg",
     latitude: 48.6485666,
     longitude: 9.4508559,
     mapUrl:
@@ -146,7 +146,7 @@ export const RECOMMENDED_HOTELS: readonly RecommendedHotel[] = [
     distanceToCelebration: "30.2 km",
     distanceToCeremony: "5.2 km",
     id: "maseven-stuttgart-si-centrum",
-    image: "/hotels/maseven-stuttgart-si-centrum.svg",
+    image: "/hotels/maseven-stuttgart-si-centrum.jpg",
     latitude: 48.7237379,
     longitude: 9.1616535,
     mapUrl:
@@ -167,7 +167,7 @@ export const RECOMMENDED_HOTELS: readonly RecommendedHotel[] = [
     distanceToCelebration: "32 km",
     distanceToCeremony: "3.6 km",
     id: "hotel-flora-moehringen",
-    image: "/hotels/hotel-flora-moehringen.svg",
+    image: "/hotels/hotel-flora-moehringen.jpg",
     latitude: 48.7285397,
     longitude: 9.1457887,
     mapUrl:
@@ -189,7 +189,7 @@ export const RECOMMENDED_HOTELS: readonly RecommendedHotel[] = [
     distanceToCelebration: "32.3 km",
     distanceToCeremony: "1.9 km",
     id: "holiday-inn-the-niu-kettle-stuttgart-vaihingen",
-    image: "/hotels/holiday-inn-the-niu-kettle-stuttgart-vaihingen.svg",
+    image: "/hotels/holiday-inn-the-niu-kettle-stuttgart-vaihingen.jpg",
     latitude: 48.7279024,
     longitude: 9.1187851,
     mapUrl:
@@ -234,7 +234,7 @@ export const RECOMMENDED_HOTELS: readonly RecommendedHotel[] = [
     distanceToCelebration: "33.2 km",
     distanceToCeremony: "2.2 km",
     id: "pullman-stuttgart-fontana",
-    image: "/hotels/pullman-stuttgart-fontana.svg",
+    image: "/hotels/pullman-stuttgart-fontana.jpg",
     latitude: 48.7263615,
     longitude: 9.1113411,
     mapUrl:
@@ -257,7 +257,7 @@ export const RECOMMENDED_HOTELS: readonly RecommendedHotel[] = [
     distanceToCelebration: "29.2 km",
     distanceToCeremony: "7.9 km",
     id: "holiday-inn-the-niu-mesh-stuttgart-messe",
-    image: "/hotels/holiday-inn-the-niu-mesh-stuttgart-messe.svg",
+    image: "/hotels/holiday-inn-the-niu-mesh-stuttgart-messe.jpg",
     latitude: 48.7084989,
     longitude: 9.1671504,
     mapUrl:
@@ -325,7 +325,7 @@ export const RECOMMENDED_HOTELS: readonly RecommendedHotel[] = [
     distanceToCelebration: "25.5 km",
     distanceToCeremony: "22.5 km",
     id: "holiday-inn-the-niu-timber-esslingen",
-    image: "/hotels/holiday-inn-the-niu-timber-esslingen.svg",
+    image: "/hotels/holiday-inn-the-niu-timber-esslingen.jpg",
     latitude: 48.7334669,
     longitude: 9.3224383,
     mapUrl:
@@ -347,7 +347,7 @@ export const RECOMMENDED_HOTELS: readonly RecommendedHotel[] = [
     distanceToCelebration: "25.7 km",
     distanceToCeremony: "22.8 km",
     id: "hotel-am-charlottenplatz-esslingen",
-    image: "/hotels/hotel-am-charlottenplatz-esslingen.svg",
+    image: "/hotels/hotel-am-charlottenplatz-esslingen.jpg",
     latitude: 48.7371391,
     longitude: 9.316229,
     mapUrl:
@@ -369,7 +369,7 @@ export const RECOMMENDED_HOTELS: readonly RecommendedHotel[] = [
     distanceToCelebration: "26.1 km",
     distanceToCeremony: "23.1 km",
     id: "leonardo-hotel-esslingen",
-    image: "/hotels/leonardo-hotel-esslingen.svg",
+    image: "/hotels/leonardo-hotel-esslingen.jpg",
     latitude: 48.7416812,
     longitude: 9.3138492,
     mapUrl:

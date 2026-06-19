@@ -128,7 +128,7 @@ export default function ArrivalHero() {
             }}
             onError={announceMediaReady}
             playsInline
-            // poster="/hero-bg.jpg"
+            poster="/hero-bg.jpg"
             preload="auto"
           >
             <source
