@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Hotel Am Charlottenplatz image pending</title>
+  <desc id="desc">Temporary editorial placeholder. Replace with licensed hotel photography.</desc>
+  <rect width="1400" height="900" fill="#30404a"/>
+  <rect x="120" y="130" width="1160" height="640" rx="34" fill="#f3eee4"/>
+  <rect x="215" y="215" width="215" height="175" rx="12" fill="#7c956d"/>
+  <rect x="490" y="215" width="215" height="175" rx="12" fill="#c27a52"/>
+  <rect x="765" y="215" width="215" height="175" rx="12" fill="#7c956d"/>
+  <rect x="1040" y="215" width="155" height="175" rx="12" fill="#c27a52"/>
+  <rect x="225" y="485" width="950" height="118" rx="18" fill="#30404a"/>
+  <text x="700" y="555" fill="#f3eee4" font-family="Arial, sans-serif" font-size="47" font-weight="700" text-anchor="middle">Hotel Am Charlottenplatz</text>
+  <text x="700" y="650" fill="#30404a" font-family="Arial, sans-serif" font-size="30" text-anchor="middle">licensed hotel photo pending</text>
+</svg>

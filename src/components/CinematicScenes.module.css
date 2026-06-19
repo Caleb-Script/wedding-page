@@ -1073,18 +1073,29 @@
 .quoteText {
   width: 100%;
   color: #eee9df;
-  font: italic 400 clamp(2.3rem, 5.4vw, 5.8rem) / 1.1 var(--font-serif);
-  letter-spacing: -0.035em;
+  font: italic 400 clamp(1.55rem, 3.2vw, 4rem) / 1.2 var(--font-serif);
+  letter-spacing: -0.018em;
+  overflow-wrap: break-word;
   text-wrap: balance;
 }
 
 .quoteLine {
   display: block;
   width: 100%;
+  margin-top: 0.06em;
 }
 
-.quoteText br {
-  display: none;
+.quoteReference {
+  display: block;
+  width: min(100%, 720px);
+  margin: clamp(24px, 3vw, 42px) auto 0;
+  color: rgba(216, 184, 121, 0.76);
+  font: 700 clamp(0.62rem, 0.9vw, 0.82rem) / 1.6 var(--font-sans);
+  font-style: normal;
+  letter-spacing: 0.18em;
+  overflow-wrap: break-word;
+  text-transform: uppercase;
+  text-wrap: balance;
 }
 
 .galleryViewport {
@@ -1533,7 +1544,14 @@
   }
 
   .quoteText {
-    font-size: clamp(2.15rem, 10vw, 3.8rem);
+    font-size: clamp(1.55rem, 7.4vw, 2.75rem);
+    line-height: 1.18;
+  }
+
+  .quoteReference {
+    max-width: 300px;
+    font-size: 0.56rem;
+    letter-spacing: 0.12em;
   }
 
   .gallerySlide {

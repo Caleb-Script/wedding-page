@@ -33,7 +33,7 @@ export default function WeddingDetailsBeat({
       title: t("weddingInfo.ceremony.title"),
       venue: t("weddingInfo.ceremony.venue"),
       address: t("weddingInfo.ceremony.address"),
-      time: "14:00",
+      time: "12:30",
       icon: HiOutlineMapPin,
     },
     {

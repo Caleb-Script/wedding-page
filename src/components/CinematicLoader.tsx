@@ -166,8 +166,16 @@ export default function CinematicLoader({ onComplete }: CinematicLoaderProps) {
                 </Box>{" "}
                 R
               </Typography>
-              <Typography sx={{ flexShrink: 0, fontSize: "0.66rem", fontWeight: 700, mt: 0.5, ml: 2.5 }}>
-                #CGR #HAPPELYEVERGYAMFI
+              <Typography
+                sx={{
+                  flexShrink: 0,
+                  fontSize: "0.66rem",
+                  fontWeight: 700,
+                  mt: 0.5,
+                  ml: 2.5,
+                }}
+              >
+                #CALEBGETSRICH #HAPPELYEVERGYAMFI
               </Typography>
             </motion.div>
           </Box>

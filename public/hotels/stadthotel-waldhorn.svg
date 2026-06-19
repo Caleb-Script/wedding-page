@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Stadthotel Waldhorn image pending</title>
+  <desc id="desc">Temporary editorial placeholder. Replace with licensed hotel photography.</desc>
+  <rect width="1400" height="900" fill="#243447"/>
+  <rect x="110" y="120" width="1180" height="660" rx="36" fill="#f4efe6"/>
+  <rect x="180" y="190" width="220" height="170" rx="12" fill="#6f8f72"/>
+  <rect x="460" y="190" width="220" height="170" rx="12" fill="#d8b56d"/>
+  <rect x="740" y="190" width="220" height="170" rx="12" fill="#6f8f72"/>
+  <rect x="1020" y="190" width="180" height="170" rx="12" fill="#d8b56d"/>
+  <rect x="245" y="465" width="910" height="120" rx="18" fill="#243447"/>
+  <text x="700" y="535" fill="#f4efe6" font-family="Arial, sans-serif" font-size="54" font-weight="700" text-anchor="middle">Stadthotel Waldhorn</text>
+  <text x="700" y="640" fill="#243447" font-family="Arial, sans-serif" font-size="30" text-anchor="middle">licensed hotel photo pending</text>
+</svg>

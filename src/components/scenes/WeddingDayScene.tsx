@@ -1,7 +1,6 @@
 "use client";
 
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
-import WeddingDayTimeline from "../WeddingDayTimeline";
 import WeddingDetailsBeat from "../WeddingDetailsBeat";
 import ChapterScene from "./ChapterScene";
 

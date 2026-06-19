@@ -11,7 +11,7 @@
   },
   "hero": {
     "subtitle": "Yɛrebɛware",
-    "quote": "Yɛahu ɔdɔ a ɛte sɛ fie.",
+    "quote": "\"Me yɛ me dɔfo dea,\nna me dɔfo nso yɛ me dea.\"\n\n— Song of Solomon 6:3",
     "scroll": "Twetwe fam",
     "scene": "Nsɛm 01 / Nnurui",
     "cta": "Fi yɛn akwantu ase",
@@ -46,9 +46,11 @@
     }
   },
   "quote": {
-    "line1": "Kra mmienu a adwene baako na ɛka wɔn ho,",
-    "line2": "Akoma mmienu a ɛbɔ bom.",
-    "text": "Kra mmienu a adwene baako na ɛka wɔn ho,\nAkoma mmienu a ɛbɔ bom."
+    "line1": "Sɛ obiako tumi di obi so a,",
+    "line2": "baanu betumi agyina ano;",
+    "line3": "na ahama mmiɛnsa no ntete ntɛm.",
+    "reference": "— Ecclesiastes 4:12",
+    "text": "Sɛ obiako tumi di obi so a,\nbaanu betumi agyina ano;\nna ahama mmiɛnsa no ntete ntɛm.\n\n— Ecclesiastes 4:12"
   },
   "rsvp": {
     "subtitle": "Bra Ka Yɛn Ho",
@@ -70,7 +72,7 @@
     },
     "details": {
       "ceremony": {
-        "info": "Ahyɛase · 14:00",
+        "info": "Ahyɛase · 12:30",
         "description": "Bere a yɛn akwantu a yɛbɛbom ayɛ no fi ase ankasa.",
         "message": "Yɛn ani gye sɛ mo ne yɛn bɛka yɛn yiw no."
       },
@@ -138,10 +140,13 @@
     "tags": {
       "airport": "Ɛbɛn wiem hyɛn gyinabea",
       "betweenLocations": "Ɛda mmeae no ntam",
+      "betweenVenues": "Ɛda mmeae no ntam",
       "recommended": "Yɛkamfo kyerɛ",
       "familyFriendly": "Ɛfata abusua",
       "central": "Kuropɔn mfinimfini",
       "nearCeremony": "Ɛbɛn aware dwuma no",
+      "nearChurch": "Ɛbɛn asɔre no",
+      "nearCelebration": "Ɛbɛn anigyede no",
       "parking": "Kar gyinabea",
       "publicTransport": "Bɔs ne keteke kwan",
       "shuttlePossible": "Shuttle betumi aba",
@@ -202,11 +207,11 @@
     "items": {
       "dressCode": {
         "question": "Dɛn na ɛsɛ sɛ mehyɛ?",
-        "answer": "Fa ntade a ɛyɛ fɛ na ɛfata afahyɛ hyɛ. Yɛsrɛ sɛ momma ayeforo no nko ara nhyɛ fitaa."
+        "answer": "Dress code no yɛ elegant. Yɛsrɛ mo, mommfa orange, white ne emerald-green, efisɛ saa kɔla yi yɛ bridal team dea."
       },
       "arrival": {
         "question": "Bere bɛn na ɛsɛ sɛ ahɔho ba?",
-        "answer": "Yɛsrɛ sɛ mommra simma 30 ansa na aware dwuma no afi ase wɔ 14:00."
+        "answer": "Yɛsrɛ sɛ mommra simma 30 ansa na aware dwuma no afi ase wɔ 12:30."
       },
       "plusOne": {
         "question": "Metumi de obi aka me ho aba?",
@@ -214,7 +219,7 @@
       },
       "children": {
         "question": "Mmofra betumi aba?",
-        "answer": "Wo nkra no kyerɛ obiara a yɛayɛ nhyehyɛe ama no. Yɛsrɛ sɛ bisa yɛn ansa na wode mmofra aka ho."
+        "answer": "Wo nkra no ka obiara a yɛayɛ nhyehyɛe ama no ho. Yɛsrɛ sɛ bisa yɛn ansa na wode mmofra aka RSVP no ho. Mmofra a wonnii mfe 6 no betumi aba, na enhia sɛ wɔkyerɛw wɔn din soronko, efisɛ mpɛn pii no wɔtumi tena wɔn awofo nkyɛn. Nanso mmofra a wɔadi mfe 6 ne nea ɛboro saa no, ɛsɛ sɛ wɔka wɔn ho wɔ RSVP mu, efisɛ ɛsɛ sɛ yɛma wɔn nkongua soronko."
       },
       "dietary": {
         "question": "Sɛ mintumi nni nnuan bi a, dɛn na menyɛ?",

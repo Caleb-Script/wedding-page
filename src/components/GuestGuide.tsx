@@ -20,7 +20,14 @@ import SceneHeader from "./SceneHeader";
 const categories = [
   {
     id: "general",
-    items: ["dressCode", "arrival", "plusOne", "children", "dietary", "late"],
+    items: [
+      "dressCode",
+      "arrival",
+      "plusOne",
+      "children",
+      // "dietary",
+      "late",
+    ],
   },
   {
     id: "location",

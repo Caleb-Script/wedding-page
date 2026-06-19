@@ -2,6 +2,8 @@
 
 Research date: June 13, 2026
 
+Extended update: June 19, 2026
+
 ## Location Analysis
 
 The wedding day spans two cities:
@@ -9,15 +11,17 @@ The wedding day spans two cities:
 - Ceremony: Katholisches Pfarramt Heilige Familie, Stuttgart
 - Celebration: White Event Palast, Kirchheim unter Teck
 
-The original recommendations are concentrated around the celebration in
-Kirchheim. The extended shortlist deliberately adds options for five different
-guest situations:
+The original recommendations were concentrated around the celebration in
+Kirchheim. The extended shortlist deliberately adds options for several
+different guest situations:
 
 1. Staying very close to the ceremony and Stuttgart-Vaihingen station.
-2. Staying affordably in Stuttgart-Feuerbach with direct public transport.
-3. Staying near Stuttgart Airport and Messe at a budget-focused chain.
-4. Staying between both wedding locations in Esslingen.
-5. Staying in Filderstadt with parking and an airport shuttle.
+2. Staying near Stuttgart-Moehringen, Vaihingen and SI-Centrum.
+3. Staying affordably in Stuttgart-Feuerbach with direct public transport.
+4. Staying near Stuttgart Airport and Messe at a budget-focused chain.
+5. Staying between both wedding locations in Esslingen.
+6. Staying in Kirchheim close to the celebration.
+7. Staying in Filderstadt with parking and an airport shuttle.
 
 Hotel coordinates were verified once using OpenStreetMap Nominatim. Estimated
 driving distances and times were verified once using the public OSRM routing
@@ -100,10 +104,38 @@ added when they had one or more of these weaknesses:
 The five selected hotels expand geographic coverage without removing or
 weakening the original couple-curated recommendations.
 
+## June 19, 2026 Additions
+
+The following hotels were added as static editorial recommendations after
+verifying address and location details. Distances and times remain editorial
+one-time estimates and are not calculated at runtime.
+
+| Hotel | Address | Official source | Notes |
+| --- | --- | --- | --- |
+| Stadthotel Waldhorn | Max-Eyth-Straße 24, 73230 Kirchheim unter Teck | `https://stadthotel-waldhorn.de/` | Central Kirchheim option close to the celebration. |
+| MASEVEN Stuttgart SI-Centrum | Plieninger Straße 101-107, 70567 Stuttgart | `https://www.maseven.de/serviced-apartments-stuttgart/` | Serviced apartment option near SI-Centrum and the church corridor. |
+| Hotel Flora Moehringen | Filderbahnstraße 43B, 70567 Stuttgart | OpenStreetMap verified | Practical Moehringen option; no reliable official website link was stored. |
+| Holiday Inn - the niu, Kettle Stuttgart Vaihingen | Kupferstraße 3, 70565 Stuttgart | `https://www.ihg.com/holiday-inn-the-niu/hotels/de/de/stuttgart/strks/hoteldetail` | Closest chain option near Stuttgart-Vaihingen and the church. |
+| Pullman Stuttgart Fontana | Vollmoellerstraße 5, 70563 Stuttgart | `https://all.accor.com/hotel/5425/index.de.shtml` | Premium Vaihingen option beside the station. |
+| Holiday Inn - the niu, Mesh Stuttgart Messe | Vor dem Lauch 16, 70567 Stuttgart | `https://www.ihg.com/holiday-inn-the-niu/hotels/de/de/stuttgart/strms/hoteldetail` | Budget-friendly airport and Messe corridor option. |
+| Holiday Inn - the niu, Timber Esslingen | Otto-Bayer-Straße 8, 73730 Esslingen am Neckar | `https://www.ihg.com/holiday-inn-the-niu/hotels/de/de/esslingen-am-neckar/zeben/hoteldetail` | Esslingen option between the two wedding venues. |
+| Hotel Am Charlottenplatz | Plochinger Straße 1, 73730 Esslingen am Neckar | OpenStreetMap verified | Simple central Esslingen option; no reliable official website link was stored. |
+| Leonardo Hotel Esslingen | Grabbrunnenstraße 19, 73728 Esslingen am Neckar | `https://www.leonardo-hotels.de/esslingen-am-neckar/leonardo-hotel-esslingen` | More comfortable central Esslingen option. |
+
+Two requested candidates were not added because the available public records did
+not verify the requested property safely enough:
+
+- Altstadt Apartments in Kirchheim unter Teck: the available official-looking
+  website results pointed to another city, not Kirchheim unter Teck.
+- Hotel Am Bad in Esslingen: the available official-looking website results
+  pointed to Tuebingen, not Esslingen.
+
 ## Image Assets
 
-All required images are real hotel images downloaded from official hotel
-sources and stored locally. No placeholder or generated hotel imagery is used.
+The existing hotel images are real hotel images downloaded from official hotel
+sources and stored locally. The June 19 additions use local SVG placeholders so
+production never renders broken image paths; replace them with licensed hotel
+photography before public launch if final hotel photos are required.
 
 | Hotel | Target path | Official image source |
 | --- | --- | --- |
@@ -112,9 +144,19 @@ sources and stored locally. No placeholder or generated hotel imagery is used.
 | B&B HOTEL Stuttgart-Airport/Messe | `/public/hotels/bb-hotel-stuttgart-airport-messe.jpg` | `https://res.cloudinary.com/hzekpb1cg/image/upload/q_auto:good/c_fill,h_900,w_1400,f_jpg/s3/public/prod/s3fs-public/hotel-stuttgart-airport-messe_0118_double-room_3.e8e8589e-55677.jpg` |
 | Hotel am Schillerpark | `/public/hotels/hotel-am-schillerpark-esslingen.jpg` | `https://www.hotel-am-schillerpark.de/media/user_upload/zimmer/thumbs/einzelzimmer-standard-esslingen_thumb-min.jpg` |
 | NH Stuttgart Airport | `/public/hotels/nh-stuttgart-airport.jpg` | `https://img.nh-hotels.net/d2KK/1dk1XP/original/NH_Stuttgart_Airport_Room_superior_curtains_open_king_size_bed_armchair_coffee_maker_lamps_tv_view.jpg` |
+| Stadthotel Waldhorn | `/public/hotels/stadthotel-waldhorn.svg` | Placeholder; replace with licensed official hotel photography. |
+| MASEVEN Stuttgart SI-Centrum | `/public/hotels/maseven-stuttgart-si-centrum.svg` | Placeholder; replace with licensed official hotel photography. |
+| Hotel Flora Moehringen | `/public/hotels/hotel-flora-moehringen.svg` | Placeholder; replace with licensed official hotel photography. |
+| Holiday Inn - the niu, Kettle Stuttgart Vaihingen | `/public/hotels/holiday-inn-the-niu-kettle-stuttgart-vaihingen.svg` | Placeholder; replace with licensed official hotel photography. |
+| Pullman Stuttgart Fontana | `/public/hotels/pullman-stuttgart-fontana.svg` | Placeholder; replace with licensed official hotel photography. |
+| Holiday Inn - the niu, Mesh Stuttgart Messe | `/public/hotels/holiday-inn-the-niu-mesh-stuttgart-messe.svg` | Placeholder; replace with licensed official hotel photography. |
+| Holiday Inn - the niu, Timber Esslingen | `/public/hotels/holiday-inn-the-niu-timber-esslingen.svg` | Placeholder; replace with licensed official hotel photography. |
+| Hotel Am Charlottenplatz | `/public/hotels/hotel-am-charlottenplatz-esslingen.svg` | Placeholder; replace with licensed official hotel photography. |
+| Leonardo Hotel Esslingen | `/public/hotels/leonardo-hotel-esslingen.svg` | Placeholder; replace with licensed official hotel photography. |
 
-The image sources are official promotional hotel media. Usage permission should
-be confirmed before public commercial distribution.
+The image sources are official promotional hotel media or documented
+placeholders. Usage permission should be confirmed before public commercial
+distribution.
 
 ## Maintenance Notes
 

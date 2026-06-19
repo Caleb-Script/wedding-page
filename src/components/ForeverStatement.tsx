@@ -28,6 +28,7 @@ export default function ForeverStatement({
   });
   const quoteY = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
   const haloScale = useTransform(scrollYProgress, [0, 1], [0.82, 1.18]);
+  const quoteLines = [t("quote.line1"), t("quote.line2"), t("quote.line3")];
 
   const Root = embedded ? "div" : "section";
 
@@ -54,10 +55,19 @@ export default function ForeverStatement({
             “
           </span>
           <p className={styles.quoteText}>
-            <SplitReveal>{t("quote.line1")}</SplitReveal>
-            <br />
-            <SplitReveal delay={0.3}>{t("quote.line2")}</SplitReveal>
+            {quoteLines.map((line, index) => (
+              <SplitReveal
+                className={styles.quoteLine}
+                delay={index * 0.22}
+                key={line}
+              >
+                {line}
+              </SplitReveal>
+            ))}
           </p>
+          <cite className={styles.quoteReference}>
+            <SplitReveal delay={0.72}>{t("quote.reference")}</SplitReveal>
+          </cite>
         </motion.blockquote>
       </div>
     </Root>

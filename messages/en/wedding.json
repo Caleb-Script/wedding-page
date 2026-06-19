@@ -12,7 +12,7 @@
   },
   "hero": {
     "subtitle": "We're getting married",
-    "quote": "We found love that feels like home.",
+    "quote": "\"I am my beloved's,\nand my beloved is mine.\"\n\n— Song of Solomon 6:3",
     "scroll": "Scroll",
     "scene": "Scene 01 / Arrival",
     "cta": "Begin our journey",
@@ -47,9 +47,11 @@
     }
   },
   "quote": {
-    "line1": "Two souls with but a single thought,",
-    "line2": "Two hearts that beat as one.",
-    "text": "Two souls with but a single thought,\nTwo hearts that beat as one."
+    "line1": "Though one may be overpowered,",
+    "line2": "two can defend themselves.",
+    "line3": "A cord of three strands is not quickly broken.",
+    "reference": "— Ecclesiastes 4:12",
+    "text": "Though one may be overpowered,\ntwo can defend themselves.\nA cord of three strands is not quickly broken.\n\n— Ecclesiastes 4:12"
   },
   "rsvp": {
     "subtitle": "Join Us",
@@ -71,7 +73,7 @@
     },
     "details": {
       "ceremony": {
-        "info": "The beginning · 14:00",
+        "info": "The beginning · 12:30",
         "description": "The moment we officially begin our journey together.",
         "message": "We cannot wait to see you as we say yes."
       },
@@ -139,10 +141,13 @@
     "tags": {
       "airport": "Near airport",
       "betweenLocations": "Between venues",
+      "betweenVenues": "Between venues",
       "recommended": "Recommended",
       "familyFriendly": "Family friendly",
       "central": "City centre",
       "nearCeremony": "Near ceremony",
+      "nearChurch": "Near church",
+      "nearCelebration": "Near celebration",
       "parking": "Parking",
       "publicTransport": "Public transport",
       "shuttlePossible": "Shuttle possible",
@@ -162,11 +167,11 @@
     "ceremony": {
       "car": {
         "title": "By Car",
-        "details": "The ceremony location in Stuttgart-Vaihingen can be reached via the A8 motorway. Follow signs towards Stuttgart-Vaihingen. Parking is available near the church."
+        "details": "The ceremony location in Rohr can be reached via the A8 motorway. Follow signs towards Stuttgart-Vaihingen. Parking is available near the church."
       },
       "train": {
         "title": "By Train",
-        "details": "Take the S-Bahn to Stuttgart-Vaihingen station. From there the church is only a short taxi ride or bus ride away."
+        "details": "Take the S-Bahn to Rohr station. From there the church is only a short taxi ride or bus ride away."
       },
       "parking": {
         "title": "Parking",
@@ -203,11 +208,11 @@
     "items": {
       "dressCode": {
         "question": "What is the dress code?",
-        "answer": "Elegant festive attire is perfect. We kindly ask guests to leave white and ivory for the bride."
+        "answer": "The dress code is elegant. Please avoid orange, white and emerald green, as these colors are reserved for the bridal team."
       },
       "arrival": {
         "question": "When should guests arrive?",
-        "answer": "Please arrive around 30 minutes before the ceremony so everyone can be seated before 14:00."
+        "answer": "Please arrive around 30 minutes before the church ceremony so everyone can be seated before 12:30."
       },
       "plusOne": {
         "question": "Can I bring a plus one?",
@@ -215,7 +220,7 @@
       },
       "children": {
         "question": "Are children welcome?",
-        "answer": "Your invitation includes everyone we have planned for. Please contact us before adding children to your RSVP."
+        "answer": "Your invitation includes everyone we have planned for. Please contact us before adding children to your RSVP. Children under 6 years old are welcome and do not need to be registered separately, as they can usually sit with their parents. Children aged 6 and above, however, must be included in the RSVP, as we need to reserve a separate seat for them."
       },
       "dietary": {
         "question": "What should I do if I have dietary restrictions?",
@@ -231,7 +236,7 @@
       },
       "publicTransport": {
         "question": "Is public transportation available?",
-        "answer": "Yes. Stuttgart-Vaihingen and Kirchheim unter Teck stations are the nearest main connections; use a bus or taxi for the final part."
+        "answer": "Yes. Rohr and Kirchheim unter Teck stations are the nearest main connections; use a bus or taxi for the final part."
       },
       "charging": {
         "question": "Are there charging stations nearby?",
@@ -291,7 +296,7 @@
     "title": "Wedding Information",
 
     "ceremony": {
-      "title": "Ceremony",
+      "title": "Church Ceremony",
       "venue": "Gesamtkirchengemeinde Heilige Familie",
       "address": "Dürllewangstraße 36, 70565 Stuttgart"
     },

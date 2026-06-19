@@ -11,7 +11,7 @@
   },
   "hero": {
     "subtitle": "Ci sposiamo",
-    "quote": "Abbiamo trovato un amore che ci fa sentire a casa.",
+    "quote": "\"Io sono del mio amato,\ne il mio amato è mio.\"\n\n— Cantico dei Cantici 6,3",
     "scroll": "Scorri",
     "scene": "Scena 01 / Arrivo",
     "cta": "Inizia il viaggio",
@@ -46,9 +46,11 @@
     }
   },
   "quote": {
-    "line1": "Due anime con un solo pensiero,",
-    "line2": "Due cuori che battono come uno.",
-    "text": "Due anime con un solo pensiero,\nDue cuori che battono come uno."
+    "line1": "Se uno può essere sopraffatto,",
+    "line2": "due possono resistere.",
+    "line3": "Una corda a tre capi non si rompe tanto presto.",
+    "reference": "— Ecclesiaste 4,12",
+    "text": "Se uno può essere sopraffatto,\ndue possono resistere.\nUna corda a tre capi non si rompe tanto presto.\n\n— Ecclesiaste 4,12"
   },
   "rsvp": {
     "subtitle": "Unitevi a Noi",
@@ -70,7 +72,7 @@
     },
     "details": {
       "ceremony": {
-        "info": "L'inizio · 14:00",
+        "info": "L'inizio · 12:30",
         "description": "Il momento in cui il nostro viaggio insieme inizia ufficialmente.",
         "message": "Non vediamo l'ora di avervi con noi quando diremo sì."
       },
@@ -138,10 +140,13 @@
     "tags": {
       "airport": "Vicino all'aeroporto",
       "betweenLocations": "Tra le location",
+      "betweenVenues": "Tra le location",
       "recommended": "Consigliato",
       "familyFriendly": "Per famiglie",
       "central": "Centro città",
       "nearCeremony": "Vicino alla cerimonia",
+      "nearChurch": "Vicino alla chiesa",
+      "nearCelebration": "Vicino al ricevimento",
       "parking": "Parcheggio",
       "publicTransport": "Trasporto pubblico",
       "shuttlePossible": "Navetta possibile",
@@ -202,11 +207,11 @@
     "items": {
       "dressCode": {
         "question": "Qual è il dress code?",
-        "answer": "Un abbigliamento elegante e festivo è perfetto. Chiediamo gentilmente di lasciare bianco e avorio alla sposa."
+        "answer": "Il dress code è elegante. Vi chiediamo di evitare arancione, bianco e verde smeraldo, perché questi colori sono riservati al bridal team."
       },
       "arrival": {
         "question": "Quando dovrebbero arrivare gli ospiti?",
-        "answer": "Arrivate circa 30 minuti prima della cerimonia, così tutti saranno seduti prima delle 14:00."
+        "answer": "Arrivate circa 30 minuti prima della cerimonia, così tutti saranno seduti prima delle 12:30."
       },
       "plusOne": {
         "question": "Posso portare un accompagnatore?",
@@ -214,7 +219,7 @@
       },
       "children": {
         "question": "I bambini sono benvenuti?",
-        "answer": "L'invito include tutte le persone previste. Contattateci prima di aggiungere bambini alla conferma."
+        "answer": "L'invito include tutte le persone che abbiamo previsto. Contattateci prima di aggiungere bambini alla RSVP. I bambini sotto i 6 anni sono i benvenuti e non devono essere registrati separatamente, perché di solito possono sedersi con i genitori. I bambini dai 6 anni in su, invece, devono essere inclusi nella RSVP, perché dobbiamo riservare un posto separato per loro."
       },
       "dietary": {
         "question": "Cosa devo fare per allergie o esigenze alimentari?",

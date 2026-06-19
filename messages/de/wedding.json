@@ -4,7 +4,7 @@
   },
   "hero": {
     "subtitle": "Wir heiraten",
-    "quote": "Wir haben eine Liebe gefunden, die sich wie Zuhause anfühlt.",
+    "quote": "„Ich gehöre meinem Geliebten,\nund mein Geliebter gehört mir.“\n\n— Hohelied 6,3",
     "scroll": "Scrollen",
     "scene": "Szene 01 / Ankunft",
     "cta": "Unsere Reise beginnen",
@@ -46,9 +46,11 @@
     }
   },
   "quote": {
-    "line1": "Zwei Seelen mit nur einem Gedanken,",
-    "line2": "Zwei Herzen, die im gleichen Takt schlagen.",
-    "text": "Zwei Seelen mit nur einem Gedanken,\nZwei Herzen, die im gleichen Takt schlagen."
+    "line1": "Einer mag überwältigt werden,",
+    "line2": "doch zwei können widerstehen.",
+    "line3": "Und eine dreifache Schnur reißt nicht leicht entzwei.",
+    "reference": "— Prediger 4,12",
+    "text": "Einer mag überwältigt werden,\ndoch zwei können widerstehen.\nUnd eine dreifache Schnur reißt nicht leicht entzwei.\n\n— Prediger 4,12"
   },
   "rsvp": {
     "subtitle": "Feiere mit uns",
@@ -70,7 +72,7 @@
     },
     "details": {
       "ceremony": {
-        "info": "Der Anfang · 14:00",
+        "info": "Der Anfang · 12:30",
         "description": "Der Moment, in dem unsere gemeinsame Reise offiziell beginnt.",
         "message": "Wir können es kaum erwarten, euch bei unserem Ja-Wort zu sehen."
       },
@@ -138,10 +140,13 @@
     "tags": {
       "airport": "Flughafennähe",
       "betweenLocations": "Zwischen den Locations",
+      "betweenVenues": "Zwischen den Locations",
       "recommended": "Empfohlen",
       "familyFriendly": "Familienfreundlich",
       "central": "Innenstadt",
       "nearCeremony": "Nahe der Trauung",
+      "nearChurch": "Nahe der Kirche",
+      "nearCelebration": "Nahe der Feier",
       "parking": "Parkplätze",
       "publicTransport": "ÖPNV-Anbindung",
       "shuttlePossible": "Shuttle möglich",
@@ -202,11 +207,11 @@
     "items": {
       "dressCode": {
         "question": "Was ist der Dresscode?",
-        "answer": "Festlich-elegante Kleidung ist perfekt. Weiß und Elfenbein möchten wir gerne der Braut überlassen."
+        "answer": "Der Dresscode ist elegant. Bitte vermeidet Orange, Weiß und Smaragdgrün, da diese Farben für das Bridal Team reserviert sind."
       },
       "arrival": {
         "question": "Wann sollten Gäste ankommen?",
-        "answer": "Bitte kommt etwa 30 Minuten vor der Trauung, damit um 14:00 Uhr alle ihren Platz gefunden haben."
+        "answer": "Bitte kommt etwa 30 Minuten vor der Trauung, damit um 12:30 Uhr alle ihren Platz gefunden haben."
       },
       "plusOne": {
         "question": "Kann ich eine Begleitung mitbringen?",
@@ -214,7 +219,7 @@
       },
       "children": {
         "question": "Sind Kinder willkommen?",
-        "answer": "Eure Einladung nennt alle eingeplanten Gäste. Bitte sprecht mit uns, bevor ihr Kinder zur Zusage hinzufügt."
+        "answer": "Eure Einladung umfasst alle Personen, die wir eingeplant haben. Bitte sprecht mit uns, bevor ihr Kinder zur RSVP hinzufügt. Kinder unter 6 Jahren sind willkommen und müssen nicht separat angemeldet werden, da sie normalerweise bei ihren Eltern sitzen können. Kinder ab 6 Jahren müssen jedoch in der RSVP angegeben werden, da wir für sie einen eigenen Sitzplatz reservieren müssen."
       },
       "dietary": {
         "question": "Was mache ich bei Allergien oder besonderer Ernährung?",

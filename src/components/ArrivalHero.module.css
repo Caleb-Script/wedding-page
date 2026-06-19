@@ -277,7 +277,10 @@
   max-width: 600px;
   margin: clamp(28px, 4vh, 46px) auto 0;
   color: rgba(255, 255, 255, 0.62);
-  font: italic 400 clamp(1rem, 1.4vw, 1.3rem) / 1.5 var(--font-serif);
+  font: italic 400 clamp(0.96rem, 1.25vw, 1.2rem) / 1.48 var(--font-serif);
+  overflow-wrap: break-word;
+  text-wrap: balance;
+  white-space: pre-line;
 }
 
 .dateLine {
@@ -549,7 +552,8 @@
   }
 
   .quote {
-    max-width: 300px;
+    width: min(100%, 340px);
+    max-width: 340px;
     align-self: center;
   }
 
@@ -633,7 +637,8 @@
 
   .quote {
     margin-top: 14px;
-    font-size: 0.92rem;
+    font-size: 0.84rem;
+    line-height: 1.38;
   }
 
   .dateLine {

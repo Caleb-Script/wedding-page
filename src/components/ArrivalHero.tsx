@@ -128,15 +128,17 @@ export default function ArrivalHero() {
             }}
             onError={announceMediaReady}
             playsInline
-            poster="/hero-bg.jpg"
+            // poster="/hero-bg.jpg"
             preload="auto"
           >
             <source
               media="(min-width: 769px)"
-              src="/video/hero-cinematic-1080.webm"
+              src="/video/vid.webm"
               type="video/webm"
             />
-            <source src="/video/hero-cinematic-480.webm" type="video/webm" />
+            {/* <source src="/video/hero-cinematic-480.webm" type="video/webm" /> */}
+            <source src="/video/vid.webm" type="video/webm" />
+  
           </video>
         </motion.div>
 
@@ -177,14 +179,14 @@ export default function ArrivalHero() {
         </div>
 
         <div className={styles.credit}>
-          <span>Film / Alexis Markwick</span>
-          <a
+          <span>#CALEBGETSRICH #HAPPILYEVERGYAMFI</span>
+          {/* <a
             href="https://creativecommons.org/licenses/by-sa/3.0/"
             rel="noreferrer"
             target="_blank"
           >
             CC BY-SA 3.0
-          </a>
+          </a> */}
         </div>
 
         <motion.div

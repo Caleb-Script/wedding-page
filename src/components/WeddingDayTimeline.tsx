@@ -34,7 +34,7 @@ export default function WeddingDayTimeline({
   const events = [
     {
       id: "ceremony",
-      time: "14:00",
+      time: "12:30",
       title: t("timeline.events.ceremony"),
       icon: HiOutlineHeart,
       image: "/gallery-1.jpg",
