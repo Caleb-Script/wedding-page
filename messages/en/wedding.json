@@ -46,6 +46,20 @@
       "description": "An elegant event palace with luxurious décor and a grand ballroom — the perfect place to celebrate the evening together."
     }
   },
+  "navigation": {
+    "menu": "Chapter navigation",
+    "open": "Open chapter navigation",
+    "close": "Close chapter navigation",
+    "chapters": {
+      "arrival": "Arrival",
+      "journey": "Our Wedding",
+      "weddingDay": "Wedding Day",
+      "destination": "Destination",
+      "guestGuide": "Guest Guide",
+      "rsvp": "RSVP",
+      "forever": "Forever"
+    }
+  },
   "quote": {
     "line1": "Though one may be overpowered,",
     "line2": "two can defend themselves.",

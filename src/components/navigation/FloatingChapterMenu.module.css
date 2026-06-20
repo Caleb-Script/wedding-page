@@ -1,0 +1,223 @@
+.root {
+  position: fixed;
+  right: clamp(1.35rem, 3vw, 2.6rem);
+  bottom: clamp(1.35rem, 3vw, 2.6rem);
+  z-index: 1600;
+  width: 3.5rem;
+  height: 3.5rem;
+  pointer-events: none;
+}
+
+.constellation {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1500;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  cursor: default;
+}
+
+.centerButton,
+.chapterButton {
+  appearance: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.centerButton {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: grid;
+  width: 3.5rem;
+  height: 3.5rem;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 36% 28%,
+      rgba(255, 255, 255, 0.16),
+      transparent 34%
+    ), linear-gradient(145deg, rgba(22, 19, 15, 0.92), rgba(5, 5, 5, 0.86));
+  border: 1px solid rgba(212, 180, 120, 0.34);
+  border-radius: 999px;
+  box-shadow:
+    0 1.5rem 3.5rem rgba(0, 0, 0, 0.5),
+    inset 0 0 1.6rem rgba(212, 180, 120, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.centerButton::before {
+  position: absolute;
+  inset: 0.38rem;
+  content: "";
+  border: 1px solid rgba(212, 180, 120, 0.18);
+  border-radius: inherit;
+}
+
+.centerGlyph {
+  position: relative;
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.centerGlyph::before,
+.centerGlyph::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.92rem;
+  height: 1px;
+  content: "";
+  background: #e4c989;
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  transition:
+    transform 0.32s var(--ease-cinematic),
+    opacity 0.32s var(--ease-cinematic);
+}
+
+.centerGlyph::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.centerButton[aria-expanded="true"] .centerGlyph::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.centerButton[aria-expanded="true"] .centerGlyph::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.chapterButton {
+  position: absolute;
+  right: 0.125rem;
+  bottom: 0.125rem;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: max-content;
+  gap: 0.75rem;
+  background: transparent;
+  border-radius: 999px;
+  outline-offset: 0.4rem;
+  transform-origin: right center;
+}
+
+.chapterLabel {
+  max-width: min(15rem, calc(100vw - 8rem));
+  color: rgba(223, 196, 138, 0.76);
+  font: 600 clamp(0.62rem, 0.72vw, 0.78rem) / 1 var(--font-serif);
+  letter-spacing: 0.16em;
+  text-align: right;
+  text-shadow: 0 0.8rem 1.8rem rgba(0, 0, 0, 0.75);
+  text-transform: uppercase;
+  white-space: normal;
+}
+
+.chapterOrb {
+  display: grid;
+  width: 3.15rem;
+  height: 3.15rem;
+  flex: 0 0 auto;
+  place-items: center;
+  background:
+    radial-gradient(
+      circle at 36% 28%,
+      rgba(255, 255, 255, 0.12),
+      transparent 34%
+    ), rgba(12, 12, 12, 0.8);
+  border: 1px solid rgba(212, 180, 120, 0.25);
+  border-radius: 999px;
+  box-shadow:
+    0 1.2rem 2.8rem rgba(0, 0, 0, 0.42),
+    inset 0 0 1.2rem rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(16px);
+  transition:
+    border-color 0.32s var(--ease-cinematic),
+    box-shadow 0.32s var(--ease-cinematic),
+    background 0.32s var(--ease-cinematic);
+}
+
+.chapterOrb span {
+  color: rgba(240, 225, 190, 0.72);
+  font: 700 0.54rem / 1 var(--font-sans);
+  letter-spacing: 0.14em;
+}
+
+.active .chapterLabel {
+  color: rgba(252, 226, 164, 0.96);
+}
+
+.active .chapterOrb {
+  background:
+    radial-gradient(
+      circle at 36% 28%,
+      rgba(255, 255, 255, 0.18),
+      transparent 34%
+    ), rgba(22, 18, 12, 0.9);
+  border-color: rgba(224, 195, 128, 0.82);
+  box-shadow:
+    0 0 30px rgba(212, 180, 120, 0.3),
+    0 1.2rem 2.8rem rgba(0, 0, 0, 0.46),
+    inset 0 0 1.35rem rgba(212, 180, 120, 0.12);
+}
+
+@media (max-width: 767px) {
+  .root {
+    right: 1.1rem;
+    bottom: 1.1rem;
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .centerButton {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .centerButton::before {
+    inset: 0.32rem;
+  }
+
+  .chapterButton {
+    right: 0.05rem;
+    bottom: 0.05rem;
+    gap: 0.65rem;
+  }
+
+  .chapterOrb {
+    width: 2.625rem;
+    height: 2.625rem;
+  }
+
+  .chapterOrb span {
+    font-size: 0.48rem;
+  }
+
+  .chapterLabel {
+    max-width: calc(100vw - 5.75rem);
+    font-size: 0.58rem;
+    letter-spacing: 0.13em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .centerGlyph::before,
+  .centerGlyph::after,
+  .chapterOrb {
+    transition-duration: 0.01ms;
+  }
+}

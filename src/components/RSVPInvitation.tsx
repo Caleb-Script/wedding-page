@@ -38,7 +38,7 @@ export default function RSVPInvitation({
       className={
         embedded ? styles.chapterBeat : `${styles.scene} ${styles.sceneDeep}`
       }
-      id="rsvp"
+      id={embedded ? undefined : "rsvp"}
     >
       <div className={styles.inner}>
         <motion.div

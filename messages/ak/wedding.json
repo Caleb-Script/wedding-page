@@ -45,6 +45,20 @@
       "description": "Faako a ɛyɛ fɛ a wɔyɛ ahurusi wɔ hɔ, a ɛwɔ adan kɛse ne adwinni fɛfɛ — baabi a ɛyɛ pɛpɛɛpɛ sɛ yɛbɛbom adi anigye anwummere no."
     }
   },
+  "navigation": {
+    "menu": "Nkɔmmɔtwetwe anim akwankyerɛ",
+    "open": "Bue anim akwankyerɛ",
+    "close": "To anim akwankyerɛ mu",
+    "chapters": {
+      "arrival": "Abɛdu",
+      "journey": "Yɛn Aware",
+      "weddingDay": "Aware Da",
+      "destination": "Beae",
+      "guestGuide": "Ahɔho Akwankyerɛ",
+      "rsvp": "RSVP",
+      "forever": "Daa"
+    }
+  },
   "quote": {
     "line1": "Sɛ obiako tumi di obi so a,",
     "line2": "baanu betumi agyina ano;",

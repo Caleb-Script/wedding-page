@@ -14,6 +14,7 @@ import { useCallback, useEffect, useState } from "react";
 import CinematicLoader from "./CinematicLoader";
 import { CINEMATIC_EASE } from "./CinematicMotion";
 import { HERO_MEDIA_READY_EVENT } from "./cinematicEvents";
+import FloatingChapterMenu from "./navigation/FloatingChapterMenu";
 
 const MotionBox = motion.create(Box);
 
@@ -23,7 +24,7 @@ const SCENE_IDS = [
   "wedding-day",
   "destination",
   "guest-guide",
-  "response",
+  "rsvp",
   "forever",
 ] as const;
 
@@ -153,6 +154,7 @@ export default function CinematicExperience({
           transition={{ duration: 1.15, ease: CINEMATIC_EASE }}
         >
           {children}
+          {ready && <FloatingChapterMenu />}
         </MotionBox>
 
         <Box

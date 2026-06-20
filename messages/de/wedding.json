@@ -45,6 +45,20 @@
       "description": "Ein eleganter Veranstaltungssaal mit luxuriösem Ambiente – der perfekte Ort, um gemeinsam den Abend zu feiern."
     }
   },
+  "navigation": {
+    "menu": "Kapitel-Navigation",
+    "open": "Kapitel-Navigation öffnen",
+    "close": "Kapitel-Navigation schließen",
+    "chapters": {
+      "arrival": "Ankunft",
+      "journey": "Unsere Hochzeit",
+      "weddingDay": "Hochzeitstag",
+      "destination": "Destination",
+      "guestGuide": "Gäste-Guide",
+      "rsvp": "RSVP",
+      "forever": "Für Immer"
+    }
+  },
   "quote": {
     "line1": "Einer mag überwältigt werden,",
     "line2": "doch zwei können widerstehen.",

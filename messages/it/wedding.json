@@ -45,6 +45,20 @@
       "description": "Un elegante palazzo per eventi con decorazioni lussuose e una grande sala da ballo — il luogo perfetto per celebrare insieme la serata."
     }
   },
+  "navigation": {
+    "menu": "Navigazione dei capitoli",
+    "open": "Apri la navigazione dei capitoli",
+    "close": "Chiudi la navigazione dei capitoli",
+    "chapters": {
+      "arrival": "Arrivo",
+      "journey": "Il Nostro Matrimonio",
+      "weddingDay": "Giorno del Matrimonio",
+      "destination": "Destinazione",
+      "guestGuide": "Guida Ospiti",
+      "rsvp": "RSVP",
+      "forever": "Per Sempre"
+    }
+  },
   "quote": {
     "line1": "Se uno può essere sopraffatto,",
     "line2": "due possono resistere.",

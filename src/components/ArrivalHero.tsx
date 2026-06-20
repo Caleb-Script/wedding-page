@@ -138,7 +138,6 @@ export default function ArrivalHero() {
             />
             {/* <source src="/video/hero-cinematic-480.webm" type="video/webm" /> */}
             <source src="/video/vid.webm" type="video/webm" />
-  
           </video>
         </motion.div>
 

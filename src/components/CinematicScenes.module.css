@@ -1078,10 +1078,16 @@
 
 .quoteStage {
   position: relative;
-  width: min(100%, 1180px);
-  max-width: 1180px;
+  isolation: isolate;
+  display: flex;
+  width: min(100%, 1280px);
+  min-height: clamp(680px, 82vh, 920px);
   margin: 0 auto;
-  padding: clamp(70px, 10vw, 150px) clamp(4px, 2vw, 28px);
+  padding: clamp(86px, 10vw, 150px) clamp(20px, 6vw, 96px);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
   text-align: center;
 }
 
@@ -1094,25 +1100,10 @@
   place-items: center;
 }
 
-.quoteHalo {
-  position: absolute;
-  inset: 12%;
-  border: 1px solid rgba(216, 184, 121, 0.1);
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(216, 184, 121, 0.08),
-    transparent 64%
-  );
-  box-shadow:
-    0 0 0 8vw rgba(216, 184, 121, 0.012),
-    0 0 120px rgba(216, 184, 121, 0.05);
-  pointer-events: none;
-}
-
 .quoteStage::before {
   position: absolute;
-  top: 0;
+  z-index: 3;
+  top: clamp(38px, 6vw, 70px);
   left: 50%;
   width: 1px;
   height: 54px;
@@ -1120,7 +1111,37 @@
   content: "";
 }
 
+.quoteImageLayer {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.quoteVignette {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.08) 0%,
+    rgba(0, 0, 0, 0.2) 38%,
+    rgba(0, 0, 0, 0.55) 68%,
+    rgba(0, 0, 0, 0.86) 100%
+  );
+}
+
+.quoteImage {
+  object-fit: cover;
+  object-position: center 42%;
+  opacity: 0.46;
+  filter: grayscale(0.1) saturate(0.85) contrast(1.05);
+}
+
 .quoteMark {
+  position: relative;
+  z-index: 3;
   display: block;
   margin-bottom: 24px;
   color: rgba(216, 184, 121, 0.5);
@@ -1128,8 +1149,11 @@
 }
 
 .quoteText {
+  position: relative;
+  z-index: 3;
   width: 100%;
   color: #eee9df;
+  text-shadow: 0 3px 30px rgba(0, 0, 0, 0.8);
   font: italic 400 clamp(1.55rem, 3.2vw, 4rem) / 1.2 var(--font-serif);
   letter-spacing: -0.018em;
   overflow-wrap: break-word;
@@ -1143,6 +1167,8 @@
 }
 
 .quoteReference {
+  position: relative;
+  z-index: 3;
   display: block;
   width: min(100%, 720px);
   margin: clamp(24px, 3vw, 42px) auto 0;
@@ -1911,6 +1937,25 @@
   .quoteText {
     font-size: clamp(1.55rem, 7.4vw, 2.75rem);
     line-height: 1.18;
+  }
+
+  .quoteStage {
+    min-height: 640px;
+    padding: 92px 20px;
+  }
+
+  .quoteImage {
+    opacity: 0.4;
+  }
+
+  .quoteVignette {
+    background: radial-gradient(
+      ellipse at center,
+      rgba(0, 0, 0, 0.16) 0%,
+      rgba(0, 0, 0, 0.34) 42%,
+      rgba(0, 0, 0, 0.72) 76%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
   }
 
   .quoteReference {

@@ -6,6 +6,7 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
 import { CINEMATIC_EASE } from "@/components/CinematicMotion";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
@@ -27,7 +28,6 @@ export default function ForeverStatement({
     offset: ["start end", "end start"],
   });
   const quoteY = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
-  const haloScale = useTransform(scrollYProgress, [0, 1], [0.82, 1.18]);
   const quoteLines = [t("quote.line1"), t("quote.line2"), t("quote.line3")];
 
   const Root = embedded ? "div" : "section";
@@ -37,13 +37,7 @@ export default function ForeverStatement({
       className={`${embedded ? styles.chapterBeat : `${styles.scene} ${styles.sceneSoft}`} ${styles.quoteScene}`}
       id="quote"
     >
-      <motion.div
-        aria-hidden="true"
-        className={styles.quoteHalo}
-        style={reduceMotion ? undefined : { scale: haloScale }}
-      />
       <div className={styles.inner} ref={sectionRef}>
-
         <motion.blockquote
           className={styles.quoteStage}
           initial={{ opacity: 0, scale: 0.97 }}
@@ -52,6 +46,16 @@ export default function ForeverStatement({
           viewport={{ once: true, amount: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}
         >
+          <div aria-hidden="true" className={styles.quoteImageLayer}>
+            <Image
+              alt=""
+              className={styles.quoteImage}
+              fill
+              sizes="100vw"
+              src="/us/7.png"
+            />
+            <span className={styles.quoteVignette} />
+          </div>
 
           <span className={styles.quoteMark} aria-hidden="true">
             “
