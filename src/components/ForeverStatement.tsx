@@ -43,6 +43,7 @@ export default function ForeverStatement({
         style={reduceMotion ? undefined : { scale: haloScale }}
       />
       <div className={styles.inner} ref={sectionRef}>
+
         <motion.blockquote
           className={styles.quoteStage}
           initial={{ opacity: 0, scale: 0.97 }}
@@ -51,9 +52,11 @@ export default function ForeverStatement({
           viewport={{ once: true, amount: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}
         >
+
           <span className={styles.quoteMark} aria-hidden="true">
             “
           </span>
+
           <p className={styles.quoteText}>
             {quoteLines.map((line, index) => (
               <SplitReveal

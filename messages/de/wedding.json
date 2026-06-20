@@ -288,7 +288,14 @@
     }
   },
   "footer": {
-    "message": "Vielen Dank, dass ihr diesen besonderen Tag mit uns feiert."
+    "message": "Danke, dass ihr mit uns feiert.",
+    "thankYouTitle": "Danke, dass ihr mit uns feiert.",
+    "thankYouBody": "Eure Liebe, eure Gebete und eure Anwesenheit machen diesen Tag unvergesslich.\nWir sind dankbar, dieses neue Kapitel umgeben von den Menschen zu beginnen, die wir am meisten lieben.",
+    "verseLine1": "„Wo du hingehst, da will auch ich hingehen;",
+    "verseLine2": "wo du bleibst, da bleibe auch ich.“",
+    "verseReference": "— Ruth 1,16",
+    "hashtag": "#CALEBGETSRICH",
+    "imageAlt": "Caleb und Rachel lächeln gemeinsam in einem warmen Hochzeitsporträt"
   },
   "weddingInfo": {
     "subtitle": "Details",

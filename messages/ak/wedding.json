@@ -288,7 +288,14 @@
     }
   },
   "footer": {
-    "message": "Yɛda wo ase sɛ wode yɛn bɛdi anigye."
+    "message": "Yɛda mo ase sɛ mo ne yɛn redi ahurisie.",
+    "thankYouTitle": "Yɛda mo ase sɛ mo ne yɛn redi ahurisie.",
+    "thankYouBody": "Mo dɔ, mo mpaebɔ ne mo ba ha ama saa da yi ayɛ nea yɛren werɛ mfi.\nYɛda ase sɛ yɛrefi saa akwantu foforo yi ase wɔ nnipa a yɛdɔ wɔn paa mu.",
+    "verseLine1": "\"Baabi a wobɛkɔ no, ɛhɔ na me nso mɛkɔ;",
+    "verseLine2": "baabi a wobɛtena no, ɛhɔ na me nso mɛtena.\"",
+    "verseReference": "— Ruth 1:16",
+    "hashtag": "#CALEBGETSRICH",
+    "imageAlt": "Caleb ne Rachel reyɛ anigye wɔ aware mfonini a ɛyɛ hyew mu"
   },
   "weddingInfo": {
     "subtitle": "Nsɛm a ɛfa Aware Ho",

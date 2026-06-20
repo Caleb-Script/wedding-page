@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useState } from "react";
 import { HiOutlineMapPin } from "react-icons/hi2";
 import {
@@ -30,6 +31,7 @@ export default function DestinationLocations({
       venue: t("locations.ceremony.venue"),
       address: t("locations.ceremony.address"),
       description: t("locations.ceremony.description"),
+      image: "/locations/church.jpg",
     },
     {
       tab: t("locations.reception.tab"),
@@ -37,6 +39,7 @@ export default function DestinationLocations({
       venue: t("locations.reception.venue"),
       address: t("locations.reception.address"),
       description: t("locations.reception.description"),
+      image: "/locations/reception.jpg",
     },
   ];
   const location = locations[tab];
@@ -86,6 +89,26 @@ export default function DestinationLocations({
               </EditorialReveal>
             </p>
           </div>
+
+          <motion.div
+            animate={{ opacity: 1, x: 0 }}
+            className={styles.locationMedia}
+            initial={{ opacity: 0, x: 28 }}
+            key={location.image}
+            transition={{ duration: 0.72, ease: CINEMATIC_EASE }}
+          >
+            <Image
+              alt={`${location.title} - ${location.venue}`}
+              className={styles.locationImage}
+              fill
+              sizes="(max-width: 900px) calc(100vw - 40px), 56vw"
+              src={location.image}
+            />
+            <div className={styles.locationImageOverlay}>
+              <span className={styles.locationImageLabel}>{location.tab}</span>
+              <span>{location.venue}</span>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </Root>

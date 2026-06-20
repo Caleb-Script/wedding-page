@@ -288,7 +288,14 @@
     }
   },
   "footer": {
-    "message": "Grazie per festeggiare con noi."
+    "message": "Grazie per aver festeggiato con noi.",
+    "thankYouTitle": "Grazie per aver festeggiato con noi.",
+    "thankYouBody": "Il vostro amore, le vostre preghiere e la vostra presenza rendono questo giorno davvero indimenticabile.\nSiamo grati di iniziare questo nuovo capitolo circondati dalle persone che amiamo di più.",
+    "verseLine1": "\"Dove andrai tu, andrò anch'io;",
+    "verseLine2": "dove resterai tu, resterò anch'io.\"",
+    "verseReference": "— Rut 1,16",
+    "hashtag": "#CALEBGETSRICH",
+    "imageAlt": "Caleb e Rachel sorridono insieme in un caldo ritratto di matrimonio"
   },
   "weddingInfo": {
     "subtitle": "I Dettagli",

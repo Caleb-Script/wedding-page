@@ -289,7 +289,14 @@
     }
   },
   "footer": {
-    "message": "Thank you for celebrating with us."
+    "message": "Thank you for celebrating with us.",
+    "thankYouTitle": "Thank you for celebrating with us.",
+    "thankYouBody": "Your love, prayers, and presence made this day truly unforgettable.\nWe are grateful to begin this new chapter surrounded by the people we love most.",
+    "verseLine1": "\"Where you go, I will go,",
+    "verseLine2": "and where you stay, I will stay.\"",
+    "verseReference": "— Ruth 1:16",
+    "hashtag": "#CALEBGETSRICH",
+    "imageAlt": "Caleb and Rachel smiling together in a warm wedding portrait"
   },
   "weddingInfo": {
     "subtitle": "The Details",

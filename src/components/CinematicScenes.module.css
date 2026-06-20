@@ -680,21 +680,24 @@
 
 .locationStage {
   display: grid;
-  min-height: 430px;
-  grid-template-columns: minmax(0, 1fr);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  min-height: clamp(650px, 58vw, 800px);
+  grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.08fr);
+  gap: clamp(18px, 2.6vw, 40px);
+  align-items: stretch;
+  border: 1px solid rgba(216, 184, 121, 0.12);
   background:
     radial-gradient(
-      circle at 84% 18%,
-      rgba(216, 184, 121, 0.08),
+      circle at 18% 20%,
+      rgba(216, 184, 121, 0.07),
       transparent 30%
-    ), linear-gradient(135deg, rgba(255, 255, 255, 0.025), transparent 62%),
+    ), linear-gradient(135deg, rgba(255, 255, 255, 0.026), transparent 58%),
     #090a0b;
 }
 
 .locationCopy {
   display: flex;
-  width: min(100%, 820px);
+  width: 100%;
+  max-width: 540px;
   padding: clamp(34px, 5vw, 70px);
   justify-content: center;
   flex-direction: column;
@@ -736,6 +739,60 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.52);
   font: 300 0.92rem / 1.8 var(--font-sans);
+}
+
+.locationMedia {
+  position: relative;
+  min-width: 0;
+  min-height: 650px;
+  margin: clamp(14px, 1.6vw, 24px) clamp(14px, 1.6vw, 24px)
+    clamp(14px, 1.6vw, 24px) 0;
+  overflow: hidden;
+  border: 1px solid rgba(216, 184, 121, 0.22);
+  border-radius: 24px;
+  background: #111;
+  box-shadow:
+    0 44px 110px rgba(0, 0, 0, 0.42),
+    0 16px 38px rgba(0, 0, 0, 0.28);
+  isolation: isolate;
+}
+
+.locationMedia::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 48%, rgba(5, 5, 6, 0.68)),
+    linear-gradient(90deg, rgba(5, 5, 6, 0.18), transparent 45%);
+  content: "";
+  pointer-events: none;
+}
+
+.locationImage {
+  object-fit: cover;
+  object-position: center center;
+  filter: saturate(0.92) contrast(1.04);
+}
+
+.locationImageOverlay {
+  position: absolute;
+  z-index: 2;
+  bottom: clamp(22px, 2.6vw, 34px);
+  left: clamp(22px, 2.6vw, 34px);
+  display: flex;
+  width: min(100% - 44px, 520px);
+  flex-direction: column;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.86);
+  font: 400 clamp(1rem, 1.4vw, 1.28rem) / 1.35 var(--font-serif);
+  text-shadow: 0 2px 22px rgba(0, 0, 0, 0.7);
+}
+
+.locationImageLabel {
+  color: var(--scene-accent);
+  font: 700 0.54rem / 1.3 var(--font-sans);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
 
 .travelGrid {
@@ -1222,53 +1279,173 @@
 
 .footer {
   position: relative;
+  isolation: isolate;
   width: 100%;
+  min-width: 0;
   max-width: 100%;
   min-height: 100vh;
   margin: 0;
-  border: 0;
-  padding: clamp(100px, 14vw, 200px) 24px 50px;
-  overflow: hidden;
+  padding: clamp(86px, 10vw, 150px) clamp(20px, 6vw, 96px)
+    clamp(44px, 6vw, 84px);
+  overflow: clip;
   color: #eee9df;
-  background: #050506;
-  text-align: center;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 24%),
+    linear-gradient(135deg, rgba(216, 184, 121, 0.065), transparent 28%),
+    #050506;
 }
 
 .footer::before {
   position: absolute;
-  top: -35vw;
-  left: 50%;
-  width: 70vw;
-  aspect-ratio: 1;
-  border: 1px solid rgba(216, 184, 121, 0.08);
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 8vw rgba(216, 184, 121, 0.012),
-    0 0 0 16vw rgba(216, 184, 121, 0.008);
+  z-index: -1;
+  inset: 0;
+  opacity: 0.62;
+  background:
+    linear-gradient(90deg, transparent, rgba(216, 184, 121, 0.08), transparent),
+    linear-gradient(180deg, transparent 0 72%, rgba(255, 255, 255, 0.03));
+  background-position:
+    center clamp(132px, 17vw, 246px),
+    center;
+  background-repeat: no-repeat;
+  background-size:
+    min(100%, 1180px) 1px,
+    100% 100%;
   content: "";
-  transform: translateX(-50%);
+  pointer-events: none;
 }
 
-.footerMonogram {
-  position: relative;
-  display: grid;
-  width: 84px;
-  height: 84px;
-  margin: 0 auto 50px;
-  border: 1px solid rgba(216, 184, 121, 0.26);
-  border-radius: 50%;
-  color: var(--scene-accent);
-  font: italic 400 1.5rem / 1 var(--font-serif);
-  place-items: center;
+.footerEditorial {
+  width: min(100%, 1240px);
+  min-width: 0;
+  margin: 0 auto;
+}
+
+.footerHeader {
+  width: 100%;
+  min-width: 0;
 }
 
 .footerNames {
   position: relative;
   max-width: 100%;
   margin: 0;
-  font: 400 clamp(3.3rem, 8vw, 8rem) / 0.96 var(--font-serif);
-  letter-spacing: -0.05em;
+  color: #f3eee5;
+  font: 400 clamp(4.8rem, 11vw, 12rem) / 0.88 var(--font-serif);
+  letter-spacing: -0.045em;
   text-wrap: balance;
+}
+
+.footerDivider {
+  width: 100%;
+  height: 1px;
+  margin-top: clamp(30px, 4.4vw, 56px);
+  background: linear-gradient(
+    90deg,
+    rgba(216, 184, 121, 0.12),
+    rgba(216, 184, 121, 0.72),
+    rgba(216, 184, 121, 0.12)
+  );
+  transform-origin: left center;
+}
+
+.footerBody {
+  display: grid;
+  margin-top: clamp(54px, 7vw, 92px);
+  grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1fr);
+  gap: clamp(44px, 7vw, 118px);
+  align-items: center;
+}
+
+.footerPortrait {
+  position: relative;
+  width: min(100%, 440px);
+  aspect-ratio: 1003 / 1568;
+  justify-self: start;
+  overflow: hidden;
+  border-radius: clamp(22px, 2vw, 28px);
+  background: #111;
+  box-shadow:
+    0 44px 110px rgba(0, 0, 0, 0.42),
+    0 16px 38px rgba(0, 0, 0, 0.3);
+}
+
+.footerPortrait::after {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.08),
+      transparent 32%,
+      rgba(5, 5, 6, 0.2)
+    ), linear-gradient(90deg, rgba(5, 5, 6, 0.18), transparent 48%);
+  content: "";
+  pointer-events: none;
+}
+
+.footerPortrait img {
+  filter: saturate(0.9) contrast(1.02);
+}
+
+.footerCopy {
+  width: 100%;
+  min-width: 0;
+  max-width: 650px;
+  justify-self: end;
+}
+
+.footerThankYouTitle {
+  max-width: 560px;
+  margin: 0;
+  color: #f3eee5;
+  font: 400 clamp(1.7rem, 2.35vw, 2.65rem) / 1.14 var(--font-serif);
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.footerThankYouBody {
+  max-width: 610px;
+  margin-top: clamp(24px, 3vw, 38px);
+  color: rgba(255, 255, 255, 0.66);
+  font: 300 clamp(0.96rem, 1.05vw, 1.1rem) / 1.95 var(--font-sans);
+  white-space: pre-line;
+}
+
+.footerVerse {
+  max-width: 560px;
+  margin-top: clamp(34px, 4vw, 52px);
+  padding-top: clamp(26px, 3vw, 38px);
+  border-top: 1px solid rgba(216, 184, 121, 0.28);
+  color: rgba(255, 255, 255, 0.82);
+  font: italic 400 clamp(1.18rem, 1.65vw, 1.55rem) / 1.62 var(--font-serif);
+}
+
+.footerVerse p {
+  margin: 0;
+}
+
+.footerVerse span {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+.footerVerseReference {
+  display: block;
+  margin-top: 18px;
+  color: var(--scene-accent);
+  font: 700 0.62rem / 1.5 var(--font-sans);
+  font-style: normal;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.footerClosing {
+  margin-top: clamp(58px, 8vw, 104px);
+}
+
+.footerClosing .footerDivider {
+  margin-top: 0;
 }
 
 .journeyStage {
@@ -1276,11 +1453,13 @@
   display: grid;
   width: 100%;
   min-width: 0;
-  min-height: 100vh;
-  padding: clamp(104px, 12vw, 190px) clamp(24px, 7vw, 128px);
-  grid-template-columns: minmax(300px, 0.86fr) minmax(0, 1.14fr);
-  gap: clamp(44px, 7vw, 128px);
-  align-items: center;
+  min-height: max(860px, 100vh);
+  padding: clamp(96px, 10vw, 170px) clamp(24px, 6.5vw, 118px);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: repeat(8, minmax(0, 1fr));
+  column-gap: clamp(18px, 2.4vw, 44px);
+  row-gap: clamp(30px, 4vw, 68px);
+  align-items: stretch;
   overflow: clip;
 }
 
@@ -1288,131 +1467,103 @@
   position: absolute;
   z-index: -1;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    transparent 42%,
-    rgba(216, 184, 121, 0.045) 58%,
-    transparent 86%
-  );
+  background:
+    linear-gradient(
+      118deg,
+      transparent 0 46%,
+      rgba(216, 184, 121, 0.06) 46.2%,
+      transparent 47%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.035),
+      transparent 34%,
+      transparent 68%,
+      rgba(255, 255, 255, 0.025)
+    );
   content: "";
   pointer-events: none;
 }
 
-.journeyIndex {
-  position: absolute;
-  z-index: 2;
-  top: clamp(38px, 6vw, 86px);
-  left: clamp(24px, 7vw, 128px);
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  color: rgba(255, 255, 255, 0.3);
-  font: 700 0.58rem / 1 var(--font-sans);
-  letter-spacing: 0.22em;
-}
-
-.journeyIndex::after {
-  width: 42px;
-  height: 1px;
-  background: rgba(216, 184, 121, 0.32);
-  content: "";
-}
-
-.journeyMedia {
+.journeyImage {
   position: relative;
   z-index: 1;
-  width: min(100%, 560px);
   min-width: 0;
-  height: min(74vh, 790px);
-  min-height: 520px;
-  justify-self: end;
+}
+
+.journeyImageLead {
+  width: min(100%, clamp(330px, 34vw, 520px));
+  aspect-ratio: 1003 / 1568;
+  align-self: start;
+  justify-self: start;
+  grid-column: 1 / span 5;
+  grid-row: 1 / span 5;
   overflow: hidden;
+  border-radius: clamp(28px, 2.1vw, 32px);
   background: #111;
   box-shadow:
-    0 46px 130px rgba(0, 0, 0, 0.44),
-    0 16px 42px rgba(0, 0, 0, 0.32);
+    0 46px 120px rgba(0, 0, 0, 0.38),
+    0 18px 44px rgba(0, 0, 0, 0.28);
   transform-origin: center;
 }
 
-.journeyMedia::after {
+.journeyImageLead::after,
+.journeyImageFrame::after {
   position: absolute;
   z-index: 2;
   inset: 0;
   background:
-    linear-gradient(180deg, transparent 48%, rgba(4, 4, 5, 0.44)),
-    linear-gradient(90deg, rgba(4, 4, 5, 0.2), transparent 44%);
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.08),
+      transparent 22%,
+      transparent 72%,
+      rgba(5, 5, 6, 0.24)
+    ),
+    linear-gradient(
+      90deg,
+      rgba(5, 5, 6, 0.18),
+      transparent 38%,
+      rgba(255, 255, 255, 0.04)
+    );
   content: "";
   pointer-events: none;
 }
 
-.journeyMediaInner {
+.journeyImageFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1003 / 1568;
+  overflow: hidden;
+  border-radius: clamp(28px, 2.1vw, 32px);
+  background: #111;
+  box-shadow:
+    0 36px 92px rgba(0, 0, 0, 0.34),
+    0 14px 34px rgba(0, 0, 0, 0.26);
+  transform: rotate(-0.65deg);
+}
+
+.journeyImageInner {
   position: absolute;
-  inset: -8% 0;
+  inset: -8% -2%;
   transform-origin: center;
   will-change: transform;
 }
 
-.journeyMediaInner img {
-  filter: saturate(0.94) contrast(1.02);
-}
-
-.journeyMediaOverlay {
-  position: absolute;
-  z-index: 3;
-  bottom: clamp(18px, 2.2vw, 28px);
-  left: clamp(18px, 2.2vw, 28px);
-  display: flex;
-  max-width: calc(100% - 36px);
-  align-items: center;
-  gap: 12px;
-  color: rgba(255, 255, 255, 0.78);
-  font: 700 0.5rem / 1.35 var(--font-sans);
-  letter-spacing: 0.2em;
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.7);
-  text-transform: uppercase;
-}
-
-.journeyMediaOverlay span {
-  min-width: 0;
-}
-
-.journeyMediaOverlay span + span::before {
-  margin-right: 12px;
-  color: rgba(216, 184, 121, 0.72);
-  content: "/";
+.journeyImageInner img {
+  filter: saturate(0.92) contrast(1.03);
 }
 
 .journeyContent {
   position: relative;
-  z-index: 1;
-  display: flex;
+  z-index: 2;
   width: 100%;
   min-width: 0;
-  max-width: 760px;
-  flex-direction: column;
-  gap: clamp(28px, 3.4vw, 48px);
-  justify-self: start;
-}
-
-.journeyMeta {
-  display: flex;
-  width: 100%;
-  min-width: 0;
-  align-items: center;
-  gap: 14px;
-  color: var(--scene-accent);
-  font: 700 0.54rem / 1.45 var(--font-sans);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-
-.journeyMeta::after {
-  width: min(150px, 24vw);
-  height: 1px;
-  flex: 0 1 auto;
-  background: rgba(216, 184, 121, 0.34);
-  content: "";
+  max-width: 690px;
+  align-self: center;
+  justify-self: center;
+  grid-column: 5 / span 5;
+  grid-row: 3 / span 3;
 }
 
 .journeyCopy {
@@ -1423,37 +1574,59 @@
   max-width: 760px;
 }
 
+.journeyMeta {
+  margin: 0 0 clamp(18px, 2vw, 28px);
+  color: var(--scene-accent);
+  font: 400 clamp(1.35rem, 1.8vw, 2.2rem) / 1 var(--font-serif);
+  letter-spacing: 0.04em;
+}
+
 .journeyCopy h2 {
   margin: 0;
   color: #f2eee7;
-  font: 400 clamp(4rem, 6.6vw, 8.4rem) / 0.96 var(--font-serif);
-  letter-spacing: -0.05em;
+  font: 400 clamp(4.8rem, 7.9vw, 10.4rem) / 0.9 var(--font-serif);
+  letter-spacing: -0.045em;
   text-wrap: balance;
 }
 
 .journeyMessage {
-  max-width: 560px;
-  margin-top: clamp(34px, 4vw, 56px);
-  margin-left: clamp(0px, 7vw, 96px);
-  padding-left: clamp(20px, 2.2vw, 30px);
-  border-left: 1px solid rgba(217, 187, 132, 0.3);
-  color: rgba(255, 255, 255, 0.58);
-  font: 300 clamp(0.94rem, 1.12vw, 1.08rem) / 1.9 var(--font-sans);
+  max-width: 570px;
+  margin: clamp(32px, 3.6vw, 52px) 0 0 clamp(28px, 5.2vw, 92px);
+  color: rgba(255, 255, 255, 0.62);
+  font: 300 clamp(0.96rem, 1.05vw, 1.08rem) / 1.95 var(--font-sans);
 }
 
-.footerDate {
-  margin-top: 28px;
+.journeyDateline {
+  max-width: 100%;
+  margin: clamp(26px, 3vw, 42px) 0 0 clamp(28px, 5.2vw, 92px);
   color: var(--scene-accent);
-  font: 700 0.58rem / 1 var(--font-sans);
-  letter-spacing: 0.3em;
+  font: 700 0.58rem / 1.4 var(--font-sans);
+  letter-spacing: 0.28em;
   text-transform: uppercase;
 }
 
-.footerMessage {
-  max-width: 480px;
-  margin: 44px auto 0;
-  color: rgba(255, 255, 255, 0.43);
-  font: italic 400 1.05rem / 1.7 var(--font-serif);
+.journeyImageSecondary {
+  width: min(100%, clamp(230px, 23vw, 360px));
+  align-self: end;
+  justify-self: end;
+  grid-column: 9 / span 4;
+  grid-row: 5 / span 4;
+}
+
+.footerDate {
+  margin-top: clamp(28px, 3.4vw, 44px);
+  color: var(--scene-accent);
+  font: 700 clamp(0.68rem, 0.86vw, 0.82rem) / 1.4 var(--font-sans);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.footerHashtag {
+  margin-top: 14px;
+  color: #f3eee5;
+  font: 700 clamp(0.72rem, 0.92vw, 0.86rem) / 1.4 var(--font-sans);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
 }
 
 @keyframes rotate {
@@ -1530,10 +1703,18 @@
   .locationStage {
     min-height: auto;
     grid-template-columns: 1fr;
+    gap: 0;
   }
 
   .locationCopy {
     width: 100%;
+    max-width: 720px;
+  }
+
+  .locationMedia {
+    min-height: 0;
+    height: clamp(420px, 62vw, 560px);
+    margin: 0 20px 20px;
   }
 
   .tabs {
@@ -1574,42 +1755,66 @@
     max-height: 680px;
   }
 
+  .footer {
+    padding: 100px 20px 64px;
+  }
+
+  .footer::before {
+    background-position:
+      center 152px,
+      center;
+  }
+
+  .footerBody {
+    grid-template-columns: 1fr;
+    gap: 46px;
+  }
+
+  .footerPortrait {
+    width: min(62vw, 420px);
+  }
+
+  .footerCopy {
+    max-width: 720px;
+    justify-self: start;
+  }
+
   .journeyStage {
     min-height: auto;
     padding: 104px 20px;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-rows: auto;
     align-content: start;
-    gap: 48px;
+    gap: clamp(42px, 7vw, 72px);
   }
 
   .journeyStage::after {
     opacity: 0.7;
   }
 
-  .journeyIndex {
-    display: none;
-  }
-
-  .journeyMedia {
-    width: min(100%, 600px);
-    height: auto;
-    min-height: 0;
-    aspect-ratio: 3 / 4;
-    justify-self: center;
+  .journeyImageLead {
+    width: min(100%, 520px);
+    justify-self: start;
+    grid-column: 1 / span 5;
+    grid-row: auto;
   }
 
   .journeyContent {
     max-width: 680px;
-    justify-self: center;
+    justify-self: end;
+    grid-column: 2 / span 5;
+    grid-row: auto;
   }
 
-  .journeyMeta::after {
-    width: min(130px, 30vw);
+  .journeyImageSecondary {
+    width: min(74vw, 390px);
+    justify-self: end;
+    grid-column: 3 / span 4;
+    grid-row: auto;
   }
 
   .journeyMessage {
     max-width: 620px;
-    margin-left: 0;
   }
 }
 
@@ -1663,6 +1868,24 @@
     padding: 32px 24px 40px;
   }
 
+  .locationMedia {
+    height: clamp(320px, 74vw, 450px);
+    margin: 0 14px 14px;
+    border-radius: 20px;
+  }
+
+  .locationImageOverlay {
+    bottom: 20px;
+    left: 20px;
+    width: calc(100% - 40px);
+    font-size: 1rem;
+  }
+
+  .locationImageLabel {
+    font-size: 0.48rem;
+    letter-spacing: 0.16em;
+  }
+
   .travelCard {
     min-height: 340px;
     padding: 30px 24px;
@@ -1707,46 +1930,75 @@
   }
 
   .footerNames {
-    font-size: clamp(3rem, 14vw, 5.4rem);
+    font-size: clamp(3.2rem, 17vw, 5.4rem);
+  }
+
+  .footer {
+    padding: 88px 20px 54px;
+  }
+
+  .footer::before {
+    background-position:
+      center 134px,
+      center;
+  }
+
+  .footerDivider {
+    margin-top: 28px;
+  }
+
+  .footerBody {
+    margin-top: 44px;
+    gap: 38px;
+  }
+
+  .footerPortrait {
+    width: 100%;
+  }
+
+  .footerThankYouTitle {
+    font-size: clamp(1.55rem, 8vw, 2.2rem);
+  }
+
+  .footerThankYouBody {
+    font-size: 0.96rem;
+    line-height: 1.85;
+  }
+
+  .footerVerse {
+    font-size: clamp(1.1rem, 5.6vw, 1.38rem);
+    line-height: 1.55;
+  }
+
+  .footerClosing {
+    margin-top: 54px;
+  }
+
+  .footerDate,
+  .footerHashtag {
+    letter-spacing: 0.18em;
   }
 
   .journeyStage {
     padding: 92px 20px;
+    grid-template-columns: 1fr;
     gap: 34px;
   }
 
-  .journeyMedia {
+  .journeyImageLead {
     width: 100%;
+    grid-column: 1;
     box-shadow:
       0 30px 80px rgba(0, 0, 0, 0.38),
       0 12px 30px rgba(0, 0, 0, 0.28);
   }
 
-  .journeyMediaOverlay {
-    bottom: 16px;
-    left: 16px;
-    max-width: calc(100% - 32px);
-    gap: 9px;
-    font-size: 0.46rem;
-    letter-spacing: 0.14em;
-  }
-
-  .journeyMediaOverlay span + span::before {
-    margin-right: 9px;
-  }
-
   .journeyContent {
-    gap: 22px;
+    grid-column: 1;
   }
 
   .journeyMeta {
-    gap: 10px;
-    font-size: 0.48rem;
-    letter-spacing: 0.16em;
-  }
-
-  .journeyMeta::after {
-    width: min(96px, 26vw);
+    font-size: 1.25rem;
   }
 
   .journeyCopy h2 {
@@ -1755,7 +2007,24 @@
 
   .journeyMessage {
     margin-top: 34px;
-    padding-left: 20px;
+    margin-left: 0;
+  }
+
+  .journeyDateline {
+    margin-left: 0;
+    letter-spacing: 0.2em;
+  }
+
+  .journeyImageSecondary {
+    width: min(78vw, 340px);
+    grid-column: 1;
+  }
+
+  .journeyImageFrame {
+    box-shadow:
+      0 28px 72px rgba(0, 0, 0, 0.34),
+      0 12px 28px rgba(0, 0, 0, 0.24);
+    transform: rotate(-0.45deg);
   }
 }
 

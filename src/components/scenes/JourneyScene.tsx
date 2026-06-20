@@ -26,8 +26,14 @@ export default function JourneyScene() {
     target: stageRef,
     offset: ["start end", "end start"],
   });
-  const mediaY = useTransform(scrollYProgress, [0, 1], ["-5%", "7%"]);
-  const mediaScale = useTransform(scrollYProgress, [0, 1], [1.03, 1.1]);
+  const primaryMediaY = useTransform(scrollYProgress, [0, 1], ["-4%", "6%"]);
+  const primaryMediaScale = useTransform(scrollYProgress, [0, 1], [1.04, 1.09]);
+  const secondaryMediaY = useTransform(scrollYProgress, [0, 1], ["4%", "-5%"]);
+  const secondaryMediaScale = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [1.06, 1.02],
+  );
 
   return (
     <ChapterScene
@@ -37,19 +43,15 @@ export default function JourneyScene() {
       tone="soft"
     >
       <Box className={styles.journeyStage} ref={stageRef}>
-        <Box className={styles.journeyIndex} aria-hidden="true">
-          02
-        </Box>
-
         <motion.div
-          className={styles.journeyMedia}
+          className={`${styles.journeyImage} ${styles.journeyImageLead}`}
           initial={
             reduceMotion
               ? { opacity: 1 }
-              : { filter: "blur(5px)", opacity: 0, scale: 0.96, y: 42 }
+              : { filter: "blur(8px)", opacity: 0, scale: 0.94, y: 54 }
           }
           transition={{
-            duration: reduceMotion ? 0 : 1.25,
+            duration: reduceMotion ? 0 : 1.45,
             ease: CINEMATIC_EASE,
           }}
           viewport={{ amount: 0.42, once: true }}
@@ -61,42 +63,92 @@ export default function JourneyScene() {
           }}
         >
           <motion.div
-            className={styles.journeyMediaInner}
-            style={reduceMotion ? undefined : { scale: mediaScale, y: mediaY }}
+            className={styles.journeyImageInner}
+            style={
+              reduceMotion
+                ? undefined
+                : { scale: primaryMediaScale, y: primaryMediaY }
+            }
           >
             <Image
-              alt="Caleb and Rachel"
+              alt="Elegant couple walking hand in hand at golden hour"
               fill
-              sizes="(max-width: 900px) calc(100vw - 40px), 44vw"
-              src="/treppe1.JPG"
+              sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 900px) 68vw, 38vw"
+              src="/us/3.png"
+              // src="/pic_02.webp"
               style={{
                 objectFit: "cover",
                 objectPosition: "center center",
               }}
             />
           </motion.div>
-          <Box className={styles.journeyMediaOverlay} aria-hidden="true">
-            <span>02</span>
-            <span>{t("hero.infoTitle")}</span>
-          </Box>
         </motion.div>
 
         <Box className={styles.journeyContent}>
-          <Box className={styles.journeyMeta} aria-hidden="true">
-            <span>02</span>
-            <span>{t("hero.infoTitle")}</span>
-          </Box>
           <Box className={styles.journeyCopy}>
+            <p className={styles.journeyMeta} aria-hidden="true">
+              <EditorialReveal delay={0.1} distance={18}>
+                02
+              </EditorialReveal>
+            </p>
             <h2>
-              <WordReveal>{t("hero.infoTitle")}</WordReveal>
+              <WordReveal delay={0.18}>{t("hero.infoTitle")}</WordReveal>
             </h2>
             <p className={styles.journeyMessage}>
-              <EditorialReveal delay={0.28}>
+              <EditorialReveal delay={0.46} distance={34}>
                 {t("hero.infoText")}
+              </EditorialReveal>
+            </p>
+            <p className={styles.journeyDateline} aria-hidden="true">
+              <EditorialReveal delay={0.72} distance={22}>
+                2026 {"\u00b7"} OUR STORY
               </EditorialReveal>
             </p>
           </Box>
         </Box>
+
+        <motion.div
+          className={`${styles.journeyImage} ${styles.journeyImageSecondary}`}
+          initial={
+            reduceMotion
+              ? { opacity: 1 }
+              : { filter: "blur(8px)", opacity: 0, scale: 0.95, y: 46 }
+          }
+          transition={{
+            delay: reduceMotion ? 0 : 0.22,
+            duration: reduceMotion ? 0 : 1.35,
+            ease: CINEMATIC_EASE,
+          }}
+          viewport={{ amount: 0.38, once: true }}
+          whileInView={{
+            filter: "blur(0px)",
+            opacity: 1,
+            scale: 1,
+            y: 0,
+          }}
+        >
+          <Box className={styles.journeyImageFrame}>
+            <motion.div
+              className={styles.journeyImageInner}
+              style={
+                reduceMotion
+                  ? undefined
+                  : { scale: secondaryMediaScale, y: secondaryMediaY }
+              }
+            >
+              <Image
+                alt="Couple smiling together in a warm editorial portrait"
+                fill
+                sizes="(max-width: 560px) 76vw, (max-width: 900px) 54vw, 27vw"
+                src="/us/5.png"
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "center center",
+                }}
+              />
+            </motion.div>
+          </Box>
+        </motion.div>
       </Box>
     </ChapterScene>
   );
