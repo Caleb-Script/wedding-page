@@ -1080,14 +1080,16 @@
   position: relative;
   isolation: isolate;
   display: flex;
-  width: min(100%, 1280px);
-  min-height: clamp(680px, 82vh, 920px);
-  margin: 0 auto;
-  padding: clamp(86px, 10vw, 150px) clamp(20px, 6vw, 96px);
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: clamp(48px, 5vw, 82px) clamp(36px, 7vw, 130px);
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  overflow: hidden;
+  grid-area: 1 / 1;
   text-align: center;
 }
 
@@ -1096,56 +1098,126 @@
 }
 
 .quoteScene .inner {
+  position: relative;
   display: grid;
+  min-height: 118vh;
   place-items: center;
 }
 
-.quoteStage::before {
-  position: absolute;
-  z-index: 3;
-  top: clamp(38px, 6vw, 70px);
-  left: 50%;
-  width: 1px;
-  height: 54px;
-  background: linear-gradient(180deg, transparent, var(--scene-accent));
-  content: "";
+.quoteDesktop {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 100%;
+  place-items: center;
 }
 
-.quoteImageLayer {
+.quoteMobile {
+  display: none;
+}
+
+.quoteMobileNames {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: min(78vw, 300px);
+  align-items: center;
+  justify-content: space-between;
+  color: rgba(238, 226, 203, 0.86);
+  font: italic 400 clamp(0.95rem, 4vw, 1.18rem) / 1.2 var(--font-serif);
+}
+
+.quoteMobileName {
+  display: block;
+  min-width: 0;
+}
+
+.quoteHalo {
   position: absolute;
+  top: 50%;
+  left: 50%;
   z-index: 0;
+  width: min(112vw, 1540px);
+  aspect-ratio: 2.25 / 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(216, 184, 121, 0.24) 0%,
+    rgba(216, 184, 121, 0.16) 18%,
+    rgba(92, 104, 122, 0.14) 42%,
+    rgba(0, 0, 0, 0) 72%
+  );
+  filter: blur(28px);
+  opacity: 0.82;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.quoteFrame {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: min(100%, 1320px);
+  aspect-ratio: 2.6 / 1;
+  margin: 0 auto;
+  place-items: stretch;
+}
+
+.quoteImageWrapper {
+  position: relative;
+  z-index: 1;
   inset: 0;
+  min-width: 0;
+  border: 1px solid rgba(216, 184, 121, 0.42);
+  border-radius: 50%;
+  background: #050505;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.045),
+    0 34px 96px rgba(0, 0, 0, 0.62);
+  grid-area: 1 / 1;
   overflow: hidden;
   pointer-events: none;
 }
 
-.quoteVignette {
+.quoteOverlay {
   position: absolute;
   z-index: 1;
   inset: 0;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(0, 0, 0, 0.08) 0%,
-    rgba(0, 0, 0, 0.2) 38%,
-    rgba(0, 0, 0, 0.55) 68%,
-    rgba(0, 0, 0, 0.86) 100%
-  );
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55));
+  pointer-events: none;
 }
 
 .quoteImage {
-  object-fit: cover;
-  object-position: center 42%;
-  opacity: 0.46;
-  filter: grayscale(0.1) saturate(0.85) contrast(1.05);
+  object-fit: contain;
+  object-position: center center;
+  filter: saturate(0.9) contrast(1.02);
+}
+
+.quoteNames {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  width: min(100%, 660px);
+  margin: 0 auto clamp(16px, 2vw, 28px);
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(34px, 9vw, 148px);
+  color: rgba(238, 226, 203, 0.9);
+  font: italic 400 clamp(1.05rem, 2.1vw, 2.35rem) / 1.1 var(--font-serif);
+}
+
+.quoteName {
+  display: block;
+  min-width: 0;
 }
 
 .quoteMark {
   position: relative;
   z-index: 3;
   display: block;
-  margin-bottom: 24px;
-  color: rgba(216, 184, 121, 0.5);
-  font: 400 5rem / 0.7 var(--font-serif);
+  margin-bottom: clamp(10px, 1.6vw, 22px);
+  color: rgba(216, 184, 121, 0.56);
+  font: 400 clamp(3.4rem, 5.6vw, 6rem) / 0.66 var(--font-serif);
 }
 
 .quoteText {
@@ -1154,8 +1226,8 @@
   width: 100%;
   color: #eee9df;
   text-shadow: 0 3px 30px rgba(0, 0, 0, 0.8);
-  font: italic 400 clamp(1.55rem, 3.2vw, 4rem) / 1.2 var(--font-serif);
-  letter-spacing: -0.018em;
+  font: italic 400 clamp(1.35rem, 2.75vw, 3.6rem) / 1.14 var(--font-serif);
+  letter-spacing: 0;
   overflow-wrap: break-word;
   text-wrap: balance;
 }
@@ -1171,7 +1243,7 @@
   z-index: 3;
   display: block;
   width: min(100%, 720px);
-  margin: clamp(24px, 3vw, 42px) auto 0;
+  margin: clamp(18px, 2.4vw, 34px) auto 0;
   color: rgba(216, 184, 121, 0.76);
   font: 700 clamp(0.62rem, 0.9vw, 0.82rem) / 1.6 var(--font-sans);
   font-style: normal;
@@ -1179,6 +1251,87 @@
   overflow-wrap: break-word;
   text-transform: uppercase;
   text-wrap: balance;
+}
+
+.quoteFrameMobile {
+  position: relative;
+  width: min(92vw, 380px);
+  aspect-ratio: 0.78 / 1;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(216, 184, 121, 0.42);
+  border-radius: 999px;
+  background: #050505;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.045),
+    0 28px 84px rgba(0, 0, 0, 0.58);
+  color: #eee9df;
+}
+
+.quoteMobileImageLayer {
+  position: absolute;
+  z-index: 0;
+  top: clamp(18px, 4vw, 28px);
+  left: 50%;
+  width: 100%;
+  height: 60%;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.quoteImageMobile {
+  object-fit: contain;
+  object-position: center top;
+  filter: saturate(0.92) contrast(1.02);
+}
+
+.quoteTextScrim {
+  position: absolute;
+  z-index: 2;
+  bottom: clamp(34px, 8vw, 58px);
+  left: 50%;
+  width: min(82%, 310px);
+  padding: clamp(14px, 4vw, 24px) clamp(8px, 2vw, 14px);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.38) 55%,
+    transparent 80%
+  );
+  pointer-events: none;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.quoteMobileText {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: #eee9df;
+  font: italic 400 clamp(1.4rem, 6vw, 2rem) / 1.18 var(--font-serif);
+  letter-spacing: 0;
+  text-shadow: 0 3px 24px rgba(0, 0, 0, 0.82);
+  text-wrap: balance;
+}
+
+.quoteMobileLine {
+  display: block;
+}
+
+.quoteMobileReference {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-top: clamp(12px, 3vw, 18px);
+  color: rgba(216, 184, 121, 0.82);
+  font: 700 0.55rem / 1.5 var(--font-sans);
+  font-style: normal;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.quoteMobileReferenceText {
+  display: block;
 }
 
 .galleryViewport {
@@ -1771,6 +1924,25 @@
     width: 78vw;
   }
 
+  .quoteFrame {
+    width: min(100%, 1080px);
+    aspect-ratio: 2.2 / 1;
+  }
+
+  .quoteHalo {
+    width: min(122vw, 1160px);
+    aspect-ratio: 1.9 / 1;
+    filter: blur(24px);
+  }
+
+  .quoteStage {
+    padding: clamp(42px, 6vw, 70px) clamp(28px, 6vw, 82px);
+  }
+
+  .quoteNames {
+    max-width: 560px;
+  }
+
   .gallerySlide {
     flex-basis: 88vw;
   }
@@ -1841,6 +2013,51 @@
 
   .journeyMessage {
     max-width: 620px;
+  }
+}
+
+@media (max-width: 700px) {
+  .quoteScene {
+    min-height: 100svh;
+  }
+
+  .quoteScene .inner {
+    min-height: 100svh;
+    padding: clamp(76px, 16vw, 112px) 20px;
+  }
+
+  .quoteDesktop {
+    display: none;
+  }
+
+  .quoteMobile {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    width: 100%;
+    place-items: center;
+    gap: clamp(18px, 5vw, 28px);
+  }
+
+  .quoteHalo {
+    width: min(118vw, 520px);
+    aspect-ratio: 0.84 / 1;
+    filter: blur(22px);
+    opacity: 0.72;
+  }
+
+  .quoteFrameMobile {
+    width: min(92vw, 380px);
+    aspect-ratio: 0.78 / 1;
+  }
+
+  .quoteScene .quoteMobileText,
+  .quoteScene .quoteMobileLine,
+  .quoteScene .quoteMobileReference,
+  .quoteScene .quoteMobileReferenceText,
+  .quoteScene .quoteMobileName {
+    overflow-wrap: normal;
+    word-break: normal;
   }
 }
 
@@ -1932,36 +2149,6 @@
 
   .primaryAction {
     gap: 22px;
-  }
-
-  .quoteText {
-    font-size: clamp(1.55rem, 7.4vw, 2.75rem);
-    line-height: 1.18;
-  }
-
-  .quoteStage {
-    min-height: 640px;
-    padding: 92px 20px;
-  }
-
-  .quoteImage {
-    opacity: 0.4;
-  }
-
-  .quoteVignette {
-    background: radial-gradient(
-      ellipse at center,
-      rgba(0, 0, 0, 0.16) 0%,
-      rgba(0, 0, 0, 0.34) 42%,
-      rgba(0, 0, 0, 0.72) 76%,
-      rgba(0, 0, 0, 0.9) 100%
-    );
-  }
-
-  .quoteReference {
-    max-width: 300px;
-    font-size: 0.56rem;
-    letter-spacing: 0.12em;
   }
 
   .gallerySlide {
