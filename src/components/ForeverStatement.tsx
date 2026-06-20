@@ -142,7 +142,7 @@ export default function ForeverStatement({
                 className={styles.quoteImageMobile}
                 fill
                 sizes="(max-width: 700px) 92vw"
-                src="/us/7.png"
+                src="/us/6.png"
               />
             </div>
 
