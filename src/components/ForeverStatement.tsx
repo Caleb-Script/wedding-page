@@ -45,13 +45,13 @@ export default function ForeverStatement({
         <div className={styles.quoteDesktop}>
           <div className={styles.quoteFrame}>
             <div aria-hidden="true" className={styles.quoteImageWrapper}>
-              <Image
+              {/* <Image
                 alt=""
                 className={styles.quoteImage}
                 fill
                 sizes="(max-width: 900px) 88vw, 1280px"
                 src="/us/6.png"
-              />
+              /> */}
               <span className={styles.quoteOverlay} />
             </div>
 

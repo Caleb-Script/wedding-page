@@ -136,7 +136,7 @@ export default function JourneyScene() {
                   : { scale: secondaryMediaScale, y: secondaryMediaY }
               }
             >
-              <Image
+              {/* <Image
                 alt="Couple smiling together in a warm editorial portrait"
                 fill
                 sizes="(max-width: 560px) 76vw, (max-width: 900px) 54vw, 27vw"
@@ -145,7 +145,7 @@ export default function JourneyScene() {
                   objectFit: "cover",
                   objectPosition: "center center",
                 }}
-              />
+              /> */}
             </motion.div>
           </Box>
         </motion.div>
