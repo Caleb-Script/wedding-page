@@ -50,7 +50,7 @@ export default function ForeverStatement({
                 className={styles.quoteImage}
                 fill
                 sizes="(max-width: 900px) 88vw, 1280px"
-                src="/us/7.png"
+                src="/us/6.png"
               />
               <span className={styles.quoteOverlay} />
             </div>
