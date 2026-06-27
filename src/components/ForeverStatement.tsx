@@ -137,13 +137,13 @@ export default function ForeverStatement({
 
           <blockquote className={styles.quoteFrameMobile}>
             <div aria-hidden="true" className={styles.quoteMobileImageLayer}>
-              <Image
+              {/* <Image
                 alt=""
                 className={styles.quoteImageMobile}
                 fill
                 sizes="(max-width: 700px) 92vw"
                 src="/us/6.png"
-              />
+              /> */}
             </div>
 
             <div className={styles.quoteTextScrim}>
