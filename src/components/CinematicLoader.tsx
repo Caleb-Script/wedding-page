@@ -175,7 +175,7 @@ export default function CinematicLoader({ onComplete }: CinematicLoaderProps) {
                   ml: 2.5,
                 }}
               >
-                #CALEBGETSRICH #HAPPELYEVERGYAMFI
+                #CALEBGETSRICH #HAPPILYEVERGYAMFI
               </Typography>
             </motion.div>
           </Box>
