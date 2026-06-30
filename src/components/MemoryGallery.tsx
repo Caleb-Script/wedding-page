@@ -15,10 +15,10 @@ type GalleryImage = {
 };
 
 const fallbackImages: GalleryImage[] = [
-  { id: "1", url: "/gallery-1.jpg" },
-  { id: "2", url: "/gallery-2.jpg" },
-  { id: "3", url: "/gallery-3.jpg" },
-  { id: "4", url: "/gallery-4.jpg" },
+  { id: "1", url: "/us/pic_01.webp" },
+  { id: "2", url: "/us/pic_02.webp" },
+  { id: "3", url: "/us/pic_03.webp" },
+  { id: "4", url: "/us/pic_chess.webp" },
 ];
 
 type MemoryGalleryProps = {
