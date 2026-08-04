@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { env } from "@/config/env.server";
 
 import { minioClient } from "@/lib/minio";
 
@@ -63,7 +64,7 @@ export async function GET() {
     const randomImage = images[Math.floor(Math.random() * images.length)];
 
     const response: HeroImage = {
-      url: `${process.env.MINIO_PUBLIC_URL}` + `/${bucketName}/${randomImage}`,
+      url: `${env.MINIO_PUBLIC_URL}/${bucketName}/${randomImage}`,
     };
 
     return NextResponse.json(response);

@@ -1,6 +1,7 @@
 import type { ConsentState } from "@omnixys/analytics-sdk/browser";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
+import { env } from "@/config/env.server";
 import {
   ANALYTICS_CONSENT_COOKIE,
   ANALYTICS_CONSENT_MAX_AGE_SECONDS,
@@ -30,7 +31,7 @@ export async function POST(request: Request): Promise<NextResponse> {
         maxAge: ANALYTICS_CONSENT_MAX_AGE_SECONDS,
         path: "/",
         sameSite: "lax",
-        secure: process.env.NODE_ENV === "production",
+        secure: env.IS_PRODUCTION,
       },
     );
   }
@@ -43,7 +44,7 @@ function isSameOrigin(request: Request): boolean {
     request.headers.get("x-forwarded-host") ?? request.headers.get("host");
   const protocol =
     request.headers.get("x-forwarded-proto") ??
-    (process.env.NODE_ENV === "production" ? "https" : "http");
+    (env.IS_PRODUCTION ? "https" : "http");
   if (!origin || !host) return false;
   try {
     return new URL(origin).origin === `${protocol}://${host}`;

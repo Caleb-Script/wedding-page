@@ -18,8 +18,8 @@ importers:
         specifier: ^9.1.1
         version: 9.1.1(@emotion/react@11.14.0(@types/react@19.2.15)(react@19.2.3))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.15)(react@19.2.3))(@types/react@19.2.15)(react@19.2.3))(@types/react@19.2.15)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@omnixys/analytics-sdk':
-        specifier: file:../../packages/ts/analytics-sdk
-        version: file:../../packages/ts/analytics-sdk(react@19.2.3)
+        specifier: 1.0.0
+        version: 1.0.0(react@19.2.3)
       '@react-hook/window-size':
         specifier: ^3.1.1
         version: 3.1.1(react@19.2.3)
@@ -68,6 +68,9 @@ importers:
       react-leaflet:
         specifier: ^5.0.0
         version: 5.0.0(leaflet@1.9.4)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      server-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@biomejs/biome':
         specifier: 2.2.0
@@ -587,8 +590,8 @@ packages:
   '@nodable/entities@2.1.0':
     resolution: {integrity: sha512-nyT7T3nbMyBI/lvr6L5TyWbFJAI9FTgVRakNoBqCD+PmID8DzFrrNdLLtHMwMszOtqZa8PAOV24ZqDnQrhQINA==}
 
-  '@omnixys/analytics-sdk@file:../../packages/ts/analytics-sdk':
-    resolution: {directory: ../../packages/ts/analytics-sdk, type: directory}
+  '@omnixys/analytics-sdk@1.0.0':
+    resolution: {integrity: sha512-RXxWry2tZMAv3bawzZepxtThtJEgVUhX51+kTbLJhPFGrGx2M9404/OZDZkD/5y2SwampFlSwqd9Pa1QYhV8/A==, tarball: https://npm.pkg.github.com/download/@omnixys/analytics-sdk/1.0.0/2c813a72b4be5c343eaf72ea6a8890fe122668c9}
     engines: {node: '>=22'}
     peerDependencies:
       react: '>=18 <20'
@@ -1509,6 +1512,9 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
+  server-only@0.0.1:
+    resolution: {integrity: sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==}
+
   sharp@0.34.5:
     resolution: {integrity: sha512-Ou9I5Ft9WNcCbXrU9cMgPBcCK8LiwLqcbywW3t4oDV37n1pzpuNLsYiAV8eODnjbtQlSDwZ2cUEeQz4E54Hltg==}
     engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
@@ -2149,7 +2155,7 @@ snapshots:
 
   '@nodable/entities@2.1.0': {}
 
-  '@omnixys/analytics-sdk@file:../../packages/ts/analytics-sdk(react@19.2.3)':
+  '@omnixys/analytics-sdk@1.0.0(react@19.2.3)':
     dependencies:
       react: 19.2.3
 
@@ -2912,6 +2918,8 @@ snapshots:
 
   semver@7.8.1:
     optional: true
+
+  server-only@0.0.1: {}
 
   sharp@0.34.5:
     dependencies:

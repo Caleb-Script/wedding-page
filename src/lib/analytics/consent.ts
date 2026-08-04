@@ -1,5 +1,6 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
 import type { ConsentState } from "@omnixys/analytics-sdk/browser";
+import { env } from "@/config/env.server";
 
 export const ANALYTICS_CONSENT_COOKIE = "omnixys.analytics.consent";
 export const ANALYTICS_CONSENT_MAX_AGE_SECONDS = 60 * 60 * 24 * 180;
@@ -42,14 +43,7 @@ export function createAnalyticsConsentCookie(
 }
 
 function sign(value: string): string {
-  const secret = process.env.ANALYTICS_CONSENT_SECRET;
-  if (!secret && process.env.NODE_ENV === "production") {
-    throw new Error("ANALYTICS_CONSENT_SECRET is required in production");
-  }
-  return createHmac(
-    "sha256",
-    secret ?? "wedding-development-analytics-consent-secret",
-  )
+  return createHmac("sha256", env.ANALYTICS_CONSENT_SECRET)
     .update(value)
     .digest("base64url");
 }

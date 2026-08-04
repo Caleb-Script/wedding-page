@@ -15,15 +15,14 @@ import {
   useEffect,
   useState,
 } from "react";
+import { env } from "@/config/env";
 import {
   persistAnonymousId,
   anonymousId as resolveAnonymousId,
 } from "@/lib/analytics/anonymous-id";
 
-const EVENT_ID =
-  process.env.NEXT_PUBLIC_EVENT_ID ?? "6d650ee6-8ed0-4694-afd4-71871c37683a";
-const ANALYTICS_ENDPOINT =
-  process.env.NEXT_PUBLIC_ANALYTICS_GATEWAY_URL ?? "http://localhost:8000";
+const EVENT_ID = env.EVENT_ID;
+const ANALYTICS_ENDPOINT = env.ANALYTICS_GATEWAY_URL;
 
 type AnalyticsClient = ReturnType<typeof createAnalytics>;
 const AnalyticsContext = createContext<AnalyticsClient | null>(null);

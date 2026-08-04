@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { env } from "@/config/env.server";
 
 import { minioClient } from "@/lib/minio";
 
@@ -59,8 +60,7 @@ export async function GET() {
         images.push({
           id: String(index),
 
-          url:
-            `${process.env.MINIO_PUBLIC_URL}` + `/${bucketName}/${object.name}`,
+          url: `${env.MINIO_PUBLIC_URL}/${bucketName}/${object.name}`,
         });
       });
 

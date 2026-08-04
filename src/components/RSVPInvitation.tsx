@@ -8,12 +8,12 @@ import {
   EditorialReveal,
   WordReveal,
 } from "@/components/CinematicMotion";
+import { env } from "@/config/env";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 import { useAnalytics } from "@/providers/AnalyticsProvider";
 import styles from "./CinematicScenes.module.css";
 
-const EVENT_ID =
-  process.env.NEXT_PUBLIC_EVENT_ID || "6d650ee6-8ed0-4694-afd4-71871c37683a";
+const EVENT_ID = env.EVENT_ID;
 
 type RSVPInvitationProps = {
   embedded?: boolean;

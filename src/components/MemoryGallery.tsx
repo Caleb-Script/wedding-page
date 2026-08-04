@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
+import { env } from "@/config/env";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 import styles from "./CinematicScenes.module.css";
 import SceneHeader from "./SceneHeader";
@@ -40,8 +41,7 @@ export default function MemoryGallery({
   useEffect(() => {
     const loadImages = async () => {
       try {
-        const baseUrl = process.env.NEXT_PUBLIC_API_URL ?? "";
-        const response = await fetch(`${baseUrl}/api/gallery`, {
+        const response = await fetch(`${env.API_URL}/api/gallery`, {
           cache: "no-store",
         });
 

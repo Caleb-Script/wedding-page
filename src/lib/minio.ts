@@ -1,20 +1,10 @@
 import { Client } from "minio";
-
-function requiredEnv(name: string) {
-  const value = process.env[name];
-
-  if (!value) {
-    throw new Error(`Missing required environment variable: ${name}`);
-  }
-
-  return value;
-}
+import { env } from "@/config/env.server";
 
 export const minioClient = new Client({
-  endPoint: requiredEnv("MINIO_ENDPOINT"),
-  port: Number(requiredEnv("MINIO_PORT")),
-  useSSL: process.env.MINIO_USE_SSL === "true",
-
-  accessKey: requiredEnv("MINIO_ACCESS_KEY"),
-  secretKey: requiredEnv("MINIO_SECRET_KEY"),
+  endPoint: env.MINIO_ENDPOINT,
+  port: env.MINIO_PORT,
+  useSSL: env.MINIO_USE_SSL,
+  accessKey: env.MINIO_ACCESS_KEY,
+  secretKey: env.MINIO_SECRET_KEY,
 });
