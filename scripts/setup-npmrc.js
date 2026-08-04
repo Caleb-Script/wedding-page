@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require("node:fs");
 
 const args = process.argv.slice(2);
 const shouldRemove = args.includes("--remove");
@@ -27,7 +27,7 @@ try {
       `Export the token before installing, e.g.:\n\n` +
       `  export OMNIXYS_TOKEN=<your-github-token-with-read:packages>\n` +
       `  pnpm registry:setup\n\n` +
-      `Then run pnpm install. The .npmrc is generated locally and is git-ignored.\n`
+      `Then run pnpm install. The .npmrc is generated locally and is git-ignored.\n`,
   );
   process.exit(1);
 }
@@ -37,7 +37,7 @@ fs.writeFileSync(
   `@omnixys:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=${bootstrapEnv.OMNIXYS_TOKEN}
 always-auth=true
-`
+`,
 );
 
 console.log(`[setup-npmrc] Wrote ${NPMRC_PATH} (git-ignored, never committed)`);
