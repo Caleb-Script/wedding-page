@@ -10,7 +10,8 @@ import {
   useSpring,
 } from "framer-motion";
 import type { ReactNode } from "react";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useAnalytics } from "@/providers/AnalyticsProvider";
 import CinematicLoader from "./CinematicLoader";
 import { CINEMATIC_EASE } from "./CinematicMotion";
 import { HERO_MEDIA_READY_EVENT } from "./cinematicEvents";
@@ -38,6 +39,14 @@ export default function CinematicExperience({
   const [activeScene, setActiveScene] = useState(0);
   const [heroMediaReady, setHeroMediaReady] = useState(false);
   const [loaderComplete, setLoaderComplete] = useState(false);
+  const [mediaReadySource, setMediaReadySource] = useState<
+    "media" | "fallback"
+  >("media");
+  const analytics = useAnalytics();
+  const experienceStartedAt = useRef(0);
+  const readyTracked = useRef(false);
+  const completedTracked = useRef(false);
+  const viewedSections = useRef(new Set<string>());
   const reduceMotion = useReducedMotion();
   const ready = heroMediaReady && loaderComplete;
   const { scrollYProgress } = useScroll();
@@ -49,15 +58,38 @@ export default function CinematicExperience({
   const completeLoader = useCallback(() => setLoaderComplete(true), []);
 
   useEffect(() => {
-    const markReady = () => setHeroMediaReady(true);
+    experienceStartedAt.current ||= performance.now();
+    let fallback = 0;
+    const markReady = () => {
+      window.clearTimeout(fallback);
+      setMediaReadySource("media");
+      setHeroMediaReady(true);
+    };
     window.addEventListener(HERO_MEDIA_READY_EVENT, markReady);
-    const fallback = window.setTimeout(markReady, reduceMotion ? 1200 : 3000);
+    fallback = window.setTimeout(
+      () => {
+        setMediaReadySource("fallback");
+        setHeroMediaReady(true);
+      },
+      reduceMotion ? 1200 : 3000,
+    );
 
     return () => {
       window.removeEventListener(HERO_MEDIA_READY_EVENT, markReady);
       window.clearTimeout(fallback);
     };
   }, [reduceMotion]);
+
+  useEffect(() => {
+    if (!ready || readyTracked.current) return;
+    readyTracked.current = true;
+    analytics.track("WeddingExperienceReady", {
+      loadDurationMs: Math.round(
+        performance.now() - experienceStartedAt.current,
+      ),
+      readySource: mediaReadySource,
+    });
+  }, [analytics, mediaReadySource, ready]);
 
   useEffect(() => {
     document.body.classList.toggle("experience-loading", !ready);
@@ -98,6 +130,20 @@ export default function CinematicExperience({
       });
 
       setActiveScene(closestIndex);
+      const section = SCENE_IDS[closestIndex];
+      if (!viewedSections.current.has(section)) {
+        viewedSections.current.add(section);
+        analytics.track("WeddingSectionViewed", { section });
+      }
+      if (section === "forever" && !completedTracked.current) {
+        completedTracked.current = true;
+        analytics.track("WeddingExperienceCompleted", {
+          durationMs: Math.round(
+            performance.now() - experienceStartedAt.current,
+          ),
+          section,
+        });
+      }
     };
 
     const requestUpdate = () => {
@@ -114,7 +160,7 @@ export default function CinematicExperience({
       window.removeEventListener("resize", requestUpdate);
       window.removeEventListener("scroll", requestUpdate);
     };
-  }, [ready]);
+  }, [analytics, ready]);
 
   return (
     <MotionConfig reducedMotion="user">

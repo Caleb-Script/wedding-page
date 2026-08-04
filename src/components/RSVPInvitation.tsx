@@ -9,6 +9,7 @@ import {
   WordReveal,
 } from "@/components/CinematicMotion";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
+import { useAnalytics } from "@/providers/AnalyticsProvider";
 import styles from "./CinematicScenes.module.css";
 
 const EVENT_ID =
@@ -31,6 +32,7 @@ export default function RSVPInvitation({
   embedded = false,
 }: RSVPInvitationProps) {
   const t = useTypedTranslations("wedding");
+  const analytics = useAnalytics();
   const Root = embedded ? "div" : "section";
 
   return (
@@ -61,7 +63,13 @@ export default function RSVPInvitation({
             <Link
               className={styles.primaryAction}
               href={`https://checkpoint.omnixys.com/rsvp?eventId=${EVENT_ID}&theme=wedding`}
-              onClick={setWeddingThemePreference}
+              onClick={() => {
+                analytics.track("WeddingRsvpClicked", {
+                  eventId: EVENT_ID,
+                  placement: embedded ? "chapter" : "standalone",
+                });
+                setWeddingThemePreference();
+              }}
             >
               <span>{t("rsvp.button")}</span>
               <HiArrowUpRight />

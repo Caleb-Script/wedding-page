@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useLocale } from "next-intl";
 import React from "react";
 import type { Locale } from "@/i18n/request";
+import { useAnalytics } from "@/providers/AnalyticsProvider";
 
 const LOCALES: { code: Locale; label: string; flag: string }[] = [
   { code: "de-DE", label: "Deutsch", flag: "🇩🇪" },
@@ -16,6 +17,7 @@ const LOCALES: { code: Locale; label: string; flag: string }[] = [
 export default function LanguageSwitcher() {
   const router = useRouter();
   const locale = useLocale();
+  const analytics = useAnalytics();
   const activeLocale = LOCALES.find((item) => item.code.startsWith(locale));
 
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
@@ -29,6 +31,10 @@ export default function LanguageSwitcher() {
 
   const switchLocale = (nextLocale: Locale) => {
     if (nextLocale === activeLocale?.code) return;
+    analytics.track("WeddingLanguageChanged", {
+      fromLocale: activeLocale?.code ?? locale,
+      toLocale: nextLocale,
+    });
     // biome-ignore lint/suspicious/noDocumentCookie: egal
     document.cookie = `locale=${nextLocale}; path=/; max-age=31536000; SameSite=Lax`;
     handleClose();

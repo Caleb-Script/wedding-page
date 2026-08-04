@@ -48,6 +48,7 @@ import {
   type WeddingLocationCoordinates,
 } from "@/data/wedding-locations";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
+import { useAnalytics } from "@/providers/AnalyticsProvider";
 import styles from "./DestinationMap.module.css";
 
 type MarkerKind = "ceremony" | "hotel" | "reception";
@@ -117,6 +118,7 @@ function MapController() {
 
 export default function DestinationMapCanvas() {
   const t = useTypedTranslations("wedding");
+  const analytics = useAnalytics();
   const locale = resolveHotelContentLocale(useLocale());
   const mapShellRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -134,6 +136,7 @@ export default function DestinationMapCanvas() {
   }, []);
 
   const toggleFullscreen = async () => {
+    analytics.track("WeddingMapInteracted", { action: "fullscreen" });
     if (document.fullscreenElement) {
       await document.exitFullscreen();
       return;
@@ -171,6 +174,14 @@ export default function DestinationMapCanvas() {
           <Marker
             alt={t(`locations.${location.id}.title`)}
             icon={MARKER_ICONS[location.id]}
+            eventHandlers={{
+              click: () =>
+                analytics.track("WeddingMapInteracted", {
+                  action: "marker",
+                  entityId: location.id,
+                  entityType: "venue",
+                }),
+            }}
             key={location.id}
             keyboard
             position={[location.latitude, location.longitude]}
@@ -186,6 +197,14 @@ export default function DestinationMapCanvas() {
           <Marker
             alt={hotel.name}
             icon={MARKER_ICONS.hotel}
+            eventHandlers={{
+              click: () =>
+                analytics.track("WeddingMapInteracted", {
+                  action: "marker",
+                  entityId: hotel.id,
+                  entityType: "hotel",
+                }),
+            }}
             key={hotel.id}
             keyboard
             position={[hotel.latitude, hotel.longitude]}
@@ -229,7 +248,10 @@ export default function DestinationMapCanvas() {
         <Tooltip title={t("accommodation.mapView.showAll")}>
           <IconButton
             aria-label={t("accommodation.mapView.showAll")}
-            onClick={() => setRecenterVersion((version) => version + 1)}
+            onClick={() => {
+              analytics.track("WeddingMapInteracted", { action: "recenter" });
+              setRecenterVersion((version) => version + 1);
+            }}
           >
             <HiOutlineMapPin aria-hidden="true" />
           </IconButton>
@@ -267,6 +289,7 @@ function WeddingLocationPopup({
   location: WeddingLocationCoordinates;
 }) {
   const t = useTypedTranslations("wedding");
+  const analytics = useAnalytics();
 
   return (
     <Card className={styles.mapPopupCard} elevation={0}>
@@ -291,6 +314,11 @@ function WeddingLocationPopup({
             location: t(`locations.${location.id}.venue`),
           })}
           href={location.mapUrl}
+          onClick={() =>
+            analytics.track("WeddingVenueRouteClicked", {
+              venueId: location.id,
+            })
+          }
           rel="noreferrer"
           target="_blank"
         >
@@ -310,6 +338,13 @@ function HotelPopup({
   locale: ReturnType<typeof resolveHotelContentLocale>;
 }) {
   const t = useTypedTranslations("wedding");
+  const analytics = useAnalytics();
+  const trackLink = (action: "booking" | "map" | "website") =>
+    analytics.track("WeddingHotelLinkClicked", {
+      action,
+      hotelId: hotel.id,
+      placement: "map",
+    });
 
   return (
     <Card className={styles.mapPopupCard} elevation={0}>
@@ -365,6 +400,7 @@ function HotelPopup({
                 hotel: hotel.name,
               })}
               href={hotel.website}
+              onClick={() => trackLink("website")}
               rel="noreferrer"
               target="_blank"
             >
@@ -379,6 +415,7 @@ function HotelPopup({
                 hotel: hotel.name,
               })}
               href={hotel.bookingUrl}
+              onClick={() => trackLink("booking")}
               rel="noreferrer"
               target="_blank"
             >
@@ -392,6 +429,7 @@ function HotelPopup({
                 hotel: hotel.name,
               })}
               href={hotel.mapUrl}
+              onClick={() => trackLink("map")}
               rel="noreferrer"
               target="_blank"
             >

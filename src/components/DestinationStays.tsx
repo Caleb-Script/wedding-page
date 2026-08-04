@@ -38,6 +38,7 @@ import {
   resolveHotelContentLocale,
 } from "@/data/recommended-hotels";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
+import { useAnalytics } from "@/providers/AnalyticsProvider";
 import styles from "./CinematicScenes.module.css";
 import DestinationMap from "./DestinationMap";
 import hotelStyles from "./DestinationStays.module.css";
@@ -251,6 +252,13 @@ function HotelRecommendationCard({
   locale,
 }: HotelRecommendationCardProps) {
   const t = useTypedTranslations("wedding");
+  const analytics = useAnalytics();
+  const trackLink = (action: "booking" | "map" | "website") =>
+    analytics.track("WeddingHotelLinkClicked", {
+      action,
+      hotelId: hotel.id,
+      placement: "card",
+    });
 
   return (
     <Card
@@ -358,6 +366,7 @@ function HotelRecommendationCard({
                   hotel: hotel.name,
                 })}
                 href={hotel.bookingUrl}
+                onClick={() => trackLink("booking")}
                 rel="noreferrer"
                 target="_blank"
               >
@@ -373,6 +382,7 @@ function HotelRecommendationCard({
                   hotel: hotel.name,
                 })}
                 href={hotel.mapUrl}
+                onClick={() => trackLink("map")}
                 rel="noreferrer"
                 target="_blank"
               >
@@ -388,6 +398,7 @@ function HotelRecommendationCard({
                   hotel: hotel.name,
                 })}
                 href={hotel.website}
+                onClick={() => trackLink("website")}
                 rel="noreferrer"
                 target="_blank"
               >

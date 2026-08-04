@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
     "lint": "biome check",
+    "test": "vitest run",
     "format": "biome format --write",
     "check": "biome check --write"
   },
@@ -14,6 +15,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@mui/material": "^9.1.1",
+    "@omnixys/analytics-sdk": "file:../../packages/ts/analytics-sdk",
     "@react-hook/window-size": "^3.1.1",
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.6.0",
@@ -38,6 +40,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.1.10"
   }
 }

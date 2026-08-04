@@ -14,6 +14,7 @@ import { useState } from "react";
 import { HiMinus, HiPlus } from "react-icons/hi2";
 import { CINEMATIC_EASE } from "@/components/CinematicMotion";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
+import { useAnalytics } from "@/providers/AnalyticsProvider";
 import styles from "./CinematicScenes.module.css";
 import SceneHeader from "./SceneHeader";
 
@@ -55,6 +56,7 @@ type GuestGuideProps = {
 
 export default function GuestGuide({ embedded = false }: GuestGuideProps) {
   const t = useTypedTranslations("wedding");
+  const analytics = useAnalytics();
   const [category, setCategory] =
     useState<(typeof categories)[number]["id"]>("general");
   const [openItem, setOpenItem] = useState<string | null>("dressCode");
@@ -232,7 +234,14 @@ export default function GuestGuide({ embedded = false }: GuestGuideProps) {
                   elevation={0}
                   expanded={isOpen}
                   key={item}
-                  onChange={() => setOpenItem(isOpen ? null : item)}
+                  onChange={() => {
+                    if (!isOpen)
+                      analytics.track("WeddingGuideItemOpened", {
+                        category,
+                        itemId: item,
+                      });
+                    setOpenItem(isOpen ? null : item);
+                  }}
                   square
                   sx={{
                     background: "transparent",

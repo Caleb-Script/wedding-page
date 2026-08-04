@@ -12,11 +12,13 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { useRef } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 import { HiPlus, HiTrash } from "react-icons/hi2";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 import { type CountryCode, countries } from "@/lib/countries";
 import { validatePhone } from "@/lib/phone";
+import { useAnalytics } from "@/providers/AnalyticsProvider";
 
 type PhoneType = "WHATSAPP" | "SMS" | "CALL";
 
@@ -48,6 +50,8 @@ type PlusOne = {
 export default function RSVPPage() {
   const t = useTypedTranslations("wedding");
   const router = useRouter();
+  const analytics = useAnalytics();
+  const started = useRef(false);
   const {
     register,
     handleSubmit,
@@ -71,10 +75,15 @@ export default function RSVPPage() {
     name: "plusOnes",
   });
 
-  const onSubmit = (data: FormData) => {
-    console.log(data);
-
+  const onSubmit = (_data: FormData) => {
+    analytics.track("WeddingRsvpFormSubmitted");
     router.push("/rsvp/success");
+  };
+
+  const markStarted = () => {
+    if (started.current) return;
+    started.current = true;
+    analytics.track("WeddingRsvpFormStarted");
   };
 
   function getCountryLabel(code: CountryCode) {
@@ -118,7 +127,13 @@ export default function RSVPPage() {
         />
 
         <motion.form
-          onSubmit={handleSubmit(onSubmit)}
+          onFocusCapture={markStarted}
+          onSubmit={handleSubmit(onSubmit, (validationErrors) => {
+            analytics.track("WeddingRsvpFormValidationFailed", {
+              errorCode:
+                Object.keys(validationErrors).sort().join("_") || "unknown",
+            });
+          })}
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}

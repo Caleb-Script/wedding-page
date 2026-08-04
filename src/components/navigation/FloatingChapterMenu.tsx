@@ -4,6 +4,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import useActiveChapter from "@/hooks/useActiveChapter";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
+import { useAnalytics } from "@/providers/AnalyticsProvider";
 import FloatingChapterBackdrop from "./FloatingChapterBackdrop";
 import FloatingChapterButton from "./FloatingChapterButton";
 import styles from "./FloatingChapterMenu.module.css";
@@ -70,6 +71,7 @@ function useIsMobile() {
 
 export default function FloatingChapterMenu() {
   const t = useTypedTranslations("wedding");
+  const analytics = useAnalytics();
   const reduceMotion = Boolean(useReducedMotion());
   const isMobile = useIsMobile();
   const [isOpen, setIsOpen] = useState(false);
@@ -136,6 +138,7 @@ export default function FloatingChapterMenu() {
 
   const scrollToChapter = useCallback(
     (chapterId: ChapterId) => {
+      analytics.track("WeddingChapterSelected", { section: chapterId });
       const section = document.getElementById(chapterId);
 
       if (section) {
@@ -147,7 +150,7 @@ export default function FloatingChapterMenu() {
 
       setIsOpen(false);
     },
-    [reduceMotion],
+    [analytics, reduceMotion],
   );
 
   const getPosition = (chapter: Chapter, order: number): Position => {
