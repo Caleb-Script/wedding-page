@@ -1,4 +1,10 @@
 {
+  "analyticsConsent": {
+    "label": "Consenso analitico",
+    "question": "Possiamo utilizzare dati di utilizzo anonimi per migliorare questo sito web?",
+    "allow": "Consenti",
+    "decline": "Rifiuta"
+  },
   "loader": {
     "preparing": "Prepariamo l'esperienza"
   },

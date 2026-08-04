@@ -1,5 +1,11 @@
 {
   "wedding": {},
+  "analyticsConsent": {
+    "label": "Analytics consent",
+    "question": "May we use anonymous usage data to improve this website?",
+    "allow": "Allow",
+    "decline": "Decline"
+  },
   "loader": {
     "preparing": "Preparing the experience"
   },

@@ -1,12 +1,12 @@
 "use client";
 
+import { Box, Button, Paper, Typography } from "@mui/material";
 import {
   type ConsentState,
   createAnalytics,
 } from "@omnixys/analytics-sdk/browser";
 import { usePathname } from "next/navigation";
 import { useReportWebVitals } from "next/web-vitals";
-import { useLocale } from "next-intl";
 import type React from "react";
 import {
   createContext,
@@ -16,6 +16,7 @@ import {
   useState,
 } from "react";
 import { env } from "@/config/env";
+import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 import {
   persistAnonymousId,
   anonymousId as resolveAnonymousId,
@@ -139,42 +140,70 @@ function WeddingWebVitals() {
 
 function AnalyticsConsentBanner() {
   const { consent, updateConsent } = useAnalyticsConsent();
-  const locale = useLocale();
+  const t = useTypedTranslations("wedding");
   if (consent !== "unknown") return null;
-  const german = locale.startsWith("de");
+
   return (
-    <aside
-      aria-label="Analytics consent"
-      style={{
+    <Paper
+      component="aside"
+      aria-label={t("analyticsConsent.label")}
+      elevation={0}
+      sx={{
         alignItems: "center",
-        background: "#111",
-        border: "1px solid rgba(216,184,121,.45)",
-        borderRadius: 16,
+        background: "rgba(9,10,12,.9)",
+        backdropFilter: "blur(24px) saturate(140%)",
+        WebkitBackdropFilter: "blur(24px) saturate(140%)",
+        border: "1px solid rgba(255,255,255,.12)",
+        borderRadius: 2,
         bottom: 16,
-        color: "#f1ece2",
+        color: "rgba(255,255,255,.85)",
         display: "flex",
         flexWrap: "wrap",
-        gap: 12,
+        gap: 1.5,
         left: 16,
         maxWidth: 620,
-        padding: 16,
+        padding: 2.5,
         position: "fixed",
         right: 16,
         zIndex: 3000,
       }}
     >
-      <span style={{ flex: "1 1 300px" }}>
-        {german
-          ? "Dürfen wir anonyme Nutzungsdaten verwenden, um diese Hochzeitsseite zu verbessern?"
-          : "May we use anonymous usage data to improve this wedding website?"}
-      </span>
-      <button type="button" onClick={() => void updateConsent("denied")}>
-        {german ? "Ablehnen" : "Decline"}
-      </button>
-      <button type="button" onClick={() => void updateConsent("granted")}>
-        {german ? "Erlauben" : "Allow"}
-      </button>
-    </aside>
+      <Typography variant="body2" sx={{ flex: "1 1 300px", lineHeight: 1.6 }}>
+        {t("analyticsConsent.question")}
+      </Typography>
+      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+        <Button
+          variant="outlined"
+          onClick={() => void updateConsent("denied")}
+          sx={{
+            borderColor: "rgba(255,255,255,.18)",
+            color: "rgba(255,255,255,.75)",
+            textTransform: "none",
+            "&:hover": {
+              backgroundColor: "rgba(255,255,255,.05)",
+              borderColor: "rgba(255,255,255,.35)",
+            },
+          }}
+        >
+          {t("analyticsConsent.decline")}
+        </Button>
+        <Button
+          variant="contained"
+          onClick={() => void updateConsent("granted")}
+          sx={{
+            background: "linear-gradient(135deg,#c89b3c,#e5c275)",
+            color: "#2f2925",
+            fontWeight: 600,
+            textTransform: "none",
+            "&:hover": {
+              background: "linear-gradient(135deg,#b8892e,#d8b25f)",
+            },
+          }}
+        >
+          {t("analyticsConsent.allow")}
+        </Button>
+      </Box>
+    </Paper>
   );
 }
 
