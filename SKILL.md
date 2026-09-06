@@ -15,7 +15,7 @@
 - Database: n/a; Migrations: n/a
 - API: none (no GraphQL dependency detected)
 - Messaging: n/a
-- Tests: vitest (pnpm test = vitest run)
+- Tests: vitest (pnpm test = vitest run); Playwright e2e smoke (e2e/smoke.spec.ts; chromium/tablet/mobile, localhost:3001)
 
 
 ## Workflow
@@ -38,6 +38,8 @@
 ### 3. Write tests
 
   - Unit/component tests: `pnpm test (vitest run)`.
+  - UI smoke: `pnpm test:e2e` (Playwright). UI/design changes must keep the
+    smoke spec green and must not introduce console or page errors.
 
 
 ### 4. Validate
@@ -53,6 +55,7 @@ FAILURE`, or `NOT RUN` (with a reason). Never convert `NOT RUN` into `PASS`.
   - `pnpm exec tsc --noEmit`
   - `pnpm test (vitest run)`
   - `pnpm build (next build)`
+  - `pnpm test:e2e (Playwright e2e smoke)`
   - `pnpm lint && pnpm exec tsc --noEmit && pnpm build`
 
 ## Commit
