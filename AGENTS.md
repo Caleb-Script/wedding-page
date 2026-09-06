@@ -90,7 +90,8 @@ pnpm lint && pnpm exec tsc --noEmit && pnpm build
 
 ## Tests
 
-vitest (pnpm test = vitest run)
+vitest (pnpm test = vitest run) + Playwright e2e smoke (`e2e/smoke.spec.ts`;
+chromium/tablet/mobile, localhost:3001).
 
 ## Repository-Specific Rules
 
@@ -100,6 +101,51 @@ Keep the generated `<!-- BEGIN:nextjs-agent-rules -->` block in AGENTS.md intact
 
 This repository ships `SKILL.md` — the development workflow skill. Read and follow it
 before starting work; it captures the repository's step-by-step workflow.
+
+## UI Design Workflow
+
+This repository follows a mandatory UI design workflow for all UI work. The master
+source of truth for visual identity is `DESIGN.md` (Google Stitch / awesome-design-md
+format) in this repository.
+
+### Before UI Work
+
+- Read `DESIGN.md` completely. Do not invent a new design system or copy an external
+  design system; follow the tokens and rules already defined for wedding.
+- Follow the `design-taste-frontend` skill (anti-slop guidance) and the
+  `web-design-guidelines` skill (UX/accessibility review) whenever UI is changed.
+- Confirm the MUI version in use (MUI 9) and code against its available component
+  and token surface.
+- Plan changes against DESIGN.md tokens: prefer theme tokens, never hardcoded
+  colors, spacing, or radii.
+
+### During UI Work
+
+- Use the MUI theme tokens (`theme.palette`, `theme.shape`, `theme.spacing`,
+  `theme.typography`).
+- The experience is dark-only, gold/cream editorial: primary `#d8b879`, cream
+  `#f1ece2`, near-black `#050506`/`#0d0c0c`, radii `2px`, no shadows/ripples,
+  custom easing curves (see DESIGN.md "Transitions & Motion").
+- Playfair Display only via `var(--font-serif)`, Lato only via `var(--font-sans)`
+  (next/font instances in `src/theme/fonts.ts`).
+- Do not introduce `@mui/icons-material`; use inline SVG / `react-icons`.
+- CSS Modules are the established pattern for motion/art-directional layouts.
+
+### After UI Work (Mandatory Browser Validation)
+
+Before UI work is considered complete, run actual browser validation:
+
+```bash
+npm run test:e2e          # or: npx playwright test
+npx playwright test --project=chromium   # quick single-viewport check
+```
+
+- Validate the DESIGN.md / config viewports: desktop (1440px), tablet (744px,
+  iPad Pro 11), mobile (iPhone 13) on localhost:3001.
+- The smoke spec checks the browser console and page errors on `/rsvp` and the
+  404 boundary; UI changes must not introduce new console/page errors.
+- Review a screenshot of the changed UI in the Playwright report
+  (`playwright-report/index.html`): readability, spacing, no overflow.
 
 ## Tests Are Part of the Implementation
 
