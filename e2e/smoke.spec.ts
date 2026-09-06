@@ -1,6 +1,6 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 
-function collectRuntimeErrors(page: Parameters<typeof test>[0]) {
+function collectRuntimeErrors(page: Page) {
   const consoleErrors: string[] = [];
   const pageErrors: Error[] = [];
 
@@ -30,7 +30,9 @@ test("unknown route renders the 404 boundary", async ({ page }) => {
   const { consoleErrors, pageErrors } = collectRuntimeErrors(page);
 
   await page.goto("/definitely-not-a-route");
-  await expect(page.locator("body")).toContainText(/not be found|not found|404/i);
+  await expect(page.locator("body")).toContainText(
+    /not be found|not found|404/i,
+  );
 
   expect(consoleErrors, "console errors").toEqual([]);
   expect(pageErrors, "page errors").toEqual([]);

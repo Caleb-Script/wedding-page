@@ -18,8 +18,14 @@ export default defineConfig({
   },
   projects: [
     { name: "chromium", use: { ...devices["Desktop Chrome"] } },
-    { name: "tablet", use: { ...devices["iPad Pro 11"], defaultBrowserType: "chromium" } },
-    { name: "mobile", use: { ...devices["iPhone 13"], defaultBrowserType: "chromium" } },
+    {
+      name: "tablet",
+      use: { ...devices["iPad Pro 11"], defaultBrowserType: "chromium" },
+    },
+    {
+      name: "mobile",
+      use: { ...devices["iPhone 13"], defaultBrowserType: "chromium" },
+    },
   ],
   webServer: {
     command: "node_modules/.bin/next dev -p 3001",
