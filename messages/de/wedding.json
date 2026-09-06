@@ -3,7 +3,47 @@
     "label": "Analytics-Zustimmung",
     "question": "Dürfen wir anonyme Nutzungsdaten verwenden, um diese Website zu verbessern?",
     "allow": "Erlauben",
-    "decline": "Ablehnen"
+    "decline": "Ablehnen",
+    "privacyLink": "Datenschutzerklärung"
+  },
+  "privacy": {
+    "title": "Datenschutzerklärung",
+    "intro": "Diese Datenschutzerklärung erläutert, wie diese Website personenbezogene Daten bei der Nutzung verarbeitet.",
+    "lastUpdated": "Stand: [Datum]",
+    "sections": {
+      "controller": {
+        "title": "1. Verantwortlicher",
+        "text": "Verantwortlicher für die Datenverarbeitung ist [Verantwortlicher], [Adresse], [E-Mail]. Bei Fragen zum Datenschutz können Sie uns jederzeit über diese Kontaktdaten erreichen."
+      },
+      "collected": {
+        "title": "2. Von Ihnen bereitgestellte Daten",
+        "text": "Bei der Nutzung des RSVP-Formulars verarbeiten wir die von Ihnen eingegebenen personenbezogenen Daten, wie Vor- und Nachname, E-Mail-Adresse, Telefonnummer, Ihre gewählten Teilnahmeoptionen sowie ggf. die Namen Ihrer Begleitpersonen. Diese Daten dienen ausschließlich der Planung und Durchführung der Hochzeitsfeier."
+      },
+      "analytics": {
+        "title": "3. Analyse",
+        "text": "Mit Ihrer Einwilligung verwenden wir einen Analysedienst, um zu messen, wie die Website genutzt wird, und sie zu verbessern. Dabei werden ausschließlich anonyme Nutzungsdaten verarbeitet, wie aufgerufene Seiten und technische Gerätemerkmale. Diese Daten dienen nicht der Identifizierung einzelner Besucher."
+      },
+      "cookies": {
+        "title": "4. Cookies und lokale Speicherung",
+        "text": "Ein Sprach-Cookie (locale) merkt sich Ihre gewählte Sprache und ein Einwilligungs-Cookie protokolliert Ihre Analyse-Entscheidung. Wenn Sie Analysen erlauben, wird eine anonyme Kennung in Ihrem Browser gespeichert. Es handelt sich um technische Cookies, die nicht für Werbung verwendet werden."
+      },
+      "storage": {
+        "title": "5. Technische Daten",
+        "text": "Zur technischen Bereitstellung der Website und zu ihrer Sicherheit können technische Daten wie Ihre IP-Adresse verarbeitet werden. Dies erfolgt auf Grundlage unseres berechtigten Interesses am sicheren Betrieb der Website (Art. 6 Abs. 1 lit. f DSGVO)."
+      },
+      "legalBasis": {
+        "title": "6. Rechtsgrundlagen",
+        "text": "Wir verarbeiten personenbezogene Daten auf folgenden Rechtsgrundlagen: auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), zur Erfüllung eines Vertrags oder eines gewünschten Dienstes (Art. 6 Abs. 1 lit. b DSGVO) sowie auf Grundlage unseres berechtigten Interesses am Betrieb und an der Absicherung der Website (Art. 6 Abs. 1 lit. f DSGVO)."
+      },
+      "rights": {
+        "title": "7. Ihre Rechte",
+        "text": "Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Datenübertragbarkeit Ihrer personenbezogenen Daten. Sie können der Verarbeitung widersprechen und Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Zudem steht Ihnen das Recht auf Beschwerde bei einer Aufsichtsbehörde zu."
+      },
+      "contact": {
+        "title": "8. Kontakt",
+        "text": "Zur Ausübung Ihrer Rechte oder bei Fragen zu dieser Datenschutzerklärung kontaktieren Sie uns bitte unter [E-Mail]."
+      }
+    }
   },
   "loader": {
     "preparing": "Das Erlebnis wird vorbereitet"
@@ -315,7 +355,8 @@
     "verseLine2": "wo du bleibst, da bleibe auch ich.“",
     "verseReference": "— Ruth 1,16",
     "hashtag": "#CALEBGETSRICH",
-    "imageAlt": "Caleb und Rachel lächeln gemeinsam in einem warmen Hochzeitsporträt"
+    "imageAlt": "Caleb und Rachel lächeln gemeinsam in einem warmen Hochzeitsporträt",
+    "privacy": "Datenschutzerklärung"
   },
   "weddingInfo": {
     "subtitle": "Details",

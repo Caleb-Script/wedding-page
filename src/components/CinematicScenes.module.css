@@ -1808,6 +1808,20 @@
   text-transform: uppercase;
 }
 
+.footerPrivacy {
+  margin-top: 22px;
+  color: var(--scene-accent);
+  font: 600 clamp(0.66rem, 0.8vw, 0.76rem) / 1.4 var(--font-sans);
+  letter-spacing: 0.22em;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-transform: uppercase;
+}
+
+.footerPrivacy:hover {
+  opacity: 0.8;
+}
+
 @keyframes rotate {
   to {
     transform: rotate(360deg);

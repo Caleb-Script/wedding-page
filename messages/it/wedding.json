@@ -3,7 +3,47 @@
     "label": "Consenso analitico",
     "question": "Possiamo utilizzare dati di utilizzo anonimi per migliorare questo sito web?",
     "allow": "Consenti",
-    "decline": "Rifiuta"
+    "decline": "Rifiuta",
+    "privacyLink": "Informativa sulla privacy"
+  },
+  "privacy": {
+    "title": "Informativa sulla privacy",
+    "intro": "Questa informativa sulla privacy spiega come questo sito web tratta i dati personali quando lo utilizzi.",
+    "lastUpdated": "Ultimo aggiornamento: [Datum]",
+    "sections": {
+      "controller": {
+        "title": "1. Titolare del trattamento",
+        "text": "Titolare del trattamento dei dati è [Verantwortlicher], [Adresse], [E-Mail]. Per qualsiasi domanda sulla protezione dei dati puoi contattarci in qualsiasi momento utilizzando questi recapiti."
+      },
+      "collected": {
+        "title": "2. Dati da te forniti",
+        "text": "Quando utilizzi il modulo RSVP trattiamo i dati personali che inserisci, come nome e cognome, indirizzo e-mail, numero di telefono, le opzioni di partecipazione scelte e, se del caso, i nomi dei tuoi accompagnatori. Questi dati vengono utilizzati esclusivamente per pianificare e organizzare la festa di matrimonio."
+      },
+      "analytics": {
+        "title": "3. Analisi",
+        "text": "Con il tuo consenso utilizziamo un servizio di analisi per misurare come viene utilizzato il sito web e per migliorarlo. Vengono trattati esclusivamente dati di utilizzo anonimi, come le pagine visitate e le caratteristiche tecniche del dispositivo. Questi dati non servono a identificare i singoli visitatori."
+      },
+      "cookies": {
+        "title": "4. Cookie e archiviazione locale",
+        "text": "Un cookie di lingua (locale) ricorda la lingua scelta e un cookie di consenso registra la tua decisione sull'analisi. Se consenti l'analisi, nel tuo browser viene memorizzato un identificatore anonimo. Si tratta di cookie tecnici che non vengono utilizzati per la pubblicità."
+      },
+      "storage": {
+        "title": "5. Dati tecnici",
+        "text": "Per la fornitura tecnica del sito web e la sua sicurezza possono essere trattati dati tecnici come il tuo indirizzo IP. Ciò avviene sulla base del nostro legittimo interesse alla gestione sicura del sito web (art. 6 par. 1 lett. f GDPR)."
+      },
+      "legalBasis": {
+        "title": "6. Base giuridica",
+        "text": "Trattiamo i dati personali sulla base delle seguenti basi giuridiche: sulla base del tuo consenso (art. 6 par. 1 lett. a GDPR), per l'esecuzione di un contratto o di un servizio richiesto (art. 6 par. 1 lett. b GDPR) e sulla base del nostro legittimo interesse alla gestione e alla sicurezza del sito web (art. 6 par. 1 lett. f GDPR)."
+      },
+      "rights": {
+        "title": "7. I tuoi diritti",
+        "text": "Hai il diritto di richiedere l'accesso, la rettifica, la cancellazione, la limitazione del trattamento e la portabilità dei tuoi dati personali. Puoi anche opporti al trattamento e revocare il tuo consenso in qualsiasi momento con efficacia per il futuro. Hai inoltre il diritto di presentare un reclamo a un'autorità di controllo."
+      },
+      "contact": {
+        "title": "8. Contatti",
+        "text": "Per esercitare i tuoi diritti o per qualsiasi domanda su questa informativa sulla privacy, contattaci a [E-Mail]."
+      }
+    }
   },
   "loader": {
     "preparing": "Prepariamo l'esperienza"
@@ -315,7 +355,8 @@
     "verseLine2": "dove resterai tu, resterò anch'io.\"",
     "verseReference": "— Rut 1,16",
     "hashtag": "#CALEBGETSRICH",
-    "imageAlt": "Caleb e Rachel sorridono insieme in un caldo ritratto di matrimonio"
+    "imageAlt": "Caleb e Rachel sorridono insieme in un caldo ritratto di matrimonio",
+    "privacy": "Informativa sulla privacy"
   },
   "weddingInfo": {
     "subtitle": "I Dettagli",

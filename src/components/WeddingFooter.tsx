@@ -4,6 +4,7 @@ import { format } from "date-fns";
 import { de, enUS, it } from "date-fns/locale";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useLocale } from "next-intl";
 import {
   CINEMATIC_EASE,
@@ -133,6 +134,9 @@ export default function WeddingFooter() {
             {format(weddingDate, "d MMMM yyyy", { locale: dateLocale })}
           </p>
           <p className={styles.footerHashtag}>{t("footer.hashtag")}</p>
+          <Link className={styles.footerPrivacy} href="/privacy">
+            {t("footer.privacy")}
+          </Link>
         </div>
       </motion.div>
     </footer>

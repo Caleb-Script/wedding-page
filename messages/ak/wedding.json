@@ -3,7 +3,47 @@
     "label": "Analytics consent",
     "question": "May we use anonymous usage data to improve this website?",
     "allow": "Allow",
-    "decline": "Decline"
+    "decline": "Decline",
+    "privacyLink": "Privacy Policy"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "intro": "This Privacy Policy explains how this website handles personal data when you use it.",
+    "lastUpdated": "Last updated: [Datum]",
+    "sections": {
+      "controller": {
+        "title": "1. Controller",
+        "text": "The controller responsible for data processing is [Verantwortlicher], [Adresse], [E-Mail]. For any questions regarding data protection you may contact us at any time using these contact details."
+      },
+      "collected": {
+        "title": "2. Data You Provide",
+        "text": "When you use the RSVP form we process the personal data you enter, such as your first and last name, your email address, your telephone number, your chosen attendance options and, where applicable, the names of your guests. This data is used solely for planning and organising the wedding celebration."
+      },
+      "analytics": {
+        "title": "3. Analytics",
+        "text": "With your consent we use an analytics service to measure how the website is used, so that we can improve it. Only anonymous usage data is processed, such as the pages opened and technical device characteristics. This data is not used to identify individual visitors."
+      },
+      "cookies": {
+        "title": "4. Cookies and Local Storage",
+        "text": "A language cookie (locale) remembers your selected language, and a consent cookie records your analytics decision. If you allow analytics, an anonymous identifier is stored in your browser. These are technical cookies that are not used for advertising."
+      },
+      "storage": {
+        "title": "5. Technical Data",
+        "text": "For the technical delivery of the website and its security, technical data such as your IP address may be processed. This is based on our legitimate interest in operating the website securely (Art. 6 para. 1 lit. f GDPR)."
+      },
+      "legalBasis": {
+        "title": "6. Legal Basis",
+        "text": "We process personal data on the following legal bases: based on your consent (Art. 6 para. 1 lit. a GDPR), for the performance of a contract or requested service (Art. 6 para. 1 lit. b GDPR) and based on our legitimate interest in operating and securing the website (Art. 6 para. 1 lit. f GDPR)."
+      },
+      "rights": {
+        "title": "7. Your Rights",
+        "text": "You have the right to request access to, rectification of, erasure of, restriction of processing of, and portability of your personal data. You may also object to processing and withdraw your consent at any time with effect for the future. You may lodge a complaint with a supervisory authority."
+      },
+      "contact": {
+        "title": "8. Contact",
+        "text": "To exercise your rights or for any questions about this Privacy Policy, please contact us at [E-Mail]."
+      }
+    }
   },
   "loader": {
     "preparing": "Yɛresiesie osuahu no"
@@ -315,7 +355,8 @@
     "verseLine2": "baabi a wobɛtena no, ɛhɔ na me nso mɛtena.\"",
     "verseReference": "— Ruth 1:16",
     "hashtag": "#CALEBGETSRICH",
-    "imageAlt": "Caleb ne Rachel reyɛ anigye wɔ aware mfonini a ɛyɛ hyew mu"
+    "imageAlt": "Caleb ne Rachel reyɛ anigye wɔ aware mfonini a ɛyɛ hyew mu",
+    "privacy": "Privacy Policy"
   },
   "weddingInfo": {
     "subtitle": "Nsɛm a ɛfa Aware Ho",

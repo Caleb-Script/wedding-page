@@ -5,6 +5,7 @@ import {
   type ConsentState,
   createAnalytics,
 } from "@omnixys/analytics-sdk/browser";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useReportWebVitals } from "next/web-vitals";
 import type React from "react";
@@ -203,6 +204,19 @@ function AnalyticsConsentBanner() {
           {t("analyticsConsent.allow")}
         </Button>
       </Box>
+      <Typography
+        variant="caption"
+        component={Link}
+        href="/privacy"
+        color="rgba(255,255,255,.6)"
+        sx={{
+          textDecoration: "underline",
+          textUnderlineOffset: 2,
+          "&:hover": { color: "rgba(255,255,255,.9)" },
+        }}
+      >
+        {t("analyticsConsent.privacyLink")}
+      </Typography>
     </Paper>
   );
 }
