@@ -49,17 +49,6 @@ export function toOptionalHttpUrl(value: string): string {
   return value ? toHttpUrl(value) : "";
 }
 
-export function toUuid(value: string): string {
-  if (
-    !/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
-      value,
-    )
-  ) {
-    throw new Error("expected a UUID");
-  }
-  return value;
-}
-
 export function toPort(value: string): number {
   const port = Number(value);
   if (!Number.isInteger(port) || port < 1 || port > 65_535) {
