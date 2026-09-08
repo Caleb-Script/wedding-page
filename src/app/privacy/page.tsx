@@ -26,20 +26,24 @@ export default function PrivacyPage() {
         width: "100%",
         minHeight: "100vh",
         m: 0,
-        py: { xs: 14, md: 20 },
-        px: 3,
-        background: "linear-gradient(180deg,#faf7f2 0%,#f3efe8 100%)",
-        color: "#6d531f",
+        py: { xs: 12, md: 20 },
+        px: 0,
+        background:
+          "radial-gradient(circle at 78% 24%, rgba(216,184,121,0.07), transparent 30%), #050506",
+        color: "text.primary",
       }}
     >
-      <Container maxWidth="md">
-        <Box sx={{ maxWidth: 720, mx: "auto" }}>
+      <Container maxWidth="md" disableGutters>
+        <Box sx={{ maxWidth: 720, mx: "auto", px: { xs: 2.5, md: 0 } }}>
           <Typography
             sx={{
               textAlign: "center",
               fontFamily: "var(--font-serif)",
-              fontSize: { xs: "2.5rem", md: "3.5rem" },
+              fontSize: "clamp(2.6rem, 8vw, 4rem)",
+              lineHeight: 0.96,
+              letterSpacing: "-0.045em",
               mb: 2,
+              color: "text.primary",
             }}
           >
             {t("privacy.title")}
@@ -51,7 +55,7 @@ export default function PrivacyPage() {
               height: 2,
               mx: "auto",
               mb: 6,
-              background: "linear-gradient(135deg,#c89b3c,#e5c275)",
+              background: "rgba(216,184,121,0.6)",
             }}
           />
 
@@ -59,7 +63,7 @@ export default function PrivacyPage() {
             variant="body1"
             sx={{
               textAlign: "center",
-              color: "#af8126",
+              color: "text.secondary",
               mb: 2,
             }}
           >
@@ -71,7 +75,7 @@ export default function PrivacyPage() {
             sx={{
               display: "block",
               textAlign: "center",
-              color: "#af8126",
+              color: "text.secondary",
               mb: 8,
             }}
           >
@@ -80,13 +84,11 @@ export default function PrivacyPage() {
 
           <Box
             sx={{
-              px: { xs: 3, md: 6 },
-              py: 6,
-              borderRadius: "16px",
-              background: "rgba(255,255,255,0.8)",
-              backdropFilter: "blur(12px)",
-              border: "1px solid rgba(0,0,0,0.05)",
-              boxShadow: "0 15px 40px rgba(0,0,0,0.08)",
+              px: { xs: 2.5, md: 6 },
+              py: { xs: 4, md: 6 },
+              borderRadius: 2,
+              background: "background.paper",
+              border: "1px solid rgba(216,184,121,0.12)",
             }}
           >
             {/* Controller */}
@@ -96,7 +98,7 @@ export default function PrivacyPage() {
                   fontFamily: "var(--font-serif)",
                   fontSize: "1.2rem",
                   mb: 1.5,
-                  color: "#af8126",
+                  color: "primary.main",
                 }}
               >
                 {t("privacy.sections.controller.title")}
@@ -104,8 +106,8 @@ export default function PrivacyPage() {
 
               <Typography
                 variant="body2"
-                color="#af8126"
-                sx={{ lineHeight: 1.7, mb: 2 }}
+                color="text.secondary"
+                sx={{ lineHeight: 1.85, mb: 2 }}
               >
                 {t("privacy.sections.controller.intro")}
               </Typography>
@@ -116,34 +118,34 @@ export default function PrivacyPage() {
                   m: 0,
                   mb: 2,
                   fontStyle: "normal",
-                  color: "#af8126",
+                  color: "text.secondary",
                 }}
               >
                 <Typography
                   variant="body2"
                   sx={{
-                    lineHeight: 1.7,
+                    lineHeight: 1.85,
                     fontWeight: 600,
-                    color: "#6d531f",
+                    color: "text.primary",
                   }}
                 >
                   {t("privacy.sections.controller.company")}
                 </Typography>
 
-                <Typography variant="body2" sx={{ lineHeight: 1.7 }}>
+                <Typography variant="body2" sx={{ lineHeight: 1.85 }}>
                   {t("privacy.sections.controller.address.street")}
                 </Typography>
 
-                <Typography variant="body2" sx={{ lineHeight: 1.7 }}>
+                <Typography variant="body2" sx={{ lineHeight: 1.85 }}>
                   {t("privacy.sections.controller.address.postalCode")}{" "}
                   {t("privacy.sections.controller.address.city")}
                 </Typography>
 
-                <Typography variant="body2" sx={{ lineHeight: 1.7 }}>
+                <Typography variant="body2" sx={{ lineHeight: 1.85 }}>
                   {t("privacy.sections.controller.address.state")}
                 </Typography>
 
-                <Typography variant="body2" sx={{ lineHeight: 1.7 }}>
+                <Typography variant="body2" sx={{ lineHeight: 1.85 }}>
                   {t("privacy.sections.controller.address.country")}
                 </Typography>
 
@@ -154,7 +156,7 @@ export default function PrivacyPage() {
                     display: "inline-block",
                     mt: 1,
                     fontSize: "0.875rem",
-                    color: "#af8126",
+                    color: "primary.main",
                   }}
                 >
                   {t("privacy.sections.controller.email")}
@@ -164,7 +166,7 @@ export default function PrivacyPage() {
               <Typography
                 variant="body2"
                 color="text.secondary"
-                sx={{ lineHeight: 1.7 }}
+                sx={{ lineHeight: 1.85 }}
               >
                 {t("privacy.sections.controller.text")}
               </Typography>
@@ -187,7 +189,7 @@ export default function PrivacyPage() {
                     fontFamily: "var(--font-serif)",
                     fontSize: "1.2rem",
                     mb: 1,
-                    color: "#af8126",
+                    color: "primary.main",
                   }}
                 >
                   {t(`privacy.sections.${section}.title`)}
@@ -196,7 +198,7 @@ export default function PrivacyPage() {
                 <Typography
                   variant="body2"
                   color="text.secondary"
-                  sx={{ lineHeight: 1.7 }}
+                  sx={{ lineHeight: 1.85 }}
                 >
                   {t(`privacy.sections.${section}.text`)}
                 </Typography>

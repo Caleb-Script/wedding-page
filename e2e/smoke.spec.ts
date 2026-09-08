@@ -1,4 +1,4 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, type Page, test } from "@playwright/test";
 
 function collectRuntimeErrors(page: Page) {
   const consoleErrors: string[] = [];
@@ -21,6 +21,17 @@ test("RSVP form renders and is interactive", async ({ page }) => {
   await page.goto("/rsvp");
   await expect(page.getByText("RSVP").first()).toBeVisible();
   await expect(page.getByRole("textbox").first()).toBeVisible();
+
+  expect(consoleErrors, "console errors").toEqual([]);
+  expect(pageErrors, "page errors").toEqual([]);
+});
+
+test("privacy page renders on the dark design system", async ({ page }) => {
+  const { consoleErrors, pageErrors } = collectRuntimeErrors(page);
+
+  await page.goto("/privacy");
+  await expect(page.locator("main")).toBeVisible();
+  await expect(page.locator("main")).toContainText(/privacy|datenschutz/i);
 
   expect(consoleErrors, "console errors").toEqual([]);
   expect(pageErrors, "page errors").toEqual([]);
