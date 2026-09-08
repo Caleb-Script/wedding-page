@@ -9,11 +9,21 @@
   "privacy": {
     "title": "Datenschutzerklärung",
     "intro": "Diese Datenschutzerklärung erläutert, wie diese Website personenbezogene Daten bei der Nutzung verarbeitet.",
-    "lastUpdated": "Stand: [Datum]",
+    "lastUpdated": "Stand: 08.09.26",
     "sections": {
       "controller": {
         "title": "1. Verantwortlicher",
-        "text": "Verantwortlicher für die Datenverarbeitung ist [Verantwortlicher], [Adresse], [E-Mail]. Bei Fragen zum Datenschutz können Sie uns jederzeit über diese Kontaktdaten erreichen."
+        "intro": "Verantwortlicher für die Verarbeitung personenbezogener Daten ist:",
+        "company": "Omnixys Technologies",
+        "address": {
+          "street": "Waiblingerstraße 45",
+          "postalCode": "70372",
+          "city": "Stuttgart",
+          "state": "Baden-Württemberg",
+          "country": "Deutschland"
+        },
+        "email": "support@omnixys.com",
+        "text": "Bei Fragen zum Datenschutz oder zur Verarbeitung Ihrer personenbezogenen Daten können Sie uns jederzeit über die oben angegebenen Kontaktdaten erreichen."
       },
       "collected": {
         "title": "2. Von Ihnen bereitgestellte Daten",
@@ -41,7 +51,7 @@
       },
       "contact": {
         "title": "8. Kontakt",
-        "text": "Zur Ausübung Ihrer Rechte oder bei Fragen zu dieser Datenschutzerklärung kontaktieren Sie uns bitte unter [E-Mail]."
+        "text": "Zur Ausübung Ihrer Rechte oder bei Fragen zu dieser Datenschutzerklärung kontaktieren Sie uns bitte unter support@omnixys.com."
       }
     }
   },

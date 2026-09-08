@@ -9,11 +9,21 @@
   "privacy": {
     "title": "Informativa sulla privacy",
     "intro": "Questa informativa sulla privacy spiega come questo sito web tratta i dati personali quando lo utilizzi.",
-    "lastUpdated": "Ultimo aggiornamento: [Datum]",
+    "lastUpdated": "Ultimo aggiornamento: 8 settembre 2026",
     "sections": {
       "controller": {
-        "title": "1. Titolare del trattamento",
-        "text": "Titolare del trattamento dei dati è [Verantwortlicher], [Adresse], [E-Mail]. Per qualsiasi domanda sulla protezione dei dati puoi contattarci in qualsiasi momento utilizzando questi recapiti."
+       "title": "1. Titolare del trattamento",
+       "intro": "Il titolare del trattamento dei dati personali è:",
+       "company": "Omnixys Technologies",
+       "address": {
+         "street": "Waiblingerstraße 45",
+         "postalCode": "70372",
+         "city": "Stuttgart",
+         "state": "Baden-Württemberg",
+         "country": "Germania"
+       },
+       "email": "support@omnixys.com",
+       "text": "Per qualsiasi domanda relativa alla protezione dei dati o al trattamento dei tuoi dati personali, puoi contattarci in qualsiasi momento utilizzando i recapiti sopra indicati."
       },
       "collected": {
         "title": "2. Dati da te forniti",
@@ -41,7 +51,7 @@
       },
       "contact": {
         "title": "8. Contatti",
-        "text": "Per esercitare i tuoi diritti o per qualsiasi domanda su questa informativa sulla privacy, contattaci a [E-Mail]."
+        "text": "Per esercitare i tuoi diritti o per qualsiasi domanda su questa informativa sulla privacy, contattaci a support@omnixys.com."
       }
     }
   },

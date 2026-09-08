@@ -2,11 +2,11 @@
 
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 
 const SECTION_KEYS = [
-  "controller",
   "collected",
   "analytics",
   "cookies",
@@ -29,6 +29,7 @@ export default function PrivacyPage() {
         py: { xs: 14, md: 20 },
         px: 3,
         background: "linear-gradient(180deg,#faf7f2 0%,#f3efe8 100%)",
+        color: "#6d531f",
       }}
     >
       <Container maxWidth="md">
@@ -58,18 +59,19 @@ export default function PrivacyPage() {
             variant="body1"
             sx={{
               textAlign: "center",
-              color: "text.secondary",
+              color: "#af8126",
               mb: 2,
             }}
           >
             {t("privacy.intro")}
           </Typography>
+
           <Typography
             variant="caption"
             sx={{
               display: "block",
               textAlign: "center",
-              color: "text.secondary",
+              color: "#af8126",
               mb: 8,
             }}
           >
@@ -87,17 +89,110 @@ export default function PrivacyPage() {
               boxShadow: "0 15px 40px rgba(0,0,0,0.08)",
             }}
           >
+            {/* Controller */}
+            <Box sx={{ mb: 5 }}>
+              <Typography
+                sx={{
+                  fontFamily: "var(--font-serif)",
+                  fontSize: "1.2rem",
+                  mb: 1.5,
+                  color: "#af8126",
+                }}
+              >
+                {t("privacy.sections.controller.title")}
+              </Typography>
+
+              <Typography
+                variant="body2"
+                color="#af8126"
+                sx={{ lineHeight: 1.7, mb: 2 }}
+              >
+                {t("privacy.sections.controller.intro")}
+              </Typography>
+
+              <Box
+                component="address"
+                sx={{
+                  m: 0,
+                  mb: 2,
+                  fontStyle: "normal",
+                  color: "#af8126",
+                }}
+              >
+                <Typography
+                  variant="body2"
+                  sx={{
+                    lineHeight: 1.7,
+                    fontWeight: 600,
+                    color: "#6d531f",
+                  }}
+                >
+                  {t("privacy.sections.controller.company")}
+                </Typography>
+
+                <Typography variant="body2" sx={{ lineHeight: 1.7 }}>
+                  {t("privacy.sections.controller.address.street")}
+                </Typography>
+
+                <Typography variant="body2" sx={{ lineHeight: 1.7 }}>
+                  {t("privacy.sections.controller.address.postalCode")}{" "}
+                  {t("privacy.sections.controller.address.city")}
+                </Typography>
+
+                <Typography variant="body2" sx={{ lineHeight: 1.7 }}>
+                  {t("privacy.sections.controller.address.state")}
+                </Typography>
+
+                <Typography variant="body2" sx={{ lineHeight: 1.7 }}>
+                  {t("privacy.sections.controller.address.country")}
+                </Typography>
+
+                <Link
+                  href={`mailto:${t("privacy.sections.controller.email")}`}
+                  underline="hover"
+                  sx={{
+                    display: "inline-block",
+                    mt: 1,
+                    fontSize: "0.875rem",
+                    color: "#af8126",
+                  }}
+                >
+                  {t("privacy.sections.controller.email")}
+                </Link>
+              </Box>
+
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                sx={{ lineHeight: 1.7 }}
+              >
+                {t("privacy.sections.controller.text")}
+              </Typography>
+            </Box>
+
+            {/* Remaining sections */}
             {SECTION_KEYS.map((section) => (
-              <Box key={section} sx={{ mb: 4 }}>
+              <Box
+                key={section}
+                component="section"
+                sx={{
+                  mb: 4,
+                  "&:last-child": {
+                    mb: 0,
+                  },
+                }}
+              >
                 <Typography
                   sx={{
                     fontFamily: "var(--font-serif)",
                     fontSize: "1.2rem",
                     mb: 1,
+                    color: "#af8126",
                   }}
                 >
                   {t(`privacy.sections.${section}.title`)}
                 </Typography>
+
                 <Typography
                   variant="body2"
                   color="text.secondary"

@@ -9,11 +9,21 @@
   "privacy": {
     "title": "Privacy Policy",
     "intro": "This Privacy Policy explains how this website handles personal data when you use it.",
-    "lastUpdated": "Last updated: [Datum]",
+    "lastUpdated": "Last updated: 8 September 2026",
     "sections": {
       "controller": {
         "title": "1. Controller",
-        "text": "The controller responsible for data processing is [Verantwortlicher], [Adresse], [E-Mail]. For any questions regarding data protection you may contact us at any time using these contact details."
+        "intro": "The controller responsible for the processing of personal data is:",
+        "company": "Omnixys Technologies",
+        "address": {
+          "street": "Waiblingerstraße 45",
+          "postalCode": "70372",
+          "city": "Stuttgart",
+          "state": "Baden-Württemberg",
+          "country": "Germany"
+        },
+        "email": "support@omnixys.com",
+        "text": "If you have any questions regarding data protection or the processing of your personal data, you may contact us at any time using the contact details above."
       },
       "collected": {
         "title": "2. Data You Provide",
@@ -41,7 +51,7 @@
       },
       "contact": {
         "title": "8. Contact",
-        "text": "To exercise your rights or for any questions about this Privacy Policy, please contact us at [E-Mail]."
+        "text": "To exercise your rights or for any questions about this Privacy Policy, please contact us at support@omnixys.com."
       }
     }
   },

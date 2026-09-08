@@ -31,7 +31,8 @@ export default function DestinationLocations({
       venue: t("locations.ceremony.venue"),
       address: t("locations.ceremony.address"),
       description: t("locations.ceremony.description"),
-      image: "/locations/church.jpg",
+      image: "/locations/church2.webp",
+      hoverImage: "/locations/church.webp",
     },
     {
       tab: t("locations.reception.tab"),
@@ -40,6 +41,7 @@ export default function DestinationLocations({
       address: t("locations.reception.address"),
       description: t("locations.reception.description"),
       image: "/locations/reception.jpg",
+      hoverImage: "/locations/reception2.jpg",
     },
   ];
   const location = locations[tab];
@@ -99,11 +101,21 @@ export default function DestinationLocations({
           >
             <Image
               alt={`${location.title} - ${location.venue}`}
-              className={styles.locationImage}
+              className={`${styles.locationImage} ${styles.locationImageDefault}`}
               fill
               sizes="(max-width: 900px) calc(100vw - 40px), 56vw"
               src={location.image}
             />
+
+            <Image
+              alt=""
+              aria-hidden="true"
+              className={`${styles.locationImage} ${styles.locationImageHover}`}
+              fill
+              sizes="(max-width: 900px) calc(100vw - 40px), 56vw"
+              src={location.hoverImage}
+            />
+
             <div className={styles.locationImageOverlay}>
               <span className={styles.locationImageLabel}>{location.tab}</span>
               <span>{location.venue}</span>
