@@ -96,9 +96,9 @@
     "reception": {
       "tab": "Anigyede",
       "title": "Anigyede",
-      "venue": "White Event Palast",
-      "address": "Marie-Curie-Straße 3, 73230 Kirchheim unter Teck",
-      "description": "Faako a ɛyɛ fɛ a wɔyɛ ahurusi wɔ hɔ, a ɛwɔ adan kɛse ne adwinni fɛfɛ — baabi a ɛyɛ pɛpɛɛpɛ sɛ yɛbɛbom adi anigye anwummere no."
+      "venue": "Anka Event",
+      "address": "Bahnhofstraße 13, 71711 Steinheim an der Murr",
+      "description": "Yɛn anigyede no bɛkɔ so wɔ Anka Event a ɛwɔ Steinheim an der Murr – baabi a yɛbɛbom afɛɛdi na yɛn nnya anwummere dɛw."
     }
   },
   "navigation": {
@@ -251,15 +251,15 @@
     "reception": {
       "car": {
         "title": "Wɔ Kar Mu",
-        "details": "White Event Palast wɔ Kirchheim unter Teck betumi afa A8 motorway so akɔ hɔ. Fa Kirchheim/Teck exit na di akyirikyiri kɔ industrial area no."
+        "details": "Anka Event a ɛwɔ Steinheim an der Murr betumi afa A81 motorway so akɔ hɔ. Fa Pleidelsheim/Murr exit na di akyirikyiri kɔ Murr/Steinheim."
       },
       "train": {
         "title": "Wɔ Keteke Mu",
-        "details": "Fi Stuttgart Hauptbahnhof fa regional train kɔ Kirchheim unter Teck. Fi station hɔ a, taxi betumi de wo akɔ."
+        "details": "Fa S-Bahn kɔ Marbach am Neckar. Fi hɔ a, bɔs (line 460/461) anaa taxi kɔ Butakwa so de wo bɛkɔ Steinheim an der Murr."
       },
       "parking": {
         "title": "Kar Gyinabea",
-        "details": "Kar gyinabea kɛse wɔ hɔ pɛpɛɛpɛ wɔ White Event Palast."
+        "details": "Kar gyinabea wɔ hɔ wɔ location no ho wɔ Steinheim an der Murr."
       }
     }
   },
@@ -301,11 +301,11 @@
       },
       "parking": {
         "question": "Ɛhe na metumi de kar asi?",
-        "answer": "Park wɔ asɔre no ho, na park kɛse wɔ White Event Palast no ankasa."
+        "answer": "Park wɔ asɔre no ho, na wubetumi nso apa gyinabea wɔ anigyede no ho wɔ Steinheim an der Murr."
       },
       "publicTransport": {
         "question": "Bɔs anaa keteke wɔ hɔ?",
-        "answer": "Yiw. Stuttgart-Vaihingen ne Kirchheim unter Teck ne keteke gyinabea a ɛbɛn; fa bɔs anaa taxi kɔ akyiri."
+        "answer": "Yiw. Stuttgart-Vaihingen ne Marbach am Neckar ne keteke gyinabea a ɛbɛn; fa bɔs anaa taxi kɔ Steinheim an der Murr."
       },
       "charging": {
         "question": "Kar charge beae wɔ bɛn?",
@@ -380,8 +380,8 @@
 
     "reception": {
       "title": "Anigyede",
-      "venue": "White Event Palast",
-      "address": "Marie-Curie-Straße 3, 73230 Kirchheim unter Teck"
+      "venue": "Anka Event",
+      "address": "Bahnhofstraße 13, 71711 Steinheim an der Murr"
     }
   },
   "rsvpForm": {

@@ -11,6 +11,7 @@ import { CINEMATIC_EASE } from "@/components/CinematicMotion";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 import styles from "./CinematicScenes.module.css";
 import { SplitReveal } from "./SplitReveal";
+import Image from "next/image";
 
 type ForeverStatementProps = {
   embedded?: boolean;

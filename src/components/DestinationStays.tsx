@@ -271,12 +271,29 @@ function HotelRecommendationCard({
       <Box className={hotelStyles.hotelRecommendationMedia}>
         <Image
           alt={t("accommodation.imageAlt", { hotel: hotel.name })}
+          className={
+            hotel.hoverImage
+              ? hotelStyles.hotelImageDefault
+              : hotelStyles.hotelImageSingle
+          }
           fill
           loading={absoluteIndex < 3 ? "eager" : "lazy"}
           priority={absoluteIndex < 3}
           sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
           src={hotel.image}
         />
+
+        {hotel.hoverImage && (
+          <Image
+            alt=""
+            aria-hidden="true"
+            className={hotelStyles.hotelImageHover}
+            fill
+            loading={absoluteIndex < 3 ? "eager" : "lazy"}
+            sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
+            src={hotel.hoverImage}
+          />
+        )}
       </Box>
 
       <Box className={hotelStyles.hotelRecommendationBody}>

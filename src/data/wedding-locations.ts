@@ -17,9 +17,9 @@ export const WEDDING_LOCATIONS: readonly WeddingLocationCoordinates[] = [
   },
   {
     id: "reception",
-    latitude: 48.64294,
-    longitude: 9.47028,
+    latitude: 48.9664733,
+    longitude: 9.2725965,
     mapUrl:
-      "https://www.openstreetmap.org/search?query=Marie-Curie-Stra%C3%9Fe%203%2C%2073230%20Kirchheim%20unter%20Teck",
+      "https://www.openstreetmap.org/search?query=Bahnhofstra%C3%9Fe%2013%2C%2071711%20Steinheim%20an%20der%20Murr",
   },
 ] as const;

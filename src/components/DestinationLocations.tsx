@@ -31,8 +31,8 @@ export default function DestinationLocations({
       venue: t("locations.ceremony.venue"),
       address: t("locations.ceremony.address"),
       description: t("locations.ceremony.description"),
-      image: "/locations/church2.webp",
-      hoverImage: "/locations/church.webp",
+      image: "/locations/church.webp",
+      hoverImage: "/locations/church2.webp",
     },
     {
       tab: t("locations.reception.tab"),
@@ -40,8 +40,8 @@ export default function DestinationLocations({
       venue: t("locations.reception.venue"),
       address: t("locations.reception.address"),
       description: t("locations.reception.description"),
-      image: "/locations/reception.jpg",
-      hoverImage: "/locations/reception2.jpg",
+      image: "/locations/reception.webp",
+      hoverImage: "/locations/reception2.webp",
     },
   ];
   const location = locations[tab];

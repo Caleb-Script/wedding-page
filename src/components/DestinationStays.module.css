@@ -184,9 +184,36 @@
     transform 1100ms var(--ease-cinematic);
 }
 
+.hotelImageSingle,
+.hotelImageDefault,
+.hotelImageHover {
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 600ms ease,
+    transform 1100ms var(--ease-cinematic);
+}
+
+.hotelImageDefault {
+  opacity: 1;
+}
+
+.hotelImageHover {
+  opacity: 0;
+}
+
 .hotelRecommendationCard:hover .hotelRecommendationMedia img {
   filter: saturate(0.9) contrast(1.04);
   transform: scale(1.025);
+}
+
+.hotelRecommendationCard:hover .hotelImageDefault,
+.hotelRecommendationCard:focus-within .hotelImageDefault {
+  opacity: 0;
+}
+
+.hotelRecommendationCard:hover .hotelImageHover,
+.hotelRecommendationCard:focus-within .hotelImageHover {
+  opacity: 1;
 }
 
 .hotelRecommendationBody {
@@ -372,6 +399,9 @@
 @media (prefers-reduced-motion: reduce) {
   .hotelRecommendationCard,
   .hotelRecommendationMedia img,
+  .hotelImageSingle,
+  .hotelImageDefault,
+  .hotelImageHover,
   .hotelShowcaseButton {
     transition: none;
   }

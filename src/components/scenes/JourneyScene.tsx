@@ -72,10 +72,23 @@ export default function JourneyScene() {
           >
             <Image
               alt="Elegant couple walking hand in hand at golden hour"
+              className={styles.journeyImageDefault}
               fill
               sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 900px) 68vw, 38vw"
               src="/us/3.png"
-              // src="/pic_02.webp"
+              style={{
+                objectFit: "cover",
+                objectPosition: "center center",
+              }}
+            />
+
+            <Image
+              alt=""
+              aria-hidden="true"
+              className={styles.journeyImageHover}
+              fill
+              sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 900px) 68vw, 38vw"
+              src="/us/3.5.png"
               style={{
                 objectFit: "cover",
                 objectPosition: "center center",
@@ -136,16 +149,16 @@ export default function JourneyScene() {
                   : { scale: secondaryMediaScale, y: secondaryMediaY }
               }
             >
-              {/* <Image
+              <Image
                 alt="Couple smiling together in a warm editorial portrait"
                 fill
                 sizes="(max-width: 560px) 76vw, (max-width: 900px) 54vw, 27vw"
-                src="/us/5.png"
+                src="/us/3.3.png"
                 style={{
                   objectFit: "cover",
                   objectPosition: "center center",
                 }}
-              /> */}
+              />
             </motion.div>
           </Box>
         </motion.div>

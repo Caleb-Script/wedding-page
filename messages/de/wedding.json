@@ -96,9 +96,9 @@
     "reception": {
       "tab": "Feier",
       "title": "Feier",
-      "venue": "White Event Palast",
-      "address": "Marie-Curie-Straße 3, 73230 Kirchheim unter Teck",
-      "description": "Ein eleganter Veranstaltungssaal mit luxuriösem Ambiente – der perfekte Ort, um gemeinsam den Abend zu feiern."
+      "venue": "Anka Event",
+      "address": "Bahnhofstraße 13, 71711 Steinheim an der Murr",
+      "description": "Unsere Feier findet bei Anka Event in Steinheim an der Murr statt – ein Ort, an dem wir gemeinsam feiern und den Abend genießen können."
     }
   },
   "navigation": {
@@ -251,15 +251,15 @@
     "reception": {
       "car": {
         "title": "Mit dem Auto",
-        "details": "Der White Event Palast in Kirchheim unter Teck ist über die A8 erreichbar. Bitte die Ausfahrt Kirchheim/Teck nehmen und der Beschilderung Richtung Industriegebiet folgen."
+        "details": "Anka Event in Steinheim an der Murr ist über die A81 erreichbar. Bitte die Ausfahrt Pleidelsheim/Murr nehmen und der Beschilderung Richtung Murr/Steinheim folgen."
       },
       "train": {
         "title": "Mit der Bahn",
-        "details": "Vom Stuttgart Hauptbahnhof mit der Regionalbahn nach Kirchheim unter Teck fahren. Vom Bahnhof aus ist die Location eine kurze Taxifahrt entfernt."
+        "details": "Mit der S-Bahn bis Marbach am Neckar fahren. Von dort geht es mit dem Bus (Linie 460/461) oder einem kurzen Taxi weiter nach Steinheim an der Murr."
       },
       "parking": {
         "title": "Parken",
-        "details": "Direkt am White Event Palast stehen großzügige Parkflächen zur Verfügung."
+        "details": "In der Umgebung der Location in Steinheim an der Murr stehen Parkmöglichkeiten zur Verfügung."
       }
     }
   },
@@ -301,11 +301,11 @@
       },
       "parking": {
         "question": "Wo kann ich parken?",
-        "answer": "Nahe der Kirche gibt es Parkmöglichkeiten; direkt am White Event Palast stehen größere Parkflächen bereit."
+        "answer": "Nahe der Kirche gibt es Parkmöglichkeiten; auch in der Umgebung der Feier in Steinheim an der Murr könnt ihr parken."
       },
       "publicTransport": {
         "question": "Gibt es öffentliche Verkehrsmittel?",
-        "answer": "Ja. Stuttgart-Vaihingen und Kirchheim unter Teck sind die nächsten größeren Stationen; das letzte Stück geht per Bus oder Taxi."
+        "answer": "Ja. Stuttgart-Vaihingen und Marbach am Neckar sind die nächsten größeren Stationen; für die Feier in Steinheim an der Murr nehmt ihr am besten Bus oder Taxi."
       },
       "charging": {
         "question": "Gibt es Ladestationen in der Nähe?",
@@ -380,8 +380,8 @@
 
     "reception": {
       "title": "Feier",
-      "venue": "White Event Palast",
-      "address": "Marie-Curie-Straße 3, 73230 Kirchheim unter Teck"
+      "venue": "Anka Event",
+      "address": "Bahnhofstraße 13, 71711 Steinheim an der Murr"
     }
   },
   "rsvpForm": {
