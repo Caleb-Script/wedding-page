@@ -45,6 +45,28 @@ export function resolveHotelContentLocale(locale: string): HotelContentLocale {
 }
 
 export const RECOMMENDED_HOTELS: readonly RecommendedHotel[] = [
+{
+  address: "Waiblinger Straße 63, 70372 Stuttgart – Bad Cannstatt",
+  bookingUrl: "https://www.hotel-spahr.de/",                 
+  description: {
+    ak: "Ɔha ankorankorɛ hotel a ɛwɔ Bad Cannstatt, ɛbɛn Kurpark, U-Bahn ne abusua adan wɔ hɔ.",
+    de: "Ein familiär geführtes Privat-Hotel in Bad Cannstatt, ruhig am Kurpark, mit U-Bahn-Anbindung und bequemen Familienzimmern.",
+    en: "A family-run private hotel in Bad Cannstatt, quiet by the Kurpark, with good light-rail links and comfortable family rooms.",
+    it: "Un hotel privato a conduzione familiare a Bad Cannstatt, tranquillo vicino al Kurpark, con buoni collegamenti tramviari e confortevoli camere familiari.",
+  },
+  distanceToCelebration: "18.3 km",
+  distanceToCeremony: "12.8 km",
+  id: "hotel-spahr",                                  
+  image: "/hotels/building/hotel-spahr.jpeg",              
+  hoverImage: "/hotels/room/hotel-spahr.webp",      
+  latitude: 48.8051587,
+  longitude: 9.2249824,
+  mapUrl: "https://www.openstreetmap.org/search?query=Waiblinger%20Stra%C3%9Fe%2063%2C%2070372%20Stuttgart",
+  name: "Privat Hotel Spahr",
+  tags: ["central", "familyFriendly", "publicTransport", "parking"],
+  travelTime: "18–24 min",
+  website: "https://www.hotel-spahr.de/",
+},
   {
     address: "Plieninger Straße 101-107, 70567 Stuttgart",
     bookingUrl: "https://www.maseven.de/serviced-apartments-stuttgart/",
