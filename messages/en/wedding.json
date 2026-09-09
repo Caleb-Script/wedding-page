@@ -82,6 +82,31 @@
     },
     "backgroundAlt": "Wedding background"
   },
+  "journey": {
+    "eyebrow": "The Invitation",
+    "title": "Our Wedding",
+    "pillars": {
+      "twoVenues": {
+        "title": "Two venues, one day",
+        "text": "The ceremony in Stuttgart, the celebration in Steinheim an der Murr - joined by a golden line."
+      },
+      "weSayYes": {
+        "title": "We say yes at 12:30",
+        "text": "At the Heilige-Familie church, Dürrlewangstraße 36 - please arrive 30 minutes early and find your seat."
+      },
+      "thenCelebrate": {
+        "title": "Then we celebrate",
+        "text": "In the evening at ›Anka Event‹ in Steinheim: dinner, music, dancing - late into the night."
+      }
+    },
+    "facts": {
+      "dateLabel": "Date",
+      "date": "November 21, 2026",
+      "ceremonyLabel": "Ceremony",
+      "receptionLabel": "Reception",
+      "hashtagLabel": "Hashtag"
+    }
+  },
   "locations": {
     "subtitle": "The Venues",
     "title": "Locations",

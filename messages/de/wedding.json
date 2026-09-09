@@ -74,6 +74,31 @@
     },
     "backgroundAlt": "Hochzeits Hintergrund"
   },
+  "journey": {
+    "eyebrow": "Die Einladung",
+    "title": "Unsere Hochzeit",
+    "pillars": {
+      "twoVenues": {
+        "title": "Zwei Orte, ein Tag",
+        "text": "Die Trauung in Stuttgart, die Feier in Steinheim an der Murr - verbunden durch eine goldene Linie."
+      },
+      "weSayYes": {
+        "title": "Um 12:30 sagen wir Ja",
+        "text": "In der Heilige-Familie-Kirche, Dürrlewangstraße 36 - bitte komm 30 Minuten früher und finde deinen Platz."
+      },
+      "thenCelebrate": {
+        "title": "Dann feiern wir",
+        "text": "Abends bei ›Anka Event‹ in Steinheim: Essen, Musik, Tanzen - bis tief in die Nacht."
+      }
+    },
+    "facts": {
+      "dateLabel": "Datum",
+      "date": "21. November 2026",
+      "ceremonyLabel": "Trauung",
+      "receptionLabel": "Feier",
+      "hashtagLabel": "Hashtag"
+    }
+  },
   "gallery": {
     "subtitle": "Unsere Momente",
     "title": "Galerie",

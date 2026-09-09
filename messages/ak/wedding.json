@@ -81,6 +81,31 @@
     },
     "backgroundAlt": "Aware akyi mfonini"
   },
+  "journey": {
+    "eyebrow": "Nsammafrɛ",
+    "title": "Yɛn Aware",
+    "pillars": {
+      "twoVenues": {
+        "title": "Mmeae abien, da baako",
+        "text": "Aware wɔ Stuttgart, apɔwɔ wɔ Steinheim an der Murr - sika kɔkɔɔ hama bi ka wɔn bom."
+      },
+      "weSayYes": {
+        "title": "Yɛka 12:30 yɛn Yes",
+        "text": "Wɔ Heilige-Familie asɔre, Dürrlewangstraße 36 - bra simma 30 ansa na afi ase."
+      },
+      "thenCelebrate": {
+        "title": "Afei yɛbɛdi ahurusi",
+        "text": "Anwummere wɔ ›Anka Event‹ Steinheim: aduan, nnwom, asaw - kɔsi ɛdɔ anadwo."
+      }
+    },
+    "facts": {
+      "dateLabel": "Da",
+      "date": "21.11.2026",
+      "ceremonyLabel": "Aware",
+      "receptionLabel": "Apɔwɔ",
+      "hashtagLabel": "Hashtag"
+    }
+  },
   "locations": {
     "subtitle": "Baabi a ɛbɛkɔ so",
     "title": "Mmeae",

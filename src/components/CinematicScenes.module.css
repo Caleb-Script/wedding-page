@@ -1674,13 +1674,11 @@
   display: grid;
   width: 100%;
   min-width: 0;
-  min-height: max(860px, 100vh);
-  padding: clamp(96px, 10vw, 170px) clamp(24px, 6.5vw, 118px);
+  padding: clamp(72px, 8vw, 110px) clamp(24px, 6.5vw, 118px);
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  grid-template-rows: repeat(8, minmax(0, 1fr));
+  align-items: start;
   column-gap: clamp(18px, 2.4vw, 44px);
-  row-gap: clamp(30px, 4vw, 68px);
-  align-items: stretch;
+  row-gap: clamp(48px, 5vw, 72px);
   overflow: clip;
 }
 
@@ -1713,23 +1711,22 @@
 }
 
 .journeyImageLead {
-  width: min(100%, clamp(330px, 34vw, 520px));
-  aspect-ratio: 1003 / 1568;
-  align-self: start;
-  justify-self: start;
-  grid-column: 1 / span 5;
-  grid-row: 1 / span 5;
+  width: min(100%, clamp(280px, 26vw, 420px));
+  aspect-ratio: 3 / 4;
+  justify-self: end;
+  grid-column: 8 / span 4;
   overflow: hidden;
-  border-radius: clamp(28px, 2.1vw, 32px);
+  border: 1px solid rgba(216, 184, 121, 0.16);
+  border-radius: 2px;
   background: #111;
-  box-shadow:
-    0 46px 120px rgba(0, 0, 0, 0.38),
-    0 18px 44px rgba(0, 0, 0, 0.28);
   transform-origin: center;
 }
 
-.journeyImageLead::after,
-.journeyImageFrame::after {
+.journeyImageLead img {
+  filter: saturate(0.92) contrast(1.03);
+}
+
+.journeyImageLead::after {
   position: absolute;
   z-index: 2;
   inset: 0;
@@ -1749,30 +1746,6 @@
     );
   content: "";
   pointer-events: none;
-}
-
-.journeyImageFrame {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1003 / 1568;
-  overflow: hidden;
-  border-radius: clamp(28px, 2.1vw, 32px);
-  background: #111;
-  box-shadow:
-    0 36px 92px rgba(0, 0, 0, 0.34),
-    0 14px 34px rgba(0, 0, 0, 0.26);
-  transform: rotate(-0.65deg);
-}
-
-.journeyImageInner {
-  position: absolute;
-  inset: -8% -2%;
-  transform-origin: center;
-  will-change: transform;
-}
-
-.journeyImageInner img {
-  filter: saturate(0.92) contrast(1.03);
 }
 
 .journeyImageDefault {
@@ -1807,58 +1780,120 @@
   z-index: 2;
   width: 100%;
   min-width: 0;
-  max-width: 690px;
-  align-self: center;
-  justify-self: center;
-  grid-column: 5 / span 5;
-  grid-row: 3 / span 3;
+  grid-column: 1 / span 6;
 }
 
 .journeyCopy {
   position: relative;
   z-index: 1;
   width: 100%;
-  min-width: 0;
-  max-width: 760px;
+  max-width: 620px;
 }
 
-.journeyMeta {
-  margin: 0 0 clamp(18px, 2vw, 28px);
+.journeyEyebrow {
+  margin: 0 0 clamp(12px, 1.4vw, 20px);
   color: var(--scene-accent);
-  font: 400 clamp(1.35rem, 1.8vw, 2.2rem) / 1 var(--font-serif);
-  letter-spacing: 0.04em;
+  font: 700 clamp(0.56rem, 0.72vw, 0.66rem) / 1.5 var(--font-sans);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
 }
 
 .journeyCopy h2 {
   margin: 0;
   color: #f2eee7;
-  font: 400 clamp(4.8rem, 7.9vw, 10.4rem) / 0.9 var(--font-serif);
-  letter-spacing: -0.045em;
+  font: 400 clamp(2.6rem, 5vw, 4.6rem) / 0.95 var(--font-serif);
+  letter-spacing: -0.04em;
   text-wrap: balance;
 }
 
 .journeyMessage {
-  max-width: 570px;
-  margin: clamp(32px, 3.6vw, 52px) 0 0 clamp(28px, 5.2vw, 92px);
+  max-width: 46ch;
+  margin: clamp(20px, 2.4vw, 34px) 0 0;
   color: rgba(255, 255, 255, 0.62);
-  font: 300 clamp(0.96rem, 1.05vw, 1.08rem) / 1.95 var(--font-sans);
+  font: 300 clamp(0.96rem, 1.05vw, 1.08rem) / 1.8 var(--font-sans);
 }
 
-.journeyDateline {
-  max-width: 100%;
-  margin: clamp(26px, 3vw, 42px) 0 0 clamp(28px, 5.2vw, 92px);
+.journeyPillars {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 48px);
+  padding-top: clamp(26px, 3vw, 40px);
+}
+
+.journeyPillars::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(241, 236, 226, 0.14);
+  content: "";
+  pointer-events: none;
+}
+
+.journeyRouteIndex {
+  display: block;
+  margin-bottom: clamp(10px, 1.2vw, 16px);
   color: var(--scene-accent);
-  font: 700 0.58rem / 1.4 var(--font-sans);
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
+  font: 400 clamp(1.1rem, 1.4vw, 1.5rem) / 1 var(--font-serif);
+  letter-spacing: 0.04em;
 }
 
-.journeyImageSecondary {
-  width: min(100%, clamp(230px, 23vw, 360px));
-  align-self: end;
-  justify-self: end;
-  grid-column: 9 / span 4;
-  grid-row: 5 / span 4;
+.journeyPillar {
+  min-width: 0;
+}
+
+.journeyPillarTitle {
+  margin: 0 0 10px;
+  color: #f1ece2;
+  font: 400 clamp(1.05rem, 1.3vw, 1.5rem) / 1.15 var(--font-serif);
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+}
+
+.journeyPillarText {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.56);
+  font: 300 clamp(0.8rem, 0.9vw, 0.92rem) / 1.7 var(--font-sans);
+}
+
+.journeyFacts {
+  display: grid;
+  min-width: 0;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(18px, 2vw, 32px);
+  border-top: 1px solid rgba(216, 184, 121, 0.34);
+  padding-top: clamp(18px, 2.2vw, 28px);
+}
+
+.journeyFact {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  flex-direction: row;
+  gap: clamp(8px, 1vw, 12px);
+}
+
+.journeyFact:not(:last-child) {
+  border-right: 1px solid rgba(216, 184, 121, 0.22);
+  padding-right: clamp(18px, 2vw, 32px);
+}
+
+.journeyFactLabel {
+  color: var(--scene-accent);
+  font: 700 clamp(0.52rem, 0.62vw, 0.6rem) / 1.4 var(--font-sans);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.journeyFactValue {
+  color: rgba(255, 255, 255, 0.78);
+  font: 400 clamp(0.82rem, 0.92vw, 0.98rem) / 1.4 var(--font-sans);
 }
 
 .footerDate {
@@ -2062,11 +2097,10 @@
 
   .journeyStage {
     min-height: auto;
-    padding: 104px 20px;
+    padding: clamp(64px, 8vw, 96px) 20px;
     grid-template-columns: repeat(6, minmax(0, 1fr));
-    grid-template-rows: auto;
     align-content: start;
-    gap: clamp(42px, 7vw, 72px);
+    gap: clamp(36px, 6vw, 56px);
   }
 
   .journeyStage::after {
@@ -2074,28 +2108,36 @@
   }
 
   .journeyImageLead {
-    width: min(100%, 520px);
+    width: min(100%, 380px);
     justify-self: start;
-    grid-column: 1 / span 5;
-    grid-row: auto;
+    grid-column: 1 / span 3;
+  }
+
+  .journeyImageLead::after {
+    display: none;
   }
 
   .journeyContent {
-    max-width: 680px;
+    grid-column: 4 / span 3;
     justify-self: end;
-    grid-column: 2 / span 5;
-    grid-row: auto;
   }
 
-  .journeyImageSecondary {
-    width: min(74vw, 390px);
-    justify-self: end;
-    grid-column: 3 / span 4;
-    grid-row: auto;
+  .journeyCopy h2 {
+    font-size: clamp(2.4rem, 7vw, 3.8rem);
   }
 
   .journeyMessage {
-    max-width: 620px;
+    max-width: 42ch;
+  }
+
+  .journeyPillars {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .journeyFacts {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
@@ -2295,51 +2337,47 @@
   }
 
   .journeyStage {
-    padding: 92px 20px;
+    padding: clamp(56px, 10vw, 84px) 20px;
     grid-template-columns: 1fr;
-    gap: 34px;
+    gap: clamp(30px, 6vw, 40px);
   }
 
   .journeyImageLead {
     width: 100%;
     grid-column: 1;
-    box-shadow:
-      0 30px 80px rgba(0, 0, 0, 0.38),
-      0 12px 30px rgba(0, 0, 0, 0.28);
   }
 
   .journeyContent {
     grid-column: 1;
   }
 
-  .journeyMeta {
-    font-size: 1.25rem;
-  }
-
   .journeyCopy h2 {
-    font-size: clamp(3rem, 14vw, 5.4rem);
+    font-size: clamp(2.3rem, 11vw, 3.6rem);
   }
 
   .journeyMessage {
-    margin-top: 34px;
+    margin-top: 22px;
     margin-left: 0;
   }
 
-  .journeyDateline {
-    margin-left: 0;
-    letter-spacing: 0.2em;
+  .journeyPillars {
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
 
-  .journeyImageSecondary {
-    width: min(78vw, 340px);
+  .journeyFacts {
     grid-column: 1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px clamp(18px, 6vw, 30px);
   }
 
-  .journeyImageFrame {
-    box-shadow:
-      0 28px 72px rgba(0, 0, 0, 0.34),
-      0 12px 28px rgba(0, 0, 0, 0.24);
-    transform: rotate(-0.45deg);
+  .journeyFact {
+    align-items: flex-start;
+  }
+
+  .journeyFact:not(:last-child) {
+    border-right: none;
+    padding-right: 0;
   }
 }
 

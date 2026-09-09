@@ -12,18 +12,18 @@
     "lastUpdated": "Ultimo aggiornamento: 8 settembre 2026",
     "sections": {
       "controller": {
-       "title": "1. Titolare del trattamento",
-       "intro": "Il titolare del trattamento dei dati personali è:",
-       "company": "Omnixys Technologies",
-       "address": {
-         "street": "Waiblingerstraße 45",
-         "postalCode": "70372",
-         "city": "Stuttgart",
-         "state": "Baden-Württemberg",
-         "country": "Germania"
-       },
-       "email": "support@omnixys.com",
-       "text": "Per qualsiasi domanda relativa alla protezione dei dati o al trattamento dei tuoi dati personali, puoi contattarci in qualsiasi momento utilizzando i recapiti sopra indicati."
+        "title": "1. Titolare del trattamento",
+        "intro": "Il titolare del trattamento dei dati personali è:",
+        "company": "Omnixys Technologies",
+        "address": {
+          "street": "Waiblingerstraße 45",
+          "postalCode": "70372",
+          "city": "Stuttgart",
+          "state": "Baden-Württemberg",
+          "country": "Germania"
+        },
+        "email": "support@omnixys.com",
+        "text": "Per qualsiasi domanda relativa alla protezione dei dati o al trattamento dei tuoi dati personali, puoi contattarci in qualsiasi momento utilizzando i recapiti sopra indicati."
       },
       "collected": {
         "title": "2. Dati da te forniti",
@@ -80,6 +80,31 @@
       "seconds": "Secondi"
     },
     "backgroundAlt": "Sfondo del matrimonio"
+  },
+  "journey": {
+    "eyebrow": "L'Invito",
+    "title": "Il Nostro Matrimonio",
+    "pillars": {
+      "twoVenues": {
+        "title": "Due luoghi, un giorno",
+        "text": "La cerimonia a Stoccarda, il ricevimento a Steinheim an der Murr - uniti da una linea dorata."
+      },
+      "weSayYes": {
+        "title": "Diciamo sì alle 12:30",
+        "text": "Nella chiesa Heilige Familie, Dürrlewangstraße 36 - arriva 30 minuti prima e trova il tuo posto."
+      },
+      "thenCelebrate": {
+        "title": "Poi festeggiamo",
+        "text": "La sera da ›Anka Event‹ a Steinheim: cena, musica, balli - fino a tarda notte."
+      }
+    },
+    "facts": {
+      "dateLabel": "Data",
+      "date": "21 novembre 2026",
+      "ceremonyLabel": "Cerimonia",
+      "receptionLabel": "Ricevimento",
+      "hashtagLabel": "Hashtag"
+    }
   },
   "locations": {
     "subtitle": "Le Location",
