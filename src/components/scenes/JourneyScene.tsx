@@ -141,25 +141,58 @@ export default function JourneyScene() {
           }}
         >
           <Box className={styles.journeyImageFrame}>
-            <motion.div
-              className={styles.journeyImageInner}
-              style={
-                reduceMotion
-                  ? undefined
-                  : { scale: secondaryMediaScale, y: secondaryMediaY }
-              }
-            >
+        <motion.div
+          className={`${styles.journeyImage} ${styles.journeyImageLead}`}
+          initial={
+            reduceMotion
+              ? { opacity: 1 }
+              : { filter: "blur(8px)", opacity: 0, scale: 0.94, y: 54 }
+          }
+          transition={{
+            duration: reduceMotion ? 0 : 1.45,
+            ease: CINEMATIC_EASE,
+          }}
+          viewport={{ amount: 0.42, once: true }}
+          whileInView={{
+            filter: "blur(0px)",
+            opacity: 1,
+            scale: 1,
+            y: 0,
+          }}
+        >
+          <motion.div
+            className={styles.journeyImageInner}
+            style={
+              reduceMotion
+                ? undefined
+                : { scale: primaryMediaScale, y: primaryMediaY }
+            }
+          >
               <Image
                 alt="Couple smiling together in a warm editorial portrait"
                 fill
+                 className={styles.journeyImageDefault}
                 sizes="(max-width: 560px) 76vw, (max-width: 900px) 54vw, 27vw"
-                src="/us/3.3.png"
+                src="/us/8.png"
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "center center",
+                }}
+              />
+
+              <Image
+                alt="Couple smiling together in a warm editorial portrait"
+                fill
+                   className={styles.journeyImageHover}
+                sizes="(max-width: 560px) 76vw, (max-width: 900px) 54vw, 27vw"
+                src="/us/8.5.png"
                 style={{
                   objectFit: "cover",
                   objectPosition: "center center",
                 }}
               />
             </motion.div>
+                    </motion.div>
           </Box>
         </motion.div>
       </Box>

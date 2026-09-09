@@ -6,12 +6,12 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
 import { CINEMATIC_EASE } from "@/components/CinematicMotion";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 import styles from "./CinematicScenes.module.css";
 import { SplitReveal } from "./SplitReveal";
-import Image from "next/image";
 
 type ForeverStatementProps = {
   embedded?: boolean;
@@ -45,13 +45,13 @@ export default function ForeverStatement({
         <div className={styles.quoteDesktop}>
           <div className={styles.quoteFrame}>
             <div aria-hidden="true" className={styles.quoteImageWrapper}>
-              {/* <Image
+              <Image
                 alt=""
                 className={styles.quoteImage}
                 fill
                 sizes="(max-width: 900px) 88vw, 1280px"
-                src="/us/6.png"
-              /> */}
+                src="/us/7.png"
+              />
               <span className={styles.quoteOverlay} />
             </div>
 
@@ -137,13 +137,13 @@ export default function ForeverStatement({
 
           <blockquote className={styles.quoteFrameMobile}>
             <div aria-hidden="true" className={styles.quoteMobileImageLayer}>
-              {/* <Image
+              <Image
                 alt=""
                 className={styles.quoteImageMobile}
                 fill
                 sizes="(max-width: 700px) 92vw"
-                src="/us/6.png"
-              /> */}
+                src="/us/7.png"
+              />
             </div>
 
             <div className={styles.quoteTextScrim}>
