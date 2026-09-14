@@ -295,6 +295,7 @@
     "categories": {
       "general": "Allgemein",
       "location": "Location",
+      "gifts": "Geschenke",
       "accommodation": "Unterkunft",
       "celebration": "Feier",
       "additional": "Zusätzlich"
@@ -339,6 +340,14 @@
       "accessible": {
         "question": "Ist die Location barrierefrei?",
         "answer": "Meldet euch bitte vorab, damit wir den passenden Eingang, Parkplatz und Weg für euch bestätigen können."
+      },
+      "giftPreference": {
+        "question": "Habt ihr eine Geschenkeliste?",
+        "answer": "Wir haben keine klassische Geschenkeliste — unser Zuhause ist bereits vollständig eingerichtet. Wenn ihr uns eine Freude machen möchtet, freuen wir uns daher mehr über einen Beitrag zu unserer gemeinsamen Zukunft als über materielle Geschenke. Am allermeisten freuen wir uns aber über eure Anwesenheit an unserem Hochzeitstag."
+      },
+      "giftContribution": {
+        "question": "Wo können wir ein Geschenk übergeben?",
+        "answer": "Eine Karte oder ein Umschlag, den ihr uns direkt am Tag gebt, ist perfekt. Vor Ort wird es einen Platz für eure guten Wünsche geben — eure Anwesenheit allein ist aber schon das schönste Geschenk."
       },
       "nearbyHotels": {
         "question": "Welche Hotels sind in der Nähe?",

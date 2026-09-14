@@ -295,6 +295,7 @@
     "categories": {
       "general": "Generale",
       "location": "Location",
+      "gifts": "Regali",
       "accommodation": "Alloggio",
       "celebration": "Festa",
       "additional": "Altro"
@@ -339,6 +340,14 @@
       "accessible": {
         "question": "La location è accessibile in sedia a rotelle?",
         "answer": "Contattateci in anticipo per confermare l'ingresso, il parcheggio e il percorso più adatti."
+      },
+      "giftPreference": {
+        "question": "Avete una lista nozze?",
+        "answer": "Non abbiamo una lista nozze — la nostra casa è già completamente arredata. Se desiderate farci un regalo, un contributo verso il nostro futuro insieme ci renderebbe più felici di qualsiasi dono materiale. La vostra presenza resta comunque il regalo più bello di tutti."
+      },
+      "giftContribution": {
+        "question": "Dove possiamo consegnare un regalo?",
+        "answer": "Un biglietto o una busta consegnati direttamente in loco il giorno della festa vanno benissimo. Ci sarà un posto per i vostri auguri — ma la vostra presenza è già di per sé un regalo."
       },
       "nearbyHotels": {
         "question": "Quali hotel sono nelle vicinanze?",

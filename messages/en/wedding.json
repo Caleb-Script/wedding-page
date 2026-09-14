@@ -296,6 +296,7 @@
     "categories": {
       "general": "General",
       "location": "Location",
+      "gifts": "Gifts",
       "accommodation": "Accommodation",
       "celebration": "Celebration",
       "additional": "Additional"
@@ -340,6 +341,14 @@
       "accessible": {
         "question": "Is the venue wheelchair accessible?",
         "answer": "Please contact us in advance so we can confirm the most suitable entrance, parking space and route for you."
+      },
+      "giftPreference": {
+        "question": "Do you have a gift registry?",
+        "answer": "We don't have a gift registry — our home is already complete and furnished. If you would like to give us something, a contribution toward our future together means more to us than any physical gift. Your presence remains, of course, the greatest gift of all."
+      },
+      "giftContribution": {
+        "question": "Where should we hand over a gift?",
+        "answer": "A card or an envelope handed to us on the day is perfect. There will be a place at the celebration for your well-wishes — but your presence alone is truly enough."
       },
       "nearbyHotels": {
         "question": "Which hotels are nearby?",

@@ -295,6 +295,7 @@
     "categories": {
       "general": "Ne Nyinaa",
       "location": "Beae",
+      "gifts": "Akyɛde",
       "accommodation": "Ahɔhodan",
       "celebration": "Anigyede",
       "additional": "Bio"
@@ -339,6 +340,14 @@
       "accessible": {
         "question": "Wheelchair betumi akɔ beae no?",
         "answer": "Yɛsrɛ sɛ ka kyerɛ yɛn ansa na da no adu na yɛnkyerɛ wo kwan a ɛfata."
+      },
+      "giftPreference": {
+        "question": "Akyɛde bɛn na mopɛ?",
+        "answer": "Yɛnni akyɛde nhyehyɛe bi — yɛn fie ayɛ pɛpɛɛpɛ. Sɛ mopɛ sɛ mode biribi ma yɛn de a, sika bi a mobɛde aboa yɛn wɔ yɛn daakye mu na ɛbo yɛn sen ade foforo biara. Nanso, mo ba wɔ yɛn awarebɔ da no ne akyɛde kɛse a ɛreka ho."
+      },
+      "giftContribution": {
+        "question": "Ɛhe na yebetumi de akyɛde no ama mo?",
+        "answer": "Kaadɛ bi a mobɛde ama yɛn da no mu yɛ papa. Wɔ anigyede no ase, yɛbɛma mmeae a mubetumi de mo anisɔ akyɛde agu — nanso mo ba nko ara ne akyɛde kɛse."
       },
       "nearbyHotels": {
         "question": "Ahɔhodan bɛn na ɛbɛn?",

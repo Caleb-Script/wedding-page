@@ -35,6 +35,10 @@ const categories = [
     items: ["parking", "publicTransport", "charging", "accessible"],
   },
   {
+    id: "gifts",
+    items: ["giftPreference", "giftContribution"],
+  },
+  {
     id: "accommodation",
     items: [
       "nearbyHotels",
