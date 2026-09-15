@@ -50,7 +50,7 @@ export function WeddingAnalyticsProvider({
       flushAt: 10,
       tokenProvider: async () => {
         const response = await fetch(
-          `${ANALYTICS_ENDPOINT}/v1/analytics/token`,
+          `${ANALYTICS_ENDPOINT}/v1/analytics/tokens`,
           {
             method: "POST",
             credentials: "include",
