@@ -22,6 +22,7 @@ import {
   persistAnonymousId,
   anonymousId as resolveAnonymousId,
 } from "@/lib/analytics/anonymous-id";
+import { WeddingBrowserTracing } from "@/providers/browser-tracing";
 
 const EVENT_ID = env.EVENT_ID;
 const ANALYTICS_ENDPOINT = env.ANALYTICS_GATEWAY_URL;
@@ -104,6 +105,7 @@ export function WeddingAnalyticsProvider({
   return (
     <ConsentContext.Provider value={{ consent, updateConsent }}>
       <AnalyticsContext.Provider value={client}>
+        <WeddingBrowserTracing consent={consent} />
         <AnalyticsNavigation />
         <WeddingWebVitals />
         {children}

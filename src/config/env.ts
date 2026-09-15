@@ -3,6 +3,7 @@ import {
   toHttpUrl,
   toNodeEnv,
   toOptionalHttpUrl,
+  toSampleRate,
 } from "./env.shared";
 
 const NODE_ENV = getEnv("NODE_ENV", process.env.NODE_ENV, {
@@ -25,4 +26,27 @@ export const env = {
     fallback: "",
     transform: toOptionalHttpUrl,
   }),
+  OTEL_ENDPOINT: getEnv(
+    "NEXT_PUBLIC_OTEL_ENDPOINT",
+    process.env.NEXT_PUBLIC_OTEL_ENDPOINT,
+    {
+      fallback:
+        NODE_ENV === "production"
+          ? "https://api.omnixys.com/otel/v1/traces"
+          : "/otel/v1/traces",
+    },
+  ),
+  OTEL_SERVICE_NAME: getEnv(
+    "NEXT_PUBLIC_OTEL_SERVICE_NAME",
+    process.env.NEXT_PUBLIC_OTEL_SERVICE_NAME,
+    { fallback: "wedding-web" },
+  ),
+  OTEL_SAMPLE_RATE: getEnv(
+    "NEXT_PUBLIC_OTEL_SAMPLE_RATE",
+    process.env.NEXT_PUBLIC_OTEL_SAMPLE_RATE,
+    {
+      fallback: NODE_ENV === "production" ? "0.1" : "1",
+      transform: toSampleRate,
+    },
+  ),
 } as const;

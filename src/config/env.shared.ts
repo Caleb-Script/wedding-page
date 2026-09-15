@@ -49,6 +49,14 @@ export function toOptionalHttpUrl(value: string): string {
   return value ? toHttpUrl(value) : "";
 }
 
+export function toSampleRate(value: string): number {
+  const sampleRate = Number(value);
+  if (!Number.isFinite(sampleRate) || sampleRate < 0 || sampleRate > 1) {
+    throw new Error("expected a number between 0 and 1");
+  }
+  return sampleRate;
+}
+
 export function toPort(value: string): number {
   const port = Number(value);
   if (!Number.isInteger(port) || port < 1 || port > 65_535) {
