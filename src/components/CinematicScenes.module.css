@@ -1024,6 +1024,61 @@
   font: 300 0.88rem / 1.8 var(--font-sans);
 }
 
+.faqPayment {
+  display: grid;
+  width: min(100%, 1060px);
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+  gap: clamp(32px, 5vw, 76px);
+  padding: 0 84px 36px;
+}
+
+.faqPaymentIntro p {
+  max-width: 620px;
+  margin: 0;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.58);
+  font: 300 0.88rem / 1.8 var(--font-sans);
+}
+
+.faqPaymentDetails {
+  display: grid;
+  align-content: start;
+  border-top: 1px solid rgba(216, 184, 121, 0.28);
+}
+
+.faqPaymentRow {
+  display: grid;
+  grid-template-columns: minmax(94px, 0.65fr) minmax(0, 1fr);
+  gap: 16px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.faqPaymentLabel {
+  color: rgba(216, 184, 121, 0.82);
+  font: 700 0.64rem / 1.45 var(--font-sans);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.faqPaymentValue {
+  min-width: 0;
+  color: rgba(255, 255, 255, 0.88);
+  font: 300 0.82rem / 1.6 var(--font-sans);
+  overflow-wrap: anywhere;
+}
+
+.faqPaymentAction {
+  grid-column: 2;
+  justify-self: start;
+  margin-top: 6px;
+  border-color: rgba(216, 184, 121, 0.5);
+  color: #f1ece2;
+  font: 700 0.68rem / 1 var(--font-sans);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .rsvpStage {
   position: relative;
   display: grid;
@@ -2261,6 +2316,20 @@
 
   .faqAnswer p {
     padding: 0 52px 26px;
+  }
+
+  .faqPayment {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    padding: 0 52px 28px;
+  }
+
+  .faqPaymentRow {
+    grid-template-columns: minmax(88px, 0.65fr) minmax(0, 1fr);
+  }
+
+  .faqPaymentAction {
+    grid-column: 1;
   }
 
   .rsvpStage {

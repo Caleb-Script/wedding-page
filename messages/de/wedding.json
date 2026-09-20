@@ -343,11 +343,19 @@
       },
       "giftPreference": {
         "question": "Was wünscht ihr euch als Geschenk?",
-        "answer": "Vielen Dank für eure Liebe. Es gibt nichts, was uns mehr bedeutet als das Geschenk eurer Anwesenheit an unserem Hochzeitstag. Da wir jedoch in eine neue Lebensphase starten, ist es ein Geldgeschenk, das uns den Beginn dieser gemeinsamen Reise am meisten erleichtert."
+        "answer": "Vielen Dank für eure Liebe. Es gibt nichts, was uns mehr bedeutet als das Geschenk eurer Anwesenheit an unserem Hochzeitstag. Da wir jedoch in eine neue Lebensphase starten, ist ein Geldgeschenk für uns besonders hilfreich — gerne auch per Überweisung oder PayPal, falls ihr lieber nicht bar zahlt."
       },
       "giftContribution": {
         "question": "Wo können wir ein Geschenk übergeben?",
-        "answer": "Eine Karte oder ein Umschlag, den ihr uns direkt am Tag gebt, ist perfekt. Vor Ort wird es einen Platz für eure guten Wünsche geben — eure Anwesenheit allein ist aber schon das schönste Geschenk."
+        "answer": "Eine Karte oder ein Umschlag, den ihr uns direkt am Tag gebt, ist perfekt. Wenn ihr lieber per Überweisung oder PayPal geben möchtet, ist das ebenfalls gern gesehen — vor Ort wird es einen Platz für eure guten Wünsche geben, eure Anwesenheit allein ist aber schon das schönste Geschenk."
+      },
+      "cashlessGift": {
+        "question": "Was ist, wenn ich kein Bargeld dabei habe?",
+        "answer": "Kein Problem. Eine Banküberweisung ist selbstverständlich ebenfalls herzlich willkommen. Die benötigten Angaben und den QR-Code findet ihr direkt hier."
+      },
+      "paypalGift": {
+        "question": "Kann ich auch per PayPal schenken?",
+        "answer": "Ja, selbstverständlich. Auch per PayPal könnt ihr uns beschenken. Die benötigten Angaben und den QR-Code findet ihr direkt hier."
       },
       "nearbyHotels": {
         "question": "Welche Hotels sind in der Nähe?",

@@ -344,11 +344,19 @@
       },
       "giftPreference": {
         "question": "What would you like as a gift?",
-        "answer": "Thank you for the love. There's nothing more meaningful to us than the gift of your presence at our wedding. However, as we are starting this new phase of our lives, the gift that will help make starting this journey together easier will be money."
+        "answer": "Thank you for the love. There's nothing more meaningful to us than the gift of your presence at our wedding. However, as we are starting this new phase of our lives, a monetary gift would be especially helpful — and if you prefer, you can also transfer it by bank transfer or PayPal instead of paying in cash."
       },
       "giftContribution": {
         "question": "Where should we hand over a gift?",
-        "answer": "A card or an envelope handed to us on the day is perfect. There will be a place at the celebration for your well-wishes — but your presence alone is truly enough."
+        "answer": "A card or an envelope handed to us on the day is perfect. If you would prefer to transfer the gift by bank transfer or PayPal, that is also very welcome — there will be a place at the celebration for your well-wishes, but your presence alone is truly enough."
+      },
+      "cashlessGift": {
+        "question": "What if I do not have cash with me?",
+        "answer": "No problem at all. A bank transfer is also warmly welcome. The required details and QR code are available here."
+      },
+      "paypalGift": {
+        "question": "Can I also give a gift via PayPal?",
+        "answer": "Yes, of course. You can also send a gift via PayPal. The required details and QR code are available here."
       },
       "nearbyHotels": {
         "question": "Which hotels are nearby?",

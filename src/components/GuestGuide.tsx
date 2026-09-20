@@ -5,8 +5,14 @@ import {
   AccordionDetails,
   AccordionSummary,
   Box,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
   Tab,
   Tabs,
+  Typography,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import type { KeyboardEvent } from "react";
@@ -36,7 +42,7 @@ const categories = [
   },
   {
     id: "gifts",
-    items: ["giftPreference", "giftContribution"],
+    items: ["giftPreference", "giftContribution", "cashlessGift", "paypalGift"],
   },
   {
     id: "accommodation",
@@ -64,10 +70,23 @@ export default function GuestGuide({ embedded = false }: GuestGuideProps) {
   const [category, setCategory] =
     useState<(typeof categories)[number]["id"]>("general");
   const [openItem, setOpenItem] = useState<string | null>("dressCode");
+  const [qrDialogItem, setQrDialogItem] = useState<string | null>(null);
   const activeCategory = categories.find((item) => item.id === category);
   const activeCategoryIndex = categories.findIndex(
     (item) => item.id === category,
   );
+  const paymentRows = {
+    cashlessGift: [
+      { label: "IBAN", value: "[IBAN eintragen]" },
+      { label: "BIC", value: "[BIC eintragen]" },
+      { label: "Inhaber", value: "[Name]" },
+      { label: "Verwendungszweck", value: "[Hochzeitsgeschenk]" },
+    ],
+    paypalGift: [
+      { label: "PayPal", value: "[PayPal-Link oder E-Mail-Adresse]" },
+      { label: "Hinweis", value: "[Hochzeitsgeschenk]" },
+    ],
+  } as const;
   const selectCategory = (index: number) => {
     const nextCategory = categories[index];
     setCategory(nextCategory.id);
@@ -228,6 +247,8 @@ export default function GuestGuide({ embedded = false }: GuestGuideProps) {
             {activeCategory?.items.map((item, index) => {
               const isOpen = openItem === item;
               const answerId = `faq-answer-${item}`;
+              const isPayment =
+                item === "cashlessGift" || item === "paypalGift";
 
               return (
                 <Accordion
@@ -291,7 +312,49 @@ export default function GuestGuide({ embedded = false }: GuestGuideProps) {
                     id={answerId}
                     sx={{ padding: 0 }}
                   >
-                    <p>{t(`faq.items.${item}.answer`)}</p>
+                    {isPayment ? (
+                      <Box className={styles.faqPayment}>
+                        <Box className={styles.faqPaymentIntro}>
+                          <Typography component="p">
+                            {t(`faq.items.${item}.answer`)}
+                          </Typography>
+                        </Box>
+
+                        <Box className={styles.faqPaymentDetails}>
+                          {(
+                            paymentRows[item as keyof typeof paymentRows] ?? []
+                          ).map((row) => (
+                            <Box
+                              className={styles.faqPaymentRow}
+                              key={`${item}-${row.label}`}
+                            >
+                              <Typography
+                                className={styles.faqPaymentLabel}
+                                component="span"
+                              >
+                                {row.label}
+                              </Typography>
+                              <Typography
+                                className={styles.faqPaymentValue}
+                                component="span"
+                              >
+                                {row.value}
+                              </Typography>
+                            </Box>
+                          ))}
+                        </Box>
+
+                        <Button
+                          className={styles.faqPaymentAction}
+                          onClick={() => setQrDialogItem(item)}
+                          variant="outlined"
+                        >
+                          QR-Code anzeigen
+                        </Button>
+                      </Box>
+                    ) : (
+                      <p>{t(`faq.items.${item}.answer`)}</p>
+                    )}
                   </AccordionDetails>
                 </Accordion>
               );
@@ -299,6 +362,38 @@ export default function GuestGuide({ embedded = false }: GuestGuideProps) {
           </motion.div>
         </div>
       </div>
+
+      <Dialog
+        onClose={() => setQrDialogItem(null)}
+        open={Boolean(qrDialogItem)}
+        slotProps={{
+          paper: {
+            className: styles.faqQrDialog,
+            sx: {
+              background: "rgba(10, 10, 11, 0.96)",
+              border: "1px solid rgba(216, 184, 121, 0.3)",
+              borderRadius: "18px",
+              boxShadow: "none",
+            },
+          },
+        }}
+      >
+        <DialogTitle className={styles.faqQrDialogTitle}>
+          {qrDialogItem === "cashlessGift" ? "Bank-QR-Code" : "PayPal-QR-Code"}
+        </DialogTitle>
+        <DialogContent className={styles.faqQrDialogContent}>
+          <div
+            aria-label="QR code preview"
+            className={styles.qrCodePreview}
+            role="img"
+          />
+        </DialogContent>
+        <DialogActions className={styles.faqQrDialogActions}>
+          <Button onClick={() => setQrDialogItem(null)} variant="contained">
+            Schließen
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Root>
   );
 }

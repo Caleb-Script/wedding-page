@@ -343,11 +343,19 @@
       },
       "giftPreference": {
         "question": "Che regalo potete desiderare?",
-        "answer": "Grazie per il vostro affetto. Non c'è nulla di più significativo per noi del dono della vostra presenza al nostro matrimonio. Tuttavia, poiché stiamo per iniziare questa nuova fase della nostra vita, è un contributo in denaro che ci aiuterà a cominciare insieme questo viaggio."
+        "answer": "Grazie per il vostro affetto. Non c'è nulla di più significativo per noi del dono della vostra presenza al nostro matrimonio. Tuttavia, poiché stiamo per iniziare questa nuova fase della nostra vita, un contributo in denaro ci sarà particolarmente utile — e se preferite, potete anche trasferirlo tramite bonifico o PayPal invece di darlo in contanti."
       },
       "giftContribution": {
         "question": "Dove possiamo consegnare un regalo?",
-        "answer": "Un biglietto o una busta consegnati direttamente in loco il giorno della festa vanno benissimo. Ci sarà un posto per i vostri auguri — ma la vostra presenza è già di per sé un regalo."
+        "answer": "Un biglietto o una busta consegnati direttamente in loco il giorno della festa vanno benissimo. Se preferite fare il regalo tramite bonifico o PayPal, anche questo è gradito — ci sarà un posto per i vostri auguri, ma la vostra presenza è già di per sé un regalo."
+      },
+      "cashlessGift": {
+        "question": "E se non ho contanti con me?",
+        "answer": "Nessun problema. Anche un bonifico bancario è molto gradito. Qui trovate i dati necessari e il codice QR."
+      },
+      "paypalGift": {
+        "question": "Posso anche fare un regalo tramite PayPal?",
+        "answer": "Certo, naturalmente. Potete farci un regalo anche tramite PayPal. Qui trovate i dati necessari e il codice QR."
       },
       "nearbyHotels": {
         "question": "Quali hotel sono nelle vicinanze?",
