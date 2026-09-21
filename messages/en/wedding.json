@@ -301,6 +301,28 @@
       "celebration": "Celebration",
       "additional": "Additional"
     },
+    "payment": {
+      "labels": {
+        "iban": "IBAN",
+        "bic": "BIC",
+        "accountHolder": "Account holder",
+        "reference": "Reference",
+        "paypal": "PayPal"
+      },
+      "values": {
+        "iban": "DE89500240245696334833",
+        "bic": "DEFFDEFFXXX",
+        "accountHolder": "Caleb Gyamfi",
+        "reference": "#CGR2026 [lastName] [firstName]",
+        "paypal": "paypal.me/CGR2026"
+      },
+      "qrAction": "Show QR code",
+      "bankQrTitle": "Bank QR code",
+      "paypalQrTitle": "PayPal QR code",
+      "bankQrLabel": "QR code for bank transfer",
+      "paypalQrLabel": "QR code for PayPal",
+      "close": "Close"
+    },
     "items": {
       "dressCode": {
         "question": "What is the dress code?",

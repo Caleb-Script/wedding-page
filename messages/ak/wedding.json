@@ -300,6 +300,28 @@
       "celebration": "Anigyede",
       "additional": "Bio"
     },
+    "payment": {
+      "labels": {
+        "iban": "IBAN",
+        "bic": "BIC",
+        "accountHolder": "Din a ɛwɔ akonta no so",
+        "reference": "Akyerɛwde a ɛka ho",
+        "paypal": "PayPal"
+      },
+      "values": {
+        "iban": "DE89500240245696334833",
+        "bic": "DEFFDEFFXXX",
+        "accountHolder": "Caleb Gyamfi",
+        "reference": "#CGR2026 [abusuaDin] [din]",
+        "paypal": "paypal.me/CGR2026"
+      },
+      "qrAction": "Kyerɛ QR code",
+      "bankQrTitle": "Bank QR code",
+      "paypalQrTitle": "PayPal QR code",
+      "bankQrLabel": "QR code ma bank transfer",
+      "paypalQrLabel": "QR code ma PayPal",
+      "close": "To mu"
+    },
     "items": {
       "dressCode": {
         "question": "Dɛn na ɛsɛ sɛ mehyɛ?",
@@ -348,6 +370,14 @@
       "giftContribution": {
         "question": "Ɛhe na yebetumi de akyɛde no ama mo?",
         "answer": "Kaadɛ bi a mobɛde ama yɛn da no mu yɛ papa. Wɔ anigyede no ase, yɛbɛma mmeae a mubetumi de mo anisɔ akyɛde agu — nanso mo ba nko ara ne akyɛde kɛse."
+      },
+      "cashlessGift": {
+        "question": "Sɛ sika a wɔde hyɛ nsa nni me ho a, dɛn na menyɛ?",
+        "answer": "Ɛnyɛ ɔhaw. Bank transfer nso yɛ ade a yɛde anisɔ begye. Nsɛm a ehia ne QR code no wɔ ha."
+      },
+      "paypalGift": {
+        "question": "Metumi de PayPal nso ama akyɛde?",
+        "answer": "Yiw, ɛyɛ yiye. Wubetumi de PayPal nso ama yɛn akyɛde. Nsɛm a ehia ne QR code no wɔ ha."
       },
       "nearbyHotels": {
         "question": "Ahɔhodan bɛn na ɛbɛn?",

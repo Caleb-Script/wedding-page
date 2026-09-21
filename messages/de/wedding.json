@@ -300,6 +300,28 @@
       "celebration": "Feier",
       "additional": "Zusätzlich"
     },
+    "payment": {
+      "labels": {
+        "iban": "IBAN",
+        "bic": "BIC",
+        "accountHolder": "Inhaber",
+        "reference": "Verwendungszweck",
+        "paypal": "PayPal"
+      },
+      "values": {
+        "iban": "DE89500240245696334833",
+        "bic": "DEFFDEFFXXX",
+        "accountHolder": "Caleb Gyamfi",
+        "reference": "#CGR2026 [Nachname] [Vorname]",
+        "paypal": "paypal.me/CGR2026"
+      },
+      "qrAction": "QR-Code anzeigen",
+      "bankQrTitle": "Bank-QR-Code",
+      "paypalQrTitle": "PayPal-QR-Code",
+      "bankQrLabel": "QR-Code für die Banküberweisung",
+      "paypalQrLabel": "QR-Code für PayPal",
+      "close": "Schließen"
+    },
     "items": {
       "dressCode": {
         "question": "Was ist der Dresscode?",

@@ -15,6 +15,7 @@ import {
   Typography,
 } from "@mui/material";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import type { KeyboardEvent } from "react";
 import { useState } from "react";
 import { HiMinus, HiPlus } from "react-icons/hi2";
@@ -60,6 +61,24 @@ const categories = [
   { id: "additional", items: ["contact", "weather"] },
 ] as const;
 
+const paymentRows = {
+  cashlessGift: ["iban", "bic", "accountHolder", "reference"],
+  paypalGift: ["paypal", "reference"],
+} as const;
+
+const paymentQrCodes = {
+  cashlessGift: {
+    height: 439,
+    src: "/transactions/bank.png",
+    width: 438,
+  },
+  paypalGift: {
+    height: 1014,
+    src: "/transactions/paypal.jpeg",
+    width: 1125,
+  },
+} as const;
+
 type GuestGuideProps = {
   embedded?: boolean;
 };
@@ -75,18 +94,10 @@ export default function GuestGuide({ embedded = false }: GuestGuideProps) {
   const activeCategoryIndex = categories.findIndex(
     (item) => item.id === category,
   );
-  const paymentRows = {
-    cashlessGift: [
-      { label: "IBAN", value: "[IBAN eintragen]" },
-      { label: "BIC", value: "[BIC eintragen]" },
-      { label: "Inhaber", value: "[Name]" },
-      { label: "Verwendungszweck", value: "[Hochzeitsgeschenk]" },
-    ],
-    paypalGift: [
-      { label: "PayPal", value: "[PayPal-Link oder E-Mail-Adresse]" },
-      { label: "Hinweis", value: "[Hochzeitsgeschenk]" },
-    ],
-  } as const;
+  const activeQrCode =
+    qrDialogItem === "cashlessGift" || qrDialogItem === "paypalGift"
+      ? paymentQrCodes[qrDialogItem]
+      : null;
   const selectCategory = (index: number) => {
     const nextCategory = categories[index];
     setCategory(nextCategory.id);
@@ -326,19 +337,30 @@ export default function GuestGuide({ embedded = false }: GuestGuideProps) {
                           ).map((row) => (
                             <Box
                               className={styles.faqPaymentRow}
-                              key={`${item}-${row.label}`}
+                              key={`${item}-${row}`}
                             >
                               <Typography
                                 className={styles.faqPaymentLabel}
                                 component="span"
                               >
-                                {row.label}
+                                {t(`faq.payment.labels.${row}`)}
                               </Typography>
                               <Typography
                                 className={styles.faqPaymentValue}
-                                component="span"
+                                component={row === "paypal" ? "a" : "span"}
+                                href={
+                                  row === "paypal"
+                                    ? "https://paypal.me/CGR2026"
+                                    : undefined
+                                }
+                                rel={
+                                  row === "paypal"
+                                    ? "noopener noreferrer"
+                                    : undefined
+                                }
+                                target={row === "paypal" ? "_blank" : undefined}
                               >
-                                {row.value}
+                                {t(`faq.payment.values.${row}`)}
                               </Typography>
                             </Box>
                           ))}
@@ -349,7 +371,7 @@ export default function GuestGuide({ embedded = false }: GuestGuideProps) {
                           onClick={() => setQrDialogItem(item)}
                           variant="outlined"
                         >
-                          QR-Code anzeigen
+                          {t("faq.payment.qrAction")}
                         </Button>
                       </Box>
                     ) : (
@@ -372,25 +394,36 @@ export default function GuestGuide({ embedded = false }: GuestGuideProps) {
             sx: {
               background: "rgba(10, 10, 11, 0.96)",
               border: "1px solid rgba(216, 184, 121, 0.3)",
-              borderRadius: "18px",
+              borderRadius: "2px",
               boxShadow: "none",
             },
           },
         }}
       >
         <DialogTitle className={styles.faqQrDialogTitle}>
-          {qrDialogItem === "cashlessGift" ? "Bank-QR-Code" : "PayPal-QR-Code"}
+          {qrDialogItem === "cashlessGift"
+            ? t("faq.payment.bankQrTitle")
+            : t("faq.payment.paypalQrTitle")}
         </DialogTitle>
         <DialogContent className={styles.faqQrDialogContent}>
-          <div
-            aria-label="QR code preview"
-            className={styles.qrCodePreview}
-            role="img"
-          />
+          <div className={styles.qrCodePreview}>
+            {activeQrCode ? (
+              <Image
+                alt={
+                  qrDialogItem === "cashlessGift"
+                    ? t("faq.payment.bankQrLabel")
+                    : t("faq.payment.paypalQrLabel")
+                }
+                height={activeQrCode.height}
+                src={activeQrCode.src}
+                width={activeQrCode.width}
+              />
+            ) : null}
+          </div>
         </DialogContent>
         <DialogActions className={styles.faqQrDialogActions}>
           <Button onClick={() => setQrDialogItem(null)} variant="contained">
-            Schließen
+            {t("faq.payment.close")}
           </Button>
         </DialogActions>
       </Dialog>
