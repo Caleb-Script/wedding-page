@@ -1069,14 +1069,35 @@
 }
 
 a.faqPaymentValue {
+  display: inline-flex;
+  width: fit-content;
+  align-items: baseline;
+  gap: 6px;
+  color: #f1ece2;
+  text-decoration-line: underline;
   text-decoration-color: rgba(216, 184, 121, 0.46);
+  text-decoration-thickness: 1px;
   text-underline-offset: 4px;
-  transition: color 250ms ease;
+  transition:
+    color 250ms ease,
+    text-decoration-color 250ms ease;
 }
 
 a.faqPaymentValue:hover,
 a.faqPaymentValue:focus-visible {
   color: #f1ece2;
+  text-decoration-color: rgba(216, 184, 121, 0.92);
+}
+
+a.faqPaymentValue:focus-visible {
+  outline: 1px solid rgba(216, 184, 121, 0.76);
+  outline-offset: 4px;
+}
+
+.faqPaymentLinkCue {
+  color: rgba(216, 184, 121, 0.82);
+  font-size: 0.72em;
+  line-height: 1;
 }
 
 .faqPaymentAction {

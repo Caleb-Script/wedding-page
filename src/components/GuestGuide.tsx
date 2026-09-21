@@ -361,6 +361,14 @@ export default function GuestGuide({ embedded = false }: GuestGuideProps) {
                                 target={row === "paypal" ? "_blank" : undefined}
                               >
                                 {t(`faq.payment.values.${row}`)}
+                                {row === "paypal" ? (
+                                  <span
+                                    aria-hidden="true"
+                                    className={styles.faqPaymentLinkCue}
+                                  >
+                                    ↗
+                                  </span>
+                                ) : null}
                               </Typography>
                             </Box>
                           ))}
