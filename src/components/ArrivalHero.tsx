@@ -13,7 +13,6 @@ import type { CSSProperties } from "react";
 import { useEffect, useRef, useState } from "react";
 import { HiArrowDown, HiArrowUpRight } from "react-icons/hi2";
 import { CINEMATIC_EASE } from "@/components/CinematicMotion";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useTypedTranslations } from "@/i18n/useTypedTranslations";
 import styles from "./ArrivalHero.module.css";
 import { HERO_MEDIA_READY_EVENT } from "./cinematicEvents";
@@ -173,8 +172,6 @@ export default function ArrivalHero() {
             <span className={styles.sceneRule} />
             <span className={styles.sceneChipDate}>21 · 11 · 26</span>
           </div>
-
-          <LanguageSwitcher />
         </div>
 
         <div className={styles.credit}>

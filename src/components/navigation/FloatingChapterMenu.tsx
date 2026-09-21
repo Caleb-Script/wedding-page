@@ -30,13 +30,13 @@ type Position = {
 };
 
 const DESKTOP_POSITIONS: Record<ChapterId, Position> = {
-  arrival: { x: -42, y: -32 },
-  journey: { x: -118, y: -88 },
-  "wedding-day": { x: -184, y: -145 },
+  arrival: { x: -30, y: -386 },
+  journey: { x: -134, y: -330 },
+  "wedding-day": { x: -224, y: -264 },
   destination: { x: -96, y: -204 },
-  "guest-guide": { x: -224, y: -264 },
-  rsvp: { x: -134, y: -330 },
-  forever: { x: -30, y: -386 },
+  "guest-guide": { x: -184, y: -145 },
+  rsvp: { x: -118, y: -88 },
+  forever: { x: -42, y: -32 },
 };
 
 const MOBILE_STEP = 56;
@@ -118,7 +118,7 @@ export default function FloatingChapterMenu() {
   );
 
   const activeChapter = useActiveChapter(CHAPTER_IDS);
-  const renderedChapters = isMobile ? [...chapters].reverse() : chapters;
+  const renderedChapters = chapters;
 
   useEffect(() => {
     if (!isOpen) return;

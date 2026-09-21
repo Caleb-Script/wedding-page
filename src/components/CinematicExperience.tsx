@@ -15,6 +15,7 @@ import { useAnalytics } from "@/providers/AnalyticsProvider";
 import CinematicLoader from "./CinematicLoader";
 import { CINEMATIC_EASE } from "./CinematicMotion";
 import { HERO_MEDIA_READY_EVENT } from "./cinematicEvents";
+import LanguageSwitcher from "./LanguageSwitcher";
 import FloatingChapterMenu from "./navigation/FloatingChapterMenu";
 
 const MotionBox = motion.create(Box);
@@ -200,7 +201,25 @@ export default function CinematicExperience({
           transition={{ duration: 1.15, ease: CINEMATIC_EASE }}
         >
           {children}
-          {ready && <FloatingChapterMenu />}
+          {ready && (
+            <>
+              <Box
+                sx={{
+                  position: "fixed",
+                  right: "clamp(1.35rem, 3vw, 2.6rem)",
+                  top: "max(1.35rem, env(safe-area-inset-top))",
+                  zIndex: 1700,
+                  "@media (max-width: 767px)": {
+                    right: "1.1rem",
+                    top: "max(1.1rem, env(safe-area-inset-top))",
+                  },
+                }}
+              >
+                <LanguageSwitcher />
+              </Box>
+              <FloatingChapterMenu />
+            </>
+          )}
         </MotionBox>
 
         <Box
