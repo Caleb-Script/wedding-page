@@ -314,7 +314,7 @@
         "bic": "DEFFDEFFXXX",
         "accountHolder": "Caleb Gyamfi",
         "reference": "#CGR2026 [lastName] [firstName]",
-        "paypal": "paypal.me/CGR2026"
+        "paypal": "#CGR2026"
       },
       "qrAction": "Show QR code",
       "bankQrTitle": "Bank QR code",

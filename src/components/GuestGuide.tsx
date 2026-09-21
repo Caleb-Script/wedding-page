@@ -350,7 +350,7 @@ export default function GuestGuide({ embedded = false }: GuestGuideProps) {
                                 component={row === "paypal" ? "a" : "span"}
                                 href={
                                   row === "paypal"
-                                    ? "https://paypal.me/CGR2026"
+                                    ? "https://www.paypal.me/CGR2O26"
                                     : undefined
                                 }
                                 rel={

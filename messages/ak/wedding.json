@@ -313,7 +313,7 @@
         "bic": "DEFFDEFFXXX",
         "accountHolder": "Caleb Gyamfi",
         "reference": "#CGR2026 [abusuaDin] [din]",
-        "paypal": "paypal.me/CGR2026"
+        "paypal": "#CGR2026"
       },
       "qrAction": "Kyerɛ QR code",
       "bankQrTitle": "Bank QR code",
