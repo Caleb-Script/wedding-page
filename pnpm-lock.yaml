@@ -21,8 +21,8 @@ importers:
         specifier: 1.0.0
         version: 1.0.0(react@19.2.3)
       '@omnixys/observability-ts':
-        specifier: ^4.1.0
-        version: 4.1.0(32eeab3f7b65a6d9dff931b64173140a)
+        specifier: ^4.1.1
+        version: 4.1.1(32eeab3f7b65a6d9dff931b64173140a)
       '@react-hook/window-size':
         specifier: ^3.1.1
         version: 3.1.1(react@19.2.3)
@@ -753,15 +753,15 @@ packages:
     peerDependencies:
       '@nestjs/common': ^11.1.27
 
-  '@omnixys/observability-ts@4.1.0':
-    resolution: {integrity: sha512-UbULNqgvdwJnkFDl6wiMoBK1C3mkF7K+ivUe/3Jp8C8Z89c34pCKHDOfez/z7htacQspAvmucGFHmvqeAsfc2g==, tarball: https://npm.pkg.github.com/download/@omnixys/observability-ts/4.1.0/c3c198ecb64198c928243a3c22d22a646d516085}
+  '@omnixys/observability-ts@4.1.1':
+    resolution: {integrity: sha512-GPasxlO0kUKX3XpzaTsJWgQBqKGJNvPpILUAbbmu2sxA487CI+q8KB6bYrk4NLH1gKv1Kg8X4opAzpWDw8uJ4g==, tarball: https://npm.pkg.github.com/download/@omnixys/observability-ts/4.1.1/2d45cce7992d6c097536546cf70297b87cafc1ba}
     engines: {node: '>=26.8.1 <27'}
     peerDependencies:
       '@nestjs/common': ^11.0.0
       '@nestjs/core': ^11.1.17
       '@nestjs/graphql': ^13.2.4
-      '@omnixys/context-ts': ^4.1.0
-      '@omnixys/contracts-ts': ^4.1.0
+      '@omnixys/context-ts': ^4.1.1
+      '@omnixys/contracts-ts': ^4.6.0
       fastify: ^5.8.2
 
   '@opentelemetry/api-logs@0.213.0':
@@ -3775,7 +3775,7 @@ snapshots:
       '@nestjs/common': 11.2.5(reflect-metadata@0.2.2)(rxjs@7.8.2)
       zod: 4.6.5
 
-  '@omnixys/observability-ts@4.1.0(32eeab3f7b65a6d9dff931b64173140a)':
+  '@omnixys/observability-ts@4.1.1(32eeab3f7b65a6d9dff931b64173140a)':
     dependencies:
       '@nestjs/common': 11.2.5(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/core': 11.2.5(@nestjs/common@11.2.5(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2)
