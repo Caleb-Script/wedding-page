@@ -26,6 +26,7 @@
     "@omnixys/analytics-sdk": "1.0.0",
     "@omnixys/observability-ts": "^4.1.1",
     "@react-hook/window-size": "^3.1.1",
+    "@vercel/analytics": "^2.0.1",
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.36.0",

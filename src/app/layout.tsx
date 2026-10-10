@@ -1,5 +1,6 @@
 /** biome-ignore-all lint/suspicious/noExplicitAny: any in use */
 
+import { Analytics } from "@vercel/analytics/next";
 import { cookies } from "next/headers";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
@@ -27,6 +28,7 @@ export default async function RootLayout({
             <Provider>{children}</Provider>
           </WeddingAnalyticsProvider>
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );
